@@ -1,3 +1,5 @@
+# ![RAIDAD Logo](images/photo16051329028.jpg)
+
 # RAIDAD  
 
 **RAIDAD: A Model-Driven Framework for Automated and Agile Development of IoT Data Analysis Software**  
