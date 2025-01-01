@@ -6,7 +6,8 @@
 
 RAIDAD is a Model-Driven Software Engineering (MDSE) tool designed for the automated and agile development of data analysis software in the Internet of Things (IoT) domain. This tool is built based on the CRISP-DM standard and supports various stages of the data analysis lifecycle.  
 
-RAIDAD is a model-driven framework designed to streamline the development of IoT data analysis applications. The name "RAIDAD" draws inspiration from "RAID," symbolizing speed, coordination, and safety in data management, while its acronym highlights the framework's core principles: **Rapid Analysis**, **Adaptive Integration**, **Intelligent Design**, and **Data-Aware**.
+RAIDAD is a model-driven framework designed to streamline the development of IoT data analysis applications. The name 'RAIDAD' represents the framework's core principles: **Rapid**, **Adaptive**, **Intelligent**, and **Data-Aware development**, aimed at optimizing the data analysis process for IoT systems.
+
 
 ## Why RAIDAD?  
 
