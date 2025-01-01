@@ -23,7 +23,7 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
 
 # Table of Contents
 - [Reporting Issues/Bugs and Requests](#reporting-issuesbugs-and-requests)
-
+- [RAIDAD Feature Model](#RAIDAD-Feature-Model)
 
 
 ## Reporting Issues/Bugs and Requests
