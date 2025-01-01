@@ -29,7 +29,6 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
 - [Users' Documentation (Full Tutorial)](#users-documentation-full-tutorial)
    - [Introduction](#introduction)
    - [Basic Usage](#basic-usage)
-   - [Basic Usage](#basic-usage)
 - [Developer Tips and Best Practices](#developer-tips-and-best-practices)
 - [Participant Assessment Documents](#participant-assessment-documents)
 
