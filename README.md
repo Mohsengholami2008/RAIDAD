@@ -27,6 +27,9 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
 - [RAIDAD Feature Model](#RAIDAD-Feature-Model)
 - [RAIDAD Quick Start Tutorial (10 Minutes)](#raidad-quick-start-tutorial-10-minutes)
 - [Users' Documentation (Full Tutorial)](#users-documentation-full-tutorial)
+   - [Introduction](#introduction)
+   - [Basic Usage](#basic-usage)
+   - [Basic Usage](#basic-usage)
 - [Developer Tips and Best Practices](#developer-tips-and-best-practices)
 - [Participant Assessment Documents](#participant-assessment-documents)
 
@@ -68,6 +71,12 @@ A 10-minute video tutorial on how to work with the RAIDAD framework is available
 
 
 ## Users' Documentation (Full Tutorial)
+
+### Introduction
+Here is the introduction to the full tutorial.
+
+### Basic Usage
+This section explains how to use RAIDAD for basic tasks.
 
 [Back to top](#table-of-contents)
 
