@@ -22,12 +22,17 @@ The development of data analysis software for IoT applications is often a comple
 RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures that developers can efficiently create, evaluate, and refine IoT data analysis applications without being overwhelmed by repetitive tasks or the need for extensive domain knowledge.  
 
 # Table of Contents
+- [Introducing RAIDAD](#introducing-raidad)
 - [Reporting Issues/Bugs and Requests](#reporting-issuesbugs-and-requests)
 - [RAIDAD Feature Model](#RAIDAD-Feature-Model)
 - [RAIDAD Quick Start Tutorial (10 Minutes)](#raidad-quick-start-tutorial-10-minutes)
 - [Users' Documentation (Full Tutorial)](#users-documentation-full-tutorial)
 - [Developer Tips and Best Practices](#developer-tips-and-best-practices)
 - [Participant Assessment Documents](#participant-assessment-documents)
+
+## Introducing RAIDAD
+
+[Back to top](#table-of-contents)
 
 
 ## Reporting Issues/Bugs and Requests
