@@ -62,6 +62,7 @@ A widely used approach for domain analysis is the feature model. We utilized the
 
 
 ## RAIDAD Quick Start Tutorial (10 Minutes)
+A 10-minute video tutorial on how to work with the RAIDAD framework is available on our YouTube channel. You can watch it here: [Watch the video](https://www.youtube.com/******).
 
 [Back to top](#table-of-contents)
 
