@@ -77,22 +77,27 @@ A 10-minute video tutorial on how to work with the RAIDAD framework is available
 
 ### Introduction
 Here is the introduction to the full tutorial.
+[Back to top](#users-documentation-full-tutorial)
 
 ### Basic Usage
 This section explains how to use RAIDAD for basic tasks.
+[Back to top](#users-documentation-full-tutorial)
 
 ## Automated Troubleshooting
 This section explains how RAIDAD performs automated troubleshooting.
+[Back to top](#users-documentation-full-tutorial)
 
 ## Message Types
 This section discusses different message types used within RAIDAD.
+[Back to top](#users-documentation-full-tutorial)
 
 ## Data Analysis Pipeline
 This section explains the data analysis pipeline used in RAIDAD.
+[Back to top](#users-documentation-full-tutorial)
 
 ## Code Generation
 This section explains how RAIDAD generates code for different tasks.
-
+[Back to top](#users-documentation-full-tutorial)
 
 [Back to top](#table-of-contents)
 
