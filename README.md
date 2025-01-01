@@ -20,3 +20,18 @@ The development of data analysis software for IoT applications is often a comple
 - **Flexibility and Scalability:** Supports advanced machine learning and data analytics techniques, allowing for integration with popular libraries like Scikit-Learn, Keras, and PyClustering.  
 
 RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures that developers can efficiently create, evaluate, and refine IoT data analysis applications without being overwhelmed by repetitive tasks or the need for extensive domain knowledge.  
+
+# Table of Contents
+- [Reporting Issues/Bugs and Requests](#reporting-issuesbugs-and-requests)
+
+
+
+## Reporting Issues/Bugs and Requests
+
+RAIDAD is an open-source research project, and we highly appreciate your feedback. If you encounter any issues, bugs, or have any requests, please report them to us through our issue tracking system: [https://github.com/Mohsengholami2008/RAIDAD/issues](https://github.com/Mohsengholami2008/RAIDAD/issues). 
+
+We value these reports as they are essential for improving RAIDAD. Thank you for helping us enhance the project.
+
+
+
+
