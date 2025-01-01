@@ -26,6 +26,7 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
 - [RAIDAD Feature Model](#RAIDAD-Feature-Model)
 - [RAIDAD Quick Start Tutorial (10 Minutes)](#raidad-quick-start-tutorial-10-minutes)
 - [Users' Documentation (Full Tutorial)](#users-documentation-full-tutorial)
+- [Developer Tips and Best Practices](#developer-tips-and-best-practices)
 
 
 ## Reporting Issues/Bugs and Requests
@@ -54,5 +55,10 @@ A widely used approach for domain analysis is the feature model. We utilized the
 
 
 ## Users' Documentation (Full Tutorial)
+
+[Back to top](#table-of-contents)
+
+
+## Developer Tips and Best Practices
 
 [Back to top](#table-of-contents)
