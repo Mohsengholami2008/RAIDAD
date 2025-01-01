@@ -29,6 +29,10 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
 - [Users' Documentation (Full Tutorial)](#users-documentation-full-tutorial)
    - [Introduction](#introduction)
    - [Basic Usage](#basic-usage)
+   - [Automated Troubleshooting](#automated-troubleshooting)
+   - [Message Types](#message-types)
+   - [Data Analysis Pipeline](#data-analysis-pipeline)
+   - [Code Generation](#code-generation)
 - [Developer Tips and Best Practices](#developer-tips-and-best-practices)
 - [Participant Assessment Documents](#participant-assessment-documents)
 
@@ -76,6 +80,19 @@ Here is the introduction to the full tutorial.
 
 ### Basic Usage
 This section explains how to use RAIDAD for basic tasks.
+
+## Automated Troubleshooting
+This section explains how RAIDAD performs automated troubleshooting.
+
+## Message Types
+This section discusses different message types used within RAIDAD.
+
+## Data Analysis Pipeline
+This section explains the data analysis pipeline used in RAIDAD.
+
+## Code Generation
+This section explains how RAIDAD generates code for different tasks.
+
 
 [Back to top](#table-of-contents)
 
