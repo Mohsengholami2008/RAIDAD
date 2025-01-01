@@ -32,6 +32,9 @@ RAIDAD is an open-source research project, and we highly appreciate your feedbac
 
 We value these reports as they are essential for improving RAIDAD. Thank you for helping us enhance the project.
 
+[Back to top](#table-of-contents)
+
+
 
 
 
