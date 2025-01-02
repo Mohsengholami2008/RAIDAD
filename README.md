@@ -101,19 +101,12 @@ RAIDAD not only performs a wide range of data- and model-based analyses in real-
   - **Auto Preprocess**
 
 
-
-
-
-   
-
-   
-
-
-
 - **Machine Learning Algorithms:**
-  - Decision Trees (e.g., J48)
-  - Random Forest
-  - Support Vector Machines (SVM)
+  - **Classification:**
+   - **Ensembeling:**
+    - Voting (Hard & Soft)
+    - Random Forest
+    - 
   - K-Means Clustering
   - Neural Networks
 
