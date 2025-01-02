@@ -100,7 +100,6 @@ RAIDAD not only performs a wide range of data- and model-based analyses in real-
     - Principal component analysis (PCA)
   - **Auto Preprocess**
 
-
 - **Machine Learning Algorithms:**
   - **Classification:**
     - **Ensembling:**
@@ -110,6 +109,11 @@ RAIDAD not only performs a wide range of data- and model-based analyses in real-
     - Support Vector Machines (SVM)
     - Multi-Layer Perceptron (MLP)
     - Linear Regression
+  - **Clustering:**
+    - DBSCAN
+    - OPTICS
+    - k-Median
+    - k-Means
 
 
 
