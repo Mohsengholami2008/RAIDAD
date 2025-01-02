@@ -106,13 +106,12 @@ RAIDAD not only performs a wide range of data- and model-based analyses in real-
     - **Ensembling:**
       - Voting (Hard & Soft)
       - Random Forest
-  - K-Means Clustering
-  - Neural Networks
+    - k-Nearest Neighbors (kNN)
+    - Support Vector Machines (SVM)
+    - Multi-Layer Perceptron (MLP)
+    - Linear Regression
 
-- **Automated Processes:**
-  - Feature Selection
-  - Hyperparameter Optimization
-  - Automated Model Selection
+
 
 These techniques and algorithms are integrated into the RAIDAD framework to facilitate efficient and robust data analysis.
 
