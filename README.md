@@ -114,6 +114,10 @@ RAIDAD not only performs a wide range of data- and model-based analyses in real-
     - OPTICS
     - k-Median
     - k-Means
+- **Evaluation:**
+  - Clustering Evaluation
+  - Classification Evaluation
+  - Evaluation Visualization
 
 
 
