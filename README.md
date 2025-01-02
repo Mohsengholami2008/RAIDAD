@@ -26,6 +26,7 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
 - [Introducing RAIDAD](#introducing-raidad)
 - [Reporting Issues/Bugs and Requests](#reporting-issuesbugs-and-requests)
 - [RAIDAD Feature Model](#RAIDAD-Feature-Model)
+- [Supported Techniques and Algorithms](#supported-techniques-and-algorithms)
 - [RAIDAD Quick Start Tutorial (10 Minutes)](#raidad-quick-start-tutorial-10-minutes)
 - [Users' Documentation (Full Tutorial)](#users-documentation-full-tutorial)
    - [Introduction](#introduction)
@@ -66,6 +67,67 @@ A widely used approach for domain analysis is the feature model. We utilized the
 
 
 [Back to top](#table-of-contents)
+
+
+
+## Supported Techniques and Algorithms
+
+RAIDAD not only performs a wide range of data- and model-based analyses in real-time during the modeling process but also leverages libraries such as Keras, scikit-learn, and PyClustering for code generation. The following techniques and algorithms are currently supported by RAIDAD:
+
+- **Data Understanding:**
+  - Visualization
+  - Statistics
+  - Correlation
+  - Standard Deviation
+  - Outlayer
+
+- **Data Preprocessing:**
+  - **Simple Imputation:**
+    - Median Imputation
+    - Mean Imputation
+    - Robust Scaling
+    - Manual Filling
+  - **k-Nearest Neighbors (kNN) Imputation**
+  - **Scaling:**
+    - Normalization
+    - Standardization
+    - Robust Scaling
+  - **Encoding:**
+    - OneHot
+  - **Duplicate**
+  - **Transformation**
+  - **Dimentialy Reduction**
+    - Principal component analysis (PCA)
+  - **Auto Preprocess**
+
+
+
+
+
+   
+
+   
+
+
+
+- **Machine Learning Algorithms:**
+  - Decision Trees (e.g., J48)
+  - Random Forest
+  - Support Vector Machines (SVM)
+  - K-Means Clustering
+  - Neural Networks
+
+- **Automated Processes:**
+  - Feature Selection
+  - Hyperparameter Optimization
+  - Automated Model Selection
+
+These techniques and algorithms are integrated into the RAIDAD framework to facilitate efficient and robust data analysis.
+
+[Back to top](#table-of-contents)
+
+
+
 
 
 ## RAIDAD Quick Start Tutorial (10 Minutes)
