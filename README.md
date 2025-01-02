@@ -103,10 +103,9 @@ RAIDAD not only performs a wide range of data- and model-based analyses in real-
 
 - **Machine Learning Algorithms:**
   - **Classification:**
-   - **Ensembeling:**
-    - Voting (Hard & Soft)
-    - Random Forest
-    - 
+    - **Ensembling:**
+      - Voting (Hard & Soft)
+      - Random Forest
   - K-Means Clustering
   - Neural Networks
 
