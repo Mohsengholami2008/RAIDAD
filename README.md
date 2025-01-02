@@ -63,7 +63,8 @@ A widely used approach for domain analysis is the feature model. We utilized the
 
 ![RAIDAD Feature Model](images/FM.png)
 
-*Figure 1. RAIDAD Feature Model.*
+<p align="center"><em>Figure 1. RAIDAD Feature Model.</em></p>
+
 
 
 [Back to top](#table-of-contents)
