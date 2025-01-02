@@ -61,7 +61,7 @@ We value these reports as they are essential for improving RAIDAD. Thank you for
 ## RAIDAD Feature Model
 A widely used approach for domain analysis is the feature model. We utilized the Feature-Oriented Domain Analysis (FODA) method. For feature extraction from various software, libraries, papers, and articles, we used tools such as RapidMiner, SPSS Modeler, Weka, Orange, Keras, Scikit-learn, PyClustering, AutoClien, CRISP-DM, AutoPrep, and ML-Quadrat. Ultimately, the RAIDAD feature model is illustrated in Figure 1.
 
-![RAIDAD Feature Model](images/feature_model.png)
+![RAIDAD Feature Model](images/FM.png)
 
 *Figure 1. RAIDAD Feature Model.*
 
