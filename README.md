@@ -35,8 +35,6 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
    - [Message Types](#message-types)
    - [Data Analysis Pipeline](#data-analysis-pipeline)
    - [Code Generation](#code-generation)
-- [Developer Tips and Best Practices](#developer-tips-and-best-practices)
-- [Participant Assessment Documents](#participant-assessment-documents)
 
 ## Introducing RAIDAD
 RAIDAD is a framework powered by Model-Driven Software Engineering. We **recommend** that you **watch the introductory video about RAIDAD on our YouTube channel before getting started**. The video is about **2 minutes** long.
@@ -238,11 +236,3 @@ This section explains how RAIDAD generates code for different tasks.
 [Back to top](#table-of-contents)
 
 
-## Developer Tips and Best Practices
-
-[Back to top](#table-of-contents)
-
-
-## Participant Assessment Documents
-
-[Back to top](#table-of-contents)
