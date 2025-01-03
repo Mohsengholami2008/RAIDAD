@@ -219,7 +219,21 @@ The Autofix process of the tool automatically attempts to resolve the errors tha
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
 ## Message Types
-This section discusses different message types used within RAIDAD.
+There are four types of messages in RAIDAD. Tooltips appear automatically during modeling. For example, in Figure 6, a number of unmanaged attributes with missing values are shown to the modeler.
+<p align="center">
+  <img src="images/tooltip.png" alt="Tooltips in RAIDAD">
+</p>
+
+<p align="center"><em>Figure 6.Tooltips in RAIDAD</em></p>
+
+Based on their severity, the three other categories of messages—errors, warnings, and notifications—are displayed, as shown in Figure 7.
+
+<p align="center">
+  <img src="images/messages.png" alt="Types of errors in RAIDAD">
+</p>
+
+<p align="center"><em>Figure 7.Types of errors in RAIDAD</em></p>
+
 
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
