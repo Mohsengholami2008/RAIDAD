@@ -149,7 +149,7 @@ RAIDAD leverages a user-friendly graphical editor powered by Sirius to facilitat
    - **Import Data**: Offers tools to load various dataset formats.  
    - **CRISP-DM Methodology Phases**: Covers Data Understanding, Preprocessing, Data Analysis, Modeling, and Evaluation.  
    - **Auto Preprocess**: Automates data preprocessing through predefined pipelines.  
-   Each element may include sub-elements, as illustrated in Figure 6, which elaborates on the hierarchical structure of the toolbox.  
+   Each element may include sub-elements, as illustrated in Figure 2, which elaborates on the hierarchical structure of the toolbox.  
 
 2. **Design Environment**:  
    This graphical editor allows developers to model by dragging and dropping tools and their sub-elements from the toolbox. The environment provides functionality to view and modify the models seamlessly.  
