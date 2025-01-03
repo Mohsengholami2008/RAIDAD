@@ -182,12 +182,6 @@ To add other concepts to the data analysis pipeline, drag-and-drop functionality
 
 
 
-
-
-
-
-
-
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
 
@@ -241,6 +235,11 @@ Based on their severity, the three other categories of messages—errors, warnin
 Figure 8 illustrates a pipeline created by RAIDAD, which is formed from the interaction between various concepts, data states, and created elements. These concepts include importing the dataset, a set of data understanding concepts, preprocessing, modeling, evaluation, and visualization of the results.
 
 
+<p align="center">
+  <img src="images/GME.png" alt="Data analysis pipeline">
+</p>
+
+<p align="center"><em>Figure 8.Data analysis pipeline</em></p>
 
 
 
