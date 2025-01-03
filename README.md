@@ -238,7 +238,12 @@ Based on their severity, the three other categories of messages—errors, warnin
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
 ## Data Analysis Pipeline
-This section explains the data analysis pipeline used in RAIDAD.
+Figure 8 illustrates a pipeline created by RAIDAD, which is formed from the interaction between various concepts, data states, and created elements. These concepts include importing the dataset, a set of data understanding concepts, preprocessing, modeling, evaluation, and visualization of the results.
+
+
+
+
+
 
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
