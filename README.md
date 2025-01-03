@@ -63,7 +63,7 @@ A widely used approach for domain analysis is the feature model. We utilized the
 
 ![RAIDAD Feature Model](images/FM.png)
 
-<p align="center"><em>Figure 1. RAIDAD Feature Model.</em></p>
+<p align="center"><em>Figure 1. RAIDAD Feature Model</em></p>
 
 
 
@@ -156,6 +156,11 @@ RAIDAD leverages a user-friendly graphical editor powered by Sirius to facilitat
 
 3. **Custom Properties View**:  
    Developers can manage the properties of the elements added to the design environment in this section, enabling them to customize or update the model properties dynamically.  
+
+![RAIDAD's Graphical Editor](images/Graphical_Editor.png)
+
+<p align="center"><em>Figure 2. RAIDAD's Graphical Editor</em></p>
+
 
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
