@@ -166,9 +166,13 @@ RAIDAD leverages a user-friendly graphical editor powered by Sirius to facilitat
 
 
 ### Basic Usage
-This section explains how to use RAIDAD for basic tasks.
+
+The first step in creating a model in RAIDAD involves using the **Process** concept. Next, the dataset path is specified in its parameter section. This is an essential initial step where the modeler introduces their dataset to the tool.
+
+The next step is to create the dataset attributes and define their names, types, and roles. This is a crucial step because the model's concepts will act upon these attributes. Our DMA automatically detects column names and types, instantiating them accordingly. However, the modeler can also perform this instantiation manually if needed.
 
 [Back to Full Tutorial](#users-documentation-full-tutorial)
+
 
 ## Automated Troubleshooting
 This section explains how RAIDAD performs automated troubleshooting.
