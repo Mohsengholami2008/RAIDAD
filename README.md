@@ -139,9 +139,26 @@ A 10-minute video tutorial on how to work with the RAIDAD framework is available
 ## Users' Documentation (Full Tutorial)
 
 ### Introduction
-Here is the introduction to the full tutorial.
+
+RAIDAD leverages a user-friendly graphical editor powered by Sirius to facilitate modeling. It is structured around three core components:  
+
+1. **Toolbox**:  
+   The toolbox provides essential language elements aligned with the designed metamodel, encompassing:  
+   - **Process Design**: Enables the creation of the data analysis process and flow for software.  
+   - **Tools**: Defines relationships between concepts in the model and their execution sequence.  
+   - **Import Data**: Offers tools to load various dataset formats.  
+   - **CRISP-DM Methodology Phases**: Covers Data Understanding, Preprocessing, Data Analysis, Modeling, and Evaluation.  
+   - **Auto Preprocess**: Automates data preprocessing through predefined pipelines.  
+   Each element may include sub-elements, as illustrated in Figure 6, which elaborates on the hierarchical structure of the toolbox.  
+
+2. **Design Environment**:  
+   This graphical editor allows developers to model by dragging and dropping tools and their sub-elements from the toolbox. The environment provides functionality to view and modify the models seamlessly.  
+
+3. **Custom Properties View**:  
+   Developers can manage the properties of the elements added to the design environment in this section, enabling them to customize or update the model properties dynamically.  
 
 [Back to Full Tutorial](#users-documentation-full-tutorial)
+
 
 ### Basic Usage
 This section explains how to use RAIDAD for basic tasks.
