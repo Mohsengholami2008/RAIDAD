@@ -247,7 +247,7 @@ Figure 8 illustrates a pipeline created by RAIDAD, which is formed from the inte
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
 ## Code Generation
-Model-to-code generation in the RAIDAD framework is performed using the Acceleo language, and the final code is generated in Python.
+Model-to-code generation in the RAIDAD framework leverages the Acceleo language, a powerful model-to-text transformation tool based on the Eclipse Modeling Framework (EMF). Acceleo allows for the seamless transformation of models into executable code by utilizing templates specifically designed to map model elements to code constructs. Within RAIDAD, this process ensures that the abstract representations of data analysis workflows and IoT-related concepts are accurately translated into efficient, executable Python code. The final Python code is tailored to meet the requirements of data analysis and model-driven engineering tasks, supporting the rapid and adaptive development of IoT data analysis solutions.
 
 
 
