@@ -171,6 +171,15 @@ The first step in creating a model in RAIDAD involves using the **Process** conc
 
 The next step is to create the dataset attributes and define their names, types, and roles. This is a crucial step because the model's concepts will act upon these attributes. Our DMA automatically detects column names and types, instantiating them accordingly. However, the modeler can also perform this instantiation manually if needed.
 
+The choice of which concept to use for creating dataset attributes directly depends on the dataset format. However, DMA has the capability to automatically create the appropriate concept for the modeler based on the dataset format.
+
+
+
+
+
+
+
+
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
 
