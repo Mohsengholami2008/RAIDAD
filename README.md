@@ -194,7 +194,29 @@ To add other concepts to the data analysis pipeline, drag-and-drop functionality
 
 
 ## Automated Troubleshooting
-This section explains how RAIDAD performs automated troubleshooting.
+One of the capabilities of RAIDAD is automatic error detection and an attempt to automatically fix the errors. For error detection, in addition to the automatic tooltips, the use of "Validate diagram" is essential, which displays errors, warnings, and notifications to the modeler.
+<p align="center">
+  <img src="images/diagram-validation.png" alt="Automatic error detection">
+</p>
+
+<p align="center"><em>Figure 4.Automatic error detection</em></p>
+
+The Autofix process of the tool automatically attempts to resolve the errors that have been created.
+
+
+<p align="center">
+  <img src="images/autofix.png" alt="Automatic error correction">
+</p>
+
+<p align="center"><em>Figure 5.Automatic error correction</em></p>
+
+
+
+
+
+
+
+
 
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
