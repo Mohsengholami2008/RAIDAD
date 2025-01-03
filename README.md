@@ -180,7 +180,7 @@ To add other concepts to the data analysis pipeline, drag-and-drop functionality
   <img src="images/Relation.png" alt="Creating a sequence using 'After' and 'Before' relationships">
 </p>
 
-<p align="center"><em>Creating a sequence using "After" and "Before" relationships</em></p>
+<p align="center"><em>Figure 3.Creating a sequence using "After" and "Before" relationships</em></p>
 
 
 
