@@ -247,7 +247,12 @@ Figure 8 illustrates a pipeline created by RAIDAD, which is formed from the inte
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
 ## Code Generation
-This section explains how RAIDAD generates code for different tasks.
+Model-to-code generation in the RAIDAD framework is performed using the Acceleo language, and the final code is generated in Python.
+
+
+
+
+
 
 [Back to Full Tutorial](#users-documentation-full-tutorial)
 
