@@ -37,9 +37,9 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
    - [Code Generation](#code-generation)
 
 ## Introducing RAIDAD
-RAIDAD is a framework powered by Model-Driven Software Engineering. We **recommend** that you **watch the introductory video about RAIDAD on our YouTube channel before getting started**. The video is about **2 minutes** long.
+RAIDAD is a framework powered by Model-Driven Software Engineering. We **recommend** that you **watch the introductory video about RAIDAD on our YouTube channel before getting started**. The video is **2.45 minutes** long.
 
-[![Watch the video](https://img.youtube.com/vi/******/hqdefault.jpg)](https://www.youtube.com/******)
+[![Watch the video]](https://youtu.be/cB2dwR4HSmE)
 
 
 
