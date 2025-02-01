@@ -50,7 +50,7 @@ RAIDAD is a framework powered by Model-Driven Software Engineering. We **recomme
 
 ## Reporting Issues/Bugs and Requests
 
-RAIDAD is an open-source research project, and we highly appreciate your feedback. If you encounter any issues, bugs, or have any requests, please report them to us through our issue tracking system: [https://github.com/Mohsengholami2008/RAIDAD/issues](https://github.com/Mohsengholami2008/RAIDAD/issues). 
+RAIDAD is a research project, and we highly appreciate your feedback. If you encounter any issues, bugs, or have any requests, please report them to us through our issue tracking system: [https://github.com/Mohsengholami2008/RAIDAD/issues](https://github.com/Mohsengholami2008/RAIDAD/issues). 
 
 We value these reports as they are essential for improving RAIDAD. Thank you for helping us enhance the project.
 
