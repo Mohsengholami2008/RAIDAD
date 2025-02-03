@@ -130,7 +130,7 @@ These techniques and algorithms are integrated into the RAIDAD framework to faci
 
 
 ## RAIDAD Quick Start Tutorial (7 Minutes)
-A 10-minute video tutorial on how to work with the RAIDAD framework is available on our YouTube channel. You can watch it here: [Watch the video](https://youtu.be/zFdsZRtuCTg).
+A 7-minute video tutorial on how to work with the RAIDAD framework is available on our YouTube channel. You can watch it here: [Watch the video](https://youtu.be/zFdsZRtuCTg).
 
 [Back to top](#table-of-contents)
 
