@@ -36,7 +36,7 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
    - [Data Analysis Pipeline](#data-analysis-pipeline)
    - [Code Generation](#code-generation)
 - [Level of expertise of participants](#Level-of-expertise-of-participants)
-
+- [Assessment Details](#Assessment-Details)
 
 ## Introducing RAIDAD
 RAIDAD is a framework powered by Model-Driven Software Engineering. We **recommend** that you **watch the introductory video about RAIDAD on our YouTube channel before getting started**. The video is **2.45 minutes** long.
@@ -284,4 +284,10 @@ The level of expertise for each participant in the RAIDAD evaluation can be acce
 
 [Back to top](#table-of-contents)
 
+## Assessment Details
+Click on the link below to get details of each answer sheet.
 
+[Click here](https://github.com/Mohsengholami2008/RAIDAD/blob/main/images/Assessment.pdf)
+
+
+[Back to top](#table-of-contents)
