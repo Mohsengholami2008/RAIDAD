@@ -282,7 +282,6 @@ The level of expertise for each participant in the RAIDAD evaluation can be acce
 [Click here](https://github.com/Mohsengholami2008/RAIDAD/blob/main/images/Level.pdf)
 
 
-[Back to top](#table-of-contents)
 
 ## Assessment Details
 Click on the link below to get details of each answer sheet.
