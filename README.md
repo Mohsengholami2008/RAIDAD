@@ -277,9 +277,15 @@ endif
 
 
 ## Level of expertise of participants
-The level of expertise for each participant in the RAIDAD evaluation can be accessed through the link below:
+Please note that the level of expertise for each participant in the RAIDAD evaluation is available in two versions. One in Persian and the other in English, which is the translated version of the Persian file. The files can be accessed through the links below.
 
-[Click here](https://github.com/Mohsengholami2008/RAIDAD/blob/main/images/Level.pdf)
+
+
+
+
+[English Version](https://github.com/Mohsengholami2008/RAIDAD/blob/main/images/Level.pdf)
+
+[Persian Version](https://github.com/Mohsengholami2008/RAIDAD/blob/main/images/Level.pdf)
 
 
 [Back to top](#table-of-contents)
