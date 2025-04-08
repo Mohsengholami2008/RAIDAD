@@ -284,7 +284,6 @@ To protect participants' privacy, we have concealed their personal information. 
 
 [English Version](https://github.com/Mohsengholami2008/RAIDAD/blob/main/images/Level%20-%20English.pdf)
 
-[Persian Version](https://github.com/Mohsengholami2008/RAIDAD/blob/main/images/Level.pdf)
 
 
 [Back to top](#table-of-contents)
