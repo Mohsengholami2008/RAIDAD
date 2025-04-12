@@ -36,6 +36,7 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
    - [Data Analysis Pipeline](#data-analysis-pipeline)
    - [Code Generation](#code-generation)
 - [Level of expertise of participants](#Level-of-expertise-of-participants)
+- [Participant Responses to the Performance Evaluation Questionnaire](#Participant-Responses-to-the-Performance-Evaluation-Questionnaire)
 
 
 ## Introducing RAIDAD
