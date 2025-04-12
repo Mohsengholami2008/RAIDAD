@@ -285,5 +285,12 @@ To protect participants' privacy, we have concealed their personal information. 
 [Download - Level of expertise of participants](https://github.com/Mohsengholami2008/RAIDAD/blob/main/images/Level%20-%20English.pdf)
 
 
+## Participant-Responses-to-the-Performance-Evaluation-Questionnaire
+The detailed responses of each participant to the performance evaluation of the compared tools are available for download below. Please note that, in order to protect the participants' privacy, all names and any personally identifiable information have been anonymized.
+
+
+
+[Download - Level of expertise of participants](https://github.com/Mohsengholami2008/RAIDAD/blob/main/images/Level%20-%20English.pdf)
+
 
 [Back to top](#table-of-contents)
