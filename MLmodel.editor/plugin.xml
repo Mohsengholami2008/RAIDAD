@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated mLmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="mLmodel.presentation.MLmodelModelWizardID"
+            name="%_UI_MLmodelModelWizard_label"
+            class="mLmodel.presentation.MLmodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MLmodelModelFile.gif">
+         <description>%_UI_MLmodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated mLmodel -->
+      <editor
+            id="mLmodel.presentation.MLmodelEditorID"
+            name="%_UI_MLmodelEditor_label"
+            icon="icons/full/obj16/MLmodelModelFile.gif"
+            extensions="mlmodel"
+            class="mLmodel.presentation.MLmodelEditor"
+            contributorClass="mLmodel.presentation.MLmodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

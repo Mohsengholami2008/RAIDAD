@@ -1,0 +1,1541 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/mLmodel')]
+[import org::eclipse::acceleo::module::sample::main::helper /]
+
+
+[template public generateElement(aRoot : Root)]
+[comment @main/]
+[file (aRoot.name+'Model', false, 'UTF-8')]
+[if (aRoot.process.cycle->filter(Import_Data)->size() > 0)]
+import numpy as np
+import warnings
+np.warnings = warnings
+import pandas as pd
+[/if]
+[if (aRoot.process.cycle->filter(Simple_Imputer)->size()>0)]
+from sklearn.impute import SimpleImputer
+[/if]
+[if (aRoot.process.cycle->filter(Cross_Validation).plots->size()>0)]
+import seaborn as sns
+[/if]
+[if (aRoot.process.cycle->filter(KNN_Imputer)->size()>0)]
+from sklearn.impute import KNNImputer
+[/if]
+[if (aRoot.process.cycle->filter(Cross_Validation)->size()>0)]
+from sklearn.metrics import confusion_matrix, precision_recall_curve, roc_curve, auc
+from sklearn.model_selection import cross_validate, StratifiedKFold
+[/if]
+[if (aRoot.process.cycle->filter(Scaling)->size()>0)]
+from sklearn.preprocessing import StandardScaler, RobustScaler, MinMaxScaler
+[/if]
+[if (aRoot.process.cycle->filter(Date_to_Int)->size()>0)]
+def extract_date_component_func(data, date_component_configs):
+[/if]
+[if (aRoot.process.cycle->filter(PCA)->size()>0)]
+from sklearn.decomposition import PCA
+[/if]
+[if (aRoot.process.cycle->filter(KNN)->size()>0)]
+from sklearn.neighbors import KNeighborsClassifier
+[/if]
+[if (aRoot.process.cycle->filter(SVM)->size()>0)]
+from sklearn.svm import SVC
+[/if]
+[if (aRoot.process.cycle->filter(Random_Forest)->size()>0)]
+from sklearn.ensemble import RandomForestClassifier
+[/if]
+[if ((aRoot.process.cycle->filter(MLP)->size()>0) and (aRoot.process.cycle->filter(MLP)->first().library = Neural_Libraries::scikit))]
+from sklearn.neural_network import MLPClassifier
+[/if]
+[if (aRoot.process.cycle->filter(K_Means)->size()>0)]
+from pyclustering.cluster.kmeans import kmeans
+from pyclustering.cluster.center_initializer import kmeans_plusplus_initializer
+[/if]
+[if ((aRoot.process.cycle->filter(Cluster_Evaluation).scatter->size()>0) or (aRoot.process.cycle->filter(Cross_Validation).plots->size()>0))]
+import matplotlib.pyplot as plt
+[/if]
+[if (aRoot.process.cycle->filter(DBSCAN)->size()>0)]
+from pyclustering.cluster.dbscan import dbscan
+[/if]
+[if (aRoot.process.cycle->filter(K_Medians)->size()>0)]
+from pyclustering.cluster.kmedians import kmedians
+from pyclustering.cluster.center_initializer import random_center_initializer
+[/if]
+[if (aRoot.process.cycle->filter(OPtics)->size()>0)]
+from pyclustering.cluster.optics import optics
+[/if]
+[if (aRoot.process.cycle->filter(Logistic_Regression)->size()>0)]
+from sklearn.linear_model import LogisticRegression
+[/if]
+
+[comment Functions /]
+
+[Read_Data(aRoot)/]
+[Simple_Imputer(aRoot)/]
+[Duplicates(aRoot)/]
+[KNN_Imputer(aRoot)/]
+[Scaling(aRoot)/]
+[Date_to_Int(aRoot)/]
+[Onehot(aRoot)/]
+[PCA(aRoot)/]
+[Auto_Prep(aRoot)/]
+
+[if (aRoot.process.cycle->filter(Voting_Classifier)->size()=0)]
+[KNN_Def(aRoot)/]
+[SVM_Def(aRoot)/]
+[Random_Forest_Def(aRoot)/]
+[MLP_Def(aRoot)/]
+[Logestic_Regression_Def(aRoot)/]
+[/if]
+[Voting_Def(aRoot)/]
+
+
+[Cross_Validation(aRoot)/]
+
+[K_means(aRoot)/]
+[K_Medians_pyclustering_Def(aRoot)/]
+[Optics_pyclustering_Def(aRoot)/]
+[DBSCAN_pyclustering_Def(aRoot)/]
+
+
+
+
+
+[comment Process Data /]
+[Process_Data(aRoot)/]
+[Send_Data(aRoot)/]
+
+
+
+[/file]
+
+
+[file (aRoot.name + 'DataUnders', false, 'UTF-8')]
+hi
+[/file]
+[/template]
+
+[template public Read_Data(root : Root)]
+[for (it : Cycle | root.process.cycle)]
+	[comment read csv /]
+[if (it.oclIsTypeOf(CSV))]
+def read_csv(file_path):
+    data = pd.read_csv(file_path, [for (by : CSV_Argumans | it.oclAsType(CSV).csv_argumans) separator (', ')][if (by.oclIsTypeOf(HeadCSV))]header=[by.oclAsType(HeadCSV).default_header/][/if][if (by.oclIsTypeOf(Sep) and by.oclAsType(Sep).manual_sep = false)]sep='[by.oclAsType(Sep).default_value_sep/]'[/if][if (by.oclIsTypeOf(Sep) and by.oclAsType(Sep).manual_sep = true)]sep='[by.oclAsType(Sep).define/]'[/if][if (by.oclIsTypeOf(Nrows))]nrows=[by.oclAsType(Nrows).default_value_nrows/][/if][/for])
+    return data
+[/if]
+
+[if (it.oclIsTypeOf(Excel))]
+def read_excel(file_path):
+    data = pd.read_excel(file_path, [for (by : Excel_Argumans | it.oclAsType(Excel).excel_arguments) separator (', ')][if (by.oclIsTypeOf(Sheet_Na_Excel))]sheet_name='[by.oclAsType(Sheet_Na_Excel).default_val_sheet/]'[/if][if (by.oclIsTypeOf(Header_Ex))]header=[by.oclAsType(Header_Ex).defauld_value_head_ex/][/if][/for])
+    return data
+[/if]
+[/for]
+[/template]
+
+
+[template public Date_to_Int(root : Root)]
+
+[for (it : Cycle | process.cycle->filter(Date_to_Int)->first())]
+    for date_component_config in date_component_configs:
+        date_column_name = date_component_config.get('date_column_name')
+        date_components = date_component_config.get('date_components')
+        date_components_format = date_component_config.get('formtat')
+
+
+        if not all(component in ['['/]'year', 'month', 'day'] for component in date_components):
+            raise ValueError("Invalid date component. Use 'year', 'month', or 'day'.")
+
+        if date_column_name not in data.columns:
+            raise ValueError(f"The specified date column '{date_column_name}' does not exist in the dataset.")
+
+        data['['/]date_column_name] = pd.to_datetime(data['['/]date_column_name], format='%d/%m/%Y')
+
+        for date_component in date_components:
+            if date_component == 'year':
+                data['['/]f'{date_column_name}_{date_component}'] = data['['/]date_column_name].dt.year
+            elif date_component == 'month':
+                data['['/]f'{date_column_name}_{date_component}'] = data['['/]date_column_name].dt.month
+            elif date_component == 'day':
+                data['['/]f'{date_column_name}_{date_component}'] = data['['/]date_column_name].dt.day
+
+        data = data.drop(columns=['['/]date_column_name])
+
+    return data
+[/for]
+[/template]
+
+
+[template public PCA(root : Root)]
+
+[for (it : Cycle | process.cycle->filter(PCA))]
+	[if (it.oclIsTypeOf(PCA))]
+
+def apply_pca(data, n_components, target_column = None):
+    if target_column and target_column in data.columns:
+
+        features = data.drop(['['/]target_column], axis=1)
+    else:
+        features = data
+        
+    pca = PCA(n_components=n_components)
+    principal_components = pca.fit_transform(features)
+    n_pcs = pca.n_components_
+    column_names = ['['/]f"PC{i+1}" for i in range(n_pcs)]
+    pca_df = pd.DataFrame(principal_components, columns=column_names)
+[if (root.process.cycle->filter(Classification)->size() > 0)]
+    if target_column and target_column in data.columns:
+        pca_df['['/]target_column] = data['['/]target_column].values
+[/if]
+    
+    return pca_df
+	[/if]
+[/for]
+[/template]
+
+[template public Simple_Imputer(root : Root)]
+[if (root.process.cycle->filter(Simple_Imputer)->size()>0)]
+
+import logging
+[for (it : Cycle | process.cycle->filter(Simple_Imputer)->first())]
+def fill_missing_values(data, impute_configurations):
+    if not impute_configurations:
+        raise ValueError("No imputation configurations provided")
+    
+    for config in impute_configurations:
+        column_names = config.get('column_names')
+        if not all(col in data.columns for col in column_names):
+            logger.error(f"One or more columns not found in the data: {column_names}")
+            raise KeyError(f"One or more columns missing from data: {column_names}")
+            
+        try:
+            imputer = SimpleImputer(
+                missing_values=config.get('missing_values', np.nan),
+                strategy=config.get('strategy', 'mean'),
+                fill_value=config.get('fill_value')
+            )
+            data['['/]column_names] = imputer.fit_transform(data['['/]column_names])
+            logger.info(f"Imputed missing values in columns: {column_names}")
+        except Exception as e:
+            logger.error(f"An error occurred during imputation: {e}")
+            raise
+    return data
+[/for]
+logger = logging.getLogger(__name__)
+[/if]
+[/template]
+
+[template public Duplicates(root : Root)]
+[for (it : Cycle | process.cycle->filter(Duplicates)->first())]
+
+def remove_duplicates(data, remove_duplicates_columns=None):
+    if remove_duplicates_columns is None:
+        data = data.drop_duplicates()
+    else:
+        subset = remove_duplicates_columns.get('subset', None)
+        keep = remove_duplicates_columns.get('keep', 'first')
+        data = data.drop_duplicates(subset=subset, keep=keep)
+
+    return data
+[/for]
+[/template]
+
+[template public Scaling(root : Root)?( (root.process.cycle->filter(CSV).role->filter(Target)->size() = 0))]
+[for (it : Cycle | process.cycle->filter(Scaling)->first())]
+
+def scale_features(data, scaling_config):
+    scaled_data = data.copy()  
+
+    for method, columns in scaling_config.items():
+        scaler = None
+        if columns:  
+            if method == "standardization":
+                scaler = StandardScaler()
+            elif method == "minmax":
+                scaler = MinMaxScaler()
+            elif method == "robust":
+                scaler = RobustScaler()
+            if scaler:
+                scaler.fit(data['['/]columns])
+                scaled_columns = scaler.transform(data['['/]columns])
+                scaled_data['['/]columns] = scaled_columns
+
+    return scaled_data
+[/for]
+
+[/template]
+
+
+[template public Scaling(root : Root)?((root.process.cycle->filter(CSV).role->filter(Target)->size()>0))]
+[for (it : Cycle | process.cycle->filter(Scaling)->first())]
+def scale_features(data, target_column, scaling_config):
+    features_to_exclude = ['['/]target_column]
+    features = data.drop(columns=features_to_exclude, axis=1, errors='ignore')
+    scaled_data = data['['/]features_to_exclude].copy()  
+
+    for method, columns in scaling_config.items():
+        scaler = None
+        if columns:  
+            if method == "standardization":
+                scaler = StandardScaler()
+            elif method == "minmax":
+                scaler = MinMaxScaler()
+            elif method == "robust":
+                scaler = RobustScaler()
+            if scaler:
+                scaler.fit(data['['/]columns])
+                scaled_columns = scaler.transform(data['['/]columns])
+                scaled_data = scaled_data.join(pd.DataFrame(scaled_columns, columns=columns, index=data.index))
+
+    for col in data.columns:
+        if col not in scaled_data.columns:
+            scaled_data['['/]col] = data['['/]col]
+    
+    return scaled_data
+[/for]
+[/template]
+
+[template public Onehot(root : Root)]
+[for (it : Cycle | process.cycle->filter(OneHot)->first())]
+[if (it.oclIsTypeOf(OneHot))]
+def one_hot_encoding(data, columns):
+    return pd.get_dummies(data, columns=columns)
+[/if]
+[/for]
+[/template]
+
+[template public KNN_Imputer(root : Root)]
+[for (it : KNN_Imputer | process.cycle->filter(KNN_Imputer))]
+def knn_impute_missing_values(data, column_names, target_column=None,[for (by : KNN_Argumans | it.knn_argumans) separator (', ')][if (by.oclIsTypeOf(N_Neighbors))]n_neighbors=5[/if][if (by.oclIsTypeOf(Weights))]weights='uniform'[/if][if (by.oclIsTypeOf(Metric))]metric='nan_euclidean'[/if][/for]):
+	if target_column:
+		target = data['['/]target_column]
+		data = data.drop(target_column, axis=1)
+    
+	knn_imputer = KNNImputer([for (by : KNN_Argumans | it.knn_argumans) separator (', ')][if (by.oclIsTypeOf(N_Neighbors))]n_neighbors=5[/if][if (by.oclIsTypeOf(Weights))]weights='uniform'[/if][if (by.oclIsTypeOf(Metric))]metric='nan_euclidean'[/if][/for])
+	data['['/]column_names] = knn_imputer.fit_transform(data['['/]column_names])
+    
+	if target_column:
+		data['['/]target_column] = target
+    
+	logger.info(f"Imputed missing values in columns: {column_names} using KNN imputer with {n_neighbors} neighbors, {weights} weights, and {metric} metric.")
+	return data
+[/for]
+[/template]
+
+[template public KNN_Def(root : Root) ? (root.process.cycle->filter(KNN)->size() > 0 and root.process.cycle->filter(Cross_Validation)->size() > 0)]
+def build_KNN(KNN_params):
+    KNN_model = KNeighborsClassifier(n_neighbors=KNN_params['['/]'k'])
+    return KNN_model
+[/template]
+
+[template public SVM_Def(root : Root) ? (root.process.cycle->filter(SVM)->size() > 0 and root.process.cycle->filter(Cross_Validation)->size() > 0)]
+def build_SVM(SVM_params):  
+    SVM_model = SVC(kernel=SVM_params['['/]'kernel'], C=SVM_params['['/]'C'], probability=True)
+    return SVM_model
+[/template]
+
+[template public Random_Forest_Def(root : Root) ? (root.process.cycle->filter(Random_Forest)->size() > 0 and root.process.cycle->filter(Cross_Validation)->size() > 0)]
+def build_RandomForest(RF_params):
+    RandomForest_model = RandomForestClassifier(n_estimators=RF_params['['/]'n_estimators'],
+                                                 max_depth=RF_params.get('max_depth', None),
+                                                 random_state=RF_params.get('random_state', None))
+    return RandomForest_model
+[/template]
+
+[template public Logestic_Regression_Def(root : Root) ? (root.process.cycle->filter(Logistic_Regression)->size() > 0 and root.process.cycle->filter(Cross_Validation)->size() > 0)]
+def build_LogisticRegression(logistic_regression_params):
+    Lor = LogisticRegression(**logistic_regression_params)
+    return Lor
+[/template]
+
+[template public Cross_Validation(root : Root)]
+[if (root.process.cycle->filter(Cross_Validation)->size() > 0)]
+def perform_cross_validation(X, y, classifier, cv_folds, scoring_metrics):
+    cv_results = cross_validate(classifier, X, y, cv=cv_folds, scoring=list(scoring_metrics.keys()), return_train_score=False)
+    mean_scores = {metric: np.mean(cv_results['['/]f'test_{metric}']) for metric in scoring_metrics}
+    std_scores = {metric: np.std(cv_results['['/]f'test_{metric}']) for metric in scoring_metrics}
+    for metric_name in scoring_metrics:
+        metric_scores = cv_results['['/]f'test_{metric_name}']
+        print(f'{metric_name}: {metric_scores}')
+        print(f'Mean {metric_name}: {np.mean(metric_scores):.3f}, Standard Deviation: {np.std(metric_scores):.3f}')
+
+[if (root.process.cycle->filter(Cross_Validation).plots->filter(Scatter)->size() > 0)]
+        # Plotting scatter plot for individual scores
+        plt.figure(figsize=(10, 6))
+        plt.scatter(range(len(metric_scores)), metric_scores, c='blue', alpha=0.7, s=100)  
+        plt.title(f'Individual {metric_name} Scores with Cross Validation')
+        plt.xlabel('Iteration')
+        plt.ylabel(metric_name)
+        
+        # khotut
+
+        plt.axhline(mean_scores['['/]metric_name], color='red', linestyle='--', label='Mean')  
+        plt.axhline(mean_scores['['/]metric_name] + std_scores['['/]metric_name], color='green', linestyle=':', label='Mean + Std')  
+        plt.axhline(mean_scores['['/]metric_name] - std_scores['['/]metric_name], color='green', linestyle=':', label='Mean - Std')  
+        plt.legend()  
+        
+        plt.show()
+[/if]
+
+[if (root.process.cycle->filter(Cross_Validation).plots->filter(Bar)->size() > 0)]
+    # Plotting bar plot for mean scores
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=list(scoring_metrics.values()), y=list(mean_scores.values()), palette='viridis')
+    plt.title('Mean Scores with Cross Validation')
+    plt.xlabel('Metrics')
+    plt.ylabel('Mean Score')
+    plt.show()
+[/if]
+
+
+    return cv_results
+[/if]
+
+[/template]
+
+		
+
+[template public Process_Data(root : Root)]
+def process_data([for (it : Cycle | process.cycle) separator (', ')][if ((it.oclIsTypeOf(CSV)) or (it.oclIsTypeOf(Excel)))]data=None[/if][if (it.oclAsType(Import_Data).role->filter(Target)->size()>0)],target_column=None[/if][if (it.oclIsTypeOf(Simple_Imputer)and not gettest())]impute_configurations=None[swichtest()/][/if][if (it.oclIsKindOf(Scaling) and not gettest1())]scaling_config=None[swichtest1()/][/if][if (it.oclIsTypeOf(Duplicates))]remove_duplicates_columns=None[/if][if (it.oclIsTypeOf(KNN_Imputer))]impute_configurations_KNN=None[/if][if (it.oclIsTypeOf(OneHot))]one_hot_columns=None[/if][if (it.oclIsTypeOf(Date_to_Int))]extract_date_component=None[/if][if (it.oclIsTypeOf(PCA))]pca_components=None[/if][if ((it.oclIsTypeOf(KNN)) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]KNN_params=None[/if][if (it.oclIsTypeOf(SVM) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]SVM_params=None[/if][if (it.oclIsTypeOf(Random_Forest) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]RF_params=None[/if][if (it.oclIsTypeOf(Logistic_Regression) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]LogisticRegression=None[/if][if (it.oclIsTypeOf(MLP) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]MLP_params=None[/if][if (it.oclIsTypeOf(Voting_Classifier))]voting_params=None[/if][if (it.oclIsTypeOf(Cross_Validation))]cv_folds=None[/if][if (it.oclIsTypeOf(K_Means))]KMeans_params=None[/if][if (it.oclIsTypeOf(K_Medians))]KMedians_params=None[/if][if (it.oclIsTypeOf(DBSCAN))]DBSCAN_params=None[/if][if (it.oclIsTypeOf(OPtics))]OPTICS_params=None[/if][/for][swichtest()/][swichtest1()/]): 
+	executed_functions = ['['/]]
+[if (root.process.cycle.oclIsKindOf(Classification) <> null)]
+	model = None	
+[/if]
+[if (root.process.cycle->reject(temp : Cycle | temp.oclIsTypeOf(mLmodel::CSV))->size()>0)]
+
+	a =['['/][for (it : Cycle | process.cycle) separator (',')]'[it.after.eClass().name/]'[/for]]
+[/if]
+
+	for letter in range (len(a)):
+[if (root.process.cycle->filter(Simple_Imputer)->size()>0)]
+[for (it : Cycle | root.process.cycle->filter(Simple_Imputer)->first())]
+		if a['['/]letter] == 'Simple_Imputer': 
+			data = fill_missing_values(data, impute_configurations)
+			executed_functions.append('fill_missing_values')
+[if (root.process.cycle->filter(Simple_Imputer)->first().print_data = true)]
+			print(data.head())
+[/if]
+
+[if (root.process.cycle->filter(Simple_Imputer)->first().save_file = true)]
+			Simple_Imputer_data = 'Simple_Imputer_data.csv'
+			data.to_csv(Simple_Imputer_data, index=False)  
+[/if]
+[/for]
+[/if]
+
+
+[comment KNN Imputer /]
+[if (root.process.cycle->filter(KNN_Imputer)->size()>0)]
+		if a['['/]letter] == 'KNN_Imputer':
+			knn_config = impute_configurations_KNN['['/]'KNN']
+			data = knn_impute_missing_values(
+				data=data,
+				column_names=knn_config['['/]'column_names'],
+				n_neighbors=knn_config.get('n_neighbors', 5),
+				weights=knn_config.get('weights', 'uniform'),
+				metric=knn_config.get('metric', 'nan_euclidean')
+			)
+			executed_functions.append('knn_impute_missing_values')
+[for (it : Cycle | process.cycle->filter(KNN_Imputer)->first())]
+[if (it.oclAsType(KNN_Imputer).save_file=true)]
+			data.to_csv('KNN_Imputer.csv', index=False) 
+[/if]
+[/for]
+[/if] 
+[comment End KNN Imputer /]
+
+[comment Scaling /]
+
+
+[if (root.process.cycle->filter(Scaling)->size()>0)]
+		if a['['/]letter] == 'scaling_config':
+			data = scale_features(data[if (root.process.cycle->filter(CSV).role->filter(Target)->size()>0)], target_column[/if], scaling_config)
+			scaling_methods = ['['/]method for method in scaling_config if method != "exclude"]
+			executed_functions.extend(scaling_methods)
+[if (root.process.cycle->filter(Scaling)->first().print_data = true)]
+			print(data.head())
+[/if]
+[if (root.process.cycle->filter(Scaling)->first().save_file = true)]
+
+			scaled_file_path = 'scaled_data.csv'
+			data.to_csv(scaled_file_path, index=False)  
+[/if]
+[/if] 
+[comment End Scaling /]
+
+[comment Date /]
+
+[if (root.process.cycle->filter(Date_to_Int)->size()>0)]
+
+        if a['['/]letter] == 'Date_to_Int': 
+            data = extract_date_component_func(data, extract_date_component)
+            executed_functions.append('extract_date_component')
+[if (root.process.cycle->filter(Date_to_Int)->first().print_data = true)]
+			print(data.head())
+[/if]
+[if (root.process.cycle->filter(Date_to_Int)->first().save_file = true)]
+			Date_to_Int_data = 'Date_to_Int.csv'
+			data.to_csv(Date_to_Int, index=False)  
+[/if]
+[/if] 
+[comment End Date /]
+
+
+
+[comment PCA /]
+
+[if (process.cycle->filter(PCA)->size()>0)]
+		if a['['/]letter] == 'PCA':       
+			if 'apply_pca' in globals() and callable(apply_pca):
+				data = apply_pca(data, pca_components[if (process.cycle->filter(CSV).role->filter(Target)->size() > 0)], target_column[/if])
+				executed_functions.append('apply_pca')
+[if (root.process.cycle->filter(PCA)->first().print_data = true)]
+			print(data.head())
+[/if]
+[if (root.process.cycle->filter(PCA)->first().save_file = true)]
+			PCA_data = 'PCA.csv'
+			data.to_csv(PCA_data, index=False)  
+[/if]
+
+[/if]
+[comment End PCA /]
+
+[comment Duplicates /]
+[if (process.cycle->filter(Duplicates)->size()>0)]
+
+		if a['['/]letter] == 'Duplicates':
+			data = remove_duplicates(data, remove_duplicates_columns)
+			executed_functions.append('remove_duplicates')
+			print(data.head())
+[if (root.process.cycle->filter(Duplicates)->first().print_data = true)]
+			print(data.head())
+[/if]
+[if (root.process.cycle->filter(Duplicates)->first().save_file = true)]
+			Duplicates = 'Duplicates.csv'
+			data.to_csv(Duplicates, index=False)  
+[/if]
+[/if]
+
+[comment End Duplicates /]
+
+
+[comment OneHot /]
+[for (it : Cycle | root.process.cycle)]
+[if (it.oclIsTypeOf(OneHot))]
+		if a['['/]letter] == 'OneHot': 
+			data = one_hot_encoding(data, one_hot_columns)
+			executed_functions.append('one_hot_encoding')
+[if (root.process.cycle->filter(OneHot)->first().print_data = true)]
+			print(data.head())
+[/if]
+[if (root.process.cycle->filter(OneHot)->first().save_file = true)]
+			OneHot = 'OneHot.csv'
+			data.to_csv(OneHot, index=False)  
+[/if]
+
+[/if]
+[/for]
+[if (root.process.cycle->filter(Voting_Classifier)->size()=0)]
+[KNN_Process_Data(root)/]
+[SVM_Process_Data(root)/]
+[Random_Forest_Process_Data(root)/]
+[MLP_Process_Data(root)/]
+[Logestic_Regression_Process_Data(root)/]
+[/if]
+[Voting_Process_Data(root)/]
+
+[K_Means_Process_Data(root)/]
+[DBSCAN_Process_Data(root)/]
+[K_Medians_Process_Data(root)/]
+[OPTICS_Process_Data(root)/]
+
+
+
+
+
+	return data, executed_functions, model
+
+[/template]
+
+
+[comment Send Data /]
+
+[template public Send_Data(root : Root)]
+[for (it : Cycle | process.cycle)]
+[if (it.oclIsTypeOf(CSV))]
+if __name__ == "__main__":
+    file_path = '[root.process.file_path/]'
+    data = read_csv(file_path)
+[if (root.process.cycle->filter(CSV).role->filter(ID)->size() > 0)]
+    data = data.drop(columns=['['/][for (it : ID | root.process.cycle->filter(CSV).role->filter(ID)) separator (',')]'[it.name/]'[/for]])
+[/if]
+[/if]
+
+[if (it.oclIsTypeOf(Excel))]
+if __name__ == "__main__":
+    file_path = '[root.process.file_path/]'
+    data = read_excel(file_path)
+[if (root.process.cycle->filter(Excel).role->filter(ID)->size() > 0)]
+    data = data.drop(columns=['['/][for (it : ID | root.process.cycle->filter(Excel).role->filter(ID)) separator (',')]'[it.name/]'[/for]])
+[/if]
+[/if]
+
+[/for]
+
+
+[if (process.cycle->filter(Simple_Imputer)->size()>0)]
+    impute_configurations = ['['/]
+[for (it : Cycle | process.cycle)]
+[for (bi : Simple_Imputer | it.oclAsType(Simple_Imputer))]
+        {
+            'column_names': ['['/][for (by : Regular | bi.oclAsType(Simple_Imputer).regular) separator (', ')]'[by.name/]'[/for]],
+
+[if (bi.simple_imputer_arguments->filter(Strategy)->size() > 0)]
+       		'strategy': '[for (bu : Strategy | bi.simple_imputer_arguments->filter(Strategy))][if (bu.default_value_sim_str = Strategy_Simple_Imputer::mean )]mean[/if][if (bu.default_value_sim_str = Strategy_Simple_Imputer::median )]median[/if][if (bu.default_value_sim_str = Strategy_Simple_Imputer::most_frequent )]most_frequent[/if][if (bu.default_value_sim_str = Strategy_Simple_Imputer::constant )]constant[/if][/for]',
+[/if]
+
+[for (cu : Fill_Value | bi.simple_imputer_arguments->filter(Fill_Value))]
+[if (cu->size()>0)]
+            'fill_value': [cu.default_value_sim_fill/],
+[/if]
+[/for]
+
+        },
+[/for]
+[/for]
+    ]
+[/if]
+
+
+[comment Scaling /]
+
+[if (root.process.cycle->filter(Scaling)->size()>0)]
+    scaling_config = {
+[for (it : Scaling | root.process.cycle->filter(Scaling))]
+[if (it.oclIsTypeOf(Normalization))]
+		'minmax': ['['/][for (by : Regular | it.regular) separator (', ')]'[by.name/]'[/for]],
+[/if]
+
+[if (it.oclIsTypeOf(Standardization))]
+		'standardization': ['['/][for (by : Regular | it.regular) separator (', ')]'[by.name/]'[/for]],
+[/if]
+
+[if (it.oclIsTypeOf(Robust_Scaling))]
+		'robust': ['['/][for (by : Regular | it.regular) separator (', ')]'[by.name/]'[/for]],
+[/if]
+[/for]
+}
+[/if]
+[comment End Scaling /]
+
+[comment Date to Int /]
+
+[if (root.process.cycle->filter(Trasformation)->size()>0)]
+	extract_date_component_config = ['['/]
+    {
+[for (it : Date_to_Int | process.cycle->filter(Date_to_Int))]
+        'date_column_name': [for (by : Regular | it.regular) separator (', ')]'[by.name/]'[/for],
+        'date_components': ['['/][for (by : Date_Comp | it.date_comp) separator (', ')][if (by.oclIsTypeOf(Year))]'year'[/if][if (by.oclIsTypeOf(Year))]'month'[/if][if (by.oclIsTypeOf(Year))]'day'[/if][/for]],
+
+   },
+[/for]
+]
+[/if]
+[comment End Date to Int /]
+
+[comment KNN Imputer /]
+
+[if (root.process.cycle->filter(KNN_Imputer)->size()>0)]
+[for (it : KNN_Imputer | process.cycle->filter(KNN_Imputer))]
+
+    impute_configurations_KNN = {
+        'KNN': {
+ 			'column_names':['['/][for (by : Regular | it.regular) separator (', ')]'[by.name/]'[/for]],
+
+[if (it.knn_argumans->filter(N_Neighbors)->size()=1)]
+            'n_neighbors': [for (by : N_Neighbors | it.knn_argumans->filter(N_Neighbors))][it.knn_argumans->filter(N_Neighbors).n_neighbors/][/for],
+[/if]          
+
+[if (it.knn_argumans->filter(Weights)->size()=1)]
+  
+			'weights': '[for (by : Weights | it.knn_argumans->filter(Weights))][it.knn_argumans->filter(Weights).weights/][/for]',
+[/if]          
+
+
+[if (it.knn_argumans->filter(Metric)->size()=1)]
+            'metric': '[for (by : Metric | it.knn_argumans->filter(Metric))][it.knn_argumans->filter(Metric)/][/for]'
+[/if] 
+        }
+    }
+[/for]
+[/if]
+[comment End KNN Imputer /]
+
+[comment OneHot /]
+
+[for (it : Cycle | process.cycle)]
+
+[if (it.oclIsTypeOf(OneHot))]
+    one_hot_columns=['['/][for (by : Regular | it.oclAsType(OneHot).regular) separator (', ')]'[by.name/]'[/for]]
+[/if]
+[/for]
+[comment End OneHot /]
+
+[comment KNN /]
+
+[if ((process.cycle->filter(KNN)->size()>0) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]
+    KNN_params = {
+        'k': [process.cycle->filter(KNN).k/]
+            }
+[/if]
+[comment End KNN /]
+
+[comment MLP Scikit_Learn /]
+
+[if ((root.process.cycle->filter(MLP)->size()>0) and (root.process.cycle->filter(MLP)->first().library = Neural_Libraries::scikit) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]
+[for (bi : MLP | root.process.cycle->filter(MLP))]
+[if (bi.oclIsTypeOf(MLP))]
+    MLP_params = {
+        'hidden_layer_sizes': ([for (by : Hidden_Layer_Sizes | root.process.cycle->filter(MLP).hidden_layer_sizes) separator (', ')][by.neurons/][/for]), 
+
+[for (it : MLP_Argumans | bi.mlp_argumans)]
+[if (it.oclIsTypeOf(Activation_MLP))]
+        'activation': '[it.oclAsType(Activation_MLP).activation/]', 
+[/if] 
+[if (it.oclIsTypeOf(Alpha_MLP))]
+        'alpha': [it.oclAsType(Alpha_MLP).alpha/],  
+[/if] 
+
+        'solver': 'adam',
+        'batch_size': 'auto',
+        'learning_rate': 'constant',
+[if (it.oclIsTypeOf(Max_Iter_MLP))]
+        'max_iter': [it.oclAsType(Max_Iter_MLP).max_iter/]
+[/if]
+[/for]
+    }
+[/if]
+[/for]
+[/if]
+
+[comment END MLP Scikit_Learn /]
+
+[comment MLP Keras /]
+
+[if ((root.process.cycle->filter(MLP)->size()>0) and (root.process.cycle->filter(MLP)->first().library = Neural_Libraries::keras) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]
+[for (bi : MLP | root.process.cycle->filter(MLP))]
+[if (bi.oclIsTypeOf(MLP))]
+    MLP_params = {
+        'hidden_layer_sizes': (100, 50, 2), 
+        'activation': 'relu',  
+        'learning_rate': 0.001,
+        'batch_size': 32,
+        'epochs': 500,
+        'verbose': 0
+    }
+[/if]
+[/for]
+[/if]
+[comment END MLP Keras /]
+
+
+[comment Random Forest /]
+[for (bi : Random_Forest | root.process.cycle->filter(Random_Forest))]
+
+[if (bi.oclIsTypeOf(Random_Forest) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]
+
+    RF_params = {
+[for (it : RF_Argumans | bi.rf_argumans)]
+[if (it.oclIsTypeOf(N_Estimators_RF))]
+        'n_estimators': [it.oclAsType(N_Estimators_RF).n_estimators/] ,
+[/if]
+
+[if (it.oclIsTypeOf(Criterion_RF))]
+        'criterion': '[it.oclAsType(Criterion_RF).criterion/]',
+
+[/if]
+[if (it.oclIsTypeOf(Random_State_RF))]
+        'random_state': [it.oclAsType(Random_State_RF).random_state/],
+[/if]
+
+    
+[/for]
+}
+[/if]
+[/for]
+
+[comment End Random Forest /]
+
+
+[if ((root.process.cycle->filter(K_Means)->size()>0))]
+    KMeans_params = {
+        'n_clusters': [root.process.cycle->filter(K_Means).K/],
+        'init': 'k-means++',
+        'n_init': 10,
+        'max_iter': [root.process.cycle->filter(K_Means).max_iter/],
+        'random_state': 0
+    }
+[/if]
+
+
+[if ((root.process.cycle->filter(K_Medians)->size()>0))]
+    KMedians_params = {
+        'n_clusters': [root.process.cycle->filter(K_Medians).K/],
+        'n_init': 10,
+        'max_iter': [root.process.cycle->filter(K_Medians).max_iter/],
+        'random_state': 0
+    }
+[/if]
+
+[if (root.process.cycle->filter(DBSCAN)->size() > 0)]
+
+    DBSCAN_params = {
+        'eps': [root.process.cycle->filter(DBSCAN).eps/],  # radius of neighborhood
+        'min_samples': [root.process.cycle->filter(DBSCAN).min_samples/],  # minimum number of points required to form a dense region
+        'neighbors': 5,
+    }
+[/if]
+
+
+[if (root.process.cycle->filter(OPtics)->size() > 0)]
+
+    OPTICS_params = {
+        'eps': [root.process.cycle->filter(OPtics).eps/],  # radius of neighborhood
+        'min_samples': [root.process.cycle->filter(OPtics).min_samples/],  # minimum number of points required to form a dense region
+        'xi': 0.05  # minimum separation between clusters
+    }
+[/if]
+
+[comment Voting /]
+
+[if (root.process.cycle->filter(Voting_Classifier)->size()>0)]
+
+    voting_params = {
+[if (root.process.cycle->filter(Voting_Classifier).classification->filter(Random_Forest)->size() > 0)]
+[for (lm : Random_Forest | process.cycle->filter(Random_Forest))]
+
+[for (rf : RF_Argumans | lm.rf_argumans)]
+
+        'random_forest': {
+[if (rf.oclIsTypeOf(N_Estimators_RF))]
+
+            'n_estimators': [rf.oclAsType(N_Estimators_RF).n_estimators/],
+[/if]
+            'max_depth': 10,
+            'min_samples_split': 2,
+            'min_samples_leaf': 1,
+            'random_state': [rf.oclAsType(Random_State_RF).random_state/]
+[/for]
+
+        },	
+[/for]
+[/if]
+[if (root.process.cycle->filter(Voting_Classifier).classification->filter(SVM)->size() > 0)]
+        'svc': {
+            'kernel': '[root.process.cycle->filter(Voting_Classifier).classification->filter(SVM).kernel/]',
+            'C': [root.process.cycle->filter(Voting_Classifier).classification->filter(SVM).c/],
+            'gamma': 'scale',
+            'probability': True
+        },	
+[/if]
+[if (root.process.cycle->filter(Voting_Classifier).classification->filter(KNN)->size() > 0)]
+        'knn': {
+            'n_neighbors': [root.process.cycle->filter(Voting_Classifier).classification->filter(KNN).k/],
+            'weights': 'uniform',
+            'algorithm': 'auto'
+        }	
+[/if]
+    }
+[/if]
+
+[comment END Voting /]
+
+[comment Logestic Regression /]
+[if ((root.process.cycle->filter(Logistic_Regression)->size()>0) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]
+    logistic_regression_params = {
+        'C': 1.0,                  
+        'penalty': 'l2',          
+        'solver': 'lbfgs',         
+        'max_iter': 100,          
+        'class_weight': None,     
+        'random_state': None,     
+        'multi_class': 'auto',      
+        'warm_start': False,        
+        'tol': 1e-4,                
+        'n_jobs': -1,               
+        'verbose': 0,               
+        'dual': False,              
+        'fit_intercept': True,     
+    }
+[/if]
+
+[comment End Logestic Regression /]
+
+
+[comment SVM /]
+[if ((root.process.cycle->filter(SVM)->size()>0) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]
+
+    SVM_params = {
+        'kernel': '[root.process.cycle->filter(SVM)->first().kernel/]',
+        'C': [root.process.cycle->filter(SVM)->first().c/] ,
+    }
+[/if]
+[comment End SVM /]
+
+[for (it : Cycle | process.cycle)]
+[if (it.oclIsTypeOf(Duplicates))]
+    remove_duplicates_columns = {
+
+[if (it->filter(Duplicates).regular->size() > 0)]
+
+        'subset': ['['/][for (by : Regular | it.oclAsType(Duplicates).regular) separator (', ')]'[by.name/]'[/for]],
+[/if]
+[if (it->filter(Duplicates).duplicates_argumans->filter(Keep)->size() > 0)]
+        'keep': [for (bu : Keep | it->filter(Duplicates).duplicates_argumans->filter(Keep))][if (bu.dup_keep = Dup_Arg_Keep::first)]'first'[/if][if (bu.dup_keep = Dup_Arg_Keep::last)]'last'[/if][if (bu.dup_keep = Dup_Arg_Keep::False)]False[/if][/for],
+[/if]
+    }
+[/if]
+[/for]
+
+[if (process.cycle->filter(Cross_Validation)->size() > 0)]
+    cv_folds = [process.cycle->filter(Cross_Validation).number_of_folds/]
+[/if]
+[if (process.cycle.oclIsTypeOf(Cross_Validation) <> null)]
+    scoring_metrics = {
+[if (process.cycle->filter(Cross_Validation)->first().accuracy=true)]
+	    'accuracy': 'Accuracy',
+[/if]
+[if (process.cycle->filter(Cross_Validation)->first().precision=true)]
+        'precision_macro': 'Precision Macro',
+[/if]
+[if (process.cycle->filter(Cross_Validation)->first().recall=true)]
+        'recall_macro': 'Recall Macro',
+[/if]
+[if (process.cycle->filter(Cross_Validation)->first().f1_score=true)]
+        'f1_macro': 'F1 Macro'
+[/if]
+    }
+[/if]
+
+    processed_data, executed_functions[if ((root.process.cycle->filter(Classification)->size() > 0)) or (root.process.cycle->filter(Clustering)->size() > 0)], model[/if] = process_data(
+
+[let var : Set(Cycle) = process.cycle->asSequence()->asSet()]
+
+[for (it : Cycle | var->asSequence()->sortedBy(it | it.toString())->asOrderedSet())]
+    [if (it.oclIsTypeOf(CSV))]
+        data=data,
+    [/if]
+
+    [if (it.oclIsTypeOf(OneHot))]
+        one_hot_columns=one_hot_columns,
+    [/if]
+ 
+    [if (it.oclAsType(CSV).role->filter(Target)->size()>0)]
+        target_column='[it.oclAsType(CSV).role->filter(Target).name/]',
+    [/if]
+
+    [if (it->filter(Simple_Imputer)->size()>0 and not gettest())]
+   	 impute_configurations=impute_configurations,
+		[swichtest()/]
+	 [/if]
+    [if (it.oclIsTypeOf(KNN_Imputer))]
+        impute_configurations_KNN=impute_configurations_KNN,
+    [/if]
+    [if ((it.oclIsTypeOf(KNN)) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]
+
+        KNN_params=KNN_params,
+	[/if]
+
+[if ((it.oclIsTypeOf(SVM)) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]
+        SVM_params=SVM_params,
+[/if]
+
+[if ((it.oclIsTypeOf(MLP)) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]
+        MLP_params=MLP_params,
+[/if]
+
+[if ((it.oclIsTypeOf(Random_Forest)) and (root.process.cycle->filter(Voting_Classifier)->size()=0))]
+
+        RF_params=RF_params,
+[/if]
+
+[if (it.oclIsTypeOf(Voting_Classifier))]
+
+        voting_params=voting_params,
+[/if]
+
+[if (it.oclIsTypeOf(Cross_Validation))]
+		cv_folds=cv_folds,
+[/if]
+
+[if (it->filter(Scaling)->size()>0 and not gettest1())]
+        scaling_config=scaling_config,
+		[swichtest1()/]
+
+[/if]
+
+[if (it->filter(Duplicates)->size()>0)]
+        remove_duplicates_columns=remove_duplicates_columns,
+[/if]
+
+[if (it.oclIsTypeOf(Date_to_Int))]
+        extract_date_component=extract_date_component_config,
+[/if]
+
+	[if (it.oclIsTypeOf(PCA))]
+	[let bc : PCA = it.oclAsType(PCA)]
+        pca_components=[if (bc.pca_argumans.oclIsTypeOf(Component)->size() > 0)][bc.pca_argumans.oclAsType(Component).component_value/][else][bc.pca_argumans.oclAsType(Varience).varience_value/][/if],
+
+	[/let]
+	[/if]
+
+[if (it.oclIsTypeOf(K_Means))]
+        KMeans_params=KMeans_params,
+
+[/if]
+
+[if (it.oclIsTypeOf(OPtics))]
+        OPTICS_params=OPTICS_params,
+[/if]
+
+[if (it.oclIsTypeOf(DBSCAN))]
+        DBSCAN_params=DBSCAN_params,
+[/if]
+
+[if (it.oclIsTypeOf(K_Medians))]
+        KMedians_params=KMedians_params,
+[/if]
+
+[/for]
+		[swichtest()/]
+		[swichtest1()/]
+
+[/let]
+
+    )
+[/template]
+
+
+[comment Proceess Data algorithms /]
+[template public KNN_Process_Data(root : Root)]
+[for (var : KNN | process.cycle->filter(KNN)->first())]
+[if (var.oclIsTypeOf(KNN))]
+
+
+		if a['['/]letter] == 'KNN':
+			y = data['['/]target_column]
+			X = data.drop(columns=['['/]target_column])	
+     
+
+			KNN_model = build_KNN(KNN_params)
+			executed_functions.append('train_KNN')
+
+[if (var.after.oclIsTypeOf(Cross_Validation))]
+		if a['['/]letter] == 'Cross_Validation':       
+
+			cv_results = perform_cross_validation(X, y, KNN_model, cv_folds, scoring_metrics)                      
+			executed_functions.append('perform_cross_validation')
+[/if]
+[/if]
+[/for]
+[/template]
+
+
+
+
+[template public SVM_Process_Data(root : Root)]
+[comment SVM /]
+[for (var : SVM | root.process.cycle->filter(SVM)->first())]
+
+[if (var.oclIsTypeOf(SVM))]
+
+		if a['['/]letter] == 'SVM': 
+			y = data['['/]target_column]
+			X = data.drop(columns=['['/]target_column])	      
+
+			SVM_model = build_SVM(SVM_params)
+[/if]
+			executed_functions.append('train_SVM')
+
+[if (var.after.oclIsTypeOf(Cross_Validation))]
+		if a['['/]letter] == 'Cross_Validation':       
+
+			cv_results = perform_cross_validation(X, y, SVM_model, cv_folds, scoring_metrics)                      
+			executed_functions.append('perform_cross_validation')
+
+[/if]
+[/for]
+[comment End SVM /]
+[/template]
+
+[template public Voting_Process_Data(root : Root)]
+
+[comment Voting_Classifier /]
+[for (var : Voting_Classifier | root.process.cycle->filter(Voting_Classifier)->first())]
+[if (var.oclIsTypeOf(Voting_Classifier))]
+		if a['['/]letter] == 'Voting_Classifier':
+			y = data['['/]target_column]
+			X = data.drop(columns=['['/]target_column])       
+			voting_model = build_voting_classifier(voting_params)
+			executed_functions.append('Voting_Train')
+[/if]
+[if (var.after.oclIsTypeOf(Cross_Validation))]
+		if a['['/]letter] == 'Cross_Validation':       
+
+			cv_results = perform_cross_validation(X, y, voting_model, cv_folds, scoring_metrics)                      
+			executed_functions.append('perform_cross_validation')
+[/if]
+[/for]
+[comment End Voting_Classifier /]
+[/template]
+
+
+[template public MLP_Process_Data(root : Root)]
+[comment MLP /]
+[for (var : MLP | root.process.cycle->filter(MLP)->first())]
+
+[if (var.oclIsTypeOf(MLP))]
+
+
+
+		if a['['/]letter] == 'MLP':   
+			y = data['['/]target_column]
+			X = data.drop(columns=['['/]target_column])	
+    
+			MLP_model = build_MLP(MLP_params)
+			executed_functions.append('MLP_Train')
+
+[if (var.after.oclIsTypeOf(Cross_Validation))]
+		if a['['/]letter] == 'Cross_Validation':       
+			cv_results = perform_cross_validation(X, y, MLP_model, cv_folds, scoring_metrics)                      
+			executed_functions.append('perform_cross_validation')
+
+[/if]
+[/if]
+[/for]
+[comment End MLP /]
+[/template]
+
+
+[template public Logestic_Regression_Process_Data(root : Root)]
+[comment MLP /]
+[for (var : Logistic_Regression | root.process.cycle->filter(Logistic_Regression)->first())]
+
+[if (var.oclIsTypeOf(Logistic_Regression))]
+
+
+
+		if a['['/]letter] == 'LogisticRegression':
+			y = data['['/]target_column]
+			X = data.drop(columns=['['/]target_column])   
+			LRegression = build_LogisticRegression(logistic_regression_params)
+			executed_functions.append('build_LogisticRegression')
+
+[if (var.after.oclIsTypeOf(Cross_Validation))]
+		if a['['/]letter] == 'Cross_Validation':       
+			cv_results = perform_cross_validation(X, y, LRegression, cv_folds, scoring_metrics)                      
+			executed_functions.append('perform_cross_validation')
+
+[/if]
+[/if]
+[/for]
+[comment End MLP /]
+[/template]
+
+[template public Random_Forest_Process_Data(root : Root)]
+
+[comment Random Forest /]
+[for (var : Random_Forest | root.process.cycle->filter(Random_Forest)->first())]
+
+[if (var.oclIsTypeOf(Random_Forest))]
+	
+
+		if a['['/]letter] == 'Random_Forest': 
+			y = data['['/]target_column]
+			X = data.drop(columns=['['/]target_column])      
+
+			RandomForest_model = build_RandomForest(RF_params)
+
+			executed_functions.append('train_RandomForest')
+
+[if (var.after.oclIsTypeOf(Cross_Validation))]
+		if a['['/]letter] == 'Cross_Validation':       
+
+			cv_results = perform_cross_validation(X, y, RandomForest_model, cv_folds, scoring_metrics)                      
+			executed_functions.append('perform_cross_validation')
+[/if]
+[/if]
+[/for]
+[comment End Random Forest /]
+[/template]
+
+[template public K_Means_Process_Data(root : Root) ? ((root.process.cycle->filter(K_Means)->size() > 0) and (root.process.cycle->filter(Cross_Validation)->size() = 0) and (root.process.cycle->filter(K_Means)->first().library=Library_Clustering::pyclustering))]
+[comment K_Means PyClustering /]
+
+[for (var : Clustering | root.process.cycle->filter(Clustering))]
+
+[if (var.oclIsTypeOf(K_Means))]
+
+
+		if a['['/]letter] == 'K_Means':
+			labels, cluster_centers = build_kmeans(KMeans_params, data)
+			model = {'labels': labels, 'cluster_centers': cluster_centers}
+			executed_functions.append('build_kmeans')
+
+[/if]
+[/for]
+[/template]
+
+[template public K_Means_Process_Data(root : Root) ? ((root.process.cycle->filter(K_Means)->size() > 0) and (root.process.cycle->filter(Cross_Validation)->size() = 0) and (root.process.cycle->filter(K_Means)->first().library=Library_Clustering::scikit))]
+[for (var : Clustering | root.process.cycle->filter(Clustering))]
+[if (var.oclIsTypeOf(K_Means))]
+		if a['['/]letter] == 'K_Means':
+			kmeans_model, centroids_mean = build_kmeans(KMeans_params, data)
+			model = kmeans_model
+			executed_functions.append('build_kmeans')
+
+	if model is not None:
+		print("Mean of centroids of each cluster:")
+		for i, mean in enumerate(centroids_mean):
+			print(f"Cluster {i+1}: {mean}")
+
+
+
+[/if]
+[/for]
+[/template]
+
+
+[template public K_Medians_Process_Data(root : Root) ? ((root.process.cycle->filter(K_Medians)->size() > 0) and (root.process.cycle->filter(Cross_Validation)->size() = 0) and (root.process.cycle->filter(K_Medians)->first().library=Library_Clustering::pyclustering))]
+
+[comment K_Medians PyClustering /]
+[for (var : Clustering | process.cycle->filter(Clustering))]
+
+[if (var.oclIsTypeOf(K_Medians))]
+		if a['['/]letter] == 'K_Medians':      
+			labels, cluster_medians = build_kmedians(KMedians_params, data)
+			model = {'labels': labels, 'cluster_medians': cluster_medians}
+			executed_functions.append('build_kmedians')
+[/if]
+[/for]
+[/template]
+
+[template public OPTICS_Process_Data(root : Root) ? ((root.process.cycle->filter(OPtics)->size() > 0) and (root.process.cycle->filter(Cross_Validation)->size() = 0) and (root.process.cycle->filter(OPtics)->first().library=Library_Clustering::pyclustering))]
+
+[for (var : Clustering | process.cycle->filter(Clustering))]
+
+[if (var.oclIsTypeOf(OPtics))]
+		if a['['/]letter] == 'OPtics':
+			labels = build_optics(OPTICS_params, data)
+			model = {'labels': labels}
+			executed_functions.append('build_optics')
+[/if]
+[/for]
+[/template]
+
+
+[comment DBSCAN PyClustering /]
+[template public DBSCAN_Process_Data(root : Root) ? ((root.process.cycle->filter(DBSCAN)->size() > 0) and (root.process.cycle->filter(Cross_Validation)->size() = 0) and (root.process.cycle->filter(DBSCAN)->first().library=Library_Clustering::pyclustering))]
+[for (var : Clustering | root.process.cycle->filter(Clustering))]
+
+[if (var.oclIsTypeOf(DBSCAN))]
+		if a['['/]letter] == 'DBSCAN':
+			labels = build_dbscan(DBSCAN_params, data)
+			model = {'labels': labels}
+			executed_functions.append('build_dbscan')
+[/if]
+[/for]
+[/template]
+
+
+[template public MLP_Def(root : Root) ? (root.process.cycle->filter(MLP)->size() > 0 and root.process.cycle->filter(Cross_Validation)->size() > 0 and root.process.cycle->filter(MLP)->first().library = Neural_Libraries::scikit )]
+def build_MLP(MLP_params):  
+    MLP_model = MLPClassifier(hidden_layer_sizes=MLP_params['['/]'hidden_layer_sizes'],
+                              activation=MLP_params['['/]'activation'],
+                              solver=MLP_params['['/]'solver'],
+                              alpha=MLP_params['['/]'alpha'],
+                              batch_size=MLP_params['['/]'batch_size'],
+                              learning_rate=MLP_params['['/]'learning_rate'],
+                              max_iter=MLP_params['['/]'max_iter'])
+    return MLP_model
+[/template]
+
+[template public MLP_Def(root : Root) ? (root.process.cycle->filter(MLP)->size() > 0 and root.process.cycle->filter(Cross_Validation)->size() > 0 and root.process.cycle->filter(MLP)->first().library = Neural_Libraries::keras )]
+import tensorflow as tf
+def build_MLP(hidden_layer_sizes=(100, 50, 2), activation='relu', learning_rate=0.001):
+    model = tf.keras.Sequential()
+    model.add(tf.keras.layers.Dense(units=hidden_layer_sizes['['/]0], activation=activation, input_dim=2))
+    for units in hidden_layer_sizes['['/]1:]:
+        model.add(tf.keras.layers.Dense(units=units, activation=activation))
+    model.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
+    model.compile(loss='binary_crossentropy', optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate), metrics=['['/]'accuracy'])
+    return model
+[/template]
+
+[template public K_means(root : Root) ? ((root.process.cycle->filter(K_Means)->size() > 0) and (root.process.cycle->filter(Cross_Validation)->size() = 0) and (root.process.cycle->filter(K_Means)->first().library=Library_Clustering::scikit))]
+[if (root.process.cycle->filter(K_Means)->size()>0)]
+from sklearn.cluster import KMeans
+def build_kmeans(KMeans_params, data):
+    kmeans_model = KMeans(
+        n_clusters=KMeans_params['['/]'n_clusters'],
+        init=KMeans_params.get('init', 'k-means++'),
+        n_init=KMeans_params.get('n_init', 10),
+        max_iter=KMeans_params.get('max_iter', 300),
+        random_state=KMeans_params.get('random_state', None)
+    )
+    kmeans_model.fit(data)
+    
+    # Get cluster centroids
+    centroids = kmeans_model.cluster_centers_
+    
+    # Calculate the mean of centroids
+    centroids_mean = centroids.mean(axis=1)
+    
+    return kmeans_model, centroids_mean
+
+[/if]
+[/template]
+
+[template public K_means(root : Root) ? ((root.process.cycle->filter(K_Means)->size() > 0) and (root.process.cycle->filter(Cross_Validation)->size() = 0) and (root.process.cycle->filter(K_Means)->first().library=Library_Clustering::pyclustering))]
+def build_kmeans(KMeans_params, data):
+    initial_centers = kmeans_plusplus_initializer(data.values, KMeans_params['['/]'n_clusters']).initialize()
+    kmeans_instance = kmeans(data.values, initial_centers)
+    kmeans_instance.process()
+    clusters = kmeans_instance.get_clusters()
+    cluster_centers = kmeans_instance.get_centers()
+    labels = ['['/]-1] * len(data)
+    for cluster_idx, cluster in enumerate(clusters):
+        for sample_idx in cluster:
+            labels['['/]sample_idx] = cluster_idx
+    
+    # Calculate statistics for cluster centers
+    cluster_centers_stats = {
+        f'Cluster {idx + 1} Mean': np.mean(center) for idx, center in enumerate(cluster_centers)
+    }
+    
+    # Print cluster centers statistics
+    print("Cluster Centers Statistics:")
+    for key, value in cluster_centers_stats.items():
+        print(f"{key}: {value}")
+[if (process.cycle->filter(Cluster_Evaluation).scatter->size() > 0)]
+  	
+    # Plot scatter plot of data points colored by clusters
+    plt.figure(figsize=(8, 6))
+    for cluster_idx, cluster in enumerate(clusters):
+        cluster_data = data.iloc['['/]cluster]
+        plt.scatter(cluster_data.iloc['['/]:, 0], cluster_data.iloc['['/]:, 1], label=f'Cluster {cluster_idx + 1}')
+    plt.scatter(np.array(cluster_centers)['['/]:, 0], np.array(cluster_centers)['['/]:, 1], color='black', marker='x', label='Cluster Centers')
+    plt.xlabel('Feature 1')
+    plt.ylabel('Feature 2')
+    plt.title('Scatter Plot of Data Points Colored by Clusters')
+    plt.legend()
+    plt.show()
+[/if]  
+
+    return labels, cluster_centers
+[/template]
+
+
+[template public DBSCAN_pyclustering_Def(root : Root) ? ((root.process.cycle->filter(DBSCAN)->size() > 0) and (root.process.cycle->filter(Cross_Validation)->size() = 0) and (root.process.cycle->filter(DBSCAN)->first().library=Library_Clustering::pyclustering))]
+
+def build_dbscan(DBSCAN_params, data):
+    dbscan_instance = dbscan(data.values, eps=DBSCAN_params['['/]'eps'], minpts=DBSCAN_params['['/]'min_samples'], neighbors=DBSCAN_params['['/]'neighbors'])
+    dbscan_instance.process()
+    clusters = dbscan_instance.get_clusters()
+    noise = dbscan_instance.get_noise()
+    labels = ['['/]-1] * len(data)
+    for cluster_idx, cluster in enumerate(clusters):
+        for sample_idx in cluster:
+            labels['['/]sample_idx] = cluster_idx
+    for sample_idx in noise:
+        labels['['/]sample_idx] = -1
+    
+    # Calculate statistics for cluster centers
+    cluster_centers = ['['/]]
+    for cluster in clusters:
+        cluster_center = np.mean(data.iloc['['/]cluster], axis=0)
+        cluster_centers.append(cluster_center)
+
+    # Print cluster centers statistics
+    print("Cluster Centers Statistics:")
+    for idx, center in enumerate(cluster_centers):
+        print(f"Cluster {idx + 1} Mean: {center}")
+
+
+[if (process.cycle->filter(Cluster_Evaluation).scatter->size() > 0)]
+  	
+    # Plot scatter plot of data points colored by clusters
+    plt.figure(figsize=(8, 6))
+    for cluster_idx, cluster in enumerate(clusters):
+        cluster_data = data.iloc['['/]cluster]
+        plt.scatter(cluster_data.iloc['['/]:, 0], cluster_data.iloc['['/]:, 1], label=f'Cluster {cluster_idx + 1}')
+    plt.scatter(np.array(cluster_centers)['['/]:, 0], np.array(cluster_centers)['['/]:, 1], color='black', marker='x', label='Cluster Centers')
+    plt.xlabel('Feature 1')
+    plt.ylabel('Feature 2')
+    plt.title('Scatter Plot of Data Points Colored by Clusters')
+    plt.legend()
+    plt.show()
+[/if]  
+
+    
+    return labels, cluster_centers
+
+[/template]
+
+[template public K_Medians_pyclustering_Def(root : Root) ? ((root.process.cycle->filter(K_Medians)->size() > 0) and (root.process.cycle->filter(Cross_Validation)->size() = 0) and (root.process.cycle->filter(K_Medians)->first().library=Library_Clustering::pyclustering))]
+
+def build_kmedians(KMedians_params, data):
+    initial_medians = random_center_initializer(data.values, KMedians_params['['/]'n_clusters']).initialize()
+    kmedians_instance = kmedians(data.values, initial_medians)
+    kmedians_instance.process()
+    clusters = kmedians_instance.get_clusters()
+    medians = kmedians_instance.get_medians()
+    labels = kmedians_instance.predict(data.values) 
+
+    # Calculate cluster statistics
+    cluster_stats = ['['/]]
+    for cluster_idx, cluster in enumerate(clusters):
+        cluster_data = data.iloc['['/]cluster]
+        cluster_mean = cluster_data.mean()
+        cluster_std = cluster_data.std()
+        cluster_stats.append({'Cluster': cluster_idx + 1, 'Mean': cluster_mean, 'Std': cluster_std})
+    
+    # Print cluster statistics
+    print("Cluster Statistics:")
+    for stat in cluster_stats:
+        print(f"Cluster {stat['['/]'Cluster']} Mean: {stat['['/]'Mean']}")
+        print(f"Cluster {stat['['/]'Cluster']} Standard Deviation: {stat['['/]'Std']}")
+    
+[if (process.cycle->filter(Cluster_Evaluation).scatter->size() > 0)]
+
+    # Plot scatter plot of data points colored by clusters
+    plt.figure(figsize=(8, 6))
+    for cluster_idx, cluster in enumerate(clusters):
+        cluster_data = data.iloc['['/]cluster]
+        plt.scatter(cluster_data.iloc['['/]:, 0], cluster_data.iloc['['/]:, 1], label=f'Cluster {cluster_idx + 1}')
+    plt.scatter(np.array(medians)['['/]:, 0], np.array(medians)['['/]:, 1], color='black', marker='x', label='Cluster Medians')
+    plt.xlabel('Feature 1')
+    plt.ylabel('Feature 2')
+    plt.title('Scatter Plot of Data Points Colored by Clusters')
+    plt.legend()
+    plt.show()
+[/if]    
+    return labels, medians
+
+[/template]
+
+
+[template public Optics_pyclustering_Def(root : Root) ? ((process.cycle->filter(OPtics)->size() > 0) and (process.cycle->filter(Cross_Validation)->size() = 0) and (root.process.cycle->filter(OPtics)->first().library=Library_Clustering::pyclustering))]
+
+def build_optics(OPTICS_params, data):
+    optics_instance = optics(data.values, eps=OPTICS_params['['/]'eps'], minpts=OPTICS_params['['/]'min_samples'], xi=OPTICS_params['['/]'xi'])
+    optics_instance.process()
+    clusters = optics_instance.get_clusters()
+    noise = optics_instance.get_noise()
+    labels = ['['/]-1] * len(data)
+    for cluster_idx, cluster in enumerate(clusters):
+        for sample_idx in cluster:
+            labels['['/]sample_idx] = cluster_idx
+    for sample_idx in noise:
+        labels['['/]sample_idx] = -1
+    
+    # Calculate statistics for cluster centers
+    cluster_centers = ['['/]]
+    for cluster in clusters:
+        cluster_center = np.mean(data.iloc['['/]cluster], axis=0)
+        cluster_centers.append(cluster_center)
+
+    # Print cluster centers statistics
+    print("Cluster Centers Statistics:")
+    for idx, center in enumerate(cluster_centers):
+        print(f"Cluster {idx + 1} Mean: {center}")
+
+[if (process.cycle->filter(Cluster_Evaluation).scatter->size() > 0)]
+
+    # Plot scatter plot of data points colored by clusters
+    plt.figure(figsize=(8, 6))
+    for cluster_idx, cluster in enumerate(clusters):
+        cluster_data = data.iloc['['/]cluster]
+        plt.scatter(cluster_data.iloc['['/]:, 0], cluster_data.iloc['['/]:, 1], label=f'Cluster {cluster_idx + 1}')
+    plt.scatter(np.array(cluster_centers)['['/]:, 0], np.array(cluster_centers)['['/]:, 1], color='black', marker='x', label='Cluster Centers')
+    plt.xlabel('Feature 1')
+    plt.ylabel('Feature 2')
+    plt.title('Scatter Plot of Data Points Colored by Clusters')
+    plt.legend()
+    plt.show()
+[/if]
+[/template]
+
+
+
+[template public Voting_Def(root : Root) ? (process.cycle->filter(Voting_Classifier)->size() > 0 and process.cycle->filter(Cross_Validation)->size() > 0)]
+
+[if (process.cycle->filter(Voting_Classifier).classification->filter(Random_Forest)->size() > 0)]
+from sklearn.ensemble import VotingClassifier, RandomForestClassifier
+[/if]
+[if (process.cycle->filter(Voting_Classifier).classification->filter(SVM)->size() > 0)]
+from sklearn.svm import SVC
+[/if]
+[if (process.cycle->filter(Voting_Classifier).classification->filter(KNN)->size() > 0)]
+from sklearn.neighbors import KNeighborsClassifier
+[/if]
+
+def build_voting_classifier(voting_params):
+    estimators = ['['/]]
+[if (process.cycle->filter(Voting_Classifier).classification->filter(Random_Forest)->size() > 0)]
+
+    # RandomForestClassifier
+    rf_params = voting_params.get('random_forest', {})
+    rf_estimator = ('rf', RandomForestClassifier(**rf_params))
+    estimators.append(rf_estimator)
+[/if]
+
+[if (process.cycle->filter(Voting_Classifier).classification->filter(SVM)->size() > 0)]
+    # SVC
+    svc_params = voting_params.get('svc', {})
+    svc_estimator = ('svc', SVC(**svc_params))
+    estimators.append(svc_estimator)
+[/if]
+
+[if (process.cycle->filter(Voting_Classifier).classification->filter(KNN)->size() > 0)]
+    # KNeighborsClassifier
+    knn_params = voting_params.get('knn', {})
+    knn_estimator = ('knn', KNeighborsClassifier(**knn_params))
+    estimators.append(knn_estimator)
+[/if]
+
+[if (process.cycle->filter(Voting_Classifier)->first().voting = voting_pred::soft)]
+    voting = VotingClassifier(estimators, voting='soft')
+[/if]
+[if (process.cycle->filter(Voting_Classifier)->first().voting = voting_pred::hard)]
+    voting = VotingClassifier(estimators, voting='hard')
+[/if]
+    return voting
+[/template]
+
+
+[template public Auto_Prep(root : Root)]
+[if (process.cycle->filter(Auto_Prep)->size() > 0)]
+data = pd.read_csv('dataset.csv')
+
+[if (root.process.cycle->filter(Auto_Prep)->first().duplicates = true)]
+data.drop_duplicates(inplace=True)
+[/if]
+
+[if (root.process.cycle->filter(Auto_Prep)->first().drop = true)]
+data.drop(columns=['['/][root.process.cycle->filter(Auto_Prep).miss_id->sep(',')/]], inplace=True)
+[/if]
+
+
+
+float = ['['/][for (it : Regular | root.process.cycle->filter(Auto_Prep).regular) separator (',')][if (it.type = Attribiutes_Type::float)]'[it.name/]'[/if][/for]]
+categorical_features = ['['/]'categorical_feature1', 'categorical_feature2']
+text_features = ['['/]'text_feature']
+
+
+
+[/if]
+
+
+[/template]
+
+
+

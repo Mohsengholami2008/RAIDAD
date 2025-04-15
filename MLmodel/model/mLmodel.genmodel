@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/MLmodel/src-gen" creationIcons="false" editDirectory="/MLmodel.edit/src-gen"
+    editorDirectory="/MLmodel.editor/src-gen" modelPluginID="MLmodel" modelName="MLmodel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>mLmodel.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="MLmodel" disposableProviderFactory="true" ecorePackage="mLmodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//Enum_CSV_Sep">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Enum_CSV_Sep/colon"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Enum_CSV_Sep/Tab"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Enum_CSV_Sep/Semicolon"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Enum_CSV_Sep/dot"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Enum_CSV_Sep/LITERAL4"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//Strategy_Simple_Imputer">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Strategy_Simple_Imputer/mean"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Strategy_Simple_Imputer/median"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Strategy_Simple_Imputer/most_frequent"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Strategy_Simple_Imputer/constant"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//OneHot_Cat_Arg">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//OneHot_Cat_Arg/auto"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//OneHot_Cat_Arg/list"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//OneHot_Drop_Arg">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//OneHot_Drop_Arg/first"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//OneHot_Drop_Arg/if_binary"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//OneHot_Drop_Arg/array"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//OneHot_HandleUn_Arg">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//OneHot_HandleUn_Arg/error"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//OneHot_HandleUn_Arg/ignore"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//OneHot_HandleUn_Arg/infrequent_if_exist"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//Dup_Arg_Keep">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Dup_Arg_Keep/first"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Dup_Arg_Keep/last"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Dup_Arg_Keep/False"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//SVM_Kernel_Enum">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//SVM_Kernel_Enum/linear"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//SVM_Kernel_Enum/poly"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//SVM_Kernel_Enum/rbf"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//SVM_Kernel_Enum/sigmoid"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//SVM_Kernel_Enum/precomputed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//Neural_Libraries">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Neural_Libraries/keras"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Neural_Libraries/scikit"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//Neural_Network_Activation">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Neural_Network_Activation/identity"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Neural_Network_Activation/logistic"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Neural_Network_Activation/tanh"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Neural_Network_Activation/relu"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//voting_pred">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//voting_pred/hard"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//voting_pred/soft"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//Random_Forest_Criterion_Enum">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Random_Forest_Criterion_Enum/gini"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Random_Forest_Criterion_Enum/entropy"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Random_Forest_Criterion_Enum/log_los"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//Library_Clustering">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Library_Clustering/scikit"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Library_Clustering/pyclustering"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//Metric_DBSCAN">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Metric_DBSCAN/euclidean"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Metric_DBSCAN/cosine"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Metric_DBSCAN/manhattan"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//Attribiutes_Type">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Attribiutes_Type/string"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Attribiutes_Type/date"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Attribiutes_Type/binominal"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Attribiutes_Type/time"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Attribiutes_Type/integer"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Attribiutes_Type/float"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//Attribiutes_Type/categorical"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//KNN_Imputer_Weights">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//KNN_Imputer_Weights/uniform"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//KNN_Imputer_Weights/distance"/>
+    </genEnums>
+    <genClasses ecoreClass="mLmodel.ecore#//Root">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Root/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Root/process"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Process">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Process/file_path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Process/cycle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Process/data_understanding"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Cycle">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Cycle/after"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Cycle/before"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Import_Data">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Import_Data/role"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//CSV">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//CSV/csv_argumans"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//CSV_Argumans"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Sep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Sep/default_value_sep"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Sep/manual_sep"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Sep/define"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Nrows">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Nrows/default_value_nrows"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Set_Role">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Set_Role/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Set_Role/type"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//ID"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Target"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Regular"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Excel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Excel/excel_arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Excel_Argumans"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Header_Ex">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Header_Ex/defauld_value_head_ex"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Simple_Imputer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Simple_Imputer/simple_imputer_arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Simple_Imputer_Arguments"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Missing_Values">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Missing_Values/default_value_si_miss"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Strategy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Strategy/default_value_sim_str"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Fill_Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Fill_Value/default_value_sim_fill"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//KNN_Imputer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//KNN_Imputer/knn_argumans"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//KNN_Argumans"/>
+    <genClasses ecoreClass="mLmodel.ecore#//N_Neighbors">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//N_Neighbors/n_neighbors"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Metric"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Weights">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Weights/weights"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Classification"/>
+    <genClasses ecoreClass="mLmodel.ecore#//KNN">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//KNN/k"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Evaluation_Methods">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Evaluation_Methods/precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Evaluation_Methods/accuracy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Evaluation_Methods/recall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Evaluation_Methods/f1_score"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Cross_Validation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Cross_Validation/number_of_folds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Cross_Validation/plots"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//HeadCSV">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//HeadCSV/default_header"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Sheet_Na_Excel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Sheet_Na_Excel/default_val_sheet"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Scaling"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Robust_Scaling"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Standardization"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Normalization"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Encoding"/>
+    <genClasses ecoreClass="mLmodel.ecore#//OneHot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//OneHot/onehot_argumans"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//OneHot_Argumans"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Drop">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Drop/default_value_drop"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Categories">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Categories/default_value_cat"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Sparse">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Sparse/default_value_sparse"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Handle_Unk">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Handle_Unk/default_value_handle"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Duplicates">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Duplicates/duplicates_argumans"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Keep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Keep/dup_keep"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Duplicates_Argumans"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Trasformation"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Date_to_Int">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Date_to_Int/date_comp"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Date_Comp"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Year"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Month"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Day"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Dime_Reduct"/>
+    <genClasses ecoreClass="mLmodel.ecore#//PCA">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//PCA/pca_argumans"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//PCA_Argumans"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Component">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Component/component_value"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Varience">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Varience/varience_value"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//SVM">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//SVM/c"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//SVM/kernel"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Neural_Networks">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Neural_Networks/library"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//MLP">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//MLP/hidden_layer_sizes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//MLP/mlp_argumans"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Hidden_Layer_Sizes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Hidden_Layer_Sizes/neurons"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Voting_Classifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Voting_Classifier/voting"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Voting_Classifier/classification"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Ensembles"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Random_Forest">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Random_Forest/rf_argumans"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Clustering">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Clustering/library"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//K_Medians"/>
+    <genClasses ecoreClass="mLmodel.ecore#//K_Means"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Parameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Parameters/K"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Parameters/max_iter"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Regression"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Logistic_Regression"/>
+    <genClasses ecoreClass="mLmodel.ecore#//RF_Argumans"/>
+    <genClasses ecoreClass="mLmodel.ecore#//N_Estimators_RF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//N_Estimators_RF/n_estimators"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Criterion_RF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Criterion_RF/criterion"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Random_State_RF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Random_State_RF/random_state"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Parameters_DBOP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Parameters_DBOP/eps"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Parameters_DBOP/min_samples"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//DBSCAN">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//DBSCAN/p"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//MLP_Argumans"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Max_Iter_MLP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Max_Iter_MLP/max_iter"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Random_State_MLP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Random_State_MLP/random_state"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Activation_MLP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Activation_MLP/activation"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Alpha_MLP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Alpha_MLP/alpha"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Plots"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Scatter"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Cluster_Evaluation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Cluster_Evaluation/scatter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Cluster_Evaluation/cluster_sizes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Cluster_Evaluation/cluster_centers_features"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Cluster_Evaluation/cluster_centers_standard_deviation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Cluster_Evaluation/cluster_centers"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//OPtics"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Preprocess">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Preprocess/regular"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Preprocess/save_file"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Preprocess/print_data"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Auto_Prep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Auto_Prep/Simple_Imputer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Auto_Prep/KNN_Imputer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Auto_Prep/Scaling"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Auto_Prep/Encoding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Auto_Prep/duplicates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Auto_Prep/Trasformation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Auto_Prep/Dime_Reduct"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Auto_Prep/Date_to_Int"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Auto_Prep/drop"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Auto_Prep/miss_id"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Data_Understanding"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Statistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Statistics/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Statistics/missing"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Statistics/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Statistics/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Statistics/average"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Statistics/standard_devision"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Visualization">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Visualization/data_und_plots"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Correlation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Correlation/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Correlation/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Correlation/table"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Correlation/Matrix"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Standard_Deviation"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Bar"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Linear_Regression"/>
+  </genPackages>
+</genmodel:GenModel>

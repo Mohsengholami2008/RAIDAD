@@ -1,0 +1,34 @@
+[comment encoding = Cp1256 /]
+[**
+ * The documentation of the module.
+ */]
+[module helper('http://www.example.org/mLmodel')/]
+
+[**
+ * The documentation of the query
+ */]
+[query public swichtest(anOclAny: OclAny) : OclVoid
+	= invoke('org.eclipse.acceleo.module.sample.main.helper', 'swichtest()', Sequence{})
+/]
+
+[**
+ * The documentation of the query
+ */]
+[query public gettest(anOclAny: OclAny) : Boolean
+	= invoke('org.eclipse.acceleo.module.sample.main.helper', 'gettest()', Sequence{})
+/]
+
+[**
+ * The documentation of the query
+ */]
+[query public swichtest1(anOclAny: OclAny) : OclVoid
+	= invoke('org.eclipse.acceleo.module.sample.main.helper', 'swichtest1()', Sequence{})
+/]
+
+[**
+ * The documentation of the query
+ */]
+[query public gettest1(anOclAny: OclAny) : Boolean
+	= invoke('org.eclipse.acceleo.module.sample.main.helper', 'gettest1()', Sequence{})
+/]
+

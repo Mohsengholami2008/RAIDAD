@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mLmodel" nsURI="http://www.example.org/mLmodel" nsPrefix="mLmodel">
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral="MLModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="#//Process"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Process">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file_path" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cycle" upperBound="-1"
+        eType="#//Cycle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data_understanding" upperBound="-1"
+        eType="#//Data_Understanding" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cycle" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="after" eType="#//Cycle"
+        eOpposite="#//Cycle/before"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="before" eType="#//Cycle"
+        eOpposite="#//Cycle/after"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Import_Data" abstract="true" interface="true"
+      eSuperTypes="#//Preprocess">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="role" upperBound="-1" eType="#//Set_Role"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CSV" eSuperTypes="#//Import_Data">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="csv_argumans" upperBound="-1"
+        eType="#//CSV_Argumans" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CSV_Argumans" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sep" eSuperTypes="#//CSV_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_value_sep" eType="#//Enum_CSV_Sep"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manual_sep" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="define" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nrows" eSuperTypes="#//CSV_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_value_nrows" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Enum_CSV_Sep">
+    <eLiterals name="colon" literal=","/>
+    <eLiterals name="Tab" value="1" literal="\t"/>
+    <eLiterals name="Semicolon" value="2" literal=";"/>
+    <eLiterals name="dot" value="3" literal="."/>
+    <eLiterals name="LITERAL4" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Set_Role" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral="Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Attribiutes_Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ID" eSuperTypes="#//Set_Role"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Target" eSuperTypes="#//Set_Role"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Regular" eSuperTypes="#//Set_Role"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Excel" eSuperTypes="#//Import_Data">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="excel_arguments" upperBound="-1"
+        eType="#//Excel_Argumans" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Excel_Argumans" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Header_Ex" eSuperTypes="#//Excel_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defauld_value_head_ex"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int" defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Simple_Imputer" eSuperTypes="#//Preprocess">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simple_imputer_arguments"
+        upperBound="-1" eType="#//Simple_Imputer_Arguments" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Simple_Imputer_Arguments" abstract="true"
+      interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Missing_Values" eSuperTypes="#//Simple_Imputer_Arguments">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_value_si_miss"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Strategy" eSuperTypes="#//Simple_Imputer_Arguments">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_value_sim_str"
+        eType="#//Strategy_Simple_Imputer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fill_Value" eSuperTypes="#//Simple_Imputer_Arguments">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_value_sim_fill"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Strategy_Simple_Imputer">
+    <eLiterals name="mean"/>
+    <eLiterals name="median" value="1"/>
+    <eLiterals name="most_frequent" value="2"/>
+    <eLiterals name="constant" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KNN_Imputer" eSuperTypes="#//Preprocess">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="knn_argumans" upperBound="-1"
+        eType="#//KNN_Argumans" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KNN_Argumans" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="N_Neighbors" eSuperTypes="#//KNN_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n_neighbors" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Metric" eSuperTypes="#//KNN_Argumans"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Weights" eSuperTypes="#//KNN_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weights" eType="#//KNN_Imputer_Weights"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Classification" abstract="true" interface="true"
+      eSuperTypes="#//Cycle"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KNN" eSuperTypes="#//Classification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="k" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Evaluation_Methods" abstract="true"
+      interface="true" eSuperTypes="#//Cycle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accuracy" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recall" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="f1_score" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cross_Validation" eSuperTypes="#//Evaluation_Methods">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number_of_folds" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="5"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plots" upperBound="-1"
+        eType="#//Plots" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HeadCSV" eSuperTypes="#//CSV_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_header" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sheet_Na_Excel" eSuperTypes="#//Excel_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_val_sheet" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scaling" abstract="true" interface="true"
+      eSuperTypes="#//Preprocess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Robust_Scaling" eSuperTypes="#//Scaling"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Standardization" eSuperTypes="#//Scaling"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Normalization" eSuperTypes="#//Scaling"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Encoding" abstract="true" interface="true"
+      eSuperTypes="#//Preprocess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OneHot" eSuperTypes="#//Encoding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onehot_argumans" upperBound="-1"
+        eType="#//OneHot_Argumans" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OneHot_Argumans" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Drop" eSuperTypes="#//OneHot_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_value_drop" eType="#//OneHot_Drop_Arg"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Categories" eSuperTypes="#//OneHot_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_value_cat" eType="#//OneHot_Cat_Arg"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sparse" eSuperTypes="#//OneHot_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_value_sparse" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Handle_Unk" eSuperTypes="#//OneHot_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default_value_handle" eType="#//OneHot_HandleUn_Arg"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OneHot_Cat_Arg">
+    <eLiterals name="auto"/>
+    <eLiterals name="list" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OneHot_Drop_Arg">
+    <eLiterals name="first"/>
+    <eLiterals name="if_binary" value="1"/>
+    <eLiterals name="array" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OneHot_HandleUn_Arg">
+    <eLiterals name="error"/>
+    <eLiterals name="ignore" value="1"/>
+    <eLiterals name="infrequent_if_exist" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Duplicates" eSuperTypes="#//Preprocess">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duplicates_argumans" upperBound="-1"
+        eType="#//Duplicates_Argumans" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Keep" eSuperTypes="#//Duplicates_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dup_keep" eType="#//Dup_Arg_Keep"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Duplicates_Argumans" abstract="true"
+      interface="true"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Dup_Arg_Keep">
+    <eLiterals name="first"/>
+    <eLiterals name="last" value="1"/>
+    <eLiterals name="False" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Trasformation" abstract="true" interface="true"
+      eSuperTypes="#//Preprocess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Date_to_Int" eSuperTypes="#//Trasformation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="date_comp" upperBound="-1"
+        eType="#//Date_Comp" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Date_Comp" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Year" eSuperTypes="#//Date_Comp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Month" eSuperTypes="#//Date_Comp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Day" eSuperTypes="#//Date_Comp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dime_Reduct" abstract="true" interface="true"
+      eSuperTypes="#//Preprocess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PCA" eSuperTypes="#//Dime_Reduct">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pca_argumans" upperBound="-1"
+        eType="#//PCA_Argumans" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PCA_Argumans" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//PCA_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="component_value" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Varience" eSuperTypes="#//PCA_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varience_value" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="0.8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SVM" eSuperTypes="#//Classification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="c" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kernel" eType="#//SVM_Kernel_Enum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SVM_Kernel_Enum">
+    <eLiterals name="linear"/>
+    <eLiterals name="poly" value="1"/>
+    <eLiterals name="rbf" value="2"/>
+    <eLiterals name="sigmoid" value="3"/>
+    <eLiterals name="precomputed" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Neural_Networks" abstract="true" interface="true"
+      eSuperTypes="#//Classification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="library" eType="#//Neural_Libraries"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Neural_Libraries">
+    <eLiterals name="keras"/>
+    <eLiterals name="scikit" value="1" literal="scikit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MLP" eSuperTypes="#//Neural_Networks">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hidden_layer_sizes" lowerBound="1"
+        upperBound="-1" eType="#//Hidden_Layer_Sizes" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mlp_argumans" upperBound="-1"
+        eType="#//MLP_Argumans" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Neural_Network_Activation">
+    <eLiterals name="identity"/>
+    <eLiterals name="logistic" value="1"/>
+    <eLiterals name="tanh" value="2"/>
+    <eLiterals name="relu" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Hidden_Layer_Sizes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="neurons" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="100"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Voting_Classifier" eSuperTypes="#//Ensembles">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="voting" eType="#//voting_pred"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classification" upperBound="-1"
+        eType="#//Classification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="voting_pred">
+    <eLiterals name="hard"/>
+    <eLiterals name="soft" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ensembles" abstract="true" interface="true"
+      eSuperTypes="#//Classification"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Random_Forest" eSuperTypes="#//Ensembles">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rf_argumans" upperBound="-1"
+        eType="#//RF_Argumans" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Random_Forest_Criterion_Enum">
+    <eLiterals name="gini"/>
+    <eLiterals name="entropy" value="1"/>
+    <eLiterals name="log_los" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Clustering" abstract="true" interface="true"
+      eSuperTypes="#//Cycle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="library" eType="#//Library_Clustering"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Library_Clustering">
+    <eLiterals name="scikit"/>
+    <eLiterals name="pyclustering" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="K_Medians" eSuperTypes="#//Parameters"/>
+  <eClassifiers xsi:type="ecore:EClass" name="K_Means" eSuperTypes="#//Parameters"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameters" abstract="true" interface="true"
+      eSuperTypes="#//Clustering">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="K" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="5"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_iter" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="300"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Metric_DBSCAN">
+    <eLiterals name="euclidean"/>
+    <eLiterals name="cosine" value="1"/>
+    <eLiterals name="manhattan" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Regression" abstract="true" interface="true"
+      eSuperTypes="#//Cycle"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Logistic_Regression" eSuperTypes="#//Regression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RF_Argumans" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="N_Estimators_RF" eSuperTypes="#//RF_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n_estimators" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="100"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Criterion_RF" eSuperTypes="#//RF_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="criterion" eType="#//Random_Forest_Criterion_Enum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Random_State_RF" eSuperTypes="#//RF_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="random_state" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameters_DBOP" abstract="true" interface="true"
+      eSuperTypes="#//Clustering">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eps" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="0.5"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min_samples" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DBSCAN" eSuperTypes="#//Parameters_DBOP">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="p" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MLP_Argumans" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Max_Iter_MLP" eSuperTypes="#//MLP_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max_iter" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="200"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Random_State_MLP" eSuperTypes="#//MLP_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="random_state" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activation_MLP" eSuperTypes="#//MLP_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activation" eType="#//Neural_Network_Activation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alpha_MLP" eSuperTypes="#//MLP_Argumans">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alpha" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="0.0001"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Plots" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scatter" eSuperTypes="#//Plots"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cluster_Evaluation" eSuperTypes="#//Cycle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scatter" eType="#//Scatter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cluster_sizes" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cluster_centers_features"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cluster_centers_standard_deviation"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cluster_centers" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OPtics" eSuperTypes="#//Parameters_DBOP"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Preprocess" abstract="true" interface="true"
+      eSuperTypes="#//Cycle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="regular" upperBound="-1"
+        eType="#//Regular"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="save_file" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="print_data" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Auto_Prep" eSuperTypes="#//Preprocess">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Simple_Imputer" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="KNN_Imputer" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Scaling" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Encoding" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duplicates" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Trasformation" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Dime_Reduct" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Date_to_Int" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="drop" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="miss_id" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Attribiutes_Type">
+    <eLiterals name="string"/>
+    <eLiterals name="date" value="2"/>
+    <eLiterals name="binominal" value="3"/>
+    <eLiterals name="time" value="4"/>
+    <eLiterals name="integer" value="5"/>
+    <eLiterals name="float" value="6"/>
+    <eLiterals name="categorical" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Data_Understanding" abstract="true"
+      interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Statistics" eSuperTypes="#//Data_Understanding">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="missing" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="average" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="standard_devision" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Visualization" eSuperTypes="#//Data_Understanding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data_und_plots" upperBound="-1"
+        eType="#//Plots" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Correlation" eSuperTypes="#//Data_Understanding">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="800"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="800"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="table" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Matrix" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Standard_Deviation" eSuperTypes="#//Data_Understanding"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bar" eSuperTypes="#//Plots"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="KNN_Imputer_Weights">
+    <eLiterals name="uniform"/>
+    <eLiterals name="distance" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Linear_Regression" eSuperTypes="#//Regression"/>
+</ecore:EPackage>

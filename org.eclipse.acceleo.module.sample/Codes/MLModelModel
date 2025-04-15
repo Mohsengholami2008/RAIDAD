@@ -1,0 +1,168 @@
+from sklearn.metrics import confusion_matrix, precision_recall_curve, roc_curve, auc
+from sklearn.model_selection import cross_validate, StratifiedKFold
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def perform_cross_validation(X, y, classifier, cv_folds, scoring_metrics):
+    cv_results = cross_validate(classifier, X, y, cv=cv_folds, scoring=list(scoring_metrics.keys()), return_train_score=False)
+    mean_scores = {metric: np.mean(cv_results[f'test_{metric}']) for metric in scoring_metrics}
+    std_scores = {metric: np.std(cv_results[f'test_{metric}']) for metric in scoring_metrics}
+    for metric_name in scoring_metrics:
+        metric_scores = cv_results[f'test_{metric_name}']
+        print(f'{metric_name}: {metric_scores}')
+        print(f'Mean {metric_name}: {np.mean(metric_scores):.3f}, Standard Deviation: {np.std(metric_scores):.3f}')
+
+
+    # Plotting bar plot for mean scores
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=list(scoring_metrics.values()), y=list(mean_scores.values()), palette='viridis')
+    plt.title('Mean Scores with Cross Validation')
+    plt.xlabel('Metrics')
+    plt.ylabel('Mean Score')
+    plt.show()
+
+
+    return cv_results
+
+
+
+
+
+
+
+
+
+
+
+
+def process_data(cv_folds=None): 
+	executed_functions = []
+	model = None	
+
+	a =['invalid']
+
+	for letter in range (len(a)):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	return data, executed_functions, model
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    cv_folds = 5
+    scoring_metrics = {
+    }
+
+    processed_data, executed_functions = process_data(
+
+
+
+ 
+
+
+
+
+
+
+
+		cv_folds=cv_folds,
+
+
+
+
+
+
+
+
+
+		
+		
+
+
+    )
+
+
+

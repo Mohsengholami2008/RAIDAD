@@ -1,0 +1,39 @@
+/**
+ */
+package mLmodel.impl;
+
+import mLmodel.MLmodelPackage;
+import mLmodel.Scatter;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Scatter</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * @generated
+ */
+public class ScatterImpl extends MinimalEObjectImpl.Container implements Scatter {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScatterImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return MLmodelPackage.Literals.SCATTER;
+	}
+
+} //ScatterImpl
