@@ -159,17 +159,10 @@ Follow the installation instructions and restart Eclipse if prompted.
 3. Clone or Download the RAIDAD Repository
 Clone the RAIDAD GitHub repository or download it as a ZIP file and import it into Eclipse:
 
-To import into Eclipse:
-
-Open Eclipse.
-
-Go to File > Import > Existing Projects into Workspace.
-
-Select the root directory of the cloned/downloaded RAIDAD project.
-
-Click Finish.
 
 4. Import Required Projects
+Open Eclipse.
+
 At this stage, only import the following projects into Eclipse:
 
 MLmodel.edit
