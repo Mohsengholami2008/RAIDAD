@@ -27,6 +27,7 @@ RAIDAD stands out by unifying data-driven and model-driven paradigms. It ensures
 - [Reporting Issues/Bugs and Requests](#reporting-issuesbugs-and-requests)
 - [RAIDAD Feature Model](#RAIDAD-Feature-Model)
 - [Supported Techniques and Algorithms](#supported-techniques-and-algorithms)
+- [RAIDAD Installation Guide](#RAIDAD-Installation-Guide)
 - [RAIDAD Quick Start Tutorial (10 Minutes)](#raidad-quick-start-tutorial-10-minutes)
 - [Users' Documentation (Full Tutorial)](#users-documentation-full-tutorial)
    - [Introduction](#introduction)
@@ -129,6 +130,92 @@ These techniques and algorithms are integrated into the RAIDAD framework to faci
 [Back to top](#table-of-contents)
 
 
+
+## RAIDAD Installation Guide
+To set up and use the RAIDAD tool, please follow the steps below:
+
+1. Install Eclipse
+First, install the Eclipse IDE. We recommend using the Eclipse Modeling Tools - 2024-03 package, which comes with essential tools for model-driven development. You can download it from the official Eclipse website.
+
+2. Ensure Acceleo and Sirius Are Installed
+After installing Eclipse, make sure the following plugins are installed:
+
+Acceleo – for model-to-text (code) transformation
+
+Sirius – for graphical modeling and editor support
+
+To verify or install these plugins:
+
+Go to Help > Install New Software in Eclipse.
+
+Use the following update sites to install the plugins if they are not already included:
+
+Acceleo: https://download.eclipse.org/acceleo/updates/releases/
+
+Sirius: https://download.eclipse.org/sirius/updates/releases/
+
+Follow the installation instructions and restart Eclipse if prompted.
+
+3. Clone or Download the RAIDAD Repository
+Clone the RAIDAD GitHub repository or download it as a ZIP file and import it into Eclipse:
+
+To import into Eclipse:
+
+Open Eclipse.
+
+Go to File > Import > Existing Projects into Workspace.
+
+Select the root directory of the cloned/downloaded RAIDAD project.
+
+Click Finish.
+
+4. Import Required Projects
+At this stage, only import the following projects into Eclipse:
+
+MLmodel.edit
+
+MLmodel.editor
+
+MLmodel
+
+org.eclipse.acceleo.module.sample.ui
+
+org.eclipse.acceleo.module.sample
+
+To import them:
+
+Go to File > Import > Existing Projects into Workspace.
+
+Browse to the folder containing these projects.
+
+Select the above-mentioned projects and click Finish.
+
+5. Launch the Modeling Environment
+After importing, right-click on the MLmodel project and select:
+Run As > Eclipse Application
+This will launch a new Eclipse runtime instance where you can use the RAIDAD tool.
+
+6. Load RAIDAD Runtime Projects
+Download the runtime-New_configuration.rar file from the GitHub repository, extract it, and follow these steps:
+
+In the runtime Eclipse instance, go to:
+File > Open Projects from File System
+
+Select the extracted folder and import the following projects:
+
+mymodelsi.project.design
+
+Raidad
+
+7. Launch the Graphical Editor
+To start modeling with the graphical editor:
+
+In the Raidad project, locate the file:
+representations.aird
+
+Open it, then under MyViewpoint, double-click on new Process.
+
+The graphical editor will be launched, and you can begin designing your models using RAIDAD.
 
 
 
