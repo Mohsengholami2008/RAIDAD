@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:mLmodel="http://www.example.org/mLmodel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_pnY5AI06Ee-N4I_GQ_ZtRA" selectedViews="_w-wvMI06Ee-N4I_GQ_ZtRA _RkCYQI07Ee-N4I_GQ_ZtRA" version="15.4.1.202403191723">
+    <semanticResources>My.mlmodel</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_w-wvMI06Ee-N4I_GQ_ZtRA">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_xbfHcI06Ee-N4I_GQ_ZtRA" name="new Process" repPath="#_xaOjMI06Ee-N4I_GQ_ZtRA" changeId="1729247086453">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']"/>
+        <target xmi:type="mLmodel:Root" href="My.mlmodel#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_RkCYQI07Ee-N4I_GQ_ZtRA">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_S8h1MI07Ee-N4I_GQ_ZtRA" name="new Process" repPath="#_S8fY8I07Ee-N4I_GQ_ZtRA" changeId="1757230579587">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']"/>
+        <target xmi:type="mLmodel:Root" href="My.mlmodel#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_xaOjMI06Ee-N4I_GQ_ZtRA">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_xkkK8I06Ee-N4I_GQ_ZtRA" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_xkkK8Y06Ee-N4I_GQ_ZtRA" type="Sirius" element="_xaOjMI06Ee-N4I_GQ_ZtRA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_0ohEII06Ee-N4I_GQ_ZtRA" type="2002" element="_0nty4I06Ee-N4I_GQ_ZtRA">
+          <children xmi:type="notation:Node" xmi:id="_0ojgYI06Ee-N4I_GQ_ZtRA" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_0okHcI06Ee-N4I_GQ_ZtRA" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_LTpYQI07Ee-N4I_GQ_ZtRA" type="3009" element="_LTPvo407Ee-N4I_GQ_ZtRA">
+              <children xmi:type="notation:Node" xmi:id="_LTpYQ407Ee-N4I_GQ_ZtRA" type="5004"/>
+              <children xmi:type="notation:Node" xmi:id="_LTpYRI07Ee-N4I_GQ_ZtRA" type="7003">
+                <children xmi:type="notation:Node" xmi:id="_MrvMkI07Ee-N4I_GQ_ZtRA" type="3010" element="_MqvHAI07Ee-N4I_GQ_ZtRA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_MrvMkY07Ee-N4I_GQ_ZtRA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_MrvMko07Ee-N4I_GQ_ZtRA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_MrvzoI07Ee-N4I_GQ_ZtRA" type="3010" element="_MqvuEI07Ee-N4I_GQ_ZtRA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_MrvzoY07Ee-N4I_GQ_ZtRA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_Mrvzoo07Ee-N4I_GQ_ZtRA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_MrwasI07Ee-N4I_GQ_ZtRA" type="3010" element="_MqvuEo07Ee-N4I_GQ_ZtRA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_MrwasY07Ee-N4I_GQ_ZtRA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_Mrwaso07Ee-N4I_GQ_ZtRA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_MrxBwI07Ee-N4I_GQ_ZtRA" type="3010" element="_MqwVII07Ee-N4I_GQ_ZtRA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_MrxBwY07Ee-N4I_GQ_ZtRA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_MrxBwo07Ee-N4I_GQ_ZtRA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_MrxBw407Ee-N4I_GQ_ZtRA" type="3010" element="_MqwVIo07Ee-N4I_GQ_ZtRA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_MrxBxI07Ee-N4I_GQ_ZtRA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_MrxBxY07Ee-N4I_GQ_ZtRA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_Mrxo0I07Ee-N4I_GQ_ZtRA" type="3010" element="_MqwVJI07Ee-N4I_GQ_ZtRA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_Mrxo0Y07Ee-N4I_GQ_ZtRA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_Mrxo0o07Ee-N4I_GQ_ZtRA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_MryP4I07Ee-N4I_GQ_ZtRA" type="3010" element="_Mqw8MI07Ee-N4I_GQ_ZtRA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_MryP4Y07Ee-N4I_GQ_ZtRA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_MryP4o07Ee-N4I_GQ_ZtRA"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_LTpYRY07Ee-N4I_GQ_ZtRA"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_LTpYRo07Ee-N4I_GQ_ZtRA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_LTpYQY07Ee-N4I_GQ_ZtRA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LTpYQo07Ee-N4I_GQ_ZtRA" x="20" y="20"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_0okHcY06Ee-N4I_GQ_ZtRA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_0okHco06Ee-N4I_GQ_ZtRA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_0ohEIY06Ee-N4I_GQ_ZtRA" fontName="Segoe UI" fontHeight="12" bold="true" underline="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0ohEIo06Ee-N4I_GQ_ZtRA" x="210" y="150" width="1500" height="800"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_xkkK8o06Ee-N4I_GQ_ZtRA"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_xmNwwI06Ee-N4I_GQ_ZtRA" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_xmNwwY06Ee-N4I_GQ_ZtRA"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_0nty4I06Ee-N4I_GQ_ZtRA" name="Process" width="-1" height="-1">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_LTPvoY07Ee-N4I_GQ_ZtRA" labelSize="12" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" foregroundColor="255,255,255">
+        <labelFormat>bold</labelFormat>
+        <labelFormat>underline</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@conditionnalStyles.0/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_LTPvo407Ee-N4I_GQ_ZtRA" name="CSV Data Attributes">
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_LTPvpI07Ee-N4I_GQ_ZtRA" labelSize="12" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_MqvHAI07Ee-N4I_GQ_ZtRA" name="Variable">
+          <ownedStyle xmi:type="diagram:Square" uid="_MqvHAY07Ee-N4I_GQ_ZtRA" labelSize="12" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_MqvuEI07Ee-N4I_GQ_ZtRA" name="Variable">
+          <ownedStyle xmi:type="diagram:Square" uid="_MqvuEY07Ee-N4I_GQ_ZtRA" labelSize="12" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_MqvuEo07Ee-N4I_GQ_ZtRA" name="Variable">
+          <ownedStyle xmi:type="diagram:Square" uid="_MqvuE407Ee-N4I_GQ_ZtRA" labelSize="12" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_MqwVII07Ee-N4I_GQ_ZtRA" name="Variable">
+          <ownedStyle xmi:type="diagram:Square" uid="_MqwVIY07Ee-N4I_GQ_ZtRA" labelSize="12" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_MqwVIo07Ee-N4I_GQ_ZtRA" name="Variable">
+          <ownedStyle xmi:type="diagram:Square" uid="_MqwVI407Ee-N4I_GQ_ZtRA" labelSize="12" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_MqwVJI07Ee-N4I_GQ_ZtRA" name="Variable">
+          <ownedStyle xmi:type="diagram:Square" uid="_MqwVJY07Ee-N4I_GQ_ZtRA" labelSize="12" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_Mqw8MI07Ee-N4I_GQ_ZtRA" name="Variable">
+          <ownedStyle xmi:type="diagram:Square" uid="_Mqw8MY07Ee-N4I_GQ_ZtRA" labelSize="12" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_xbMzkI06Ee-N4I_GQ_ZtRA"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer"/>
+    <target xmi:type="mLmodel:Root" href="My.mlmodel#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_S8fY8I07Ee-N4I_GQ_ZtRA">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_S8h1Mo07Ee-N4I_GQ_ZtRA" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_S8h1M407Ee-N4I_GQ_ZtRA" type="Sirius" element="_S8fY8I07Ee-N4I_GQ_ZtRA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_l4ET8IroEfCIvbqAaphuxA" type="2002" element="_l3_bcIroEfCIvbqAaphuxA">
+          <children xmi:type="notation:Node" xmi:id="_l4E7AIroEfCIvbqAaphuxA" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_l4E7AYroEfCIvbqAaphuxA" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_Ra9jQIu8EfCaO5oKL1hFPA" type="3009" element="_Ra6f84u8EfCaO5oKL1hFPA">
+              <children xmi:type="notation:Node" xmi:id="_Ra9jQ4u8EfCaO5oKL1hFPA" type="5004"/>
+              <children xmi:type="notation:Node" xmi:id="_Ra9jRIu8EfCaO5oKL1hFPA" type="7003">
+                <children xmi:type="notation:Node" xmi:id="_TNR1c4u8EfCaO5oKL1hFPA" type="3010" element="_TNLHwIu8EfCaO5oKL1hFPA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_TNR1dIu8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_TNR1dYu8EfCaO5oKL1hFPA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_TNScgIu8EfCaO5oKL1hFPA" type="3010" element="_TNLHwou8EfCaO5oKL1hFPA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_TNScgYu8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_TNScgou8EfCaO5oKL1hFPA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_TNScg4u8EfCaO5oKL1hFPA" type="3010" element="_TNLHxIu8EfCaO5oKL1hFPA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_TNSchIu8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_TNSchYu8EfCaO5oKL1hFPA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_TNSchou8EfCaO5oKL1hFPA" type="3010" element="_TNLu0Yu8EfCaO5oKL1hFPA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_TNSch4u8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_TNSciIu8EfCaO5oKL1hFPA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_TNSciYu8EfCaO5oKL1hFPA" type="3010" element="_TNLu04u8EfCaO5oKL1hFPA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_TNSciou8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_TNSci4u8EfCaO5oKL1hFPA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_TNScjIu8EfCaO5oKL1hFPA" type="3010" element="_TNLu1Yu8EfCaO5oKL1hFPA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_TNScjYu8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_TNScjou8EfCaO5oKL1hFPA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_TNScj4u8EfCaO5oKL1hFPA" type="3010" element="_TNMV4Iu8EfCaO5oKL1hFPA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_TNSckIu8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_TNSckYu8EfCaO5oKL1hFPA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_TNTDkIu8EfCaO5oKL1hFPA" type="3010" element="_TNMV4ou8EfCaO5oKL1hFPA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_TNTDkYu8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_TNTDkou8EfCaO5oKL1hFPA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_VVqeQIu8EfCaO5oKL1hFPA" type="3010" element="_VVk-sIu8EfCaO5oKL1hFPA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_VVqeQYu8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_VVqeQou8EfCaO5oKL1hFPA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_dACI8Iu8EfCaO5oKL1hFPA" type="3010" element="_c_8CUIu8EfCaO5oKL1hFPA">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_dACI8Yu8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_dACI8ou8EfCaO5oKL1hFPA"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_Ra9jRYu8EfCaO5oKL1hFPA"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_Ra9jRou8EfCaO5oKL1hFPA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_Ra9jQYu8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ra9jQou8EfCaO5oKL1hFPA" x="20" y="20" width="290" height="417"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_hJIsUIu8EfCaO5oKL1hFPA" type="3007" element="_hJAJcIu8EfCaO5oKL1hFPA">
+              <children xmi:type="notation:Node" xmi:id="_hJIsU4u8EfCaO5oKL1hFPA" type="5003">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_hJIsVIu8EfCaO5oKL1hFPA" y="5"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_hJIsVYu8EfCaO5oKL1hFPA" type="3003" element="_hJB-oIu8EfCaO5oKL1hFPA">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_hJIsVou8EfCaO5oKL1hFPA" fontName="Segoe UI"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hJIsV4u8EfCaO5oKL1hFPA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_hJIsUYu8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hJIsUou8EfCaO5oKL1hFPA" x="451" y="73" width="204" height="120"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_JL7P0Iu9EfCSDc0uqCe4BA" type="3007" element="_JLjcYIu9EfCSDc0uqCe4BA">
+              <children xmi:type="notation:Node" xmi:id="_JMAvYIu9EfCSDc0uqCe4BA" type="5003">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_JMAvYYu9EfCSDc0uqCe4BA" y="5"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_JMB9gIu9EfCSDc0uqCe4BA" type="3003" element="_JLl4oIu9EfCSDc0uqCe4BA">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_JMB9gYu9EfCSDc0uqCe4BA" fontName="Segoe UI"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JMB9gou9EfCSDc0uqCe4BA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_JL7P0Yu9EfCSDc0uqCe4BA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JL7P0ou9EfCSDc0uqCe4BA" x="751" y="91" width="192" height="84"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_M5qs4Iu9EfCSDc0uqCe4BA" type="3007" element="_M5d4kIu9EfCSDc0uqCe4BA">
+              <children xmi:type="notation:Node" xmi:id="_M5qs44u9EfCSDc0uqCe4BA" type="5003">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_M5qs5Iu9EfCSDc0uqCe4BA" y="5"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_M5rT8Iu9EfCSDc0uqCe4BA" type="3003" element="_M5efoIu9EfCSDc0uqCe4BA">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_M5rT8Yu9EfCSDc0uqCe4BA" fontName="Segoe UI"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_M5rT8ou9EfCSDc0uqCe4BA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_M5qs4Yu9EfCSDc0uqCe4BA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_M5qs4ou9EfCSDc0uqCe4BA" x="751" y="277" width="168" height="120"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_SQiD4Iu9EfCSDc0uqCe4BA" type="3008" element="_SQWdsIu9EfCSDc0uqCe4BA">
+              <children xmi:type="notation:Node" xmi:id="_SQiD44u9EfCSDc0uqCe4BA" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_SQjSAIu9EfCSDc0uqCe4BA" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_TkEvYIu9EfCSDc0uqCe4BA" type="3007" element="_Tj5wQIu9EfCSDc0uqCe4BA">
+                  <children xmi:type="notation:Node" xmi:id="_TkEvY4u9EfCSDc0uqCe4BA" type="5003">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_TkEvZIu9EfCSDc0uqCe4BA" x="2" y="-16"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_TkSx0Iu9EfCSDc0uqCe4BA" type="3005" element="_Tj7lcIu9EfCSDc0uqCe4BA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_TkSx0Yu9EfCSDc0uqCe4BA" fontName="Segoe UI"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TkSx0ou9EfCSDc0uqCe4BA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_TkEvYYu9EfCSDc0uqCe4BA" fontName="Segoe UI" fontHeight="8" bold="true"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TkEvYou9EfCSDc0uqCe4BA" x="157" y="2" width="70" height="78"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_SQjSAYu9EfCSDc0uqCe4BA"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_SQjSAou9EfCSDc0uqCe4BA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_SQiD4Yu9EfCSDc0uqCe4BA" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SQiD4ou9EfCSDc0uqCe4BA" x="378" y="264" width="279"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_l4E7AoroEfCIvbqAaphuxA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_l4E7A4roEfCIvbqAaphuxA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_l4ET8YroEfCIvbqAaphuxA" fontName="Segoe UI" fontHeight="12" bold="true" underline="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l4ET8oroEfCIvbqAaphuxA" x="24" y="12" width="1011" height="507"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_S8h1NI07Ee-N4I_GQ_ZtRA"/>
+        <edges xmi:type="notation:Edge" xmi:id="_pdZBgIu8EfCaO5oKL1hFPA" type="4001" element="_pdXzYIu8EfCaO5oKL1hFPA" source="_Ra9jQIu8EfCaO5oKL1hFPA" target="_hJIsUIu8EfCaO5oKL1hFPA">
+          <children xmi:type="notation:Node" xmi:id="_pdZokIu8EfCaO5oKL1hFPA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pdZokYu8EfCaO5oKL1hFPA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_pdZokou8EfCaO5oKL1hFPA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pdZok4u8EfCaO5oKL1hFPA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_pdZolIu8EfCaO5oKL1hFPA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pdZolYu8EfCaO5oKL1hFPA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_pdZBgYu8EfCaO5oKL1hFPA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_pdZBgou8EfCaO5oKL1hFPA" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pdZBg4u8EfCaO5oKL1hFPA" points="[0, 0, -388, -113]$[286, 83, -102, -30]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pdZolou8EfCaO5oKL1hFPA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pdZol4u8EfCaO5oKL1hFPA" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_K2TG8Iu9EfCSDc0uqCe4BA" type="4001" element="_K2O1gIu9EfCSDc0uqCe4BA" source="_hJIsUIu8EfCaO5oKL1hFPA" target="_JL7P0Iu9EfCSDc0uqCe4BA">
+          <children xmi:type="notation:Node" xmi:id="_K2TG9Iu9EfCSDc0uqCe4BA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K2TG9Yu9EfCSDc0uqCe4BA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_K2UVEIu9EfCSDc0uqCe4BA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K2UVEYu9EfCSDc0uqCe4BA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_K2UVEou9EfCSDc0uqCe4BA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K2UVE4u9EfCSDc0uqCe4BA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_K2TG8Yu9EfCSDc0uqCe4BA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_K2TG8ou9EfCSDc0uqCe4BA" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K2TG84u9EfCSDc0uqCe4BA" points="[102, 0, -168, 0]$[198, 0, -72, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_K2WxUIu9EfCSDc0uqCe4BA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_K2WxUYu9EfCSDc0uqCe4BA" id="(0.375,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_Ofs2kIu9EfCSDc0uqCe4BA" type="4001" element="_OfqaWIu9EfCSDc0uqCe4BA" source="_JL7P0Iu9EfCSDc0uqCe4BA" target="_M5qs4Iu9EfCSDc0uqCe4BA">
+          <children xmi:type="notation:Node" xmi:id="_Ofs2lIu9EfCSDc0uqCe4BA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ofs2lYu9EfCSDc0uqCe4BA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Ofs2lou9EfCSDc0uqCe4BA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ofs2l4u9EfCSDc0uqCe4BA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_Ofs2mIu9EfCSDc0uqCe4BA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ofs2mYu9EfCSDc0uqCe4BA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ofs2kYu9EfCSDc0uqCe4BA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Ofs2kou9EfCSDc0uqCe4BA" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ofs2k4u9EfCSDc0uqCe4BA" points="[2, 42, -10, -162]$[8, 144, -4, -60]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ofs2mou9EfCSDc0uqCe4BA" id="(0.375,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ofs2m4u9EfCSDc0uqCe4BA" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_VuxFUIu9EfCSDc0uqCe4BA" type="4001" element="_VuupGIu9EfCSDc0uqCe4BA" source="_M5qs4Iu9EfCSDc0uqCe4BA" target="_SQiD4Iu9EfCSDc0uqCe4BA">
+          <children xmi:type="notation:Node" xmi:id="_VuxsYIu9EfCSDc0uqCe4BA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VuxsYYu9EfCSDc0uqCe4BA" x="-1" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_VuxsYou9EfCSDc0uqCe4BA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VuxsY4u9EfCSDc0uqCe4BA" x="1" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_VuxsZIu9EfCSDc0uqCe4BA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VuxsZYu9EfCSDc0uqCe4BA" y="11"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_VuxFUYu9EfCSDc0uqCe4BA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_VuxFUou9EfCSDc0uqCe4BA" fontName="Segoe UI" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VuxFU4u9EfCSDc0uqCe4BA" points="[-84, 0, 235, 0]$[-180, 0, 139, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VuyTcIu9EfCSDc0uqCe4BA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VuyTcYu9EfCSDc0uqCe4BA" id="(0.5,0.5)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_S_wIUI07Ee-N4I_GQ_ZtRA" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_S_wIUY07Ee-N4I_GQ_ZtRA"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_l3_bcIroEfCIvbqAaphuxA" name="Process" width="-1" height="-1">
+      <target xmi:type="mLmodel:Process" href="My.mlmodel#//@process"/>
+      <semanticElements xmi:type="mLmodel:Process" href="My.mlmodel#//@process"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Ra6f8Yu8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/32bit/Process32.png" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" foregroundColor="255,255,255">
+        <labelFormat>bold</labelFormat>
+        <labelFormat>underline</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@conditionnalStyles.0/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Ra6f84u8EfCaO5oKL1hFPA" name="CSV Data Attributes" tooltipText="" outgoingEdges="_pdXzYIu8EfCaO5oKL1hFPA">
+        <target xmi:type="mLmodel:CSV" href="My.mlmodel#//@process/@cycle.0"/>
+        <semanticElements xmi:type="mLmodel:CSV" href="My.mlmodel#//@process/@cycle.0"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_Ra7uEIu8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/32bit/CSV32.png" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_TNLHwIu8EfCaO5oKL1hFPA" name="'preg'">
+          <target xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.0"/>
+          <semanticElements xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.0"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_TNLHwYu8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/Regular16.png" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_TNLHwou8EfCaO5oKL1hFPA" name="'plas'">
+          <target xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.1"/>
+          <semanticElements xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.1"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_TNLHw4u8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/Regular16.png" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_TNLHxIu8EfCaO5oKL1hFPA" name="'pres'">
+          <target xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.2"/>
+          <semanticElements xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.2"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_TNLu0Iu8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/Regular16.png" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_TNLu0Yu8EfCaO5oKL1hFPA" name="'skin'">
+          <target xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.3"/>
+          <semanticElements xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.3"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_TNLu0ou8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/Regular16.png" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_TNLu04u8EfCaO5oKL1hFPA" name="'insu'">
+          <target xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.4"/>
+          <semanticElements xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.4"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_TNLu1Iu8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/Regular16.png" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_TNLu1Yu8EfCaO5oKL1hFPA" name="'mass'">
+          <target xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.5"/>
+          <semanticElements xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.5"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_TNLu1ou8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/Regular16.png" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_TNMV4Iu8EfCaO5oKL1hFPA" name="'pedi'">
+          <target xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.6"/>
+          <semanticElements xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.6"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_TNMV4Yu8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/Regular16.png" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_TNMV4ou8EfCaO5oKL1hFPA" name="'age'">
+          <target xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.7"/>
+          <semanticElements xmi:type="mLmodel:Regular" href="My.mlmodel#//@process/@cycle.0/@role.7"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_TNMV44u8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/Regular16.png" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Regular']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_VVk-sIu8EfCaO5oKL1hFPA" name="id">
+          <target xmi:type="mLmodel:ID" href="My.mlmodel#//@process/@cycle.0/@role.8"/>
+          <semanticElements xmi:type="mLmodel:ID" href="My.mlmodel#//@process/@cycle.0/@role.8"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_VVllwIu8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/ID16 (1).png" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='ID']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='ID']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_c_8CUIu8EfCaO5oKL1hFPA" name="'class'">
+          <target xmi:type="mLmodel:Target" href="My.mlmodel#//@process/@cycle.0/@role.9"/>
+          <semanticElements xmi:type="mLmodel:Target" href="My.mlmodel#//@process/@cycle.0/@role.9"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_c_8pYIu8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/target16.png" labelPosition="node">
+            <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Target']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='CSV']/@subNodeMappings[name='Target']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" uid="_hJAJcIu8EfCaO5oKL1hFPA" name="Normalization" outgoingEdges="_K2O1gIu9EfCSDc0uqCe4BA" incomingEdges="_pdXzYIu8EfCaO5oKL1hFPA" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="mLmodel:Normalization" href="My.mlmodel#//@process/@cycle.1"/>
+        <semanticElements xmi:type="mLmodel:Normalization" href="My.mlmodel#//@process/@cycle.1"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_hJB-oIu8EfCaO5oKL1hFPA" labelSize="12" iconPath="/mymodelsi.project.design/Images/32bit/normalize32.png" labelPosition="node" color="255,255,255">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Normalization']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Normalization']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" uid="_JLjcYIu9EfCSDc0uqCe4BA" name="Standardization" outgoingEdges="_OfqaWIu9EfCSDc0uqCe4BA" incomingEdges="_K2O1gIu9EfCSDc0uqCe4BA" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="mLmodel:Standardization" href="My.mlmodel#//@process/@cycle.2"/>
+        <semanticElements xmi:type="mLmodel:Standardization" href="My.mlmodel#//@process/@cycle.2"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_JLl4oIu9EfCSDc0uqCe4BA" labelSize="12" iconPath="/mymodelsi.project.design/Images/32bit/Standardization32.png" labelPosition="node" color="255,255,255">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Standardization']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Standardization']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" uid="_M5d4kIu9EfCSDc0uqCe4BA" name="SVM" tooltipText="All categorical values have been managed." outgoingEdges="_VuupGIu9EfCSDc0uqCe4BA" incomingEdges="_OfqaWIu9EfCSDc0uqCe4BA" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="mLmodel:SVM" href="My.mlmodel#//@process/@cycle.3"/>
+        <semanticElements xmi:type="mLmodel:SVM" href="My.mlmodel#//@process/@cycle.3"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_M5efoIu9EfCSDc0uqCe4BA" labelSize="12" iconPath="/mymodelsi.project.design/Images/32bit/svm32.png" labelPosition="node" color="255,255,255">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='SVM']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='SVM']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_SQWdsIu9EfCSDc0uqCe4BA" name="Cross Validation" incomingEdges="_VuupGIu9EfCSDc0uqCe4BA">
+        <target xmi:type="mLmodel:Cross_Validation" href="My.mlmodel#//@process/@cycle.4"/>
+        <semanticElements xmi:type="mLmodel:Cross_Validation" href="My.mlmodel#//@process/@cycle.4"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SQWdsYu9EfCSDc0uqCe4BA" labelSize="12" iconPath="/mymodelsi.project.design/Images/32bit/Cross_Validation32.png" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Cross%20Validation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Cross%20Validation']"/>
+        <ownedDiagramElements xmi:type="diagram:DNode" uid="_Tj5wQIu9EfCSDc0uqCe4BA" name="Bar" width="7" height="7" resizeKind="NSEW">
+          <target xmi:type="mLmodel:Bar" href="My.mlmodel#//@process/@cycle.4/@plots.0"/>
+          <semanticElements xmi:type="mLmodel:Bar" href="My.mlmodel#//@process/@cycle.4/@plots.0"/>
+          <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_Tj7lcIu9EfCSDc0uqCe4BA" showIcon="false" workspacePath="/mymodelsi.project.design/Images/Buttons/Bar.png">
+            <labelFormat>bold</labelFormat>
+            <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Cross%20Validation']/@subNodeMappings[name='Bar']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Cross%20Validation']/@subNodeMappings[name='Bar']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_pdXzYIu8EfCaO5oKL1hFPA" sourceNode="_Ra6f84u8EfCaO5oKL1hFPA" targetNode="_hJAJcIu8EfCaO5oKL1hFPA">
+      <target xmi:type="mLmodel:CSV" href="My.mlmodel#//@process/@cycle.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_pdXzYYu8EfCaO5oKL1hFPA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@edgeMappings[name='CSVEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_pdXzYou8EfCaO5oKL1hFPA" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@edgeMappings[name='CSVEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_K2O1gIu9EfCSDc0uqCe4BA" sourceNode="_hJAJcIu8EfCaO5oKL1hFPA" targetNode="_JLjcYIu9EfCSDc0uqCe4BA">
+      <target xmi:type="mLmodel:Normalization" href="My.mlmodel#//@process/@cycle.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_K2O1gYu9EfCSDc0uqCe4BA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@edgeMappings[name='NormalizationEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_K2O1gou9EfCSDc0uqCe4BA" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@edgeMappings[name='NormalizationEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_OfqaWIu9EfCSDc0uqCe4BA" sourceNode="_JLjcYIu9EfCSDc0uqCe4BA" targetNode="_M5d4kIu9EfCSDc0uqCe4BA">
+      <target xmi:type="mLmodel:Standardization" href="My.mlmodel#//@process/@cycle.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OfqaWYu9EfCSDc0uqCe4BA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@edgeMappings[name='StandardizationEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_OfqaWou9EfCSDc0uqCe4BA" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@edgeMappings[name='StandardizationEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_VuupGIu9EfCSDc0uqCe4BA" sourceNode="_M5d4kIu9EfCSDc0uqCe4BA" targetNode="_SQWdsIu9EfCSDc0uqCe4BA">
+      <target xmi:type="mLmodel:SVM" href="My.mlmodel#//@process/@cycle.3"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_VuvQIIu9EfCSDc0uqCe4BA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@edgeMappings[name='Classification_Cross_Validation']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_VuvQIYu9EfCSDc0uqCe4BA" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@edgeMappings[name='Classification_Cross_Validation']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_S8fY8Y07Ee-N4I_GQ_ZtRA"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/mymodelsi.project.design/description/projectone.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer"/>
+    <target xmi:type="mLmodel:Root" href="My.mlmodel#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
