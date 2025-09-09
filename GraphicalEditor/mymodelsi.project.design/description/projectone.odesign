@@ -344,14 +344,14 @@
         </edgeMappings>
         <containerMappings name="Process" domainClass="mLmodel::Process">
           <subNodeMappings name="Normalization" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Normalization">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Normalization" iconPath="/mymodelsi.project.design/Images/32bit/normalize32.png" tooltipExpression="service:normalized1()" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Normalization" iconPath="/mymodelsi.project.design/Images/32bit/normalize32.png" tooltipExpression="service:normalized1()" sizeComputationExpression="" labelPosition="node" width="15" height="7">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="Standardization" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Standardization">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Standardization" iconPath="/mymodelsi.project.design/Images/32bit/Standardization32.png" tooltipExpression="service:normalized1()" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Standardization" iconPath="/mymodelsi.project.design/Images/32bit/Standardization32.png" tooltipExpression="service:normalized1()" sizeComputationExpression="" labelPosition="node" width="15" height="7">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>

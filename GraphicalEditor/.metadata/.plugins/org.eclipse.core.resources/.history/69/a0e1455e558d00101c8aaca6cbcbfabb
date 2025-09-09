@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mLmodel:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mLmodel="http://www.example.org/mLmodel" name="MLModel1">
+  <process file_path="C:\Users\ShemrounShop\Desktop\datasets\IRIS\Iris.csv">
+    <cycle xsi:type="mLmodel:CSV" after="//@process/@cycle.1">
+      <role xsi:type="mLmodel:Regular" name="SepalLengthCm" type="float"/>
+      <role xsi:type="mLmodel:Regular" name="SepalWidthCm" type="float"/>
+      <role xsi:type="mLmodel:Regular" name="PetalLengthCm" type="float"/>
+      <role xsi:type="mLmodel:Regular" name="PetalWidthCm" type="float"/>
+      <role xsi:type="mLmodel:Target" name="Species"/>
+      <role xsi:type="mLmodel:ID" name="Id"/>
+    </cycle>
+    <cycle xsi:type="mLmodel:KNN" after="//@process/@cycle.2" before="//@process/@cycle.0" k="4"/>
+    <cycle xsi:type="mLmodel:Cross_Validation" before="//@process/@cycle.1" f1_score="true"/>
+  </process>
+</mLmodel:Root>

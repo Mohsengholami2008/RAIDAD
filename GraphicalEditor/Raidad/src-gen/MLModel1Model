@@ -4,7 +4,6 @@ np.warnings = warnings
 import pandas as pd
 from sklearn.metrics import confusion_matrix, precision_recall_curve, roc_curve, auc
 from sklearn.model_selection import cross_validate, StratifiedKFold
-from sklearn.preprocessing import StandardScaler, RobustScaler, MinMaxScaler
 from sklearn.neighbors import KNeighborsClassifier
 
 
@@ -18,32 +17,6 @@ def read_csv(file_path):
 
 
 
-
-
-def scale_features(data, target_column, scaling_config):
-    features_to_exclude = [target_column]
-    features = data.drop(columns=features_to_exclude, axis=1, errors='ignore')
-    scaled_data = data[features_to_exclude].copy()  
-
-    for method, columns in scaling_config.items():
-        scaler = None
-        if columns:  
-            if method == "standardization":
-                scaler = StandardScaler()
-            elif method == "minmax":
-                scaler = MinMaxScaler()
-            elif method == "robust":
-                scaler = RobustScaler()
-            if scaler:
-                scaler.fit(data[columns])
-                scaled_columns = scaler.transform(data[columns])
-                scaled_data = scaled_data.join(pd.DataFrame(scaled_columns, columns=columns, index=data.index))
-
-    for col in data.columns:
-        if col not in scaled_data.columns:
-            scaled_data[col] = data[col]
-    
-    return scaled_data
 
 
 
@@ -88,11 +61,11 @@ def perform_cross_validation(X, y, classifier, cv_folds, scoring_metrics):
 
 
 
-def process_data(data=None,target_column=None, scaling_config=None, , KNN_params=None, cv_folds=None): 
+def process_data(data=None,target_column=None, KNN_params=None, cv_folds=None): 
 	executed_functions = []
 	model = None	
 
-	a =['Standardization','Normalization','KNN','Cross_Validation','invalid']
+	a =['KNN','Cross_Validation','invalid']
 
 	for letter in range (len(a)):
 
@@ -100,10 +73,6 @@ def process_data(data=None,target_column=None, scaling_config=None, , KNN_params
 
 
 
-		if a[letter] == 'scaling_config':
-			data = scale_features(data, target_column, scaling_config)
-			scaling_methods = [method for method in scaling_config if method != "exclude"]
-			executed_functions.extend(scaling_methods)
 
 
 
@@ -167,20 +136,6 @@ if __name__ == "__main__":
 
 
 
-    scaling_config = {
-
-		'standardization': ['SepalLengthCm', 'PetalLengthCm'],
-
-		'minmax': ['SepalWidthCm'],
-
-
-}
-
-
-
-
-
-
 
 
 
@@ -217,8 +172,6 @@ if __name__ == "__main__":
 
     cv_folds = 5
     scoring_metrics = {
-	    'accuracy': 'Accuracy',
-        'recall_macro': 'Recall Macro',
         'f1_macro': 'F1 Macro'
     }
 
@@ -272,43 +225,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-        scaling_config=scaling_config,
-		
 
 
 

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Raidad/src-gen/MLModel1Model&apos;" deleteContents="false" description="Delete resource &apos;Raidad/src-gen/MLModel1Model&apos;" element1="/Raidad/src-gen/MLModel1Model" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1757311868032"/>&#x0A;<refactoring comment="Delete resource &apos;Raidad/src-gen/MLModel1DataUnders&apos;" deleteContents="false" description="Delete resource &apos;Raidad/src-gen/MLModel1DataUnders&apos;" element1="/Raidad/src-gen/MLModel1DataUnders" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1757311871325"/>
+</session>
