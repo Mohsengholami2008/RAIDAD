@@ -2,100 +2,7 @@
  */
 package mLmodel.util;
 
-import mLmodel.Activation_MLP;
-import mLmodel.Alpha_MLP;
-import mLmodel.Auto_Prep;
-import mLmodel.Bar;
-import mLmodel.CSV;
-import mLmodel.CSV_Argumans;
-import mLmodel.Categories;
-import mLmodel.Classification;
-import mLmodel.Cluster_Evaluation;
-import mLmodel.Clustering;
-import mLmodel.Component;
-import mLmodel.Correlation;
-import mLmodel.Criterion_RF;
-import mLmodel.Cross_Validation;
-import mLmodel.Cycle;
-import mLmodel.DBSCAN;
-import mLmodel.Data_Understanding;
-import mLmodel.Date_Comp;
-import mLmodel.Date_to_Int;
-import mLmodel.Day;
-import mLmodel.Dime_Reduct;
-import mLmodel.Drop;
-import mLmodel.Duplicates;
-import mLmodel.Duplicates_Argumans;
-import mLmodel.Encoding;
-import mLmodel.Ensembles;
-import mLmodel.Evaluation_Methods;
-import mLmodel.Excel;
-import mLmodel.Excel_Argumans;
-import mLmodel.Fill_Value;
-import mLmodel.Handle_Unk;
-import mLmodel.HeadCSV;
-import mLmodel.Header_Ex;
-import mLmodel.Hidden_Layer_Sizes;
-import mLmodel.ID;
-import mLmodel.Import_Data;
-import mLmodel.KNN;
-import mLmodel.KNN_Argumans;
-import mLmodel.KNN_Imputer;
-import mLmodel.K_Means;
-import mLmodel.K_Medians;
-import mLmodel.Keep;
-import mLmodel.Linear_Regression;
-import mLmodel.Logistic_Regression;
-import mLmodel.MLP;
-import mLmodel.MLP_Argumans;
-import mLmodel.MLmodelPackage;
-import mLmodel.Max_Iter_MLP;
-import mLmodel.Metric;
-import mLmodel.Missing_Values;
-import mLmodel.Month;
-import mLmodel.N_Estimators_RF;
-import mLmodel.N_Neighbors;
-import mLmodel.Neural_Networks;
-import mLmodel.Normalization;
-import mLmodel.Nrows;
-import mLmodel.OPtics;
-import mLmodel.OneHot;
-import mLmodel.OneHot_Argumans;
-import mLmodel.PCA;
-import mLmodel.PCA_Argumans;
-import mLmodel.Parameters;
-import mLmodel.Parameters_DBOP;
-import mLmodel.Plots;
-import mLmodel.Preprocess;
-import mLmodel.RF_Argumans;
-import mLmodel.Random_Forest;
-import mLmodel.Random_State_MLP;
-import mLmodel.Random_State_RF;
-import mLmodel.Regression;
-import mLmodel.Regular;
-import mLmodel.Robust_Scaling;
-import mLmodel.Root;
-import mLmodel.SVM;
-import mLmodel.Scaling;
-import mLmodel.Scatter;
-import mLmodel.Sep;
-import mLmodel.Set_Role;
-import mLmodel.Sheet_Na_Excel;
-import mLmodel.Simple_Imputer;
-import mLmodel.Simple_Imputer_Arguments;
-import mLmodel.Sparse;
-import mLmodel.Standard_Deviation;
-import mLmodel.Standardization;
-import mLmodel.Statistics;
-import mLmodel.Strategy;
-import mLmodel.Target;
-
-import mLmodel.Trasformation;
-import mLmodel.Varience;
-import mLmodel.Visualization;
-import mLmodel.Voting_Classifier;
-import mLmodel.Weights;
-import mLmodel.Year;
+import mLmodel.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -1053,6 +960,72 @@ public class MLmodelSwitch<T> extends Switch<T> {
 				result = caseRegression(linear_Regression);
 			if (result == null)
 				result = caseCycle(linear_Regression);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.THING: {
+			Thing thing = (Thing) theEObject;
+			T result = caseThing(thing);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.PROTOCOL_BINDING: {
+			ProtocolBinding protocolBinding = (ProtocolBinding) theEObject;
+			T result = caseProtocolBinding(protocolBinding);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.PROPERTY: {
+			Property property = (Property) theEObject;
+			T result = caseProperty(property);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.ACTION: {
+			Action action = (Action) theEObject;
+			T result = caseAction(action);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.EVENT: {
+			Event event = (Event) theEObject;
+			T result = caseEvent(event);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.DATA_SOURCE: {
+			DataSource dataSource = (DataSource) theEObject;
+			T result = caseDataSource(dataSource);
+			if (result == null)
+				result = caseImport_Data(dataSource);
+			if (result == null)
+				result = casePreprocess(dataSource);
+			if (result == null)
+				result = caseCycle(dataSource);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.ANALYSIS_OUTPUT: {
+			AnalysisOutput analysisOutput = (AnalysisOutput) theEObject;
+			T result = caseAnalysisOutput(analysisOutput);
+			if (result == null)
+				result = caseEvaluation_Methods(analysisOutput);
+			if (result == null)
+				result = caseCycle(analysisOutput);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.ANALYSYS_TRIGER: {
+			AnalysysTriger analysysTriger = (AnalysysTriger) theEObject;
+			T result = caseAnalysysTriger(analysysTriger);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -2361,6 +2334,126 @@ public class MLmodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLinear_Regression(Linear_Regression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Thing</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Thing</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseThing(Thing object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Protocol Binding</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Protocol Binding</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProtocolBinding(ProtocolBinding object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProperty(Property object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAction(Action object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEvent(Event object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Source</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataSource(DataSource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Analysis Output</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Analysis Output</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalysisOutput(AnalysisOutput object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Analysys Triger</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Analysys Triger</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalysysTriger(AnalysysTriger object) {
 		return null;
 	}
 

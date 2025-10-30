@@ -2,17 +2,22 @@
  */
 package mLmodel.impl;
 
+import java.util.Collection;
 import mLmodel.MLmodelPackage;
 import mLmodel.Root;
 
+import mLmodel.Thing;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link mLmodel.impl.RootImpl#getName <em>Name</em>}</li>
  *   <li>{@link mLmodel.impl.RootImpl#getProcess <em>Process</em>}</li>
+ *   <li>{@link mLmodel.impl.RootImpl#getThing <em>Thing</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +64,16 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @ordered
 	 */
 	protected mLmodel.Process process;
+
+	/**
+	 * The cached value of the '{@link #getThing() <em>Thing</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getThing()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Thing> thing;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,11 +170,25 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Thing> getThing() {
+		if (thing == null) {
+			thing = new EObjectContainmentEList<Thing>(Thing.class, this, MLmodelPackage.ROOT__THING);
+		}
+		return thing;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case MLmodelPackage.ROOT__PROCESS:
 			return basicSetProcess(null, msgs);
+		case MLmodelPackage.ROOT__THING:
+			return ((InternalEList<?>) getThing()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -175,6 +205,8 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 			return getName();
 		case MLmodelPackage.ROOT__PROCESS:
 			return getProcess();
+		case MLmodelPackage.ROOT__THING:
+			return getThing();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,6 +216,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -192,6 +225,10 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 			return;
 		case MLmodelPackage.ROOT__PROCESS:
 			setProcess((mLmodel.Process) newValue);
+			return;
+		case MLmodelPackage.ROOT__THING:
+			getThing().clear();
+			getThing().addAll((Collection<? extends Thing>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -211,6 +248,9 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 		case MLmodelPackage.ROOT__PROCESS:
 			setProcess((mLmodel.Process) null);
 			return;
+		case MLmodelPackage.ROOT__THING:
+			getThing().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -227,6 +267,8 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case MLmodelPackage.ROOT__PROCESS:
 			return process != null;
+		case MLmodelPackage.ROOT__THING:
+			return thing != null && !thing.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

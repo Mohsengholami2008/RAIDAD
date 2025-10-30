@@ -2,99 +2,7 @@
  */
 package mLmodel.util;
 
-import mLmodel.Activation_MLP;
-import mLmodel.Alpha_MLP;
-import mLmodel.Auto_Prep;
-import mLmodel.Bar;
-import mLmodel.CSV;
-import mLmodel.CSV_Argumans;
-import mLmodel.Categories;
-import mLmodel.Classification;
-import mLmodel.Cluster_Evaluation;
-import mLmodel.Clustering;
-import mLmodel.Component;
-import mLmodel.Correlation;
-import mLmodel.Criterion_RF;
-import mLmodel.Cross_Validation;
-import mLmodel.Cycle;
-import mLmodel.DBSCAN;
-import mLmodel.Data_Understanding;
-import mLmodel.Date_Comp;
-import mLmodel.Date_to_Int;
-import mLmodel.Day;
-import mLmodel.Dime_Reduct;
-import mLmodel.Drop;
-import mLmodel.Duplicates;
-import mLmodel.Duplicates_Argumans;
-import mLmodel.Encoding;
-import mLmodel.Ensembles;
-import mLmodel.Evaluation_Methods;
-import mLmodel.Excel;
-import mLmodel.Excel_Argumans;
-import mLmodel.Fill_Value;
-import mLmodel.Handle_Unk;
-import mLmodel.HeadCSV;
-import mLmodel.Header_Ex;
-import mLmodel.Hidden_Layer_Sizes;
-import mLmodel.ID;
-import mLmodel.Import_Data;
-import mLmodel.KNN;
-import mLmodel.KNN_Argumans;
-import mLmodel.KNN_Imputer;
-import mLmodel.K_Means;
-import mLmodel.K_Medians;
-import mLmodel.Keep;
-import mLmodel.Linear_Regression;
-import mLmodel.Logistic_Regression;
-import mLmodel.MLP;
-import mLmodel.MLP_Argumans;
-import mLmodel.MLmodelPackage;
-import mLmodel.Max_Iter_MLP;
-import mLmodel.Metric;
-import mLmodel.Missing_Values;
-import mLmodel.Month;
-import mLmodel.N_Estimators_RF;
-import mLmodel.N_Neighbors;
-import mLmodel.Neural_Networks;
-import mLmodel.Normalization;
-import mLmodel.Nrows;
-import mLmodel.OPtics;
-import mLmodel.OneHot;
-import mLmodel.OneHot_Argumans;
-import mLmodel.PCA;
-import mLmodel.PCA_Argumans;
-import mLmodel.Parameters;
-import mLmodel.Parameters_DBOP;
-import mLmodel.Plots;
-import mLmodel.Preprocess;
-import mLmodel.RF_Argumans;
-import mLmodel.Random_Forest;
-import mLmodel.Random_State_MLP;
-import mLmodel.Random_State_RF;
-import mLmodel.Regression;
-import mLmodel.Regular;
-import mLmodel.Robust_Scaling;
-import mLmodel.Root;
-import mLmodel.SVM;
-import mLmodel.Scaling;
-import mLmodel.Scatter;
-import mLmodel.Sep;
-import mLmodel.Set_Role;
-import mLmodel.Sheet_Na_Excel;
-import mLmodel.Simple_Imputer;
-import mLmodel.Simple_Imputer_Arguments;
-import mLmodel.Sparse;
-import mLmodel.Standard_Deviation;
-import mLmodel.Standardization;
-import mLmodel.Statistics;
-import mLmodel.Strategy;
-import mLmodel.Target;
-import mLmodel.Trasformation;
-import mLmodel.Varience;
-import mLmodel.Visualization;
-import mLmodel.Voting_Classifier;
-import mLmodel.Weights;
-import mLmodel.Year;
+import mLmodel.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -620,6 +528,46 @@ public class MLmodelAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseLinear_Regression(Linear_Regression object) {
 			return createLinear_RegressionAdapter();
+		}
+
+		@Override
+		public Adapter caseThing(Thing object) {
+			return createThingAdapter();
+		}
+
+		@Override
+		public Adapter caseProtocolBinding(ProtocolBinding object) {
+			return createProtocolBindingAdapter();
+		}
+
+		@Override
+		public Adapter caseProperty(Property object) {
+			return createPropertyAdapter();
+		}
+
+		@Override
+		public Adapter caseAction(Action object) {
+			return createActionAdapter();
+		}
+
+		@Override
+		public Adapter caseEvent(Event object) {
+			return createEventAdapter();
+		}
+
+		@Override
+		public Adapter caseDataSource(DataSource object) {
+			return createDataSourceAdapter();
+		}
+
+		@Override
+		public Adapter caseAnalysisOutput(AnalysisOutput object) {
+			return createAnalysisOutputAdapter();
+		}
+
+		@Override
+		public Adapter caseAnalysysTriger(AnalysysTriger object) {
+			return createAnalysysTrigerAdapter();
 		}
 
 		@Override
@@ -1842,6 +1790,118 @@ public class MLmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLinear_RegressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Thing <em>Thing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Thing
+	 * @generated
+	 */
+	public Adapter createThingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.ProtocolBinding <em>Protocol Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.ProtocolBinding
+	 * @generated
+	 */
+	public Adapter createProtocolBindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Property
+	 * @generated
+	 */
+	public Adapter createPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Action
+	 * @generated
+	 */
+	public Adapter createActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Event <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Event
+	 * @generated
+	 */
+	public Adapter createEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.DataSource <em>Data Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.DataSource
+	 * @generated
+	 */
+	public Adapter createDataSourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.AnalysisOutput <em>Analysis Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.AnalysisOutput
+	 * @generated
+	 */
+	public Adapter createAnalysisOutputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.AnalysysTriger <em>Analysys Triger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.AnalysysTriger
+	 * @generated
+	 */
+	public Adapter createAnalysysTrigerAdapter() {
 		return null;
 	}
 

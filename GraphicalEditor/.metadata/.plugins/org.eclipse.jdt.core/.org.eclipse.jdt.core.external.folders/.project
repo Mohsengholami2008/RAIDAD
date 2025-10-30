@@ -15,9 +15,14 @@
 			<location>C:/RAIDAD/MLmodel/bin</location>
 		</link>
 		<link>
-			<name>.link2</name>
+			<name>.link4</name>
 			<type>2</type>
 			<location>C:/RAIDAD/MLmodel</location>
+		</link>
+		<link>
+			<name>.link5</name>
+			<type>2</type>
+			<location>C:/RAIDAD/MLmodel.editor</location>
 		</link>
 	</linkedResources>
 </projectDescription>

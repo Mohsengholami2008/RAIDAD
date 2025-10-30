@@ -1,0 +1,26 @@
+Signature-Version: 1.0
+Created-By: 17.0.8.1 (Eclipse Adoptium)
+SHA-256-Digest-Manifest: 4t4xoi1fU0Y3voJD5DCKsxlhs+ASPtGV7hqkDvLtwp0=
+SHA-256-Digest-Manifest-Main-Attributes: QSykm5QY/UukMjqoZTsTu+PXv64Mewb
+ 4a2+ZbITSBiY=
+
+Name: plugin.xml
+SHA-256-Digest: oSwQz/haSdHEk+7MkwyPXPTh0C3Qe2Y1z9Qh0GckJqY=
+
+Name: refactoring.jar
+SHA-256-Digest: l8LOLA4/r/0Fszm+0bJJcMqNKTQqbKJO7sszilsfvfo=
+
+Name: META-INF/maven/org.python.pydev/com.python.pydev.refactoring/pom.x
+ ml
+SHA-256-Digest: pM+Z4lu1jx0PlZ1l33zZS1thnEC6FjS+xzGD+5ku+N4=
+
+Name: META-INF/maven/org.python.pydev/com.python.pydev.refactoring/pom.p
+ roperties
+SHA-256-Digest: +9MZa5Dh6nH/CMBBkqEMFePHlksIWF9Mv4+IVMXvr4Q=
+
+Name: LICENSE.TXT
+SHA-256-Digest: mtk2pu43aWF40oMq/sr3cRMcILygEgrX4KgNzXYsnaA=
+
+Name: plugin.properties
+SHA-256-Digest: CZtGArx9vvylva6sv96XsEua/NkI5XitagSDGf8uY2Q=
+

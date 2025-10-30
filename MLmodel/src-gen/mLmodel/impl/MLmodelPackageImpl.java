@@ -1,107 +1,6 @@
 package mLmodel.impl;
 
-import mLmodel.Activation_MLP;
-import mLmodel.Alpha_MLP;
-import mLmodel.Attribiutes_Type;
-import mLmodel.Auto_Prep;
-import mLmodel.Bar;
-import mLmodel.CSV_Argumans;
-import mLmodel.Categories;
-import mLmodel.Classification;
-import mLmodel.Cluster_Evaluation;
-import mLmodel.Clustering;
-import mLmodel.Component;
-import mLmodel.Correlation;
-import mLmodel.Criterion_RF;
-import mLmodel.Cross_Validation;
-import mLmodel.Cycle;
-import mLmodel.Data_Understanding;
-import mLmodel.Date_Comp;
-import mLmodel.Date_to_Int;
-import mLmodel.Day;
-import mLmodel.Dime_Reduct;
-import mLmodel.Drop;
-import mLmodel.Dup_Arg_Keep;
-import mLmodel.Duplicates;
-import mLmodel.Duplicates_Argumans;
-import mLmodel.Encoding;
-import mLmodel.Ensembles;
-import mLmodel.Enum_CSV_Sep;
-import mLmodel.Evaluation_Methods;
-import mLmodel.Excel;
-import mLmodel.Excel_Argumans;
-import mLmodel.Fill_Value;
-import mLmodel.Handle_Unk;
-import mLmodel.HeadCSV;
-import mLmodel.Header_Ex;
-import mLmodel.Hidden_Layer_Sizes;
-import mLmodel.Import_Data;
-import mLmodel.KNN_Argumans;
-import mLmodel.KNN_Imputer;
-import mLmodel.KNN_Imputer_Weights;
-import mLmodel.K_Means;
-import mLmodel.K_Medians;
-import mLmodel.Keep;
-import mLmodel.Library_Clustering;
-import mLmodel.Linear_Regression;
-import mLmodel.Logistic_Regression;
-import mLmodel.MLP_Argumans;
-import mLmodel.MLmodelFactory;
-import mLmodel.MLmodelPackage;
-import mLmodel.Max_Iter_MLP;
-import mLmodel.Metric;
-import mLmodel.Metric_DBSCAN;
-import mLmodel.Missing_Values;
-import mLmodel.Month;
-import mLmodel.N_Estimators_RF;
-import mLmodel.N_Neighbors;
-import mLmodel.Neural_Libraries;
-import mLmodel.Neural_Network_Activation;
-import mLmodel.Neural_Networks;
-import mLmodel.Normalization;
-import mLmodel.Nrows;
-import mLmodel.OPtics;
-import mLmodel.OneHot;
-import mLmodel.OneHot_Argumans;
-import mLmodel.OneHot_Cat_Arg;
-import mLmodel.OneHot_Drop_Arg;
-import mLmodel.OneHot_HandleUn_Arg;
-import mLmodel.PCA_Argumans;
-import mLmodel.Parameters;
-import mLmodel.Parameters_DBOP;
-import mLmodel.Plots;
-import mLmodel.Preprocess;
-import mLmodel.RF_Argumans;
-import mLmodel.Random_Forest;
-import mLmodel.Random_Forest_Criterion_Enum;
-import mLmodel.Random_State_MLP;
-import mLmodel.Random_State_RF;
-import mLmodel.Regression;
-import mLmodel.Regular;
-import mLmodel.Robust_Scaling;
-import mLmodel.Root;
-import mLmodel.SVM_Kernel_Enum;
-import mLmodel.Scaling;
-import mLmodel.Scatter;
-import mLmodel.Sep;
-import mLmodel.Set_Role;
-import mLmodel.Sheet_Na_Excel;
-import mLmodel.Simple_Imputer;
-import mLmodel.Simple_Imputer_Arguments;
-import mLmodel.Sparse;
-import mLmodel.Standard_Deviation;
-import mLmodel.Standardization;
-import mLmodel.Statistics;
-import mLmodel.Strategy;
-import mLmodel.Strategy_Simple_Imputer;
-import mLmodel.Target;
-import mLmodel.Trasformation;
-import mLmodel.Varience;
-import mLmodel.Visualization;
-import mLmodel.Voting_Classifier;
-import mLmodel.Weights;
-import mLmodel.Year;
-import mLmodel.voting_pred;
+import mLmodel.*;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -773,6 +672,62 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass thingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass protocolBindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass eventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataSourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass analysisOutputEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass analysysTrigerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum enum_CSV_SepEEnum = null;
 
 	/**
@@ -874,6 +829,20 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	private EEnum knN_Imputer_WeightsEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum trigerEnumEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum protocolBindingEnumEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -972,6 +941,15 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRoot_Thing() {
+		return (EReference) rootEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProcess() {
 		return processEClass;
 	}
@@ -1001,6 +979,15 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	 */
 	public EReference getProcess_Data_understanding() {
 		return (EReference) processEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcess_Analysystriger() {
+		return (EReference) processEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2637,6 +2624,393 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getThing() {
+		return thingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThing_Protocolbinding() {
+		return (EReference) thingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThing_Property() {
+		return (EReference) thingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThing_Action() {
+		return (EReference) thingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThing_Event() {
+		return (EReference) thingEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getThing_Id() {
+		return (EAttribute) thingEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getThing_Title() {
+		return (EAttribute) thingEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getThing_Description() {
+		return (EAttribute) thingEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getThing_BaseURI() {
+		return (EAttribute) thingEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProtocolBinding() {
+		return protocolBindingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProtocolBinding_Protocol() {
+		return (EAttribute) protocolBindingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProtocolBinding_Endpoint() {
+		return (EAttribute) protocolBindingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProperty() {
+		return propertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProperty_Datasource() {
+		return (EReference) propertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_Name() {
+		return (EAttribute) propertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_Type() {
+		return (EAttribute) propertyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_ReadOnly() {
+		return (EAttribute) propertyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_WriteOnly() {
+		return (EAttribute) propertyEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_Observable() {
+		return (EAttribute) propertyEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAction() {
+		return actionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_Name() {
+		return (EAttribute) actionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_Input() {
+		return (EAttribute) actionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_Output() {
+		return (EAttribute) actionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_Description() {
+		return (EAttribute) actionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEvent() {
+		return eventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEvent_Analysystriger() {
+		return (EReference) eventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEvent_Name() {
+		return (EAttribute) eventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEvent_Data() {
+		return (EAttribute) eventEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEvent_Subscription() {
+		return (EAttribute) eventEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataSource() {
+		return dataSourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataSource_Name() {
+		return (EAttribute) dataSourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataSource_Type() {
+		return (EAttribute) dataSourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataSource_SourceURI() {
+		return (EAttribute) dataSourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataSource_Format() {
+		return (EAttribute) dataSourceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnalysisOutput() {
+		return analysisOutputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAnalysisOutput_Action() {
+		return (EReference) analysisOutputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnalysisOutput_ResultValue() {
+		return (EAttribute) analysisOutputEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnalysisOutput_ResultType() {
+		return (EAttribute) analysisOutputEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnalysisOutput_Timestamp() {
+		return (EAttribute) analysisOutputEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnalysysTriger() {
+		return analysysTrigerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnalysysTriger_TriggerType() {
+		return (EAttribute) analysysTrigerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnalysysTriger_Condition() {
+		return (EAttribute) analysysTrigerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnalysysTriger_Schedule() {
+		return (EAttribute) analysysTrigerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEnum_CSV_Sep() {
 		return enum_CSV_SepEEnum;
 	}
@@ -2772,6 +3146,24 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getTrigerEnum() {
+		return trigerEnumEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProtocolBindingEnum() {
+		return protocolBindingEnumEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MLmodelFactory getMLmodelFactory() {
 		return (MLmodelFactory) getEFactoryInstance();
 	}
@@ -2799,11 +3191,13 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		rootEClass = createEClass(ROOT);
 		createEAttribute(rootEClass, ROOT__NAME);
 		createEReference(rootEClass, ROOT__PROCESS);
+		createEReference(rootEClass, ROOT__THING);
 
 		processEClass = createEClass(PROCESS);
 		createEAttribute(processEClass, PROCESS__FILE_PATH);
 		createEReference(processEClass, PROCESS__CYCLE);
 		createEReference(processEClass, PROCESS__DATA_UNDERSTANDING);
+		createEReference(processEClass, PROCESS__ANALYSYSTRIGER);
 
 		cycleEClass = createEClass(CYCLE);
 		createEReference(cycleEClass, CYCLE__AFTER);
@@ -3077,6 +3471,57 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 
 		linear_RegressionEClass = createEClass(LINEAR_REGRESSION);
 
+		thingEClass = createEClass(THING);
+		createEReference(thingEClass, THING__PROTOCOLBINDING);
+		createEReference(thingEClass, THING__PROPERTY);
+		createEReference(thingEClass, THING__ACTION);
+		createEReference(thingEClass, THING__EVENT);
+		createEAttribute(thingEClass, THING__ID);
+		createEAttribute(thingEClass, THING__TITLE);
+		createEAttribute(thingEClass, THING__DESCRIPTION);
+		createEAttribute(thingEClass, THING__BASE_URI);
+
+		protocolBindingEClass = createEClass(PROTOCOL_BINDING);
+		createEAttribute(protocolBindingEClass, PROTOCOL_BINDING__PROTOCOL);
+		createEAttribute(protocolBindingEClass, PROTOCOL_BINDING__ENDPOINT);
+
+		propertyEClass = createEClass(PROPERTY);
+		createEReference(propertyEClass, PROPERTY__DATASOURCE);
+		createEAttribute(propertyEClass, PROPERTY__NAME);
+		createEAttribute(propertyEClass, PROPERTY__TYPE);
+		createEAttribute(propertyEClass, PROPERTY__READ_ONLY);
+		createEAttribute(propertyEClass, PROPERTY__WRITE_ONLY);
+		createEAttribute(propertyEClass, PROPERTY__OBSERVABLE);
+
+		actionEClass = createEClass(ACTION);
+		createEAttribute(actionEClass, ACTION__NAME);
+		createEAttribute(actionEClass, ACTION__INPUT);
+		createEAttribute(actionEClass, ACTION__OUTPUT);
+		createEAttribute(actionEClass, ACTION__DESCRIPTION);
+
+		eventEClass = createEClass(EVENT);
+		createEReference(eventEClass, EVENT__ANALYSYSTRIGER);
+		createEAttribute(eventEClass, EVENT__NAME);
+		createEAttribute(eventEClass, EVENT__DATA);
+		createEAttribute(eventEClass, EVENT__SUBSCRIPTION);
+
+		dataSourceEClass = createEClass(DATA_SOURCE);
+		createEAttribute(dataSourceEClass, DATA_SOURCE__NAME);
+		createEAttribute(dataSourceEClass, DATA_SOURCE__TYPE);
+		createEAttribute(dataSourceEClass, DATA_SOURCE__SOURCE_URI);
+		createEAttribute(dataSourceEClass, DATA_SOURCE__FORMAT);
+
+		analysisOutputEClass = createEClass(ANALYSIS_OUTPUT);
+		createEReference(analysisOutputEClass, ANALYSIS_OUTPUT__ACTION);
+		createEAttribute(analysisOutputEClass, ANALYSIS_OUTPUT__RESULT_VALUE);
+		createEAttribute(analysisOutputEClass, ANALYSIS_OUTPUT__RESULT_TYPE);
+		createEAttribute(analysisOutputEClass, ANALYSIS_OUTPUT__TIMESTAMP);
+
+		analysysTrigerEClass = createEClass(ANALYSYS_TRIGER);
+		createEAttribute(analysysTrigerEClass, ANALYSYS_TRIGER__TRIGGER_TYPE);
+		createEAttribute(analysysTrigerEClass, ANALYSYS_TRIGER__CONDITION);
+		createEAttribute(analysysTrigerEClass, ANALYSYS_TRIGER__SCHEDULE);
+
 		// Create enums
 		enum_CSV_SepEEnum = createEEnum(ENUM_CSV_SEP);
 		strategy_Simple_ImputerEEnum = createEEnum(STRATEGY_SIMPLE_IMPUTER);
@@ -3093,6 +3538,8 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		metric_DBSCANEEnum = createEEnum(METRIC_DBSCAN);
 		attribiutes_TypeEEnum = createEEnum(ATTRIBIUTES_TYPE);
 		knN_Imputer_WeightsEEnum = createEEnum(KNN_IMPUTER_WEIGHTS);
+		trigerEnumEEnum = createEEnum(TRIGER_ENUM);
+		protocolBindingEnumEEnum = createEEnum(PROTOCOL_BINDING_ENUM);
 	}
 
 	/**
@@ -3204,12 +3651,17 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		standard_DeviationEClass.getESuperTypes().add(this.getData_Understanding());
 		barEClass.getESuperTypes().add(this.getPlots());
 		linear_RegressionEClass.getESuperTypes().add(this.getRegression());
+		dataSourceEClass.getESuperTypes().add(this.getImport_Data());
+		analysisOutputEClass.getESuperTypes().add(this.getEvaluation_Methods());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRoot_Name(), theXMLTypePackage.getString(), "name", "MLModel", 0, 1, Root.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoot_Process(), this.getProcess(), null, "process", null, 0, 1, Root.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getRoot_Thing(), this.getThing(), null, "thing", null, 0, -1, Root.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
@@ -3224,6 +3676,9 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		initEReference(getProcess_Data_understanding(), this.getData_Understanding(), null, "data_understanding", null,
 				0, -1, mLmodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcess_Analysystriger(), this.getAnalysysTriger(), null, "analysystriger", null, 0, -1,
+				mLmodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cycleEClass, Cycle.class, "Cycle", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCycle_After(), this.getCycle(), this.getCycle_Before(), "after", null, 0, 1, Cycle.class,
@@ -3711,6 +4166,114 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		initEClass(linear_RegressionEClass, Linear_Regression.class, "Linear_Regression", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(thingEClass, Thing.class, "Thing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getThing_Protocolbinding(), this.getProtocolBinding(), null, "protocolbinding", null, 0, -1,
+				Thing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThing_Property(), this.getProperty(), null, "property", null, 0, -1, Thing.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThing_Action(), this.getAction(), null, "action", null, 0, -1, Thing.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getThing_Event(), this.getEvent(), null, "event", null, 0, -1, Thing.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getThing_Id(), theXMLTypePackage.getString(), "id", null, 0, 1, Thing.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getThing_Title(), theXMLTypePackage.getString(), "title", null, 0, 1, Thing.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getThing_Description(), theXMLTypePackage.getString(), "description", null, 0, 1, Thing.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getThing_BaseURI(), theXMLTypePackage.getString(), "baseURI", null, 0, 1, Thing.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(protocolBindingEClass, ProtocolBinding.class, "ProtocolBinding", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProtocolBinding_Protocol(), this.getProtocolBindingEnum(), "protocol", null, 0, 1,
+				ProtocolBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProtocolBinding_Endpoint(), theXMLTypePackage.getString(), "endpoint", null, 0, 1,
+				ProtocolBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProperty_Datasource(), this.getDataSource(), null, "datasource", null, 0, 1, Property.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, Property.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_Type(), theXMLTypePackage.getString(), "type", null, 0, 1, Property.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_ReadOnly(), theXMLTypePackage.getBoolean(), "readOnly", null, 0, 1, Property.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_WriteOnly(), theXMLTypePackage.getBoolean(), "writeOnly", null, 0, 1, Property.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_Observable(), theXMLTypePackage.getBoolean(), "observable", null, 0, 1,
+				Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAction_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, Action.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAction_Input(), theXMLTypePackage.getString(), "input", null, 0, 1, Action.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAction_Output(), theXMLTypePackage.getString(), "output", null, 0, 1, Action.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAction_Description(), theXMLTypePackage.getString(), "description", null, 0, 1, Action.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEvent_Analysystriger(), this.getAnalysysTriger(), null, "analysystriger", null, 0, 1,
+				Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvent_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, Event.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvent_Data(), theXMLTypePackage.getString(), "data", null, 0, 1, Event.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvent_Subscription(), theXMLTypePackage.getBoolean(), "subscription", null, 0, 1, Event.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataSourceEClass, DataSource.class, "DataSource", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataSource_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, DataSource.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSource_Type(), theXMLTypePackage.getString(), "type", null, 0, 1, DataSource.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSource_SourceURI(), theXMLTypePackage.getString(), "sourceURI", null, 0, 1,
+				DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSource_Format(), theXMLTypePackage.getString(), "format", null, 0, 1, DataSource.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(analysisOutputEClass, AnalysisOutput.class, "AnalysisOutput", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnalysisOutput_Action(), this.getAction(), null, "action", null, 0, 1, AnalysisOutput.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysisOutput_ResultValue(), theXMLTypePackage.getString(), "resultValue", null, 0, 1,
+				AnalysisOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysisOutput_ResultType(), theXMLTypePackage.getString(), "resultType", null, 0, 1,
+				AnalysisOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysisOutput_Timestamp(), theXMLTypePackage.getDateTime(), "timestamp", null, 0, 1,
+				AnalysisOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(analysysTrigerEClass, AnalysysTriger.class, "AnalysysTriger", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnalysysTriger_TriggerType(), this.getTrigerEnum(), "triggerType", null, 0, 1,
+				AnalysysTriger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysysTriger_Condition(), theXMLTypePackage.getString(), "condition", null, 0, 1,
+				AnalysysTriger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysysTriger_Schedule(), theXMLTypePackage.getString(), "schedule", null, 0, 1,
+				AnalysysTriger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(enum_CSV_SepEEnum, Enum_CSV_Sep.class, "Enum_CSV_Sep");
 		addEEnumLiteral(enum_CSV_SepEEnum, Enum_CSV_Sep.COLON);
@@ -3792,6 +4355,16 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		initEEnum(knN_Imputer_WeightsEEnum, KNN_Imputer_Weights.class, "KNN_Imputer_Weights");
 		addEEnumLiteral(knN_Imputer_WeightsEEnum, KNN_Imputer_Weights.UNIFORM);
 		addEEnumLiteral(knN_Imputer_WeightsEEnum, KNN_Imputer_Weights.DISTANCE);
+
+		initEEnum(trigerEnumEEnum, TrigerEnum.class, "TrigerEnum");
+		addEEnumLiteral(trigerEnumEEnum, TrigerEnum.EVENT);
+		addEEnumLiteral(trigerEnumEEnum, TrigerEnum.TIMER);
+		addEEnumLiteral(trigerEnumEEnum, TrigerEnum.DATA_UPDATE);
+
+		initEEnum(protocolBindingEnumEEnum, ProtocolBindingEnum.class, "ProtocolBindingEnum");
+		addEEnumLiteral(protocolBindingEnumEEnum, ProtocolBindingEnum.HTTP);
+		addEEnumLiteral(protocolBindingEnumEEnum, ProtocolBindingEnum.MQTT);
+		addEEnumLiteral(protocolBindingEnumEEnum, ProtocolBindingEnum.CO_AP);
 
 		// Create resource
 		createResource(eNS_URI);

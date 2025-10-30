@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mLmodel:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mLmodel="http://www.example.org/mLmodel" name="MLModel1">
+  <process file_path="C:\Users\ShemrounShop\Desktop\datasets\IRIS\Iris.csv">
+    <cycle xsi:type="mLmodel:CSV" after="//@process/@cycle.1">
+      <role xsi:type="mLmodel:Regular" name="Id" type="integer"/>
+      <role xsi:type="mLmodel:Regular" name="SepalLengthCm" type="float"/>
+      <role xsi:type="mLmodel:Regular" name="SepalWidthCm" type="float"/>
+      <role xsi:type="mLmodel:Regular" name="PetalLengthCm" type="float"/>
+      <role xsi:type="mLmodel:Regular" name="PetalWidthCm" type="float"/>
+      <role xsi:type="mLmodel:Regular" name="Species" type="categorical"/>
+    </cycle>
+    <cycle xsi:type="mLmodel:Standardization" before="//@process/@cycle.0" regular="//@process/@cycle.0/@role.1 //@process/@cycle.0/@role.2 //@process/@cycle.0/@role.3 //@process/@cycle.0/@role.4"/>
+  </process>
+</mLmodel:Root>

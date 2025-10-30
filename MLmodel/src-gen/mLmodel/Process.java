@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link mLmodel.Process#getFile_path <em>File path</em>}</li>
  *   <li>{@link mLmodel.Process#getCycle <em>Cycle</em>}</li>
  *   <li>{@link mLmodel.Process#getData_understanding <em>Data understanding</em>}</li>
+ *   <li>{@link mLmodel.Process#getAnalysystriger <em>Analysystriger</em>}</li>
  * </ul>
  *
  * @see mLmodel.MLmodelPackage#getProcess()
@@ -70,5 +71,17 @@ public interface Process extends EObject {
 	 * @generated
 	 */
 	EList<Data_Understanding> getData_understanding();
+
+	/**
+	 * Returns the value of the '<em><b>Analysystriger</b></em>' containment reference list.
+	 * The list contents are of type {@link mLmodel.AnalysysTriger}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Analysystriger</em>' containment reference list.
+	 * @see mLmodel.MLmodelPackage#getProcess_Analysystriger()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<AnalysysTriger> getAnalysystriger();
 
 } // Process

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mLmodel:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mLmodel="http://www.example.org/mLmodel" name="MLModel1">
+  <process file_path="C:\Users\ShemrounShop\Desktop\dataset\iris.csv">
+    <cycle xsi:type="mLmodel:CSV" after="//@process/@cycle.1">
+      <role xsi:type="mLmodel:Regular" name="SepalLengthCm" type="float"/>
+      <role xsi:type="mLmodel:Regular" name="SepalWidthCm" type="float"/>
+      <role xsi:type="mLmodel:Regular" name="PetalLengthCm" type="float"/>
+      <role xsi:type="mLmodel:Regular" name="PetalWidthCm" type="float"/>
+      <role xsi:type="mLmodel:ID" name="Species"/>
+    </cycle>
+    <cycle xsi:type="mLmodel:Duplicates" after="//@process/@cycle.2" before="//@process/@cycle.0">
+      <duplicates_argumans xsi:type="mLmodel:Keep"/>
+    </cycle>
+    <cycle xsi:type="mLmodel:Simple_Imputer" after="//@process/@cycle.3" before="//@process/@cycle.1" regular="//@process/@cycle.0/@role.1 //@process/@cycle.0/@role.2 //@process/@cycle.0/@role.3">
+      <simple_imputer_arguments xsi:type="mLmodel:Strategy"/>
+    </cycle>
+    <cycle xsi:type="mLmodel:Simple_Imputer" after="//@process/@cycle.4" before="//@process/@cycle.2" regular="//@process/@cycle.0/@role.0">
+      <simple_imputer_arguments xsi:type="mLmodel:Strategy" default_value_sim_str="median"/>
+    </cycle>
+    <cycle xsi:type="mLmodel:DBSCAN" after="//@process/@cycle.5" before="//@process/@cycle.3" library="pyclustering"/>
+    <cycle xsi:type="mLmodel:Cluster_Evaluation" before="//@process/@cycle.4" cluster_sizes="true" cluster_centers_features="true" cluster_centers_standard_deviation="true" cluster_centers="true"/>
+  </process>
+</mLmodel:Root>

@@ -1,7 +1,10 @@
 package mLmodel.impl;
 
+import mLmodel.Action;
 import mLmodel.Activation_MLP;
 import mLmodel.Alpha_MLP;
+import mLmodel.AnalysisOutput;
+import mLmodel.AnalysysTriger;
 import mLmodel.Attribiutes_Type;
 import mLmodel.Auto_Prep;
 import mLmodel.Bar;
@@ -13,12 +16,14 @@ import mLmodel.Correlation;
 import mLmodel.Criterion_RF;
 import mLmodel.Cross_Validation;
 import mLmodel.DBSCAN;
+import mLmodel.DataSource;
 import mLmodel.Date_to_Int;
 import mLmodel.Day;
 import mLmodel.Drop;
 import mLmodel.Dup_Arg_Keep;
 import mLmodel.Duplicates;
 import mLmodel.Enum_CSV_Sep;
+import mLmodel.Event;
 import mLmodel.Excel;
 import mLmodel.Fill_Value;
 import mLmodel.Handle_Unk;
@@ -55,6 +60,9 @@ import mLmodel.OneHot_Cat_Arg;
 import mLmodel.OneHot_Drop_Arg;
 import mLmodel.OneHot_HandleUn_Arg;
 import mLmodel.PCA;
+import mLmodel.Property;
+import mLmodel.ProtocolBinding;
+import mLmodel.ProtocolBindingEnum;
 import mLmodel.Random_Forest;
 import mLmodel.Random_Forest_Criterion_Enum;
 import mLmodel.Random_State_MLP;
@@ -75,6 +83,8 @@ import mLmodel.Statistics;
 import mLmodel.Strategy;
 import mLmodel.Strategy_Simple_Imputer;
 import mLmodel.Target;
+import mLmodel.Thing;
+import mLmodel.TrigerEnum;
 import mLmodel.Varience;
 import mLmodel.Visualization;
 import mLmodel.Voting_Classifier;
@@ -262,6 +272,22 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 			return createBar();
 		case MLmodelPackage.LINEAR_REGRESSION:
 			return createLinear_Regression();
+		case MLmodelPackage.THING:
+			return createThing();
+		case MLmodelPackage.PROTOCOL_BINDING:
+			return createProtocolBinding();
+		case MLmodelPackage.PROPERTY:
+			return createProperty();
+		case MLmodelPackage.ACTION:
+			return createAction();
+		case MLmodelPackage.EVENT:
+			return createEvent();
+		case MLmodelPackage.DATA_SOURCE:
+			return createDataSource();
+		case MLmodelPackage.ANALYSIS_OUTPUT:
+			return createAnalysisOutput();
+		case MLmodelPackage.ANALYSYS_TRIGER:
+			return createAnalysysTriger();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -305,6 +331,10 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 			return createAttribiutes_TypeFromString(eDataType, initialValue);
 		case MLmodelPackage.KNN_IMPUTER_WEIGHTS:
 			return createKNN_Imputer_WeightsFromString(eDataType, initialValue);
+		case MLmodelPackage.TRIGER_ENUM:
+			return createTrigerEnumFromString(eDataType, initialValue);
+		case MLmodelPackage.PROTOCOL_BINDING_ENUM:
+			return createProtocolBindingEnumFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -348,6 +378,10 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 			return convertAttribiutes_TypeToString(eDataType, instanceValue);
 		case MLmodelPackage.KNN_IMPUTER_WEIGHTS:
 			return convertKNN_Imputer_WeightsToString(eDataType, instanceValue);
+		case MLmodelPackage.TRIGER_ENUM:
+			return convertTrigerEnumToString(eDataType, instanceValue);
+		case MLmodelPackage.PROTOCOL_BINDING_ENUM:
+			return convertProtocolBindingEnumToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -1008,6 +1042,86 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Thing createThing() {
+		ThingImpl thing = new ThingImpl();
+		return thing;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProtocolBinding createProtocolBinding() {
+		ProtocolBindingImpl protocolBinding = new ProtocolBindingImpl();
+		return protocolBinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Property createProperty() {
+		PropertyImpl property = new PropertyImpl();
+		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action createAction() {
+		ActionImpl action = new ActionImpl();
+		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Event createEvent() {
+		EventImpl event = new EventImpl();
+		return event;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataSource createDataSource() {
+		DataSourceImpl dataSource = new DataSourceImpl();
+		return dataSource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalysisOutput createAnalysisOutput() {
+		AnalysisOutputImpl analysisOutput = new AnalysisOutputImpl();
+		return analysisOutput;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalysysTriger createAnalysysTriger() {
+		AnalysysTrigerImpl analysysTriger = new AnalysysTrigerImpl();
+		return analysysTriger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Enum_CSV_Sep createEnum_CSV_SepFromString(EDataType eDataType, String initialValue) {
 		Enum_CSV_Sep result = Enum_CSV_Sep.get(initialValue);
 		if (result == null)
@@ -1332,6 +1446,50 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 	 * @generated
 	 */
 	public String convertKNN_Imputer_WeightsToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TrigerEnum createTrigerEnumFromString(EDataType eDataType, String initialValue) {
+		TrigerEnum result = TrigerEnum.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTrigerEnumToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProtocolBindingEnum createProtocolBindingEnumFromString(EDataType eDataType, String initialValue) {
+		ProtocolBindingEnum result = ProtocolBindingEnum.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertProtocolBindingEnumToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

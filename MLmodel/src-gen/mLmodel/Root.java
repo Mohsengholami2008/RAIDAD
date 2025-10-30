@@ -2,6 +2,7 @@
  */
 package mLmodel;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link mLmodel.Root#getName <em>Name</em>}</li>
  *   <li>{@link mLmodel.Root#getProcess <em>Process</em>}</li>
+ *   <li>{@link mLmodel.Root#getThing <em>Thing</em>}</li>
  * </ul>
  *
  * @see mLmodel.MLmodelPackage#getRoot()
@@ -66,5 +68,17 @@ public interface Root extends EObject {
 	 * @generated
 	 */
 	void setProcess(mLmodel.Process value);
+
+	/**
+	 * Returns the value of the '<em><b>Thing</b></em>' containment reference list.
+	 * The list contents are of type {@link mLmodel.Thing}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Thing</em>' containment reference list.
+	 * @see mLmodel.MLmodelPackage#getRoot_Thing()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Thing> getThing();
 
 } // Root

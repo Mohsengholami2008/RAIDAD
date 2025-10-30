@@ -89,6 +89,7 @@ public class RootItemProvider extends ItemProviderAdapter implements IEditingDom
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MLmodelPackage.Literals.ROOT__PROCESS);
+			childrenFeatures.add(MLmodelPackage.Literals.ROOT__THING);
 		}
 		return childrenFeatures;
 	}
@@ -156,6 +157,7 @@ public class RootItemProvider extends ItemProviderAdapter implements IEditingDom
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case MLmodelPackage.ROOT__PROCESS:
+		case MLmodelPackage.ROOT__THING:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -175,6 +177,9 @@ public class RootItemProvider extends ItemProviderAdapter implements IEditingDom
 
 		newChildDescriptors.add(
 				createChildParameter(MLmodelPackage.Literals.ROOT__PROCESS, MLmodelFactory.eINSTANCE.createProcess()));
+
+		newChildDescriptors
+				.add(createChildParameter(MLmodelPackage.Literals.ROOT__THING, MLmodelFactory.eINSTANCE.createThing()));
 	}
 
 	/**

@@ -605,6 +605,78 @@ public interface MLmodelFactory extends EFactory {
 	Linear_Regression createLinear_Regression();
 
 	/**
+	 * Returns a new object of class '<em>Thing</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Thing</em>'.
+	 * @generated
+	 */
+	Thing createThing();
+
+	/**
+	 * Returns a new object of class '<em>Protocol Binding</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Protocol Binding</em>'.
+	 * @generated
+	 */
+	ProtocolBinding createProtocolBinding();
+
+	/**
+	 * Returns a new object of class '<em>Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Property</em>'.
+	 * @generated
+	 */
+	Property createProperty();
+
+	/**
+	 * Returns a new object of class '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action</em>'.
+	 * @generated
+	 */
+	Action createAction();
+
+	/**
+	 * Returns a new object of class '<em>Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Event</em>'.
+	 * @generated
+	 */
+	Event createEvent();
+
+	/**
+	 * Returns a new object of class '<em>Data Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Source</em>'.
+	 * @generated
+	 */
+	DataSource createDataSource();
+
+	/**
+	 * Returns a new object of class '<em>Analysis Output</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Analysis Output</em>'.
+	 * @generated
+	 */
+	AnalysisOutput createAnalysisOutput();
+
+	/**
+	 * Returns a new object of class '<em>Analysys Triger</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Analysys Triger</em>'.
+	 * @generated
+	 */
+	AnalysysTriger createAnalysysTriger();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

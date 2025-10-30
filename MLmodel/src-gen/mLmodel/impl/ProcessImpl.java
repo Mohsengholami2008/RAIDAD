@@ -4,6 +4,7 @@ package mLmodel.impl;
 
 import java.util.Collection;
 
+import mLmodel.AnalysysTriger;
 import mLmodel.Cycle;
 import mLmodel.Data_Understanding;
 import mLmodel.MLmodelPackage;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mLmodel.impl.ProcessImpl#getFile_path <em>File path</em>}</li>
  *   <li>{@link mLmodel.impl.ProcessImpl#getCycle <em>Cycle</em>}</li>
  *   <li>{@link mLmodel.impl.ProcessImpl#getData_understanding <em>Data understanding</em>}</li>
+ *   <li>{@link mLmodel.impl.ProcessImpl#getAnalysystriger <em>Analysystriger</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,6 +79,16 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements mLmodel
 	 * @ordered
 	 */
 	protected EList<Data_Understanding> data_understanding;
+
+	/**
+	 * The cached value of the '{@link #getAnalysystriger() <em>Analysystriger</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnalysystriger()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AnalysysTriger> analysystriger;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,6 +161,19 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements mLmodel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<AnalysysTriger> getAnalysystriger() {
+		if (analysystriger == null) {
+			analysystriger = new EObjectContainmentEList<AnalysysTriger>(AnalysysTriger.class, this,
+					MLmodelPackage.PROCESS__ANALYSYSTRIGER);
+		}
+		return analysystriger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -156,6 +181,8 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements mLmodel
 			return ((InternalEList<?>) getCycle()).basicRemove(otherEnd, msgs);
 		case MLmodelPackage.PROCESS__DATA_UNDERSTANDING:
 			return ((InternalEList<?>) getData_understanding()).basicRemove(otherEnd, msgs);
+		case MLmodelPackage.PROCESS__ANALYSYSTRIGER:
+			return ((InternalEList<?>) getAnalysystriger()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -174,6 +201,8 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements mLmodel
 			return getCycle();
 		case MLmodelPackage.PROCESS__DATA_UNDERSTANDING:
 			return getData_understanding();
+		case MLmodelPackage.PROCESS__ANALYSYSTRIGER:
+			return getAnalysystriger();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,6 +227,10 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements mLmodel
 			getData_understanding().clear();
 			getData_understanding().addAll((Collection<? extends Data_Understanding>) newValue);
 			return;
+		case MLmodelPackage.PROCESS__ANALYSYSTRIGER:
+			getAnalysystriger().clear();
+			getAnalysystriger().addAll((Collection<? extends AnalysysTriger>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -219,6 +252,9 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements mLmodel
 		case MLmodelPackage.PROCESS__DATA_UNDERSTANDING:
 			getData_understanding().clear();
 			return;
+		case MLmodelPackage.PROCESS__ANALYSYSTRIGER:
+			getAnalysystriger().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -237,6 +273,8 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements mLmodel
 			return cycle != null && !cycle.isEmpty();
 		case MLmodelPackage.PROCESS__DATA_UNDERSTANDING:
 			return data_understanding != null && !data_understanding.isEmpty();
+		case MLmodelPackage.PROCESS__ANALYSYSTRIGER:
+			return analysystriger != null && !analysystriger.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

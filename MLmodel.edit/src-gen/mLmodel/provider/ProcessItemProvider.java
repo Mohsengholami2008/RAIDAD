@@ -90,6 +90,7 @@ public class ProcessItemProvider extends ItemProviderAdapter implements IEditing
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MLmodelPackage.Literals.PROCESS__CYCLE);
 			childrenFeatures.add(MLmodelPackage.Literals.PROCESS__DATA_UNDERSTANDING);
+			childrenFeatures.add(MLmodelPackage.Literals.PROCESS__ANALYSYSTRIGER);
 		}
 		return childrenFeatures;
 	}
@@ -158,6 +159,7 @@ public class ProcessItemProvider extends ItemProviderAdapter implements IEditing
 			return;
 		case MLmodelPackage.PROCESS__CYCLE:
 		case MLmodelPackage.PROCESS__DATA_UNDERSTANDING:
+		case MLmodelPackage.PROCESS__ANALYSYSTRIGER:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -250,6 +252,12 @@ public class ProcessItemProvider extends ItemProviderAdapter implements IEditing
 		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__CYCLE,
 				MLmodelFactory.eINSTANCE.createLinear_Regression()));
 
+		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__CYCLE,
+				MLmodelFactory.eINSTANCE.createDataSource()));
+
+		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__CYCLE,
+				MLmodelFactory.eINSTANCE.createAnalysisOutput()));
+
 		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__DATA_UNDERSTANDING,
 				MLmodelFactory.eINSTANCE.createStatistics()));
 
@@ -261,6 +269,9 @@ public class ProcessItemProvider extends ItemProviderAdapter implements IEditing
 
 		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__DATA_UNDERSTANDING,
 				MLmodelFactory.eINSTANCE.createStandard_Deviation()));
+
+		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__ANALYSYSTRIGER,
+				MLmodelFactory.eINSTANCE.createAnalysysTriger()));
 	}
 
 	/**

@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <mLmodel:Root
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:mLmodel="http://www.example.org/mLmodel"
-    xsi:schemaLocation="http://www.example.org/mLmodel mLmodel.ecore">
-  <process>
-    <cycle xsi:type="mLmodel:Cross_Validation">
-      <plots
-          xsi:type="mLmodel:Bar"/>
-    </cycle>
+    name="HITLRL">
+  <process file_path="mohsen1">
+    <cycle xsi:type="mLmodel:CSV"
+        after="//@process/@cycle.1"/>
+    <cycle xsi:type="mLmodel:Standardization"
+        after="//@process/@cycle.2"
+        before="//@process/@cycle.0"/>
+    <cycle xsi:type="mLmodel:SVM"
+        before="//@process/@cycle.1"
+        c="3.0"/>
   </process>
 </mLmodel:Root>

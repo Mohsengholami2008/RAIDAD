@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mLmodel:Root
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mLmodel="http://www.example.org/mLmodel"
+    xsi:schemaLocation="http://www.example.org/mLmodel mLmodel.ecore">
+  <process>
+    <cycle xsi:type="mLmodel:Cross_Validation">
+      <plots
+          xsi:type="mLmodel:Bar"/>
+    </cycle>
+  </process>
+</mLmodel:Root>

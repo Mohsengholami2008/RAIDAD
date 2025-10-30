@@ -85,13 +85,22 @@ public interface MLmodelPackage extends EPackage {
 	int ROOT__PROCESS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Thing</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__THING = 2;
+
+	/**
 	 * The number of structural features of the '<em>Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = 2;
+	int ROOT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Root</em>' class.
@@ -140,13 +149,22 @@ public interface MLmodelPackage extends EPackage {
 	int PROCESS__DATA_UNDERSTANDING = 2;
 
 	/**
+	 * The feature id for the '<em><b>Analysystriger</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS__ANALYSYSTRIGER = 3;
+
+	/**
 	 * The number of structural features of the '<em>Process</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_FEATURE_COUNT = 3;
+	int PROCESS_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Process</em>' class.
@@ -4920,6 +4938,653 @@ public interface MLmodelPackage extends EPackage {
 	int LINEAR_REGRESSION_OPERATION_COUNT = REGRESSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link mLmodel.impl.ThingImpl <em>Thing</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.ThingImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getThing()
+	 * @generated
+	 */
+	int THING = 93;
+
+	/**
+	 * The feature id for the '<em><b>Protocolbinding</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THING__PROTOCOLBINDING = 0;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THING__PROPERTY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THING__ACTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Event</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THING__EVENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THING__ID = 4;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THING__TITLE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THING__DESCRIPTION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Base URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THING__BASE_URI = 7;
+
+	/**
+	 * The number of structural features of the '<em>Thing</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THING_FEATURE_COUNT = 8;
+
+	/**
+	 * The number of operations of the '<em>Thing</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THING_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.ProtocolBindingImpl <em>Protocol Binding</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.ProtocolBindingImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getProtocolBinding()
+	 * @generated
+	 */
+	int PROTOCOL_BINDING = 94;
+
+	/**
+	 * The feature id for the '<em><b>Protocol</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTOCOL_BINDING__PROTOCOL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTOCOL_BINDING__ENDPOINT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Protocol Binding</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTOCOL_BINDING_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Protocol Binding</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTOCOL_BINDING_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.PropertyImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 95;
+
+	/**
+	 * The feature id for the '<em><b>Datasource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__DATASOURCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__TYPE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__READ_ONLY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Write Only</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__WRITE_ONLY = 4;
+
+	/**
+	 * The feature id for the '<em><b>Observable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OBSERVABLE = 5;
+
+	/**
+	 * The number of structural features of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = 6;
+
+	/**
+	 * The number of operations of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.ActionImpl <em>Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.ActionImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getAction()
+	 * @generated
+	 */
+	int ACTION = 96;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Input</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__INPUT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Output</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__OUTPUT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DESCRIPTION = 3;
+
+	/**
+	 * The number of structural features of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.EventImpl <em>Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.EventImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getEvent()
+	 * @generated
+	 */
+	int EVENT = 97;
+
+	/**
+	 * The feature id for the '<em><b>Analysystriger</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__ANALYSYSTRIGER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__DATA = 2;
+
+	/**
+	 * The feature id for the '<em><b>Subscription</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__SUBSCRIPTION = 3;
+
+	/**
+	 * The number of structural features of the '<em>Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.DataSourceImpl <em>Data Source</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.DataSourceImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getDataSource()
+	 * @generated
+	 */
+	int DATA_SOURCE = 98;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__AFTER = IMPORT_DATA__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__BEFORE = IMPORT_DATA__BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Regular</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__REGULAR = IMPORT_DATA__REGULAR;
+
+	/**
+	 * The feature id for the '<em><b>Save file</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__SAVE_FILE = IMPORT_DATA__SAVE_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Print data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__PRINT_DATA = IMPORT_DATA__PRINT_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__ROLE = IMPORT_DATA__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__NAME = IMPORT_DATA_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__TYPE = IMPORT_DATA_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Source URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__SOURCE_URI = IMPORT_DATA_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__FORMAT = IMPORT_DATA_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Data Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_FEATURE_COUNT = IMPORT_DATA_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Data Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_OPERATION_COUNT = IMPORT_DATA_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.AnalysisOutputImpl <em>Analysis Output</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.AnalysisOutputImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getAnalysisOutput()
+	 * @generated
+	 */
+	int ANALYSIS_OUTPUT = 99;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT__AFTER = EVALUATION_METHODS__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT__BEFORE = EVALUATION_METHODS__BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT__PRECISION = EVALUATION_METHODS__PRECISION;
+
+	/**
+	 * The feature id for the '<em><b>Accuracy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT__ACCURACY = EVALUATION_METHODS__ACCURACY;
+
+	/**
+	 * The feature id for the '<em><b>Recall</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT__RECALL = EVALUATION_METHODS__RECALL;
+
+	/**
+	 * The feature id for the '<em><b>F1 score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT__F1_SCORE = EVALUATION_METHODS__F1_SCORE;
+
+	/**
+	 * The feature id for the '<em><b>Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT__ACTION = EVALUATION_METHODS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Result Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT__RESULT_VALUE = EVALUATION_METHODS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Result Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT__RESULT_TYPE = EVALUATION_METHODS_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT__TIMESTAMP = EVALUATION_METHODS_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Analysis Output</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT_FEATURE_COUNT = EVALUATION_METHODS_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Analysis Output</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_OUTPUT_OPERATION_COUNT = EVALUATION_METHODS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.AnalysysTrigerImpl <em>Analysys Triger</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.AnalysysTrigerImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getAnalysysTriger()
+	 * @generated
+	 */
+	int ANALYSYS_TRIGER = 100;
+
+	/**
+	 * The feature id for the '<em><b>Trigger Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSYS_TRIGER__TRIGGER_TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSYS_TRIGER__CONDITION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Schedule</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSYS_TRIGER__SCHEDULE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Analysys Triger</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSYS_TRIGER_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Analysys Triger</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSYS_TRIGER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4927,7 +5592,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getEnum_CSV_Sep()
 	 * @generated
 	 */
-	int ENUM_CSV_SEP = 93;
+	int ENUM_CSV_SEP = 101;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Strategy_Simple_Imputer <em>Strategy Simple Imputer</em>}' enum.
@@ -4937,7 +5602,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getStrategy_Simple_Imputer()
 	 * @generated
 	 */
-	int STRATEGY_SIMPLE_IMPUTER = 94;
+	int STRATEGY_SIMPLE_IMPUTER = 102;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_Cat_Arg <em>One Hot Cat Arg</em>}' enum.
@@ -4947,7 +5612,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_Cat_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_CAT_ARG = 95;
+	int ONE_HOT_CAT_ARG = 103;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_Drop_Arg <em>One Hot Drop Arg</em>}' enum.
@@ -4957,7 +5622,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_Drop_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_DROP_ARG = 96;
+	int ONE_HOT_DROP_ARG = 104;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_HandleUn_Arg <em>One Hot Handle Un Arg</em>}' enum.
@@ -4967,7 +5632,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_HandleUn_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_HANDLE_UN_ARG = 97;
+	int ONE_HOT_HANDLE_UN_ARG = 105;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Dup_Arg_Keep <em>Dup Arg Keep</em>}' enum.
@@ -4977,7 +5642,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getDup_Arg_Keep()
 	 * @generated
 	 */
-	int DUP_ARG_KEEP = 98;
+	int DUP_ARG_KEEP = 106;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.SVM_Kernel_Enum <em>SVM Kernel Enum</em>}' enum.
@@ -4987,7 +5652,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getSVM_Kernel_Enum()
 	 * @generated
 	 */
-	int SVM_KERNEL_ENUM = 99;
+	int SVM_KERNEL_ENUM = 107;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Neural_Libraries <em>Neural Libraries</em>}' enum.
@@ -4997,7 +5662,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getNeural_Libraries()
 	 * @generated
 	 */
-	int NEURAL_LIBRARIES = 100;
+	int NEURAL_LIBRARIES = 108;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Neural_Network_Activation <em>Neural Network Activation</em>}' enum.
@@ -5007,7 +5672,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getNeural_Network_Activation()
 	 * @generated
 	 */
-	int NEURAL_NETWORK_ACTIVATION = 101;
+	int NEURAL_NETWORK_ACTIVATION = 109;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.voting_pred <em>voting pred</em>}' enum.
@@ -5017,7 +5682,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getvoting_pred()
 	 * @generated
 	 */
-	int VOTING_PRED = 102;
+	int VOTING_PRED = 110;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Random_Forest_Criterion_Enum <em>Random Forest Criterion Enum</em>}' enum.
@@ -5027,7 +5692,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getRandom_Forest_Criterion_Enum()
 	 * @generated
 	 */
-	int RANDOM_FOREST_CRITERION_ENUM = 103;
+	int RANDOM_FOREST_CRITERION_ENUM = 111;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Library_Clustering <em>Library Clustering</em>}' enum.
@@ -5037,7 +5702,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getLibrary_Clustering()
 	 * @generated
 	 */
-	int LIBRARY_CLUSTERING = 104;
+	int LIBRARY_CLUSTERING = 112;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Metric_DBSCAN <em>Metric DBSCAN</em>}' enum.
@@ -5047,7 +5712,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getMetric_DBSCAN()
 	 * @generated
 	 */
-	int METRIC_DBSCAN = 105;
+	int METRIC_DBSCAN = 113;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Attribiutes_Type <em>Attribiutes Type</em>}' enum.
@@ -5057,7 +5722,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getAttribiutes_Type()
 	 * @generated
 	 */
-	int ATTRIBIUTES_TYPE = 106;
+	int ATTRIBIUTES_TYPE = 114;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.KNN_Imputer_Weights <em>KNN Imputer Weights</em>}' enum.
@@ -5067,7 +5732,27 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getKNN_Imputer_Weights()
 	 * @generated
 	 */
-	int KNN_IMPUTER_WEIGHTS = 107;
+	int KNN_IMPUTER_WEIGHTS = 115;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.TrigerEnum <em>Triger Enum</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.TrigerEnum
+	 * @see mLmodel.impl.MLmodelPackageImpl#getTrigerEnum()
+	 * @generated
+	 */
+	int TRIGER_ENUM = 116;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.ProtocolBindingEnum <em>Protocol Binding Enum</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.ProtocolBindingEnum
+	 * @see mLmodel.impl.MLmodelPackageImpl#getProtocolBindingEnum()
+	 * @generated
+	 */
+	int PROTOCOL_BINDING_ENUM = 117;
 
 	/**
 	 * Returns the meta object for class '{@link mLmodel.Root <em>Root</em>}'.
@@ -5100,6 +5785,17 @@ public interface MLmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRoot_Process();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.Root#getThing <em>Thing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Thing</em>'.
+	 * @see mLmodel.Root#getThing()
+	 * @see #getRoot()
+	 * @generated
+	 */
+	EReference getRoot_Thing();
 
 	/**
 	 * Returns the meta object for class '{@link mLmodel.Process <em>Process</em>}'.
@@ -5143,6 +5839,17 @@ public interface MLmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProcess_Data_understanding();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.Process#getAnalysystriger <em>Analysystriger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Analysystriger</em>'.
+	 * @see mLmodel.Process#getAnalysystriger()
+	 * @see #getProcess()
+	 * @generated
+	 */
+	EReference getProcess_Analysystriger();
 
 	/**
 	 * Returns the meta object for class '{@link mLmodel.Cycle <em>Cycle</em>}'.
@@ -7045,6 +7752,471 @@ public interface MLmodelPackage extends EPackage {
 	EClass getLinear_Regression();
 
 	/**
+	 * Returns the meta object for class '{@link mLmodel.Thing <em>Thing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Thing</em>'.
+	 * @see mLmodel.Thing
+	 * @generated
+	 */
+	EClass getThing();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.Thing#getProtocolbinding <em>Protocolbinding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Protocolbinding</em>'.
+	 * @see mLmodel.Thing#getProtocolbinding()
+	 * @see #getThing()
+	 * @generated
+	 */
+	EReference getThing_Protocolbinding();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.Thing#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Property</em>'.
+	 * @see mLmodel.Thing#getProperty()
+	 * @see #getThing()
+	 * @generated
+	 */
+	EReference getThing_Property();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.Thing#getAction <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Action</em>'.
+	 * @see mLmodel.Thing#getAction()
+	 * @see #getThing()
+	 * @generated
+	 */
+	EReference getThing_Action();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.Thing#getEvent <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Event</em>'.
+	 * @see mLmodel.Thing#getEvent()
+	 * @see #getThing()
+	 * @generated
+	 */
+	EReference getThing_Event();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Thing#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see mLmodel.Thing#getId()
+	 * @see #getThing()
+	 * @generated
+	 */
+	EAttribute getThing_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Thing#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see mLmodel.Thing#getTitle()
+	 * @see #getThing()
+	 * @generated
+	 */
+	EAttribute getThing_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Thing#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see mLmodel.Thing#getDescription()
+	 * @see #getThing()
+	 * @generated
+	 */
+	EAttribute getThing_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Thing#getBaseURI <em>Base URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base URI</em>'.
+	 * @see mLmodel.Thing#getBaseURI()
+	 * @see #getThing()
+	 * @generated
+	 */
+	EAttribute getThing_BaseURI();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.ProtocolBinding <em>Protocol Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Protocol Binding</em>'.
+	 * @see mLmodel.ProtocolBinding
+	 * @generated
+	 */
+	EClass getProtocolBinding();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.ProtocolBinding#getProtocol <em>Protocol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Protocol</em>'.
+	 * @see mLmodel.ProtocolBinding#getProtocol()
+	 * @see #getProtocolBinding()
+	 * @generated
+	 */
+	EAttribute getProtocolBinding_Protocol();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.ProtocolBinding#getEndpoint <em>Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Endpoint</em>'.
+	 * @see mLmodel.ProtocolBinding#getEndpoint()
+	 * @see #getProtocolBinding()
+	 * @generated
+	 */
+	EAttribute getProtocolBinding_Endpoint();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property</em>'.
+	 * @see mLmodel.Property
+	 * @generated
+	 */
+	EClass getProperty();
+
+	/**
+	 * Returns the meta object for the reference '{@link mLmodel.Property#getDatasource <em>Datasource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datasource</em>'.
+	 * @see mLmodel.Property#getDatasource()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_Datasource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Property#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see mLmodel.Property#getName()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Property#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see mLmodel.Property#getType()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Property#isReadOnly <em>Read Only</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Only</em>'.
+	 * @see mLmodel.Property#isReadOnly()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_ReadOnly();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Property#isWriteOnly <em>Write Only</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Write Only</em>'.
+	 * @see mLmodel.Property#isWriteOnly()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_WriteOnly();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Property#isObservable <em>Observable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Observable</em>'.
+	 * @see mLmodel.Property#isObservable()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_Observable();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Action</em>'.
+	 * @see mLmodel.Action
+	 * @generated
+	 */
+	EClass getAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Action#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see mLmodel.Action#getName()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Action#getInput <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Input</em>'.
+	 * @see mLmodel.Action#getInput()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Input();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Action#getOutput <em>Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output</em>'.
+	 * @see mLmodel.Action#getOutput()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Output();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Action#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see mLmodel.Action#getDescription()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Description();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.Event <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Event</em>'.
+	 * @see mLmodel.Event
+	 * @generated
+	 */
+	EClass getEvent();
+
+	/**
+	 * Returns the meta object for the reference '{@link mLmodel.Event#getAnalysystriger <em>Analysystriger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Analysystriger</em>'.
+	 * @see mLmodel.Event#getAnalysystriger()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EReference getEvent_Analysystriger();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Event#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see mLmodel.Event#getName()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EAttribute getEvent_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Event#getData <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Data</em>'.
+	 * @see mLmodel.Event#getData()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EAttribute getEvent_Data();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Event#isSubscription <em>Subscription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Subscription</em>'.
+	 * @see mLmodel.Event#isSubscription()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EAttribute getEvent_Subscription();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.DataSource <em>Data Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Source</em>'.
+	 * @see mLmodel.DataSource
+	 * @generated
+	 */
+	EClass getDataSource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.DataSource#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see mLmodel.DataSource#getName()
+	 * @see #getDataSource()
+	 * @generated
+	 */
+	EAttribute getDataSource_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.DataSource#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see mLmodel.DataSource#getType()
+	 * @see #getDataSource()
+	 * @generated
+	 */
+	EAttribute getDataSource_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.DataSource#getSourceURI <em>Source URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source URI</em>'.
+	 * @see mLmodel.DataSource#getSourceURI()
+	 * @see #getDataSource()
+	 * @generated
+	 */
+	EAttribute getDataSource_SourceURI();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.DataSource#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see mLmodel.DataSource#getFormat()
+	 * @see #getDataSource()
+	 * @generated
+	 */
+	EAttribute getDataSource_Format();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.AnalysisOutput <em>Analysis Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Analysis Output</em>'.
+	 * @see mLmodel.AnalysisOutput
+	 * @generated
+	 */
+	EClass getAnalysisOutput();
+
+	/**
+	 * Returns the meta object for the reference '{@link mLmodel.AnalysisOutput#getAction <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Action</em>'.
+	 * @see mLmodel.AnalysisOutput#getAction()
+	 * @see #getAnalysisOutput()
+	 * @generated
+	 */
+	EReference getAnalysisOutput_Action();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.AnalysisOutput#getResultValue <em>Result Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Result Value</em>'.
+	 * @see mLmodel.AnalysisOutput#getResultValue()
+	 * @see #getAnalysisOutput()
+	 * @generated
+	 */
+	EAttribute getAnalysisOutput_ResultValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.AnalysisOutput#getResultType <em>Result Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Result Type</em>'.
+	 * @see mLmodel.AnalysisOutput#getResultType()
+	 * @see #getAnalysisOutput()
+	 * @generated
+	 */
+	EAttribute getAnalysisOutput_ResultType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.AnalysisOutput#getTimestamp <em>Timestamp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Timestamp</em>'.
+	 * @see mLmodel.AnalysisOutput#getTimestamp()
+	 * @see #getAnalysisOutput()
+	 * @generated
+	 */
+	EAttribute getAnalysisOutput_Timestamp();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.AnalysysTriger <em>Analysys Triger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Analysys Triger</em>'.
+	 * @see mLmodel.AnalysysTriger
+	 * @generated
+	 */
+	EClass getAnalysysTriger();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.AnalysysTriger#getTriggerType <em>Trigger Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Trigger Type</em>'.
+	 * @see mLmodel.AnalysysTriger#getTriggerType()
+	 * @see #getAnalysysTriger()
+	 * @generated
+	 */
+	EAttribute getAnalysysTriger_TriggerType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.AnalysysTriger#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Condition</em>'.
+	 * @see mLmodel.AnalysysTriger#getCondition()
+	 * @see #getAnalysysTriger()
+	 * @generated
+	 */
+	EAttribute getAnalysysTriger_Condition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.AnalysysTriger#getSchedule <em>Schedule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Schedule</em>'.
+	 * @see mLmodel.AnalysysTriger#getSchedule()
+	 * @see #getAnalysysTriger()
+	 * @generated
+	 */
+	EAttribute getAnalysysTriger_Schedule();
+
+	/**
 	 * Returns the meta object for enum '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7195,6 +8367,26 @@ public interface MLmodelPackage extends EPackage {
 	EEnum getKNN_Imputer_Weights();
 
 	/**
+	 * Returns the meta object for enum '{@link mLmodel.TrigerEnum <em>Triger Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Triger Enum</em>'.
+	 * @see mLmodel.TrigerEnum
+	 * @generated
+	 */
+	EEnum getTrigerEnum();
+
+	/**
+	 * Returns the meta object for enum '{@link mLmodel.ProtocolBindingEnum <em>Protocol Binding Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Protocol Binding Enum</em>'.
+	 * @see mLmodel.ProtocolBindingEnum
+	 * @generated
+	 */
+	EEnum getProtocolBindingEnum();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7244,6 +8436,14 @@ public interface MLmodelPackage extends EPackage {
 		EReference ROOT__PROCESS = eINSTANCE.getRoot_Process();
 
 		/**
+		 * The meta object literal for the '<em><b>Thing</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROOT__THING = eINSTANCE.getRoot_Thing();
+
+		/**
 		 * The meta object literal for the '{@link mLmodel.impl.ProcessImpl <em>Process</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7276,6 +8476,14 @@ public interface MLmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROCESS__DATA_UNDERSTANDING = eINSTANCE.getProcess_Data_understanding();
+
+		/**
+		 * The meta object literal for the '<em><b>Analysystriger</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCESS__ANALYSYSTRIGER = eINSTANCE.getProcess_Analysystriger();
 
 		/**
 		 * The meta object literal for the '{@link mLmodel.Cycle <em>Cycle</em>}' class.
@@ -8910,6 +10118,366 @@ public interface MLmodelPackage extends EPackage {
 		EClass LINEAR_REGRESSION = eINSTANCE.getLinear_Regression();
 
 		/**
+		 * The meta object literal for the '{@link mLmodel.impl.ThingImpl <em>Thing</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.ThingImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getThing()
+		 * @generated
+		 */
+		EClass THING = eINSTANCE.getThing();
+
+		/**
+		 * The meta object literal for the '<em><b>Protocolbinding</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THING__PROTOCOLBINDING = eINSTANCE.getThing_Protocolbinding();
+
+		/**
+		 * The meta object literal for the '<em><b>Property</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THING__PROPERTY = eINSTANCE.getThing_Property();
+
+		/**
+		 * The meta object literal for the '<em><b>Action</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THING__ACTION = eINSTANCE.getThing_Action();
+
+		/**
+		 * The meta object literal for the '<em><b>Event</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THING__EVENT = eINSTANCE.getThing_Event();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THING__ID = eINSTANCE.getThing_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THING__TITLE = eINSTANCE.getThing_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THING__DESCRIPTION = eINSTANCE.getThing_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Base URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THING__BASE_URI = eINSTANCE.getThing_BaseURI();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.ProtocolBindingImpl <em>Protocol Binding</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.ProtocolBindingImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getProtocolBinding()
+		 * @generated
+		 */
+		EClass PROTOCOL_BINDING = eINSTANCE.getProtocolBinding();
+
+		/**
+		 * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROTOCOL_BINDING__PROTOCOL = eINSTANCE.getProtocolBinding_Protocol();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROTOCOL_BINDING__ENDPOINT = eINSTANCE.getProtocolBinding_Endpoint();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.PropertyImpl <em>Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.PropertyImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getProperty()
+		 * @generated
+		 */
+		EClass PROPERTY = eINSTANCE.getProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Datasource</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__DATASOURCE = eINSTANCE.getProperty_Datasource();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__TYPE = eINSTANCE.getProperty_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Read Only</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__READ_ONLY = eINSTANCE.getProperty_ReadOnly();
+
+		/**
+		 * The meta object literal for the '<em><b>Write Only</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__WRITE_ONLY = eINSTANCE.getProperty_WriteOnly();
+
+		/**
+		 * The meta object literal for the '<em><b>Observable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__OBSERVABLE = eINSTANCE.getProperty_Observable();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.ActionImpl <em>Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.ActionImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getAction()
+		 * @generated
+		 */
+		EClass ACTION = eINSTANCE.getAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Input</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__INPUT = eINSTANCE.getAction_Input();
+
+		/**
+		 * The meta object literal for the '<em><b>Output</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__OUTPUT = eINSTANCE.getAction_Output();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__DESCRIPTION = eINSTANCE.getAction_Description();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.EventImpl <em>Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.EventImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getEvent()
+		 * @generated
+		 */
+		EClass EVENT = eINSTANCE.getEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Analysystriger</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT__ANALYSYSTRIGER = eINSTANCE.getEvent_Analysystriger();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVENT__NAME = eINSTANCE.getEvent_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Data</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVENT__DATA = eINSTANCE.getEvent_Data();
+
+		/**
+		 * The meta object literal for the '<em><b>Subscription</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVENT__SUBSCRIPTION = eINSTANCE.getEvent_Subscription();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.DataSourceImpl <em>Data Source</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.DataSourceImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getDataSource()
+		 * @generated
+		 */
+		EClass DATA_SOURCE = eINSTANCE.getDataSource();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SOURCE__NAME = eINSTANCE.getDataSource_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SOURCE__TYPE = eINSTANCE.getDataSource_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Source URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SOURCE__SOURCE_URI = eINSTANCE.getDataSource_SourceURI();
+
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SOURCE__FORMAT = eINSTANCE.getDataSource_Format();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.AnalysisOutputImpl <em>Analysis Output</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.AnalysisOutputImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getAnalysisOutput()
+		 * @generated
+		 */
+		EClass ANALYSIS_OUTPUT = eINSTANCE.getAnalysisOutput();
+
+		/**
+		 * The meta object literal for the '<em><b>Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANALYSIS_OUTPUT__ACTION = eINSTANCE.getAnalysisOutput_Action();
+
+		/**
+		 * The meta object literal for the '<em><b>Result Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS_OUTPUT__RESULT_VALUE = eINSTANCE.getAnalysisOutput_ResultValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Result Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS_OUTPUT__RESULT_TYPE = eINSTANCE.getAnalysisOutput_ResultType();
+
+		/**
+		 * The meta object literal for the '<em><b>Timestamp</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS_OUTPUT__TIMESTAMP = eINSTANCE.getAnalysisOutput_Timestamp();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.AnalysysTrigerImpl <em>Analysys Triger</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.AnalysysTrigerImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getAnalysysTriger()
+		 * @generated
+		 */
+		EClass ANALYSYS_TRIGER = eINSTANCE.getAnalysysTriger();
+
+		/**
+		 * The meta object literal for the '<em><b>Trigger Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSYS_TRIGER__TRIGGER_TYPE = eINSTANCE.getAnalysysTriger_TriggerType();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSYS_TRIGER__CONDITION = eINSTANCE.getAnalysysTriger_Condition();
+
+		/**
+		 * The meta object literal for the '<em><b>Schedule</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSYS_TRIGER__SCHEDULE = eINSTANCE.getAnalysysTriger_Schedule();
+
+		/**
 		 * The meta object literal for the '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9058,6 +10626,26 @@ public interface MLmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum KNN_IMPUTER_WEIGHTS = eINSTANCE.getKNN_Imputer_Weights();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.TrigerEnum <em>Triger Enum</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.TrigerEnum
+		 * @see mLmodel.impl.MLmodelPackageImpl#getTrigerEnum()
+		 * @generated
+		 */
+		EEnum TRIGER_ENUM = eINSTANCE.getTrigerEnum();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.ProtocolBindingEnum <em>Protocol Binding Enum</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.ProtocolBindingEnum
+		 * @see mLmodel.impl.MLmodelPackageImpl#getProtocolBindingEnum()
+		 * @generated
+		 */
+		EEnum PROTOCOL_BINDING_ENUM = eINSTANCE.getProtocolBindingEnum();
 
 	}
 

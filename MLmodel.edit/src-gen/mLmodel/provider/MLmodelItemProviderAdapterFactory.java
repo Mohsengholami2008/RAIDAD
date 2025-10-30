@@ -1568,6 +1568,190 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Thing} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ThingItemProvider thingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Thing}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createThingAdapter() {
+		if (thingItemProvider == null) {
+			thingItemProvider = new ThingItemProvider(this);
+		}
+
+		return thingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.ProtocolBinding} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProtocolBindingItemProvider protocolBindingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.ProtocolBinding}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProtocolBindingAdapter() {
+		if (protocolBindingItemProvider == null) {
+			protocolBindingItemProvider = new ProtocolBindingItemProvider(this);
+		}
+
+		return protocolBindingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Property} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PropertyItemProvider propertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Property}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPropertyAdapter() {
+		if (propertyItemProvider == null) {
+			propertyItemProvider = new PropertyItemProvider(this);
+		}
+
+		return propertyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Action} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActionItemProvider actionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Action}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActionAdapter() {
+		if (actionItemProvider == null) {
+			actionItemProvider = new ActionItemProvider(this);
+		}
+
+		return actionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Event} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EventItemProvider eventItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Event}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEventAdapter() {
+		if (eventItemProvider == null) {
+			eventItemProvider = new EventItemProvider(this);
+		}
+
+		return eventItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.DataSource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataSourceItemProvider dataSourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.DataSource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataSourceAdapter() {
+		if (dataSourceItemProvider == null) {
+			dataSourceItemProvider = new DataSourceItemProvider(this);
+		}
+
+		return dataSourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.AnalysisOutput} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalysisOutputItemProvider analysisOutputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.AnalysisOutput}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalysisOutputAdapter() {
+		if (analysisOutputItemProvider == null) {
+			analysisOutputItemProvider = new AnalysisOutputItemProvider(this);
+		}
+
+		return analysisOutputItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.AnalysysTriger} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalysysTrigerItemProvider analysysTrigerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.AnalysysTriger}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalysysTrigerAdapter() {
+		if (analysysTrigerItemProvider == null) {
+			analysysTrigerItemProvider = new AnalysysTrigerItemProvider(this);
+		}
+
+		return analysysTrigerItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1796,6 +1980,22 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 			barItemProvider.dispose();
 		if (linear_RegressionItemProvider != null)
 			linear_RegressionItemProvider.dispose();
+		if (thingItemProvider != null)
+			thingItemProvider.dispose();
+		if (protocolBindingItemProvider != null)
+			protocolBindingItemProvider.dispose();
+		if (propertyItemProvider != null)
+			propertyItemProvider.dispose();
+		if (actionItemProvider != null)
+			actionItemProvider.dispose();
+		if (eventItemProvider != null)
+			eventItemProvider.dispose();
+		if (dataSourceItemProvider != null)
+			dataSourceItemProvider.dispose();
+		if (analysisOutputItemProvider != null)
+			analysisOutputItemProvider.dispose();
+		if (analysysTrigerItemProvider != null)
+			analysysTrigerItemProvider.dispose();
 	}
 
 }
