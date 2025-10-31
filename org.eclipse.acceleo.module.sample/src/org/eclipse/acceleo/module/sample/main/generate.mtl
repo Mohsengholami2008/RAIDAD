@@ -446,7 +446,7 @@ def process_data([for (it : Cycle | process.cycle) separator (', ')][if ((it.ocl
 
 
 [if (root.process.cycle->filter(Scaling)->size()>0)]
-		if a[letter] in ['scaling_config', 'Standardization', 'Normalization', 'Robust_Scaling']:
+		if a['['/]letter] == 'scaling_config':
 			data = scale_features(data[if (root.process.cycle->filter(CSV).role->filter(Target)->size()>0)], target_column[/if], scaling_config)
 			scaling_methods = ['['/]method for method in scaling_config if method != "exclude"]
 			executed_functions.extend(scaling_methods)

@@ -9535,3 +9535,33 @@ org.python.pydev.core.ProjectMisconfiguredException: Did not expect the interpre
 	at com.python.pydev.analysis.additionalinfo.builders.InterpreterObserver.notifyProjectPythonpathRestored(InterpreterObserver.java:41)
 	at org.python.pydev.plugin.nature.PythonNature$RebuildPythonNatureModules.run(PythonNature.java:204)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2025-10-31 20:29:08.653 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -product org.eclipse.epp.package.modeling.product -data C:\RAIDADEditor -dev file:C:/RAIDAD/.metadata/.plugins/org.eclipse.pde.core/New_configuration/dev.properties -os win32 -ws win32 -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.egit.ui 2 0 2025-10-31 20:33:08.201
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\ShemrounShop'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.python.pydev.shared_core 1 1 2025-10-31 20:33:08.441
+!MESSAGE Interpreter info still not fully configured (interpreter substitutions won't be available). Project: P/Raidad
+
+!ENTRY org.python.pydev.shared_core 4 4 2025-10-31 20:33:08.480
+!MESSAGE Did not expect the interpreter manager to be null.
+!STACK 0
+org.python.pydev.core.ProjectMisconfiguredException: Did not expect the interpreter manager to be null.
+	at org.python.pydev.plugin.nature.PythonNature.getProjectInterpreter(PythonNature.java:1367)
+	at org.python.pydev.plugin.nature.PythonNature.getVersionAndError(PythonNature.java:900)
+	at org.python.pydev.plugin.nature.PythonNature.getVersion(PythonNature.java:859)
+	at org.python.pydev.plugin.nature.PythonNature.getGrammarVersion(PythonNature.java:1227)
+	at com.python.pydev.analysis.additionalinfo.AdditionalProjectInterpreterInfo.recreateAllInfo(AdditionalProjectInterpreterInfo.java:349)
+	at com.python.pydev.analysis.additionalinfo.builders.InterpreterObserver.notifyProjectPythonpathRestored(InterpreterObserver.java:41)
+	at org.python.pydev.plugin.nature.PythonNature$RebuildPythonNatureModules.run(PythonNature.java:204)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
