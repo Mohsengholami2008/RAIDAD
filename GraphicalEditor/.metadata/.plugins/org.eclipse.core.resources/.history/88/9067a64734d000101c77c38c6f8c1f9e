@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mLmodel:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mLmodel="http://www.example.org/mLmodel" name="MLModel1">
+  <process file_path="">
+    <cycle xsi:type="mLmodel:Standardization" before="//@process/@cycle.1"/>
+    <cycle xsi:type="mLmodel:CommunicationProtocol" after="//@process/@cycle.0">
+      <mqtt>
+        <topic MQTT_CONTROL_TOPIC="control/mode1"/>
+        <topic/>
+      </mqtt>
+    </cycle>
+  </process>
+</mLmodel:Root>

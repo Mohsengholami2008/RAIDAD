@@ -5667,13 +5667,22 @@ public interface MLmodelPackage extends EPackage {
 	int COMMUNICATION_PROTOCOL__BUFFER = IMPORT_DATA_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Devices</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL__DEVICES = IMPORT_DATA_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Communication Protocol</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_PROTOCOL_FEATURE_COUNT = IMPORT_DATA_FEATURE_COUNT + 2;
+	int COMMUNICATION_PROTOCOL_FEATURE_COUNT = IMPORT_DATA_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Communication Protocol</em>' class.
@@ -5998,6 +6007,43 @@ public interface MLmodelPackage extends EPackage {
 	int PERCEPTRON_OPERATION_COUNT = ONLINE_MODEL_MANAGER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link mLmodel.impl.DevicesImpl <em>Devices</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.DevicesImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getDevices()
+	 * @generated
+	 */
+	int DEVICES = 109;
+
+	/**
+	 * The feature id for the '<em><b>REQUIRED DEVICES</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICES__REQUIRED_DEVICES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Devices</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Devices</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICES_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6005,7 +6051,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getEnum_CSV_Sep()
 	 * @generated
 	 */
-	int ENUM_CSV_SEP = 109;
+	int ENUM_CSV_SEP = 110;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Strategy_Simple_Imputer <em>Strategy Simple Imputer</em>}' enum.
@@ -6015,7 +6061,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getStrategy_Simple_Imputer()
 	 * @generated
 	 */
-	int STRATEGY_SIMPLE_IMPUTER = 110;
+	int STRATEGY_SIMPLE_IMPUTER = 111;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_Cat_Arg <em>One Hot Cat Arg</em>}' enum.
@@ -6025,7 +6071,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_Cat_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_CAT_ARG = 111;
+	int ONE_HOT_CAT_ARG = 112;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_Drop_Arg <em>One Hot Drop Arg</em>}' enum.
@@ -6035,7 +6081,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_Drop_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_DROP_ARG = 112;
+	int ONE_HOT_DROP_ARG = 113;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_HandleUn_Arg <em>One Hot Handle Un Arg</em>}' enum.
@@ -6045,7 +6091,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_HandleUn_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_HANDLE_UN_ARG = 113;
+	int ONE_HOT_HANDLE_UN_ARG = 114;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Dup_Arg_Keep <em>Dup Arg Keep</em>}' enum.
@@ -6055,7 +6101,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getDup_Arg_Keep()
 	 * @generated
 	 */
-	int DUP_ARG_KEEP = 114;
+	int DUP_ARG_KEEP = 115;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.SVM_Kernel_Enum <em>SVM Kernel Enum</em>}' enum.
@@ -6065,7 +6111,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getSVM_Kernel_Enum()
 	 * @generated
 	 */
-	int SVM_KERNEL_ENUM = 115;
+	int SVM_KERNEL_ENUM = 116;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Neural_Libraries <em>Neural Libraries</em>}' enum.
@@ -6075,7 +6121,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getNeural_Libraries()
 	 * @generated
 	 */
-	int NEURAL_LIBRARIES = 116;
+	int NEURAL_LIBRARIES = 117;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Neural_Network_Activation <em>Neural Network Activation</em>}' enum.
@@ -6085,7 +6131,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getNeural_Network_Activation()
 	 * @generated
 	 */
-	int NEURAL_NETWORK_ACTIVATION = 117;
+	int NEURAL_NETWORK_ACTIVATION = 118;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.voting_pred <em>voting pred</em>}' enum.
@@ -6095,7 +6141,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getvoting_pred()
 	 * @generated
 	 */
-	int VOTING_PRED = 118;
+	int VOTING_PRED = 119;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Random_Forest_Criterion_Enum <em>Random Forest Criterion Enum</em>}' enum.
@@ -6105,7 +6151,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getRandom_Forest_Criterion_Enum()
 	 * @generated
 	 */
-	int RANDOM_FOREST_CRITERION_ENUM = 119;
+	int RANDOM_FOREST_CRITERION_ENUM = 120;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Library_Clustering <em>Library Clustering</em>}' enum.
@@ -6115,7 +6161,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getLibrary_Clustering()
 	 * @generated
 	 */
-	int LIBRARY_CLUSTERING = 120;
+	int LIBRARY_CLUSTERING = 121;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Metric_DBSCAN <em>Metric DBSCAN</em>}' enum.
@@ -6125,7 +6171,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getMetric_DBSCAN()
 	 * @generated
 	 */
-	int METRIC_DBSCAN = 121;
+	int METRIC_DBSCAN = 122;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Attribiutes_Type <em>Attribiutes Type</em>}' enum.
@@ -6135,7 +6181,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getAttribiutes_Type()
 	 * @generated
 	 */
-	int ATTRIBIUTES_TYPE = 122;
+	int ATTRIBIUTES_TYPE = 123;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.KNN_Imputer_Weights <em>KNN Imputer Weights</em>}' enum.
@@ -6145,7 +6191,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getKNN_Imputer_Weights()
 	 * @generated
 	 */
-	int KNN_IMPUTER_WEIGHTS = 123;
+	int KNN_IMPUTER_WEIGHTS = 124;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.TrigerEnum <em>Triger Enum</em>}' enum.
@@ -6155,7 +6201,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getTrigerEnum()
 	 * @generated
 	 */
-	int TRIGER_ENUM = 124;
+	int TRIGER_ENUM = 125;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.ProtocolBindingEnum <em>Protocol Binding Enum</em>}' enum.
@@ -6165,7 +6211,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getProtocolBindingEnum()
 	 * @generated
 	 */
-	int PROTOCOL_BINDING_ENUM = 125;
+	int PROTOCOL_BINDING_ENUM = 126;
 
 	/**
 	 * Returns the meta object for class '{@link mLmodel.Root <em>Root</em>}'.
@@ -8662,6 +8708,17 @@ public interface MLmodelPackage extends EPackage {
 	EReference getCommunicationProtocol_Buffer();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.CommunicationProtocol#getDevices <em>Devices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Devices</em>'.
+	 * @see mLmodel.CommunicationProtocol#getDevices()
+	 * @see #getCommunicationProtocol()
+	 * @generated
+	 */
+	EReference getCommunicationProtocol_Devices();
+
+	/**
 	 * Returns the meta object for class '{@link mLmodel.Buffer <em>Buffer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8785,6 +8842,27 @@ public interface MLmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPerceptron();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.Devices <em>Devices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Devices</em>'.
+	 * @see mLmodel.Devices
+	 * @generated
+	 */
+	EClass getDevices();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Devices#getREQUIRED_DEVICES <em>REQUIRED DEVICES</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>REQUIRED DEVICES</em>'.
+	 * @see mLmodel.Devices#getREQUIRED_DEVICES()
+	 * @see #getDevices()
+	 * @generated
+	 */
+	EAttribute getDevices_REQUIRED_DEVICES();
 
 	/**
 	 * Returns the meta object for enum '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}'.
@@ -11074,6 +11152,14 @@ public interface MLmodelPackage extends EPackage {
 		EReference COMMUNICATION_PROTOCOL__BUFFER = eINSTANCE.getCommunicationProtocol_Buffer();
 
 		/**
+		 * The meta object literal for the '<em><b>Devices</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_PROTOCOL__DEVICES = eINSTANCE.getCommunicationProtocol_Devices();
+
+		/**
 		 * The meta object literal for the '{@link mLmodel.impl.BufferImpl <em>Buffer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11182,6 +11268,24 @@ public interface MLmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PERCEPTRON = eINSTANCE.getPerceptron();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.DevicesImpl <em>Devices</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.DevicesImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getDevices()
+		 * @generated
+		 */
+		EClass DEVICES = eINSTANCE.getDevices();
+
+		/**
+		 * The meta object literal for the '<em><b>REQUIRED DEVICES</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEVICES__REQUIRED_DEVICES = eINSTANCE.getDevices_REQUIRED_DEVICES();
 
 		/**
 		 * The meta object literal for the '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}' enum.

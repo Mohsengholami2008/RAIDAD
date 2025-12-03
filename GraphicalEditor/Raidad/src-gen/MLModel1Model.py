@@ -12,6 +12,7 @@ from sklearn.preprocessing import StandardScaler, RobustScaler, MinMaxScaler
 
 
 
+
 def scale_features(data, scaling_config):
     scaled_data = data.copy()  
 
@@ -63,11 +64,11 @@ def scale_features(data, scaling_config):
 
 
 
-def process_data(scaling_config=None, ): 
+def process_data(, , scaling_config=None): 
 	executed_functions = []
 	model = None	
 
-	a =['invalid','Standardization']
+	a =['invalid','invalid','invalid']
 
 	for letter in range (len(a)):
 
@@ -118,11 +119,14 @@ def process_data(scaling_config=None, ):
 
 
 
-    scaling_config = {
 
-		'standardization': [],
+
+    scaling_config = {
+		'minmax': [],
+
 
 }
+
 
 
 
@@ -191,6 +195,23 @@ def process_data(scaling_config=None, ):
 
         scaling_config=scaling_config,
 		
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 
 
 

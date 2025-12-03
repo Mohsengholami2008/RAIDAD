@@ -784,6 +784,13 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass devicesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum enum_CSV_SepEEnum = null;
 
 	/**
@@ -3094,6 +3101,15 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCommunicationProtocol_Devices() {
+		return (EReference) communicationProtocolEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBuffer() {
 		return bufferEClass;
 	}
@@ -3195,6 +3211,24 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	 */
 	public EClass getPerceptron() {
 		return perceptronEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDevices() {
+		return devicesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDevices_REQUIRED_DEVICES() {
+		return (EAttribute) devicesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3716,6 +3750,7 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		communicationProtocolEClass = createEClass(COMMUNICATION_PROTOCOL);
 		createEReference(communicationProtocolEClass, COMMUNICATION_PROTOCOL__MQTT);
 		createEReference(communicationProtocolEClass, COMMUNICATION_PROTOCOL__BUFFER);
+		createEReference(communicationProtocolEClass, COMMUNICATION_PROTOCOL__DEVICES);
 
 		bufferEClass = createEClass(BUFFER);
 
@@ -3735,6 +3770,9 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		passiveAggressiveClassifierEClass = createEClass(PASSIVE_AGGRESSIVE_CLASSIFIER);
 
 		perceptronEClass = createEClass(PERCEPTRON);
+
+		devicesEClass = createEClass(DEVICES);
+		createEAttribute(devicesEClass, DEVICES__REQUIRED_DEVICES);
 
 		// Create enums
 		enum_CSV_SepEEnum = createEEnum(ENUM_CSV_SEP);
@@ -4501,6 +4539,9 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		initEReference(getCommunicationProtocol_Buffer(), this.getBuffer(), null, "buffer", null, 0, -1,
 				CommunicationProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommunicationProtocol_Devices(), this.getDevices(), null, "devices", null, 0, -1,
+				CommunicationProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bufferEClass, Buffer.class, "Buffer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4533,6 +4574,11 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 
 		initEClass(perceptronEClass, Perceptron.class, "Perceptron", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(devicesEClass, Devices.class, "Devices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDevices_REQUIRED_DEVICES(), theXMLTypePackage.getString(), "REQUIRED_DEVICES", null, 0, 1,
+				Devices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(enum_CSV_SepEEnum, Enum_CSV_Sep.class, "Enum_CSV_Sep");

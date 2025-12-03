@@ -17,6 +17,7 @@ from sklearn.preprocessing import StandardScaler, PolynomialFeatures
 from sklearn.linear_model import SGDClassifier, PassiveAggressiveClassifier, Perceptron
 
 
+from sklearn.linear_model import PassiveAggressiveClassifier
 
 
 import logging
@@ -29,18 +30,12 @@ MQTT_PORT = "1883"
 
 
 
-
-MQTT_SENSOR_TOPIC = "control/mode1"   
-
-MQTT_CONTROL_TOPIC = "sensors/+/value"  
-   
-
 MQTT_SENSOR_TOPIC = "control/mode"   
-
 MQTT_CONTROL_TOPIC = "sensors/+/value"  
-   
 
-REQUIRED_DEVICES = ["dev1", "dev2", "dev3"]
+
+
+REQUIRED_DEVICES = ["Dev1", "Dev2", "Dev3"]
 
 SLOT_SIZE_SECONDS = 5
 
@@ -70,8 +65,8 @@ ROBUST_BUFFER_MAX_ROWS = 500
 
 MODEL_CONFIG = {
 
-	"preprocess_steps": ["scale"],
-    "model_type": ,
+	"preprocess_steps": ["normalize"],
+    "model_type": "PassiveAggressiveClassifier",
 }
 
 

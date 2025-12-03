@@ -7,6 +7,7 @@ import java.util.Collection;
 import mLmodel.Buffer;
 import mLmodel.CommunicationProtocol;
 import mLmodel.Cycle;
+import mLmodel.Devices;
 import mLmodel.MLmodelPackage;
 import mLmodel.MQTT;
 import mLmodel.Regular;
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#getRole <em>Role</em>}</li>
  *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#getMqtt <em>Mqtt</em>}</li>
  *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#getBuffer <em>Buffer</em>}</li>
+ *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#getDevices <em>Devices</em>}</li>
  * </ul>
  *
  * @generated
@@ -147,6 +149,16 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected EList<Buffer> buffer;
+
+	/**
+	 * The cached value of the '{@link #getDevices() <em>Devices</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDevices()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Devices> devices;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -399,6 +411,19 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Devices> getDevices() {
+		if (devices == null) {
+			devices = new EObjectContainmentEList<Devices>(Devices.class, this,
+					MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES);
+		}
+		return devices;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -432,6 +457,8 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 			return ((InternalEList<?>) getMqtt()).basicRemove(otherEnd, msgs);
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
 			return ((InternalEList<?>) getBuffer()).basicRemove(otherEnd, msgs);
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
+			return ((InternalEList<?>) getDevices()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -464,6 +491,8 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 			return getMqtt();
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
 			return getBuffer();
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
+			return getDevices();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -505,6 +534,10 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 			getBuffer().clear();
 			getBuffer().addAll((Collection<? extends Buffer>) newValue);
 			return;
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
+			getDevices().clear();
+			getDevices().addAll((Collection<? extends Devices>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -541,6 +574,9 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
 			getBuffer().clear();
 			return;
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
+			getDevices().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -569,6 +605,8 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 			return mqtt != null && !mqtt.isEmpty();
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
 			return buffer != null && !buffer.isEmpty();
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
+			return devices != null && !devices.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

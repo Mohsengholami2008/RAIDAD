@@ -1913,6 +1913,29 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Devices} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DevicesItemProvider devicesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Devices}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDevicesAdapter() {
+		if (devicesItemProvider == null) {
+			devicesItemProvider = new DevicesItemProvider(this);
+		}
+
+		return devicesItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2171,6 +2194,8 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 			passiveAggressiveClassifierItemProvider.dispose();
 		if (perceptronItemProvider != null)
 			perceptronItemProvider.dispose();
+		if (devicesItemProvider != null)
+			devicesItemProvider.dispose();
 	}
 
 }

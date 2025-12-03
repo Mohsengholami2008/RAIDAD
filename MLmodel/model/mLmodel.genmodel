@@ -89,16 +89,6 @@
       <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//KNN_Imputer_Weights/uniform"/>
       <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//KNN_Imputer_Weights/distance"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//TrigerEnum">
-      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//TrigerEnum/Event"/>
-      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//TrigerEnum/Timer"/>
-      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//TrigerEnum/DataUpdate"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//ProtocolBindingEnum">
-      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//ProtocolBindingEnum/HTTP"/>
-      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//ProtocolBindingEnum/MQTT"/>
-      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//ProtocolBindingEnum/CoAP"/>
-    </genEnums>
     <genClasses ecoreClass="mLmodel.ecore#//Root">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Root/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Root/process"/>
@@ -346,50 +336,10 @@
     <genClasses ecoreClass="mLmodel.ecore#//Bar"/>
     <genClasses ecoreClass="mLmodel.ecore#//Linear_Regression"/>
     <genClasses ecoreClass="mLmodel.ecore#//Thing">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Thing/protocolbinding"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Thing/property"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Thing/action"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Thing/event"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Thing/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Thing/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Thing/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Thing/baseURI"/>
-    </genClasses>
-    <genClasses ecoreClass="mLmodel.ecore#//ProtocolBinding">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//ProtocolBinding/protocol"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//ProtocolBinding/endpoint"/>
-    </genClasses>
-    <genClasses ecoreClass="mLmodel.ecore#//Property">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Property/datasource"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Property/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Property/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Property/readOnly"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Property/writeOnly"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Property/observable"/>
-    </genClasses>
-    <genClasses ecoreClass="mLmodel.ecore#//Action">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Action/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Action/input"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Action/output"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Action/description"/>
-    </genClasses>
-    <genClasses ecoreClass="mLmodel.ecore#//Event">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Event/analysystriger"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Event/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Event/data"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Event/subscription"/>
-    </genClasses>
-    <genClasses ecoreClass="mLmodel.ecore#//DataSource">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//DataSource/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//DataSource/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//DataSource/sourceURI"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//DataSource/format"/>
-    </genClasses>
-    <genClasses ecoreClass="mLmodel.ecore#//AnalysisOutput">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mLmodel.ecore#//AnalysisOutput/action"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysisOutput/resultValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysisOutput/resultType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysisOutput/timestamp"/>
     </genClasses>
     <genClasses ecoreClass="mLmodel.ecore#//AnalysysTriger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysysTriger/triggerType"/>

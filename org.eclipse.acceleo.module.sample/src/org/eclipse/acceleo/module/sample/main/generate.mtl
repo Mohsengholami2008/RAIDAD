@@ -165,7 +165,11 @@ MQTT_CONTROL_TOPIC = "[ci.MQTT_SENSOR_TOPIC/]"
 [/if] 
 [/for]
 
-REQUIRED_DEVICES = ['['/]"dev1", "dev2", "dev3"]
+
+[if (process.cycle->filter(CommunicationProtocol).devices->notEmpty())]
+
+REQUIRED_DEVICES = ['['/][for (ki : Devices | process.cycle->filter(CommunicationProtocol).devices) separator(', ')]"[ki.REQUIRED_DEVICES/]"[/for]]
+[/if]
 
 SLOT_SIZE_SECONDS = 5
 

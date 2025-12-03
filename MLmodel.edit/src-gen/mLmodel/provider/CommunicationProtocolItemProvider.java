@@ -155,6 +155,7 @@ public class CommunicationProtocolItemProvider extends ItemProviderAdapter imple
 			childrenFeatures.add(MLmodelPackage.Literals.IMPORT_DATA__ROLE);
 			childrenFeatures.add(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__MQTT);
 			childrenFeatures.add(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__BUFFER);
+			childrenFeatures.add(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__DEVICES);
 		}
 		return childrenFeatures;
 	}
@@ -224,6 +225,7 @@ public class CommunicationProtocolItemProvider extends ItemProviderAdapter imple
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__ROLE:
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -255,6 +257,9 @@ public class CommunicationProtocolItemProvider extends ItemProviderAdapter imple
 
 		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__BUFFER,
 				MLmodelFactory.eINSTANCE.createBuffer()));
+
+		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__DEVICES,
+				MLmodelFactory.eINSTANCE.createDevices()));
 	}
 
 	/**

@@ -21,6 +21,7 @@ import mLmodel.DBSCAN;
 import mLmodel.DataSource;
 import mLmodel.Date_to_Int;
 import mLmodel.Day;
+import mLmodel.Devices;
 import mLmodel.Drop;
 import mLmodel.Dup_Arg_Keep;
 import mLmodel.Duplicates;
@@ -309,6 +310,8 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 			return createPassiveAggressiveClassifier();
 		case MLmodelPackage.PERCEPTRON:
 			return createPerceptron();
+		case MLmodelPackage.DEVICES:
+			return createDevices();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1206,6 +1209,16 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 	public Perceptron createPerceptron() {
 		PerceptronImpl perceptron = new PerceptronImpl();
 		return perceptron;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Devices createDevices() {
+		DevicesImpl devices = new DevicesImpl();
+		return devices;
 	}
 
 	/**
