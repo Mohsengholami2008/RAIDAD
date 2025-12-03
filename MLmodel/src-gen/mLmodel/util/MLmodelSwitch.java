@@ -1030,6 +1030,82 @@ public class MLmodelSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case MLmodelPackage.COMMUNICATION_PROTOCOL: {
+			CommunicationProtocol communicationProtocol = (CommunicationProtocol) theEObject;
+			T result = caseCommunicationProtocol(communicationProtocol);
+			if (result == null)
+				result = caseImport_Data(communicationProtocol);
+			if (result == null)
+				result = casePreprocess(communicationProtocol);
+			if (result == null)
+				result = caseCycle(communicationProtocol);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.BUFFER: {
+			Buffer buffer = (Buffer) theEObject;
+			T result = caseBuffer(buffer);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.MQTT: {
+			MQTT mqtt = (MQTT) theEObject;
+			T result = caseMQTT(mqtt);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.ONLINE_MODEL_MANAGER: {
+			OnlineModelManager onlineModelManager = (OnlineModelManager) theEObject;
+			T result = caseOnlineModelManager(onlineModelManager);
+			if (result == null)
+				result = caseCycle(onlineModelManager);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.TOPIC: {
+			Topic topic = (Topic) theEObject;
+			T result = caseTopic(topic);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.SGD_CLASSIFIER: {
+			SGDClassifier sgdClassifier = (SGDClassifier) theEObject;
+			T result = caseSGDClassifier(sgdClassifier);
+			if (result == null)
+				result = caseOnlineModelManager(sgdClassifier);
+			if (result == null)
+				result = caseCycle(sgdClassifier);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER: {
+			PassiveAggressiveClassifier passiveAggressiveClassifier = (PassiveAggressiveClassifier) theEObject;
+			T result = casePassiveAggressiveClassifier(passiveAggressiveClassifier);
+			if (result == null)
+				result = caseOnlineModelManager(passiveAggressiveClassifier);
+			if (result == null)
+				result = caseCycle(passiveAggressiveClassifier);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.PERCEPTRON: {
+			Perceptron perceptron = (Perceptron) theEObject;
+			T result = casePerceptron(perceptron);
+			if (result == null)
+				result = caseOnlineModelManager(perceptron);
+			if (result == null)
+				result = caseCycle(perceptron);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -2454,6 +2530,126 @@ public class MLmodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAnalysysTriger(AnalysysTriger object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Communication Protocol</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Communication Protocol</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCommunicationProtocol(CommunicationProtocol object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Buffer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Buffer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuffer(Buffer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>MQTT</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>MQTT</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMQTT(MQTT object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Online Model Manager</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Online Model Manager</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOnlineModelManager(OnlineModelManager object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Topic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Topic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTopic(Topic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SGD Classifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SGD Classifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSGDClassifier(SGDClassifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Passive Aggressive Classifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Passive Aggressive Classifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePassiveAggressiveClassifier(PassiveAggressiveClassifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Perceptron</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Perceptron</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePerceptron(Perceptron object) {
 		return null;
 	}
 

@@ -37,6 +37,7 @@ import mLmodel.CSV;
 import mLmodel.Classification;
 import mLmodel.Cluster_Evaluation;
 import mLmodel.Clustering;
+import mLmodel.CommunicationProtocol;
 import mLmodel.Correlation;
 import mLmodel.Cross_Validation;
 import mLmodel.Cycle;
@@ -243,7 +244,14 @@ public class Services {
                 return true; 
             } else if (self instanceof Excel && format != null && (format.equalsIgnoreCase("xls") || format.equalsIgnoreCase("xlsx"))) {
                 return true; 
-            } else {
+            } 
+            
+            else if (self instanceof CommunicationProtocol  ) {
+            	return true;
+            }        
+            
+            
+            else {
                 return false; 
             }
         }
@@ -253,13 +261,34 @@ public class Services {
     public boolean filepathnameprocess(Process self) {
         String filePath = self.getFile_path();      
         AuditData myformat = new AuditData();
-        if (filePath != null) {
+        
+        
+        EList<Cycle> cycleList = self.getCycle();
+        boolean cmd = false;
+
+        for (Cycle c : cycleList) {
+            if (c instanceof CommunicationProtocol) {
+            	cmd = true;
+            }else {
+            	cmd = false;
+            }
+            
+            }
+
+        if (cmd == true) {
+            
+                    return true;
+                }  
+                       else if (filePath != null) {
             String format = myformat.getFileFormat(filePath);
             if (format != null && format.equalsIgnoreCase("csv")) {
                 return true; 
             } else if (format != null && (format.equalsIgnoreCase("xls") || format.equalsIgnoreCase("xlsx"))) {
                 return true; 
-            } else {
+            } 
+
+            
+            else {
                 return false; 
             }
         }
@@ -2024,6 +2053,32 @@ public boolean process_errors(Process self) {
 	}
 	
 	return false;
+	
+}
+
+
+
+public String online(Process self) {
+	
+	
+	 EList<Cycle> cycleList = self.getCycle();
+     boolean cmd = false;
+
+     for (Cycle c : cycleList) {
+         if (c instanceof CommunicationProtocol) {
+         	cmd = true;
+         }else {
+         	cmd = false;
+         }
+         
+         }
+
+     if (cmd == true) {
+         
+                 return "Online Process";
+             }  
+	
+	return "Process";
 	
 }
 

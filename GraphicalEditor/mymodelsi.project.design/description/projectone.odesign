@@ -358,6 +358,14 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
+        <edgeMappings name="ProtocolEdge" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Protocol']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Normalization'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Standardization'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Robust%20Scaling']" targetFinderExpression="feature:after">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <containerMappings name="Process" domainClass="mLmodel::Process">
           <subNodeMappings name="Normalization" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Normalization">
             <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Normalization" iconPath="/mymodelsi.project.design/Images/32bit/normalize32.png" tooltipExpression="service:normalized1()" sizeComputationExpression="" labelPosition="node" width="15" height="7">
@@ -923,8 +931,50 @@
               <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
             </style>
           </subContainerMappings>
+          <subContainerMappings name="SGDClassifier" domainClass="mLmodel::SGDClassifier">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="SGDClassifier">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="Protocol" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::CommunicationProtocol">
+            <subContainerMappings name="MQTT" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::MQTT">
+              <subContainerMappings name="Topic" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Topic">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Topic">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                </style>
+              </subContainerMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="MQTT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Protocol" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="PassiveAggressiveClassifier" domainClass="mLmodel::PassiveAggressiveClassifier">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="PassiveAggressiveClassifier">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="Perceptron" domainClass="mLmodel::Perceptron"/>
           <conditionnalStyles predicateExpression="aql:self.process_errors()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Process" iconPath="/mymodelsi.project.design/Images/32bit/Process32.png" labelAlignment="LEFT" roundedCorner="true">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.online()" iconPath="/mymodelsi.project.design/Images/32bit/Process32.png" labelAlignment="LEFT" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <labelFormat>bold</labelFormat>
               <labelFormat>underline</labelFormat>
@@ -2073,6 +2123,66 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::AnalysysTriger" referenceName="analysystriger"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+      <additionalLayers name="Online Learning">
+        <toolSections name="Online Algrithms">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="SGDClassifier" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='SGDClassifier']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::SGDClassifier" referenceName="cycle"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="PassiveAggressiveClassifier" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='PassiveAggressiveClassifier']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::PassiveAggressiveClassifier" referenceName="cycle"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Perceptron" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Perceptron']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::Perceptron" referenceName="cycle"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Communication Protocol">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Protocol" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Protocol']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::CommunicationProtocol" referenceName="cycle"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="MQTT" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Protocol']/@subContainerMappings[name='MQTT']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::MQTT" referenceName="mqtt"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Topic" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Protocol']/@subContainerMappings[name='MQTT']/@subContainerMappings[name='Topic']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.mqtt">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::Topic" referenceName="topic"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

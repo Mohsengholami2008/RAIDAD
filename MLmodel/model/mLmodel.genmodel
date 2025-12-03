@@ -396,5 +396,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysysTriger/condition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysysTriger/schedule"/>
     </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//CommunicationProtocol">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//CommunicationProtocol/mqtt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//CommunicationProtocol/buffer"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Buffer"/>
+    <genClasses ecoreClass="mLmodel.ecore#//MQTT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//MQTT/MQTT_BROKER"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//MQTT/MQTT_PORT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//MQTT/topic"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//OnlineModelManager"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Topic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Topic/MQTT_CONTROL_TOPIC"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Topic/MQTT_SENSOR_TOPIC"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//SGDClassifier"/>
+    <genClasses ecoreClass="mLmodel.ecore#//PassiveAggressiveClassifier"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Perceptron"/>
   </genPackages>
 </genmodel:GenModel>

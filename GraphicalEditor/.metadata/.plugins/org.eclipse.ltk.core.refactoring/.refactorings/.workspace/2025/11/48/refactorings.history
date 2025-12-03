@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Raidad/src-gen/MLModel1Model.py&apos;" deleteContents="false" description="Delete resource &apos;Raidad/src-gen/MLModel1Model.py&apos;" element1="/Raidad/src-gen/MLModel1Model.py" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1764095042521"/>
+</session>

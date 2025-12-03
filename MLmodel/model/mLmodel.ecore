@@ -462,4 +462,30 @@
     <eLiterals name="MQTT" value="1"/>
     <eLiterals name="CoAP" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationProtocol" eSuperTypes="#//Import_Data">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt" upperBound="-1" eType="#//MQTT"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" upperBound="-1"
+        eType="#//Buffer" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Buffer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MQTT">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MQTT_BROKER" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral="localhost"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MQTT_PORT" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="1883"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topic" upperBound="-1"
+        eType="#//Topic" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OnlineModelManager" abstract="true"
+      interface="true" eSuperTypes="#//Cycle"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Topic">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MQTT_CONTROL_TOPIC" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral="control/mode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MQTT_SENSOR_TOPIC" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral="sensors/+/value"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SGDClassifier" eSuperTypes="#//OnlineModelManager"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PassiveAggressiveClassifier" eSuperTypes="#//OnlineModelManager"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Perceptron" eSuperTypes="#//OnlineModelManager"/>
 </ecore:EPackage>

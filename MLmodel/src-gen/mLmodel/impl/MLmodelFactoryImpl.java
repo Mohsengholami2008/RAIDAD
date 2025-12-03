@@ -8,9 +8,11 @@ import mLmodel.AnalysysTriger;
 import mLmodel.Attribiutes_Type;
 import mLmodel.Auto_Prep;
 import mLmodel.Bar;
+import mLmodel.Buffer;
 import mLmodel.CSV;
 import mLmodel.Categories;
 import mLmodel.Cluster_Evaluation;
+import mLmodel.CommunicationProtocol;
 import mLmodel.Component;
 import mLmodel.Correlation;
 import mLmodel.Criterion_RF;
@@ -43,6 +45,7 @@ import mLmodel.Logistic_Regression;
 import mLmodel.MLP;
 import mLmodel.MLmodelFactory;
 import mLmodel.MLmodelPackage;
+import mLmodel.MQTT;
 import mLmodel.Max_Iter_MLP;
 import mLmodel.Metric;
 import mLmodel.Metric_DBSCAN;
@@ -60,6 +63,8 @@ import mLmodel.OneHot_Cat_Arg;
 import mLmodel.OneHot_Drop_Arg;
 import mLmodel.OneHot_HandleUn_Arg;
 import mLmodel.PCA;
+import mLmodel.PassiveAggressiveClassifier;
+import mLmodel.Perceptron;
 import mLmodel.Property;
 import mLmodel.ProtocolBinding;
 import mLmodel.ProtocolBindingEnum;
@@ -70,6 +75,7 @@ import mLmodel.Random_State_RF;
 import mLmodel.Regular;
 import mLmodel.Robust_Scaling;
 import mLmodel.Root;
+import mLmodel.SGDClassifier;
 import mLmodel.SVM;
 import mLmodel.SVM_Kernel_Enum;
 import mLmodel.Scatter;
@@ -84,6 +90,7 @@ import mLmodel.Strategy;
 import mLmodel.Strategy_Simple_Imputer;
 import mLmodel.Target;
 import mLmodel.Thing;
+import mLmodel.Topic;
 import mLmodel.TrigerEnum;
 import mLmodel.Varience;
 import mLmodel.Visualization;
@@ -288,6 +295,20 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 			return createAnalysisOutput();
 		case MLmodelPackage.ANALYSYS_TRIGER:
 			return createAnalysysTriger();
+		case MLmodelPackage.COMMUNICATION_PROTOCOL:
+			return createCommunicationProtocol();
+		case MLmodelPackage.BUFFER:
+			return createBuffer();
+		case MLmodelPackage.MQTT:
+			return createMQTT();
+		case MLmodelPackage.TOPIC:
+			return createTopic();
+		case MLmodelPackage.SGD_CLASSIFIER:
+			return createSGDClassifier();
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER:
+			return createPassiveAggressiveClassifier();
+		case MLmodelPackage.PERCEPTRON:
+			return createPerceptron();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1115,6 +1136,76 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 	public AnalysysTriger createAnalysysTriger() {
 		AnalysysTrigerImpl analysysTriger = new AnalysysTrigerImpl();
 		return analysysTriger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CommunicationProtocol createCommunicationProtocol() {
+		CommunicationProtocolImpl communicationProtocol = new CommunicationProtocolImpl();
+		return communicationProtocol;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Buffer createBuffer() {
+		BufferImpl buffer = new BufferImpl();
+		return buffer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MQTT createMQTT() {
+		MQTTImpl mqtt = new MQTTImpl();
+		return mqtt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Topic createTopic() {
+		TopicImpl topic = new TopicImpl();
+		return topic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SGDClassifier createSGDClassifier() {
+		SGDClassifierImpl sgdClassifier = new SGDClassifierImpl();
+		return sgdClassifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PassiveAggressiveClassifier createPassiveAggressiveClassifier() {
+		PassiveAggressiveClassifierImpl passiveAggressiveClassifier = new PassiveAggressiveClassifierImpl();
+		return passiveAggressiveClassifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Perceptron createPerceptron() {
+		PerceptronImpl perceptron = new PerceptronImpl();
+		return perceptron;
 	}
 
 	/**

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mLmodel:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mLmodel="http://www.example.org/mLmodel" name="MLModel1">
+  <process file_path="text.csv">
+    <cycle xsi:type="mLmodel:Standardization"/>
+    <cycle xsi:type="mLmodel:Normalization"/>
+    <cycle xsi:type="mLmodel:CSV"/>
+  </process>
+</mLmodel:Root>
