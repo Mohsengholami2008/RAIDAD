@@ -9,7 +9,7 @@
     </input>
     <ownedModuleElement xsi:type="mtl:Query" name="swichtest" visibility="Public">
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="130" endPosition="167" value="&#xD;&#xA;The documentation of the query&#xD;&#xA;&#xD;&#xA;"/>
+        <body startPosition="130" endPosition="169" value="&#xD;&#xA;The documentation of the query&#xD;&#xA;&#xD;&#xA;"/>
       </documentation>
       <parameter name="anOclAny">
         <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
@@ -31,7 +31,7 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Query" name="gettest" visibility="Public">
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="315" endPosition="352" value="&#xD;&#xA;The documentation of the query&#xD;&#xA;&#xD;&#xA;"/>
+        <body startPosition="322" endPosition="361" value="&#xD;&#xA;The documentation of the query&#xD;&#xA;&#xD;&#xA;"/>
       </documentation>
       <parameter name="anOclAny">
         <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
@@ -53,7 +53,7 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Query" name="swichtest1" visibility="Public">
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="496" endPosition="533" value="&#xD;&#xA;The documentation of the query&#xD;&#xA;&#xD;&#xA;"/>
+        <body startPosition="510" endPosition="549" value="&#xD;&#xA;The documentation of the query&#xD;&#xA;&#xD;&#xA;"/>
       </documentation>
       <parameter name="anOclAny">
         <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
@@ -75,7 +75,7 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Query" name="gettest1" visibility="Public">
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="683" endPosition="720" value="&#xD;&#xA;The documentation of the query&#xD;&#xA;&#xD;&#xA;"/>
+        <body startPosition="704" endPosition="743" value="&#xD;&#xA;The documentation of the query&#xD;&#xA;&#xD;&#xA;"/>
       </documentation>
       <parameter name="anOclAny">
         <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
@@ -245,23 +245,23 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/swichtest">
-      <details key="start" value="170"/>
-      <details key="end" value="310"/>
+      <details key="start" value="173"/>
+      <details key="end" value="315"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/swichtest/%">
       <details key="start" value="127"/>
-      <details key="end" value="169"/>
+      <details key="end" value="171"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/swichtest/anOclAny">
-      <details key="start" value="194"/>
-      <details key="end" value="210"/>
+      <details key="start" value="197"/>
+      <details key="end" value="213"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/swichtest/%.1">
-      <details key="start" value="225"/>
-      <details key="end" value="307"/>
+      <details key="start" value="229"/>
+      <details key="end" value="311"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/swichtest/%.1/self">
@@ -270,38 +270,38 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/swichtest/%.1/%">
-      <details key="start" value="232"/>
-      <details key="end" value="279"/>
+      <details key="start" value="236"/>
+      <details key="end" value="283"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/swichtest/%.1/%.1">
-      <details key="start" value="281"/>
-      <details key="end" value="294"/>
+      <details key="start" value="285"/>
+      <details key="end" value="298"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/swichtest/%.1/%.2">
-      <details key="start" value="296"/>
-      <details key="end" value="306"/>
+      <details key="start" value="300"/>
+      <details key="end" value="310"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/gettest">
-      <details key="start" value="355"/>
-      <details key="end" value="491"/>
+      <details key="start" value="365"/>
+      <details key="end" value="503"/>
       <details key="line" value="17"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/gettest/%">
-      <details key="start" value="312"/>
-      <details key="end" value="354"/>
+      <details key="start" value="319"/>
+      <details key="end" value="363"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/gettest/anOclAny">
-      <details key="start" value="377"/>
-      <details key="end" value="393"/>
+      <details key="start" value="387"/>
+      <details key="end" value="403"/>
       <details key="line" value="17"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/gettest/%.1">
-      <details key="start" value="408"/>
-      <details key="end" value="488"/>
+      <details key="start" value="419"/>
+      <details key="end" value="499"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/gettest/%.1/self">
@@ -310,38 +310,38 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/gettest/%.1/%">
-      <details key="start" value="415"/>
-      <details key="end" value="462"/>
+      <details key="start" value="426"/>
+      <details key="end" value="473"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/gettest/%.1/%.1">
-      <details key="start" value="464"/>
-      <details key="end" value="475"/>
+      <details key="start" value="475"/>
+      <details key="end" value="486"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/gettest/%.1/%.2">
-      <details key="start" value="477"/>
-      <details key="end" value="487"/>
+      <details key="start" value="488"/>
+      <details key="end" value="498"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/swichtest1">
-      <details key="start" value="536"/>
-      <details key="end" value="678"/>
+      <details key="start" value="553"/>
+      <details key="end" value="697"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/swichtest1/%">
-      <details key="start" value="493"/>
-      <details key="end" value="535"/>
+      <details key="start" value="507"/>
+      <details key="end" value="551"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/swichtest1/anOclAny">
-      <details key="start" value="561"/>
-      <details key="end" value="577"/>
+      <details key="start" value="578"/>
+      <details key="end" value="594"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/swichtest1/%.1">
-      <details key="start" value="592"/>
-      <details key="end" value="675"/>
+      <details key="start" value="610"/>
+      <details key="end" value="693"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/swichtest1/%.1/self">
@@ -350,38 +350,38 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/swichtest1/%.1/%">
-      <details key="start" value="599"/>
-      <details key="end" value="646"/>
+      <details key="start" value="617"/>
+      <details key="end" value="664"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/swichtest1/%.1/%.1">
-      <details key="start" value="648"/>
-      <details key="end" value="662"/>
+      <details key="start" value="666"/>
+      <details key="end" value="680"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/swichtest1/%.1/%.2">
-      <details key="start" value="664"/>
-      <details key="end" value="674"/>
+      <details key="start" value="682"/>
+      <details key="end" value="692"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/gettest1">
-      <details key="start" value="723"/>
-      <details key="end" value="861"/>
+      <details key="start" value="747"/>
+      <details key="end" value="887"/>
       <details key="line" value="31"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/gettest1/%">
-      <details key="start" value="680"/>
-      <details key="end" value="722"/>
+      <details key="start" value="701"/>
+      <details key="end" value="745"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/gettest1/anOclAny">
-      <details key="start" value="746"/>
-      <details key="end" value="762"/>
+      <details key="start" value="770"/>
+      <details key="end" value="786"/>
       <details key="line" value="31"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/gettest1/%.1">
-      <details key="start" value="777"/>
-      <details key="end" value="858"/>
+      <details key="start" value="802"/>
+      <details key="end" value="883"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/gettest1/%.1/self">
@@ -390,18 +390,18 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/gettest1/%.1/%">
-      <details key="start" value="784"/>
-      <details key="end" value="831"/>
+      <details key="start" value="809"/>
+      <details key="end" value="856"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/gettest1/%.1/%.1">
-      <details key="start" value="833"/>
-      <details key="end" value="845"/>
+      <details key="start" value="858"/>
+      <details key="end" value="870"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.32" references="/0/gettest1/%.1/%.2">
-      <details key="start" value="847"/>
-      <details key="end" value="857"/>
+      <details key="start" value="872"/>
+      <details key="end" value="882"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>
