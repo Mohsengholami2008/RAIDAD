@@ -5585,6 +5585,465 @@ public interface MLmodelPackage extends EPackage {
 	int ANALYSYS_TRIGER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link mLmodel.impl.CommunicationProtocolImpl <em>Communication Protocol</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.CommunicationProtocolImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getCommunicationProtocol()
+	 * @generated
+	 */
+	int COMMUNICATION_PROTOCOL = 101;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL__AFTER = IMPORT_DATA__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL__BEFORE = IMPORT_DATA__BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Regular</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL__REGULAR = IMPORT_DATA__REGULAR;
+
+	/**
+	 * The feature id for the '<em><b>Save file</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL__SAVE_FILE = IMPORT_DATA__SAVE_FILE;
+
+	/**
+	 * The feature id for the '<em><b>Print data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL__PRINT_DATA = IMPORT_DATA__PRINT_DATA;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL__ROLE = IMPORT_DATA__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Buffer</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL__BUFFER = IMPORT_DATA_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Mqtt</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL__MQTT = IMPORT_DATA_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Devices</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL__DEVICES = IMPORT_DATA_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Communication Protocol</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL_FEATURE_COUNT = IMPORT_DATA_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Communication Protocol</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PROTOCOL_OPERATION_COUNT = IMPORT_DATA_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.BufferImpl <em>Buffer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.BufferImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getBuffer()
+	 * @generated
+	 */
+	int BUFFER = 102;
+
+	/**
+	 * The number of structural features of the '<em>Buffer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUFFER_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Buffer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUFFER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.MQTTImpl <em>MQTT</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.MQTTImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getMQTT()
+	 * @generated
+	 */
+	int MQTT = 103;
+
+	/**
+	 * The feature id for the '<em><b>Topic</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT__TOPIC = 0;
+
+	/**
+	 * The feature id for the '<em><b>MQTT BROKER</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT__MQTT_BROKER = 1;
+
+	/**
+	 * The feature id for the '<em><b>MQTT PORT</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT__MQTT_PORT = 2;
+
+	/**
+	 * The number of structural features of the '<em>MQTT</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>MQTT</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.DevicesImpl <em>Devices</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.DevicesImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getDevices()
+	 * @generated
+	 */
+	int DEVICES = 104;
+
+	/**
+	 * The feature id for the '<em><b>REQUIRED DEVICES</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICES__REQUIRED_DEVICES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Devices</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Devices</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICES_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.TopicImpl <em>Topic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.TopicImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getTopic()
+	 * @generated
+	 */
+	int TOPIC = 105;
+
+	/**
+	 * The feature id for the '<em><b>MQTT CONTROL TOPIC</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC__MQTT_CONTROL_TOPIC = 0;
+
+	/**
+	 * The feature id for the '<em><b>MQTT SENSOR TOPIC</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC__MQTT_SENSOR_TOPIC = 1;
+
+	/**
+	 * The number of structural features of the '<em>Topic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Topic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.OnlineModelManager <em>Online Model Manager</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.OnlineModelManager
+	 * @see mLmodel.impl.MLmodelPackageImpl#getOnlineModelManager()
+	 * @generated
+	 */
+	int ONLINE_MODEL_MANAGER = 106;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONLINE_MODEL_MANAGER__AFTER = CYCLE__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONLINE_MODEL_MANAGER__BEFORE = CYCLE__BEFORE;
+
+	/**
+	 * The number of structural features of the '<em>Online Model Manager</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONLINE_MODEL_MANAGER_FEATURE_COUNT = CYCLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Online Model Manager</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONLINE_MODEL_MANAGER_OPERATION_COUNT = CYCLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.SGDClassifierImpl <em>SGD Classifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.SGDClassifierImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getSGDClassifier()
+	 * @generated
+	 */
+	int SGD_CLASSIFIER = 107;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGD_CLASSIFIER__AFTER = ONLINE_MODEL_MANAGER__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGD_CLASSIFIER__BEFORE = ONLINE_MODEL_MANAGER__BEFORE;
+
+	/**
+	 * The number of structural features of the '<em>SGD Classifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGD_CLASSIFIER_FEATURE_COUNT = ONLINE_MODEL_MANAGER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>SGD Classifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGD_CLASSIFIER_OPERATION_COUNT = ONLINE_MODEL_MANAGER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.PassiveAggressiveClassifierImpl <em>Passive Aggressive Classifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.PassiveAggressiveClassifierImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getPassiveAggressiveClassifier()
+	 * @generated
+	 */
+	int PASSIVE_AGGRESSIVE_CLASSIFIER = 108;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSIVE_AGGRESSIVE_CLASSIFIER__AFTER = ONLINE_MODEL_MANAGER__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSIVE_AGGRESSIVE_CLASSIFIER__BEFORE = ONLINE_MODEL_MANAGER__BEFORE;
+
+	/**
+	 * The number of structural features of the '<em>Passive Aggressive Classifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSIVE_AGGRESSIVE_CLASSIFIER_FEATURE_COUNT = ONLINE_MODEL_MANAGER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Passive Aggressive Classifier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSIVE_AGGRESSIVE_CLASSIFIER_OPERATION_COUNT = ONLINE_MODEL_MANAGER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.PerceptronImpl <em>Perceptron</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.PerceptronImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getPerceptron()
+	 * @generated
+	 */
+	int PERCEPTRON = 109;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCEPTRON__AFTER = ONLINE_MODEL_MANAGER__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCEPTRON__BEFORE = ONLINE_MODEL_MANAGER__BEFORE;
+
+	/**
+	 * The number of structural features of the '<em>Perceptron</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCEPTRON_FEATURE_COUNT = ONLINE_MODEL_MANAGER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Perceptron</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCEPTRON_OPERATION_COUNT = ONLINE_MODEL_MANAGER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5592,7 +6051,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getEnum_CSV_Sep()
 	 * @generated
 	 */
-	int ENUM_CSV_SEP = 101;
+	int ENUM_CSV_SEP = 110;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Strategy_Simple_Imputer <em>Strategy Simple Imputer</em>}' enum.
@@ -5602,7 +6061,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getStrategy_Simple_Imputer()
 	 * @generated
 	 */
-	int STRATEGY_SIMPLE_IMPUTER = 102;
+	int STRATEGY_SIMPLE_IMPUTER = 111;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_Cat_Arg <em>One Hot Cat Arg</em>}' enum.
@@ -5612,7 +6071,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_Cat_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_CAT_ARG = 103;
+	int ONE_HOT_CAT_ARG = 112;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_Drop_Arg <em>One Hot Drop Arg</em>}' enum.
@@ -5622,7 +6081,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_Drop_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_DROP_ARG = 104;
+	int ONE_HOT_DROP_ARG = 113;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_HandleUn_Arg <em>One Hot Handle Un Arg</em>}' enum.
@@ -5632,7 +6091,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_HandleUn_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_HANDLE_UN_ARG = 105;
+	int ONE_HOT_HANDLE_UN_ARG = 114;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Dup_Arg_Keep <em>Dup Arg Keep</em>}' enum.
@@ -5642,7 +6101,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getDup_Arg_Keep()
 	 * @generated
 	 */
-	int DUP_ARG_KEEP = 106;
+	int DUP_ARG_KEEP = 115;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.SVM_Kernel_Enum <em>SVM Kernel Enum</em>}' enum.
@@ -5652,7 +6111,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getSVM_Kernel_Enum()
 	 * @generated
 	 */
-	int SVM_KERNEL_ENUM = 107;
+	int SVM_KERNEL_ENUM = 116;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Neural_Libraries <em>Neural Libraries</em>}' enum.
@@ -5662,7 +6121,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getNeural_Libraries()
 	 * @generated
 	 */
-	int NEURAL_LIBRARIES = 108;
+	int NEURAL_LIBRARIES = 117;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Neural_Network_Activation <em>Neural Network Activation</em>}' enum.
@@ -5672,7 +6131,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getNeural_Network_Activation()
 	 * @generated
 	 */
-	int NEURAL_NETWORK_ACTIVATION = 109;
+	int NEURAL_NETWORK_ACTIVATION = 118;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.voting_pred <em>voting pred</em>}' enum.
@@ -5682,7 +6141,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getvoting_pred()
 	 * @generated
 	 */
-	int VOTING_PRED = 110;
+	int VOTING_PRED = 119;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Random_Forest_Criterion_Enum <em>Random Forest Criterion Enum</em>}' enum.
@@ -5692,7 +6151,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getRandom_Forest_Criterion_Enum()
 	 * @generated
 	 */
-	int RANDOM_FOREST_CRITERION_ENUM = 111;
+	int RANDOM_FOREST_CRITERION_ENUM = 120;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Library_Clustering <em>Library Clustering</em>}' enum.
@@ -5702,7 +6161,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getLibrary_Clustering()
 	 * @generated
 	 */
-	int LIBRARY_CLUSTERING = 112;
+	int LIBRARY_CLUSTERING = 121;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Metric_DBSCAN <em>Metric DBSCAN</em>}' enum.
@@ -5712,7 +6171,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getMetric_DBSCAN()
 	 * @generated
 	 */
-	int METRIC_DBSCAN = 113;
+	int METRIC_DBSCAN = 122;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Attribiutes_Type <em>Attribiutes Type</em>}' enum.
@@ -5722,7 +6181,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getAttribiutes_Type()
 	 * @generated
 	 */
-	int ATTRIBIUTES_TYPE = 114;
+	int ATTRIBIUTES_TYPE = 123;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.KNN_Imputer_Weights <em>KNN Imputer Weights</em>}' enum.
@@ -5732,7 +6191,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getKNN_Imputer_Weights()
 	 * @generated
 	 */
-	int KNN_IMPUTER_WEIGHTS = 115;
+	int KNN_IMPUTER_WEIGHTS = 124;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.TrigerEnum <em>Triger Enum</em>}' enum.
@@ -5742,7 +6201,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getTrigerEnum()
 	 * @generated
 	 */
-	int TRIGER_ENUM = 116;
+	int TRIGER_ENUM = 125;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.ProtocolBindingEnum <em>Protocol Binding Enum</em>}' enum.
@@ -5752,7 +6211,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getProtocolBindingEnum()
 	 * @generated
 	 */
-	int PROTOCOL_BINDING_ENUM = 117;
+	int PROTOCOL_BINDING_ENUM = 126;
 
 	/**
 	 * Returns the meta object for class '{@link mLmodel.Root <em>Root</em>}'.
@@ -8217,6 +8676,195 @@ public interface MLmodelPackage extends EPackage {
 	EAttribute getAnalysysTriger_Schedule();
 
 	/**
+	 * Returns the meta object for class '{@link mLmodel.CommunicationProtocol <em>Communication Protocol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Communication Protocol</em>'.
+	 * @see mLmodel.CommunicationProtocol
+	 * @generated
+	 */
+	EClass getCommunicationProtocol();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.CommunicationProtocol#getBuffer <em>Buffer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Buffer</em>'.
+	 * @see mLmodel.CommunicationProtocol#getBuffer()
+	 * @see #getCommunicationProtocol()
+	 * @generated
+	 */
+	EReference getCommunicationProtocol_Buffer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.CommunicationProtocol#getMqtt <em>Mqtt</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Mqtt</em>'.
+	 * @see mLmodel.CommunicationProtocol#getMqtt()
+	 * @see #getCommunicationProtocol()
+	 * @generated
+	 */
+	EReference getCommunicationProtocol_Mqtt();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.CommunicationProtocol#getDevices <em>Devices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Devices</em>'.
+	 * @see mLmodel.CommunicationProtocol#getDevices()
+	 * @see #getCommunicationProtocol()
+	 * @generated
+	 */
+	EReference getCommunicationProtocol_Devices();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.Buffer <em>Buffer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Buffer</em>'.
+	 * @see mLmodel.Buffer
+	 * @generated
+	 */
+	EClass getBuffer();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.MQTT <em>MQTT</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>MQTT</em>'.
+	 * @see mLmodel.MQTT
+	 * @generated
+	 */
+	EClass getMQTT();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link mLmodel.MQTT#getTopic <em>Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Topic</em>'.
+	 * @see mLmodel.MQTT#getTopic()
+	 * @see #getMQTT()
+	 * @generated
+	 */
+	EReference getMQTT_Topic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.MQTT#getMQTT_BROKER <em>MQTT BROKER</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>MQTT BROKER</em>'.
+	 * @see mLmodel.MQTT#getMQTT_BROKER()
+	 * @see #getMQTT()
+	 * @generated
+	 */
+	EAttribute getMQTT_MQTT_BROKER();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.MQTT#getMQTT_PORT <em>MQTT PORT</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>MQTT PORT</em>'.
+	 * @see mLmodel.MQTT#getMQTT_PORT()
+	 * @see #getMQTT()
+	 * @generated
+	 */
+	EAttribute getMQTT_MQTT_PORT();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.Devices <em>Devices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Devices</em>'.
+	 * @see mLmodel.Devices
+	 * @generated
+	 */
+	EClass getDevices();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Devices#getREQUIRED_DEVICES <em>REQUIRED DEVICES</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>REQUIRED DEVICES</em>'.
+	 * @see mLmodel.Devices#getREQUIRED_DEVICES()
+	 * @see #getDevices()
+	 * @generated
+	 */
+	EAttribute getDevices_REQUIRED_DEVICES();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.Topic <em>Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Topic</em>'.
+	 * @see mLmodel.Topic
+	 * @generated
+	 */
+	EClass getTopic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Topic#getMQTT_CONTROL_TOPIC <em>MQTT CONTROL TOPIC</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>MQTT CONTROL TOPIC</em>'.
+	 * @see mLmodel.Topic#getMQTT_CONTROL_TOPIC()
+	 * @see #getTopic()
+	 * @generated
+	 */
+	EAttribute getTopic_MQTT_CONTROL_TOPIC();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.Topic#getMQTT_SENSOR_TOPIC <em>MQTT SENSOR TOPIC</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>MQTT SENSOR TOPIC</em>'.
+	 * @see mLmodel.Topic#getMQTT_SENSOR_TOPIC()
+	 * @see #getTopic()
+	 * @generated
+	 */
+	EAttribute getTopic_MQTT_SENSOR_TOPIC();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.OnlineModelManager <em>Online Model Manager</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Online Model Manager</em>'.
+	 * @see mLmodel.OnlineModelManager
+	 * @generated
+	 */
+	EClass getOnlineModelManager();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.SGDClassifier <em>SGD Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SGD Classifier</em>'.
+	 * @see mLmodel.SGDClassifier
+	 * @generated
+	 */
+	EClass getSGDClassifier();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.PassiveAggressiveClassifier <em>Passive Aggressive Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Passive Aggressive Classifier</em>'.
+	 * @see mLmodel.PassiveAggressiveClassifier
+	 * @generated
+	 */
+	EClass getPassiveAggressiveClassifier();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.Perceptron <em>Perceptron</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Perceptron</em>'.
+	 * @see mLmodel.Perceptron
+	 * @generated
+	 */
+	EClass getPerceptron();
+
+	/**
 	 * Returns the meta object for enum '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10476,6 +11124,168 @@ public interface MLmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANALYSYS_TRIGER__SCHEDULE = eINSTANCE.getAnalysysTriger_Schedule();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.CommunicationProtocolImpl <em>Communication Protocol</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.CommunicationProtocolImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getCommunicationProtocol()
+		 * @generated
+		 */
+		EClass COMMUNICATION_PROTOCOL = eINSTANCE.getCommunicationProtocol();
+
+		/**
+		 * The meta object literal for the '<em><b>Buffer</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_PROTOCOL__BUFFER = eINSTANCE.getCommunicationProtocol_Buffer();
+
+		/**
+		 * The meta object literal for the '<em><b>Mqtt</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_PROTOCOL__MQTT = eINSTANCE.getCommunicationProtocol_Mqtt();
+
+		/**
+		 * The meta object literal for the '<em><b>Devices</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_PROTOCOL__DEVICES = eINSTANCE.getCommunicationProtocol_Devices();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.BufferImpl <em>Buffer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.BufferImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getBuffer()
+		 * @generated
+		 */
+		EClass BUFFER = eINSTANCE.getBuffer();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.MQTTImpl <em>MQTT</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.MQTTImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getMQTT()
+		 * @generated
+		 */
+		EClass MQTT = eINSTANCE.getMQTT();
+
+		/**
+		 * The meta object literal for the '<em><b>Topic</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MQTT__TOPIC = eINSTANCE.getMQTT_Topic();
+
+		/**
+		 * The meta object literal for the '<em><b>MQTT BROKER</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MQTT__MQTT_BROKER = eINSTANCE.getMQTT_MQTT_BROKER();
+
+		/**
+		 * The meta object literal for the '<em><b>MQTT PORT</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MQTT__MQTT_PORT = eINSTANCE.getMQTT_MQTT_PORT();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.DevicesImpl <em>Devices</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.DevicesImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getDevices()
+		 * @generated
+		 */
+		EClass DEVICES = eINSTANCE.getDevices();
+
+		/**
+		 * The meta object literal for the '<em><b>REQUIRED DEVICES</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEVICES__REQUIRED_DEVICES = eINSTANCE.getDevices_REQUIRED_DEVICES();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.TopicImpl <em>Topic</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.TopicImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getTopic()
+		 * @generated
+		 */
+		EClass TOPIC = eINSTANCE.getTopic();
+
+		/**
+		 * The meta object literal for the '<em><b>MQTT CONTROL TOPIC</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOPIC__MQTT_CONTROL_TOPIC = eINSTANCE.getTopic_MQTT_CONTROL_TOPIC();
+
+		/**
+		 * The meta object literal for the '<em><b>MQTT SENSOR TOPIC</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOPIC__MQTT_SENSOR_TOPIC = eINSTANCE.getTopic_MQTT_SENSOR_TOPIC();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.OnlineModelManager <em>Online Model Manager</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.OnlineModelManager
+		 * @see mLmodel.impl.MLmodelPackageImpl#getOnlineModelManager()
+		 * @generated
+		 */
+		EClass ONLINE_MODEL_MANAGER = eINSTANCE.getOnlineModelManager();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.SGDClassifierImpl <em>SGD Classifier</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.SGDClassifierImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getSGDClassifier()
+		 * @generated
+		 */
+		EClass SGD_CLASSIFIER = eINSTANCE.getSGDClassifier();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.PassiveAggressiveClassifierImpl <em>Passive Aggressive Classifier</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.PassiveAggressiveClassifierImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getPassiveAggressiveClassifier()
+		 * @generated
+		 */
+		EClass PASSIVE_AGGRESSIVE_CLASSIFIER = eINSTANCE.getPassiveAggressiveClassifier();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.PerceptronImpl <em>Perceptron</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.PerceptronImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getPerceptron()
+		 * @generated
+		 */
+		EClass PERCEPTRON = eINSTANCE.getPerceptron();
 
 		/**
 		 * The meta object literal for the '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}' enum.

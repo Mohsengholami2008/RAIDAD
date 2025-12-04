@@ -571,6 +571,51 @@ public class MLmodelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCommunicationProtocol(CommunicationProtocol object) {
+			return createCommunicationProtocolAdapter();
+		}
+
+		@Override
+		public Adapter caseBuffer(Buffer object) {
+			return createBufferAdapter();
+		}
+
+		@Override
+		public Adapter caseMQTT(MQTT object) {
+			return createMQTTAdapter();
+		}
+
+		@Override
+		public Adapter caseDevices(Devices object) {
+			return createDevicesAdapter();
+		}
+
+		@Override
+		public Adapter caseTopic(Topic object) {
+			return createTopicAdapter();
+		}
+
+		@Override
+		public Adapter caseOnlineModelManager(OnlineModelManager object) {
+			return createOnlineModelManagerAdapter();
+		}
+
+		@Override
+		public Adapter caseSGDClassifier(SGDClassifier object) {
+			return createSGDClassifierAdapter();
+		}
+
+		@Override
+		public Adapter casePassiveAggressiveClassifier(PassiveAggressiveClassifier object) {
+			return createPassiveAggressiveClassifierAdapter();
+		}
+
+		@Override
+		public Adapter casePerceptron(Perceptron object) {
+			return createPerceptronAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -1902,6 +1947,132 @@ public class MLmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAnalysysTrigerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.CommunicationProtocol <em>Communication Protocol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.CommunicationProtocol
+	 * @generated
+	 */
+	public Adapter createCommunicationProtocolAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Buffer <em>Buffer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Buffer
+	 * @generated
+	 */
+	public Adapter createBufferAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.MQTT <em>MQTT</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.MQTT
+	 * @generated
+	 */
+	public Adapter createMQTTAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Devices <em>Devices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Devices
+	 * @generated
+	 */
+	public Adapter createDevicesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Topic <em>Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Topic
+	 * @generated
+	 */
+	public Adapter createTopicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.OnlineModelManager <em>Online Model Manager</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.OnlineModelManager
+	 * @generated
+	 */
+	public Adapter createOnlineModelManagerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.SGDClassifier <em>SGD Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.SGDClassifier
+	 * @generated
+	 */
+	public Adapter createSGDClassifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.PassiveAggressiveClassifier <em>Passive Aggressive Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.PassiveAggressiveClassifier
+	 * @generated
+	 */
+	public Adapter createPassiveAggressiveClassifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Perceptron <em>Perceptron</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Perceptron
+	 * @generated
+	 */
+	public Adapter createPerceptronAdapter() {
 		return null;
 	}
 

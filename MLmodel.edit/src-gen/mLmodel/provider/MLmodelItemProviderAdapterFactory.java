@@ -1752,6 +1752,190 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.CommunicationProtocol} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommunicationProtocolItemProvider communicationProtocolItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.CommunicationProtocol}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCommunicationProtocolAdapter() {
+		if (communicationProtocolItemProvider == null) {
+			communicationProtocolItemProvider = new CommunicationProtocolItemProvider(this);
+		}
+
+		return communicationProtocolItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Buffer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BufferItemProvider bufferItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Buffer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBufferAdapter() {
+		if (bufferItemProvider == null) {
+			bufferItemProvider = new BufferItemProvider(this);
+		}
+
+		return bufferItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.MQTT} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MQTTItemProvider mqttItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.MQTT}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMQTTAdapter() {
+		if (mqttItemProvider == null) {
+			mqttItemProvider = new MQTTItemProvider(this);
+		}
+
+		return mqttItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Devices} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DevicesItemProvider devicesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Devices}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDevicesAdapter() {
+		if (devicesItemProvider == null) {
+			devicesItemProvider = new DevicesItemProvider(this);
+		}
+
+		return devicesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Topic} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TopicItemProvider topicItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Topic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTopicAdapter() {
+		if (topicItemProvider == null) {
+			topicItemProvider = new TopicItemProvider(this);
+		}
+
+		return topicItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.SGDClassifier} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SGDClassifierItemProvider sgdClassifierItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.SGDClassifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSGDClassifierAdapter() {
+		if (sgdClassifierItemProvider == null) {
+			sgdClassifierItemProvider = new SGDClassifierItemProvider(this);
+		}
+
+		return sgdClassifierItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.PassiveAggressiveClassifier} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PassiveAggressiveClassifierItemProvider passiveAggressiveClassifierItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.PassiveAggressiveClassifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPassiveAggressiveClassifierAdapter() {
+		if (passiveAggressiveClassifierItemProvider == null) {
+			passiveAggressiveClassifierItemProvider = new PassiveAggressiveClassifierItemProvider(this);
+		}
+
+		return passiveAggressiveClassifierItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Perceptron} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PerceptronItemProvider perceptronItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Perceptron}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPerceptronAdapter() {
+		if (perceptronItemProvider == null) {
+			perceptronItemProvider = new PerceptronItemProvider(this);
+		}
+
+		return perceptronItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1996,6 +2180,22 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 			analysisOutputItemProvider.dispose();
 		if (analysysTrigerItemProvider != null)
 			analysysTrigerItemProvider.dispose();
+		if (communicationProtocolItemProvider != null)
+			communicationProtocolItemProvider.dispose();
+		if (bufferItemProvider != null)
+			bufferItemProvider.dispose();
+		if (mqttItemProvider != null)
+			mqttItemProvider.dispose();
+		if (devicesItemProvider != null)
+			devicesItemProvider.dispose();
+		if (topicItemProvider != null)
+			topicItemProvider.dispose();
+		if (sgdClassifierItemProvider != null)
+			sgdClassifierItemProvider.dispose();
+		if (passiveAggressiveClassifierItemProvider != null)
+			passiveAggressiveClassifierItemProvider.dispose();
+		if (perceptronItemProvider != null)
+			perceptronItemProvider.dispose();
 	}
 
 }

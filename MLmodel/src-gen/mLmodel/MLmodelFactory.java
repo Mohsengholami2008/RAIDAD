@@ -677,6 +677,78 @@ public interface MLmodelFactory extends EFactory {
 	AnalysysTriger createAnalysysTriger();
 
 	/**
+	 * Returns a new object of class '<em>Communication Protocol</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Communication Protocol</em>'.
+	 * @generated
+	 */
+	CommunicationProtocol createCommunicationProtocol();
+
+	/**
+	 * Returns a new object of class '<em>Buffer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Buffer</em>'.
+	 * @generated
+	 */
+	Buffer createBuffer();
+
+	/**
+	 * Returns a new object of class '<em>MQTT</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>MQTT</em>'.
+	 * @generated
+	 */
+	MQTT createMQTT();
+
+	/**
+	 * Returns a new object of class '<em>Devices</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Devices</em>'.
+	 * @generated
+	 */
+	Devices createDevices();
+
+	/**
+	 * Returns a new object of class '<em>Topic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Topic</em>'.
+	 * @generated
+	 */
+	Topic createTopic();
+
+	/**
+	 * Returns a new object of class '<em>SGD Classifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>SGD Classifier</em>'.
+	 * @generated
+	 */
+	SGDClassifier createSGDClassifier();
+
+	/**
+	 * Returns a new object of class '<em>Passive Aggressive Classifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Passive Aggressive Classifier</em>'.
+	 * @generated
+	 */
+	PassiveAggressiveClassifier createPassiveAggressiveClassifier();
+
+	/**
+	 * Returns a new object of class '<em>Perceptron</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Perceptron</em>'.
+	 * @generated
+	 */
+	Perceptron createPerceptron();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -728,6 +728,69 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass communicationProtocolEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bufferEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mqttEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass devicesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass topicEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass onlineModelManagerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sgdClassifierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass passiveAggressiveClassifierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass perceptronEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum enum_CSV_SepEEnum = null;
 
 	/**
@@ -3011,6 +3074,168 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCommunicationProtocol() {
+		return communicationProtocolEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommunicationProtocol_Buffer() {
+		return (EReference) communicationProtocolEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommunicationProtocol_Mqtt() {
+		return (EReference) communicationProtocolEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommunicationProtocol_Devices() {
+		return (EReference) communicationProtocolEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBuffer() {
+		return bufferEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMQTT() {
+		return mqttEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMQTT_Topic() {
+		return (EReference) mqttEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMQTT_MQTT_BROKER() {
+		return (EAttribute) mqttEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMQTT_MQTT_PORT() {
+		return (EAttribute) mqttEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDevices() {
+		return devicesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDevices_REQUIRED_DEVICES() {
+		return (EAttribute) devicesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTopic() {
+		return topicEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTopic_MQTT_CONTROL_TOPIC() {
+		return (EAttribute) topicEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTopic_MQTT_SENSOR_TOPIC() {
+		return (EAttribute) topicEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOnlineModelManager() {
+		return onlineModelManagerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSGDClassifier() {
+		return sgdClassifierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPassiveAggressiveClassifier() {
+		return passiveAggressiveClassifierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPerceptron() {
+		return perceptronEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEnum_CSV_Sep() {
 		return enum_CSV_SepEEnum;
 	}
@@ -3522,6 +3747,33 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		createEAttribute(analysysTrigerEClass, ANALYSYS_TRIGER__CONDITION);
 		createEAttribute(analysysTrigerEClass, ANALYSYS_TRIGER__SCHEDULE);
 
+		communicationProtocolEClass = createEClass(COMMUNICATION_PROTOCOL);
+		createEReference(communicationProtocolEClass, COMMUNICATION_PROTOCOL__BUFFER);
+		createEReference(communicationProtocolEClass, COMMUNICATION_PROTOCOL__MQTT);
+		createEReference(communicationProtocolEClass, COMMUNICATION_PROTOCOL__DEVICES);
+
+		bufferEClass = createEClass(BUFFER);
+
+		mqttEClass = createEClass(MQTT);
+		createEReference(mqttEClass, MQTT__TOPIC);
+		createEAttribute(mqttEClass, MQTT__MQTT_BROKER);
+		createEAttribute(mqttEClass, MQTT__MQTT_PORT);
+
+		devicesEClass = createEClass(DEVICES);
+		createEAttribute(devicesEClass, DEVICES__REQUIRED_DEVICES);
+
+		topicEClass = createEClass(TOPIC);
+		createEAttribute(topicEClass, TOPIC__MQTT_CONTROL_TOPIC);
+		createEAttribute(topicEClass, TOPIC__MQTT_SENSOR_TOPIC);
+
+		onlineModelManagerEClass = createEClass(ONLINE_MODEL_MANAGER);
+
+		sgdClassifierEClass = createEClass(SGD_CLASSIFIER);
+
+		passiveAggressiveClassifierEClass = createEClass(PASSIVE_AGGRESSIVE_CLASSIFIER);
+
+		perceptronEClass = createEClass(PERCEPTRON);
+
 		// Create enums
 		enum_CSV_SepEEnum = createEEnum(ENUM_CSV_SEP);
 		strategy_Simple_ImputerEEnum = createEEnum(STRATEGY_SIMPLE_IMPUTER);
@@ -3653,6 +3905,11 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		linear_RegressionEClass.getESuperTypes().add(this.getRegression());
 		dataSourceEClass.getESuperTypes().add(this.getImport_Data());
 		analysisOutputEClass.getESuperTypes().add(this.getEvaluation_Methods());
+		communicationProtocolEClass.getESuperTypes().add(this.getImport_Data());
+		onlineModelManagerEClass.getESuperTypes().add(this.getCycle());
+		sgdClassifierEClass.getESuperTypes().add(this.getOnlineModelManager());
+		passiveAggressiveClassifierEClass.getESuperTypes().add(this.getOnlineModelManager());
+		perceptronEClass.getESuperTypes().add(this.getOnlineModelManager());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4273,6 +4530,55 @@ public class MLmodelPackageImpl extends EPackageImpl implements MLmodelPackage {
 		initEAttribute(getAnalysysTriger_Schedule(), theXMLTypePackage.getString(), "schedule", null, 0, 1,
 				AnalysysTriger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(communicationProtocolEClass, CommunicationProtocol.class, "CommunicationProtocol", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCommunicationProtocol_Buffer(), this.getBuffer(), null, "buffer", null, 0, -1,
+				CommunicationProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommunicationProtocol_Mqtt(), this.getMQTT(), null, "mqtt", null, 0, -1,
+				CommunicationProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommunicationProtocol_Devices(), this.getDevices(), null, "devices", null, 0, -1,
+				CommunicationProtocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bufferEClass, Buffer.class, "Buffer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(mqttEClass, mLmodel.MQTT.class, "MQTT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMQTT_Topic(), this.getTopic(), null, "topic", null, 0, -1, mLmodel.MQTT.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getMQTT_MQTT_BROKER(), theXMLTypePackage.getString(), "MQTT_BROKER", "localhost", 0, 1,
+				mLmodel.MQTT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMQTT_MQTT_PORT(), theXMLTypePackage.getInt(), "MQTT_PORT", "1883", 0, 1, mLmodel.MQTT.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(devicesEClass, Devices.class, "Devices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDevices_REQUIRED_DEVICES(), theXMLTypePackage.getString(), "REQUIRED_DEVICES", "dev", 0, 1,
+				Devices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(topicEClass, Topic.class, "Topic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTopic_MQTT_CONTROL_TOPIC(), theXMLTypePackage.getString(), "MQTT_CONTROL_TOPIC",
+				"control/mode", 0, 1, Topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTopic_MQTT_SENSOR_TOPIC(), theXMLTypePackage.getString(), "MQTT_SENSOR_TOPIC",
+				"sensors/+/value", 0, 1, Topic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(onlineModelManagerEClass, OnlineModelManager.class, "OnlineModelManager", IS_ABSTRACT, IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(sgdClassifierEClass, SGDClassifier.class, "SGDClassifier", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(passiveAggressiveClassifierEClass, PassiveAggressiveClassifier.class, "PassiveAggressiveClassifier",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(perceptronEClass, Perceptron.class, "Perceptron", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(enum_CSV_SepEEnum, Enum_CSV_Sep.class, "Enum_CSV_Sep");
