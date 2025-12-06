@@ -350,6 +350,8 @@ public class MLmodelSwitch<T> extends Switch<T> {
 			Scaling scaling = (Scaling) theEObject;
 			T result = caseScaling(scaling);
 			if (result == null)
+				result = caseOnlinePreprocess(scaling);
+			if (result == null)
 				result = casePreprocess(scaling);
 			if (result == null)
 				result = caseCycle(scaling);
@@ -362,6 +364,8 @@ public class MLmodelSwitch<T> extends Switch<T> {
 			T result = caseRobust_Scaling(robust_Scaling);
 			if (result == null)
 				result = caseScaling(robust_Scaling);
+			if (result == null)
+				result = caseOnlinePreprocess(robust_Scaling);
 			if (result == null)
 				result = casePreprocess(robust_Scaling);
 			if (result == null)
@@ -376,6 +380,8 @@ public class MLmodelSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseScaling(standardization);
 			if (result == null)
+				result = caseOnlinePreprocess(standardization);
+			if (result == null)
 				result = casePreprocess(standardization);
 			if (result == null)
 				result = caseCycle(standardization);
@@ -388,6 +394,8 @@ public class MLmodelSwitch<T> extends Switch<T> {
 			T result = caseNormalization(normalization);
 			if (result == null)
 				result = caseScaling(normalization);
+			if (result == null)
+				result = caseOnlinePreprocess(normalization);
 			if (result == null)
 				result = casePreprocess(normalization);
 			if (result == null)
@@ -1057,11 +1065,9 @@ public class MLmodelSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case MLmodelPackage.ONLINE_MODEL_MANAGER: {
-			OnlineModelManager onlineModelManager = (OnlineModelManager) theEObject;
-			T result = caseOnlineModelManager(onlineModelManager);
-			if (result == null)
-				result = caseCycle(onlineModelManager);
+		case MLmodelPackage.DEVICES: {
+			Devices devices = (Devices) theEObject;
+			T result = caseDevices(devices);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -1073,9 +1079,20 @@ public class MLmodelSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case MLmodelPackage.ONLINE_MODEL_MANAGER: {
+			OnlineModelManager onlineModelManager = (OnlineModelManager) theEObject;
+			T result = caseOnlineModelManager(onlineModelManager);
+			if (result == null)
+				result = caseCycle(onlineModelManager);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case MLmodelPackage.SGD_CLASSIFIER: {
 			SGDClassifier sgdClassifier = (SGDClassifier) theEObject;
 			T result = caseSGDClassifier(sgdClassifier);
+			if (result == null)
+				result = caseSVLG(sgdClassifier);
 			if (result == null)
 				result = caseOnlineModelManager(sgdClassifier);
 			if (result == null)
@@ -1106,9 +1123,95 @@ public class MLmodelSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case MLmodelPackage.DEVICES: {
-			Devices devices = (Devices) theEObject;
-			T result = caseDevices(devices);
+		case MLmodelPackage.LG_SGD_CLASSIFIER: {
+			LgSGDClassifier lgSGDClassifier = (LgSGDClassifier) theEObject;
+			T result = caseLgSGDClassifier(lgSGDClassifier);
+			if (result == null)
+				result = caseSVLG(lgSGDClassifier);
+			if (result == null)
+				result = caseOnlineModelManager(lgSGDClassifier);
+			if (result == null)
+				result = caseCycle(lgSGDClassifier);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.SVLG: {
+			SVLG svlg = (SVLG) theEObject;
+			T result = caseSVLG(svlg);
+			if (result == null)
+				result = caseOnlineModelManager(svlg);
+			if (result == null)
+				result = caseCycle(svlg);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.ONLINE_PREPROCESS: {
+			OnlinePreprocess onlinePreprocess = (OnlinePreprocess) theEObject;
+			T result = caseOnlinePreprocess(onlinePreprocess);
+			if (result == null)
+				result = casePreprocess(onlinePreprocess);
+			if (result == null)
+				result = caseCycle(onlinePreprocess);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.FEATURE_ENGINEERING: {
+			Feature_Engineering feature_Engineering = (Feature_Engineering) theEObject;
+			T result = caseFeature_Engineering(feature_Engineering);
+			if (result == null)
+				result = caseOnlinePreprocess(feature_Engineering);
+			if (result == null)
+				result = casePreprocess(feature_Engineering);
+			if (result == null)
+				result = caseCycle(feature_Engineering);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.FEATURE_DIFFS: {
+			FeatureDiffs featureDiffs = (FeatureDiffs) theEObject;
+			T result = caseFeatureDiffs(featureDiffs);
+			if (result == null)
+				result = caseFeature_Engineering(featureDiffs);
+			if (result == null)
+				result = caseOnlinePreprocess(featureDiffs);
+			if (result == null)
+				result = casePreprocess(featureDiffs);
+			if (result == null)
+				result = caseCycle(featureDiffs);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.POLYNOMIAL: {
+			Polynomial polynomial = (Polynomial) theEObject;
+			T result = casePolynomial(polynomial);
+			if (result == null)
+				result = caseFeature_Engineering(polynomial);
+			if (result == null)
+				result = caseOnlinePreprocess(polynomial);
+			if (result == null)
+				result = casePreprocess(polynomial);
+			if (result == null)
+				result = caseCycle(polynomial);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.MIN_MAX: {
+			Min_Max min_Max = (Min_Max) theEObject;
+			T result = caseMin_Max(min_Max);
+			if (result == null)
+				result = caseScaling(min_Max);
+			if (result == null)
+				result = caseOnlinePreprocess(min_Max);
+			if (result == null)
+				result = casePreprocess(min_Max);
+			if (result == null)
+				result = caseCycle(min_Max);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -2586,17 +2689,17 @@ public class MLmodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Online Model Manager</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Devices</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Online Model Manager</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Devices</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOnlineModelManager(OnlineModelManager object) {
+	public T caseDevices(Devices object) {
 		return null;
 	}
 
@@ -2612,6 +2715,21 @@ public class MLmodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTopic(Topic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Online Model Manager</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Online Model Manager</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOnlineModelManager(OnlineModelManager object) {
 		return null;
 	}
 
@@ -2661,17 +2779,107 @@ public class MLmodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Devices</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Lg SGD Classifier</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Devices</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Lg SGD Classifier</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDevices(Devices object) {
+	public T caseLgSGDClassifier(LgSGDClassifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>SVLG</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>SVLG</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSVLG(SVLG object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Online Preprocess</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Online Preprocess</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOnlinePreprocess(OnlinePreprocess object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Feature Engineering</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Feature Engineering</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFeature_Engineering(Feature_Engineering object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Feature Diffs</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Feature Diffs</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFeatureDiffs(FeatureDiffs object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Polynomial</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Polynomial</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePolynomial(Polynomial object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Min Max</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Min Max</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMin_Max(Min_Max object) {
 		return null;
 	}
 

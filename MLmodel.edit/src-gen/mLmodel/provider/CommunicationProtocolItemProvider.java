@@ -153,8 +153,8 @@ public class CommunicationProtocolItemProvider extends ItemProviderAdapter imple
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MLmodelPackage.Literals.IMPORT_DATA__ROLE);
-			childrenFeatures.add(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__MQTT);
 			childrenFeatures.add(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__BUFFER);
+			childrenFeatures.add(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__MQTT);
 			childrenFeatures.add(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__DEVICES);
 		}
 		return childrenFeatures;
@@ -223,8 +223,8 @@ public class CommunicationProtocolItemProvider extends ItemProviderAdapter imple
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__ROLE:
-		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
@@ -252,11 +252,11 @@ public class CommunicationProtocolItemProvider extends ItemProviderAdapter imple
 		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.IMPORT_DATA__ROLE,
 				MLmodelFactory.eINSTANCE.createRegular()));
 
-		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__MQTT,
-				MLmodelFactory.eINSTANCE.createMQTT()));
-
 		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__BUFFER,
 				MLmodelFactory.eINSTANCE.createBuffer()));
+
+		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__MQTT,
+				MLmodelFactory.eINSTANCE.createMQTT()));
 
 		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.COMMUNICATION_PROTOCOL__DEVICES,
 				MLmodelFactory.eINSTANCE.createDevices()));

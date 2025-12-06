@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link mLmodel.impl.PassiveAggressiveClassifierImpl#getAfter <em>After</em>}</li>
  *   <li>{@link mLmodel.impl.PassiveAggressiveClassifierImpl#getBefore <em>Before</em>}</li>
+ *   <li>{@link mLmodel.impl.PassiveAggressiveClassifierImpl#getRandom_state <em>Random state</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,6 +51,26 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 	 * @ordered
 	 */
 	protected Cycle before;
+
+	/**
+	 * The default value of the '{@link #getRandom_state() <em>Random state</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRandom_state()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RANDOM_STATE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getRandom_state() <em>Random state</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRandom_state()
+	 * @generated
+	 * @ordered
+	 */
+	protected int random_state = RANDOM_STATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,6 +228,28 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getRandom_state() {
+		return random_state;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRandom_state(int newRandom_state) {
+		int oldRandom_state = random_state;
+		random_state = newRandom_state;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE, oldRandom_state, random_state));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -254,6 +297,8 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 			if (resolve)
 				return getBefore();
 			return basicGetBefore();
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE:
+			return getRandom_state();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,6 +316,9 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 			return;
 		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__BEFORE:
 			setBefore((Cycle) newValue);
+			return;
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE:
+			setRandom_state((Integer) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -290,6 +338,9 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__BEFORE:
 			setBefore((Cycle) null);
 			return;
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE:
+			setRandom_state(RANDOM_STATE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -306,8 +357,27 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 			return after != null;
 		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__BEFORE:
 			return before != null;
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE:
+			return random_state != RANDOM_STATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (random_state: ");
+		result.append(random_state);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PassiveAggressiveClassifierImpl

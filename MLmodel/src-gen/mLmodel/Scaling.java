@@ -12,5 +12,5 @@ package mLmodel;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Scaling extends Preprocess {
+public interface Scaling extends Preprocess, OnlinePreprocess {
 } // Scaling

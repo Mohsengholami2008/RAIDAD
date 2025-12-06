@@ -270,6 +270,18 @@ public class ProcessItemProvider extends ItemProviderAdapter implements IEditing
 		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__CYCLE,
 				MLmodelFactory.eINSTANCE.createPerceptron()));
 
+		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__CYCLE,
+				MLmodelFactory.eINSTANCE.createLgSGDClassifier()));
+
+		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__CYCLE,
+				MLmodelFactory.eINSTANCE.createFeatureDiffs()));
+
+		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__CYCLE,
+				MLmodelFactory.eINSTANCE.createPolynomial()));
+
+		newChildDescriptors.add(
+				createChildParameter(MLmodelPackage.Literals.PROCESS__CYCLE, MLmodelFactory.eINSTANCE.createMin_Max()));
+
 		newChildDescriptors.add(createChildParameter(MLmodelPackage.Literals.PROCESS__DATA_UNDERSTANDING,
 				MLmodelFactory.eINSTANCE.createStatistics()));
 

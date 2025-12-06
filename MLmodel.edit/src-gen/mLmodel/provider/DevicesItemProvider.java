@@ -7,7 +7,6 @@ import java.util.List;
 
 import mLmodel.Devices;
 import mLmodel.MLmodelPackage;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 

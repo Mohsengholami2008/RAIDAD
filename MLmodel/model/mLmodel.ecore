@@ -131,7 +131,7 @@
         defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scaling" abstract="true" interface="true"
-      eSuperTypes="#//Preprocess"/>
+      eSuperTypes="#//Preprocess #//OnlinePreprocess"/>
   <eClassifiers xsi:type="ecore:EClass" name="Robust_Scaling" eSuperTypes="#//Scaling"/>
   <eClassifiers xsi:type="ecore:EClass" name="Standardization" eSuperTypes="#//Scaling"/>
   <eClassifiers xsi:type="ecore:EClass" name="Normalization" eSuperTypes="#//Scaling"/>
@@ -398,40 +398,121 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Linear_Regression" eSuperTypes="#//Regression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Thing">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocolbinding" upperBound="-1"
+        eType="#//ProtocolBinding" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="event" upperBound="-1"
+        eType="#//Event" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseURI" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProtocolBinding">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" eType="#//ProtocolBindingEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpoint" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" eType="#//DataSource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="writeOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="observable" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="input" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="output" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analysystriger" eType="#//AnalysysTriger"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subscription" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//Import_Data">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceURI" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisOutput" eSuperTypes="#//Evaluation_Methods">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//Action"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resultType" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DateTime"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalysysTriger">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerType" eType="#//TrigerEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedule" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TrigerEnum">
+    <eLiterals name="Event"/>
+    <eLiterals name="Timer" value="1"/>
+    <eLiterals name="DataUpdate" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProtocolBindingEnum">
+    <eLiterals name="HTTP"/>
+    <eLiterals name="MQTT" value="1"/>
+    <eLiterals name="CoAP" value="2"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CommunicationProtocol" eSuperTypes="#//Import_Data">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt" upperBound="-1" eType="#//MQTT"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" upperBound="-1"
         eType="#//Buffer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mqtt" upperBound="-1" eType="#//MQTT"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
+        eType="#//Devices" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Buffer"/>
   <eClassifiers xsi:type="ecore:EClass" name="MQTT">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topic" upperBound="-1"
+        eType="#//Topic" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MQTT_BROKER" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
         defaultValueLiteral="localhost"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MQTT_PORT" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
         defaultValueLiteral="1883"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="topic" upperBound="-1"
-        eType="#//Topic" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OnlineModelManager" abstract="true"
-      interface="true" eSuperTypes="#//Cycle"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Devices">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="REQUIRED_DEVICES" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral="dev"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Topic">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MQTT_CONTROL_TOPIC" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
         defaultValueLiteral="control/mode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MQTT_SENSOR_TOPIC" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
         defaultValueLiteral="sensors/+/value"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SGDClassifier" eSuperTypes="#//OnlineModelManager"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OnlineModelManager" abstract="true"
+      interface="true" eSuperTypes="#//Cycle">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="random_state" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SGDClassifier" eSuperTypes="#//SVLG"/>
   <eClassifiers xsi:type="ecore:EClass" name="PassiveAggressiveClassifier" eSuperTypes="#//OnlineModelManager"/>
   <eClassifiers xsi:type="ecore:EClass" name="Perceptron" eSuperTypes="#//OnlineModelManager"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LgSGDClassifier" eSuperTypes="#//SVLG"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SVLG" abstract="true" interface="true"
+      eSuperTypes="#//OnlineModelManager">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="learning_rate" eType="#//LEARNING_RATE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LEARNING_RATE">
+    <eLiterals name="optimal"/>
+    <eLiterals name="constant" value="1"/>
+    <eLiterals name="invscaling" value="2"/>
+    <eLiterals name="adaptive" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OnlinePreprocess" abstract="true" interface="true"
+      eSuperTypes="#//Preprocess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature_Engineering" abstract="true"
+      interface="true" eSuperTypes="#//OnlinePreprocess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureDiffs" eSuperTypes="#//Feature_Engineering"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Polynomial" eSuperTypes="#//Feature_Engineering"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Min_Max" eSuperTypes="#//Scaling"/>
 </ecore:EPackage>

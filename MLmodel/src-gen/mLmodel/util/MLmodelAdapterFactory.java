@@ -586,13 +586,18 @@ public class MLmodelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseOnlineModelManager(OnlineModelManager object) {
-			return createOnlineModelManagerAdapter();
+		public Adapter caseDevices(Devices object) {
+			return createDevicesAdapter();
 		}
 
 		@Override
 		public Adapter caseTopic(Topic object) {
 			return createTopicAdapter();
+		}
+
+		@Override
+		public Adapter caseOnlineModelManager(OnlineModelManager object) {
+			return createOnlineModelManagerAdapter();
 		}
 
 		@Override
@@ -611,8 +616,38 @@ public class MLmodelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseDevices(Devices object) {
-			return createDevicesAdapter();
+		public Adapter caseLgSGDClassifier(LgSGDClassifier object) {
+			return createLgSGDClassifierAdapter();
+		}
+
+		@Override
+		public Adapter caseSVLG(SVLG object) {
+			return createSVLGAdapter();
+		}
+
+		@Override
+		public Adapter caseOnlinePreprocess(OnlinePreprocess object) {
+			return createOnlinePreprocessAdapter();
+		}
+
+		@Override
+		public Adapter caseFeature_Engineering(Feature_Engineering object) {
+			return createFeature_EngineeringAdapter();
+		}
+
+		@Override
+		public Adapter caseFeatureDiffs(FeatureDiffs object) {
+			return createFeatureDiffsAdapter();
+		}
+
+		@Override
+		public Adapter casePolynomial(Polynomial object) {
+			return createPolynomialAdapter();
+		}
+
+		@Override
+		public Adapter caseMin_Max(Min_Max object) {
+			return createMin_MaxAdapter();
 		}
 
 		@Override
@@ -1993,16 +2028,16 @@ public class MLmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link mLmodel.OnlineModelManager <em>Online Model Manager</em>}'.
+	 * Creates a new adapter for an object of class '{@link mLmodel.Devices <em>Devices</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see mLmodel.OnlineModelManager
+	 * @see mLmodel.Devices
 	 * @generated
 	 */
-	public Adapter createOnlineModelManagerAdapter() {
+	public Adapter createDevicesAdapter() {
 		return null;
 	}
 
@@ -2017,6 +2052,20 @@ public class MLmodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTopicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.OnlineModelManager <em>Online Model Manager</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.OnlineModelManager
+	 * @generated
+	 */
+	public Adapter createOnlineModelManagerAdapter() {
 		return null;
 	}
 
@@ -2063,16 +2112,100 @@ public class MLmodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link mLmodel.Devices <em>Devices</em>}'.
+	 * Creates a new adapter for an object of class '{@link mLmodel.LgSGDClassifier <em>Lg SGD Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see mLmodel.Devices
+	 * @see mLmodel.LgSGDClassifier
 	 * @generated
 	 */
-	public Adapter createDevicesAdapter() {
+	public Adapter createLgSGDClassifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.SVLG <em>SVLG</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.SVLG
+	 * @generated
+	 */
+	public Adapter createSVLGAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.OnlinePreprocess <em>Online Preprocess</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.OnlinePreprocess
+	 * @generated
+	 */
+	public Adapter createOnlinePreprocessAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Feature_Engineering <em>Feature Engineering</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Feature_Engineering
+	 * @generated
+	 */
+	public Adapter createFeature_EngineeringAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.FeatureDiffs <em>Feature Diffs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.FeatureDiffs
+	 * @generated
+	 */
+	public Adapter createFeatureDiffsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Polynomial <em>Polynomial</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Polynomial
+	 * @generated
+	 */
+	public Adapter createPolynomialAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link mLmodel.Min_Max <em>Min Max</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see mLmodel.Min_Max
+	 * @generated
+	 */
+	public Adapter createMin_MaxAdapter() {
 		return null;
 	}
 

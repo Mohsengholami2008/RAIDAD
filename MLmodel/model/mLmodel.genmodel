@@ -89,6 +89,22 @@
       <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//KNN_Imputer_Weights/uniform"/>
       <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//KNN_Imputer_Weights/distance"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//TrigerEnum">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//TrigerEnum/Event"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//TrigerEnum/Timer"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//TrigerEnum/DataUpdate"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//ProtocolBindingEnum">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//ProtocolBindingEnum/HTTP"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//ProtocolBindingEnum/MQTT"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//ProtocolBindingEnum/CoAP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mLmodel.ecore#//LEARNING_RATE">
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//LEARNING_RATE/optimal"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//LEARNING_RATE/constant"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//LEARNING_RATE/invscaling"/>
+      <genEnumLiterals ecoreEnumLiteral="mLmodel.ecore#//LEARNING_RATE/adaptive"/>
+    </genEnums>
     <genClasses ecoreClass="mLmodel.ecore#//Root">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Root/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Root/process"/>
@@ -336,10 +352,50 @@
     <genClasses ecoreClass="mLmodel.ecore#//Bar"/>
     <genClasses ecoreClass="mLmodel.ecore#//Linear_Regression"/>
     <genClasses ecoreClass="mLmodel.ecore#//Thing">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Thing/protocolbinding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Thing/property"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Thing/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Thing/event"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Thing/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Thing/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Thing/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Thing/baseURI"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//ProtocolBinding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//ProtocolBinding/protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//ProtocolBinding/endpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Property">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Property/datasource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Property/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Property/readOnly"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Property/writeOnly"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Property/observable"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Action/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Action/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Action/output"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Action/description"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//Event">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mLmodel.ecore#//Event/analysystriger"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Event/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Event/data"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Event/subscription"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//DataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//DataSource/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//DataSource/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//DataSource/sourceURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//DataSource/format"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//AnalysisOutput">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mLmodel.ecore#//AnalysisOutput/action"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysisOutput/resultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysisOutput/resultType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysisOutput/timestamp"/>
     </genClasses>
     <genClasses ecoreClass="mLmodel.ecore#//AnalysysTriger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysysTriger/triggerType"/>
@@ -347,22 +403,37 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//AnalysysTriger/schedule"/>
     </genClasses>
     <genClasses ecoreClass="mLmodel.ecore#//CommunicationProtocol">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//CommunicationProtocol/mqtt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//CommunicationProtocol/buffer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//CommunicationProtocol/mqtt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//CommunicationProtocol/devices"/>
     </genClasses>
     <genClasses ecoreClass="mLmodel.ecore#//Buffer"/>
     <genClasses ecoreClass="mLmodel.ecore#//MQTT">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//MQTT/topic"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//MQTT/MQTT_BROKER"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//MQTT/MQTT_PORT"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mLmodel.ecore#//MQTT/topic"/>
     </genClasses>
-    <genClasses ecoreClass="mLmodel.ecore#//OnlineModelManager"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Devices">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Devices/REQUIRED_DEVICES"/>
+    </genClasses>
     <genClasses ecoreClass="mLmodel.ecore#//Topic">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Topic/MQTT_CONTROL_TOPIC"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//Topic/MQTT_SENSOR_TOPIC"/>
     </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//OnlineModelManager">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//OnlineModelManager/random_state"/>
+    </genClasses>
     <genClasses ecoreClass="mLmodel.ecore#//SGDClassifier"/>
     <genClasses ecoreClass="mLmodel.ecore#//PassiveAggressiveClassifier"/>
     <genClasses ecoreClass="mLmodel.ecore#//Perceptron"/>
+    <genClasses ecoreClass="mLmodel.ecore#//LgSGDClassifier"/>
+    <genClasses ecoreClass="mLmodel.ecore#//SVLG">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//SVLG/learning_rate"/>
+    </genClasses>
+    <genClasses ecoreClass="mLmodel.ecore#//OnlinePreprocess"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Feature_Engineering"/>
+    <genClasses ecoreClass="mLmodel.ecore#//FeatureDiffs"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Polynomial"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Min_Max"/>
   </genPackages>
 </genmodel:GenModel>

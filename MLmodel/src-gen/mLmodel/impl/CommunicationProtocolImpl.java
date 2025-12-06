@@ -10,9 +10,9 @@ import mLmodel.Cycle;
 import mLmodel.Devices;
 import mLmodel.MLmodelPackage;
 import mLmodel.MQTT;
+
 import mLmodel.Regular;
 import mLmodel.Set_Role;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -42,8 +42,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#isSave_file <em>Save file</em>}</li>
  *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#isPrint_data <em>Print data</em>}</li>
  *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#getRole <em>Role</em>}</li>
- *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#getMqtt <em>Mqtt</em>}</li>
  *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#getBuffer <em>Buffer</em>}</li>
+ *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#getMqtt <em>Mqtt</em>}</li>
  *   <li>{@link mLmodel.impl.CommunicationProtocolImpl#getDevices <em>Devices</em>}</li>
  * </ul>
  *
@@ -131,16 +131,6 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 	protected EList<Set_Role> role;
 
 	/**
-	 * The cached value of the '{@link #getMqtt() <em>Mqtt</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMqtt()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<MQTT> mqtt;
-
-	/**
 	 * The cached value of the '{@link #getBuffer() <em>Buffer</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,6 +139,16 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected EList<Buffer> buffer;
+
+	/**
+	 * The cached value of the '{@link #getMqtt() <em>Mqtt</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMqtt()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MQTT> mqtt;
 
 	/**
 	 * The cached value of the '{@link #getDevices() <em>Devices</em>}' containment reference list.
@@ -386,11 +386,12 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MQTT> getMqtt() {
-		if (mqtt == null) {
-			mqtt = new EObjectContainmentEList<MQTT>(MQTT.class, this, MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT);
+	public EList<Buffer> getBuffer() {
+		if (buffer == null) {
+			buffer = new EObjectContainmentEList<Buffer>(Buffer.class, this,
+					MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER);
 		}
-		return mqtt;
+		return buffer;
 	}
 
 	/**
@@ -398,12 +399,11 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Buffer> getBuffer() {
-		if (buffer == null) {
-			buffer = new EObjectContainmentEList<Buffer>(Buffer.class, this,
-					MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER);
+	public EList<MQTT> getMqtt() {
+		if (mqtt == null) {
+			mqtt = new EObjectContainmentEList<MQTT>(MQTT.class, this, MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT);
 		}
-		return buffer;
+		return mqtt;
 	}
 
 	/**
@@ -453,10 +453,10 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 			return basicSetBefore(null, msgs);
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__ROLE:
 			return ((InternalEList<?>) getRole()).basicRemove(otherEnd, msgs);
-		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
-			return ((InternalEList<?>) getMqtt()).basicRemove(otherEnd, msgs);
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
 			return ((InternalEList<?>) getBuffer()).basicRemove(otherEnd, msgs);
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
+			return ((InternalEList<?>) getMqtt()).basicRemove(otherEnd, msgs);
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
 			return ((InternalEList<?>) getDevices()).basicRemove(otherEnd, msgs);
 		}
@@ -487,10 +487,10 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 			return isPrint_data();
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__ROLE:
 			return getRole();
-		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
-			return getMqtt();
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
 			return getBuffer();
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
+			return getMqtt();
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
 			return getDevices();
 		}
@@ -526,13 +526,13 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 			getRole().clear();
 			getRole().addAll((Collection<? extends Set_Role>) newValue);
 			return;
-		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
-			getMqtt().clear();
-			getMqtt().addAll((Collection<? extends MQTT>) newValue);
-			return;
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
 			getBuffer().clear();
 			getBuffer().addAll((Collection<? extends Buffer>) newValue);
+			return;
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
+			getMqtt().clear();
+			getMqtt().addAll((Collection<? extends MQTT>) newValue);
 			return;
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
 			getDevices().clear();
@@ -568,11 +568,11 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__ROLE:
 			getRole().clear();
 			return;
-		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
-			getMqtt().clear();
-			return;
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
 			getBuffer().clear();
+			return;
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
+			getMqtt().clear();
 			return;
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
 			getDevices().clear();
@@ -601,10 +601,10 @@ public class CommunicationProtocolImpl extends MinimalEObjectImpl.Container impl
 			return print_data != PRINT_DATA_EDEFAULT;
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__ROLE:
 			return role != null && !role.isEmpty();
-		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
-			return mqtt != null && !mqtt.isEmpty();
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__BUFFER:
 			return buffer != null && !buffer.isEmpty();
+		case MLmodelPackage.COMMUNICATION_PROTOCOL__MQTT:
+			return mqtt != null && !mqtt.isEmpty();
 		case MLmodelPackage.COMMUNICATION_PROTOCOL__DEVICES:
 			return devices != null && !devices.isEmpty();
 		}

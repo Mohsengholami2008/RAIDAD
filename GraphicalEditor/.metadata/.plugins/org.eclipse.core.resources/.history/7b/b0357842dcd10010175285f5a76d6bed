@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mLmodel:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mLmodel="http://www.example.org/mLmodel" name="MLModel1">
+  <process file_path="C:\Users\ShemrounShop\Desktop\dataset\iris.csv">
+    <cycle xsi:type="mLmodel:CommunicationProtocol">
+      <role xsi:type="mLmodel:Target" name="0"/>
+      <role xsi:type="mLmodel:Target" name="1"/>
+      <buffer/>
+      <mqtt>
+        <topic/>
+      </mqtt>
+      <devices REQUIRED_DEVICES="dev1"/>
+      <devices REQUIRED_DEVICES="dev2"/>
+    </cycle>
+    <cycle xsi:type="mLmodel:Normalization"/>
+    <cycle xsi:type="mLmodel:SGDClassifier" random_state="2" learning_rate="constant"/>
+    <cycle xsi:type="mLmodel:LgSGDClassifier"/>
+  </process>
+</mLmodel:Root>

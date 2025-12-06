@@ -3,6 +3,7 @@
 package mLmodel.impl;
 
 import mLmodel.Cycle;
+import mLmodel.LEARNING_RATE;
 import mLmodel.MLmodelPackage;
 import mLmodel.SGDClassifier;
 
@@ -25,6 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link mLmodel.impl.SGDClassifierImpl#getAfter <em>After</em>}</li>
  *   <li>{@link mLmodel.impl.SGDClassifierImpl#getBefore <em>Before</em>}</li>
+ *   <li>{@link mLmodel.impl.SGDClassifierImpl#getRandom_state <em>Random state</em>}</li>
+ *   <li>{@link mLmodel.impl.SGDClassifierImpl#getLearning_rate <em>Learning rate</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +52,46 @@ public class SGDClassifierImpl extends MinimalEObjectImpl.Container implements S
 	 * @ordered
 	 */
 	protected Cycle before;
+
+	/**
+	 * The default value of the '{@link #getRandom_state() <em>Random state</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRandom_state()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RANDOM_STATE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getRandom_state() <em>Random state</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRandom_state()
+	 * @generated
+	 * @ordered
+	 */
+	protected int random_state = RANDOM_STATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLearning_rate() <em>Learning rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLearning_rate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LEARNING_RATE LEARNING_RATE_EDEFAULT = LEARNING_RATE.OPTIMAL;
+
+	/**
+	 * The cached value of the '{@link #getLearning_rate() <em>Learning rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLearning_rate()
+	 * @generated
+	 * @ordered
+	 */
+	protected LEARNING_RATE learning_rate = LEARNING_RATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -206,6 +249,50 @@ public class SGDClassifierImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getRandom_state() {
+		return random_state;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRandom_state(int newRandom_state) {
+		int oldRandom_state = random_state;
+		random_state = newRandom_state;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.SGD_CLASSIFIER__RANDOM_STATE,
+					oldRandom_state, random_state));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LEARNING_RATE getLearning_rate() {
+		return learning_rate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLearning_rate(LEARNING_RATE newLearning_rate) {
+		LEARNING_RATE oldLearning_rate = learning_rate;
+		learning_rate = newLearning_rate == null ? LEARNING_RATE_EDEFAULT : newLearning_rate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.SGD_CLASSIFIER__LEARNING_RATE,
+					oldLearning_rate, learning_rate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -253,6 +340,10 @@ public class SGDClassifierImpl extends MinimalEObjectImpl.Container implements S
 			if (resolve)
 				return getBefore();
 			return basicGetBefore();
+		case MLmodelPackage.SGD_CLASSIFIER__RANDOM_STATE:
+			return getRandom_state();
+		case MLmodelPackage.SGD_CLASSIFIER__LEARNING_RATE:
+			return getLearning_rate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,6 +361,12 @@ public class SGDClassifierImpl extends MinimalEObjectImpl.Container implements S
 			return;
 		case MLmodelPackage.SGD_CLASSIFIER__BEFORE:
 			setBefore((Cycle) newValue);
+			return;
+		case MLmodelPackage.SGD_CLASSIFIER__RANDOM_STATE:
+			setRandom_state((Integer) newValue);
+			return;
+		case MLmodelPackage.SGD_CLASSIFIER__LEARNING_RATE:
+			setLearning_rate((LEARNING_RATE) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -289,6 +386,12 @@ public class SGDClassifierImpl extends MinimalEObjectImpl.Container implements S
 		case MLmodelPackage.SGD_CLASSIFIER__BEFORE:
 			setBefore((Cycle) null);
 			return;
+		case MLmodelPackage.SGD_CLASSIFIER__RANDOM_STATE:
+			setRandom_state(RANDOM_STATE_EDEFAULT);
+			return;
+		case MLmodelPackage.SGD_CLASSIFIER__LEARNING_RATE:
+			setLearning_rate(LEARNING_RATE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -305,8 +408,31 @@ public class SGDClassifierImpl extends MinimalEObjectImpl.Container implements S
 			return after != null;
 		case MLmodelPackage.SGD_CLASSIFIER__BEFORE:
 			return before != null;
+		case MLmodelPackage.SGD_CLASSIFIER__RANDOM_STATE:
+			return random_state != RANDOM_STATE_EDEFAULT;
+		case MLmodelPackage.SGD_CLASSIFIER__LEARNING_RATE:
+			return learning_rate != LEARNING_RATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (random_state: ");
+		result.append(random_state);
+		result.append(", learning_rate: ");
+		result.append(learning_rate);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SGDClassifierImpl

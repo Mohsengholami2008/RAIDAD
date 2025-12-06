@@ -1821,6 +1821,29 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Devices} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DevicesItemProvider devicesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Devices}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDevicesAdapter() {
+		if (devicesItemProvider == null) {
+			devicesItemProvider = new DevicesItemProvider(this);
+		}
+
+		return devicesItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link mLmodel.Topic} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1913,26 +1936,95 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link mLmodel.Devices} instances.
+	 * This keeps track of the one adapter used for all {@link mLmodel.LgSGDClassifier} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DevicesItemProvider devicesItemProvider;
+	protected LgSGDClassifierItemProvider lgSGDClassifierItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link mLmodel.Devices}.
+	 * This creates an adapter for a {@link mLmodel.LgSGDClassifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDevicesAdapter() {
-		if (devicesItemProvider == null) {
-			devicesItemProvider = new DevicesItemProvider(this);
+	public Adapter createLgSGDClassifierAdapter() {
+		if (lgSGDClassifierItemProvider == null) {
+			lgSGDClassifierItemProvider = new LgSGDClassifierItemProvider(this);
 		}
 
-		return devicesItemProvider;
+		return lgSGDClassifierItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.FeatureDiffs} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FeatureDiffsItemProvider featureDiffsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.FeatureDiffs}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFeatureDiffsAdapter() {
+		if (featureDiffsItemProvider == null) {
+			featureDiffsItemProvider = new FeatureDiffsItemProvider(this);
+		}
+
+		return featureDiffsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Polynomial} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PolynomialItemProvider polynomialItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Polynomial}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPolynomialAdapter() {
+		if (polynomialItemProvider == null) {
+			polynomialItemProvider = new PolynomialItemProvider(this);
+		}
+
+		return polynomialItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Min_Max} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Min_MaxItemProvider min_MaxItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Min_Max}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMin_MaxAdapter() {
+		if (min_MaxItemProvider == null) {
+			min_MaxItemProvider = new Min_MaxItemProvider(this);
+		}
+
+		return min_MaxItemProvider;
 	}
 
 	/**
@@ -2186,6 +2278,8 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 			bufferItemProvider.dispose();
 		if (mqttItemProvider != null)
 			mqttItemProvider.dispose();
+		if (devicesItemProvider != null)
+			devicesItemProvider.dispose();
 		if (topicItemProvider != null)
 			topicItemProvider.dispose();
 		if (sgdClassifierItemProvider != null)
@@ -2194,8 +2288,14 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 			passiveAggressiveClassifierItemProvider.dispose();
 		if (perceptronItemProvider != null)
 			perceptronItemProvider.dispose();
-		if (devicesItemProvider != null)
-			devicesItemProvider.dispose();
+		if (lgSGDClassifierItemProvider != null)
+			lgSGDClassifierItemProvider.dispose();
+		if (featureDiffsItemProvider != null)
+			featureDiffsItemProvider.dispose();
+		if (polynomialItemProvider != null)
+			polynomialItemProvider.dispose();
+		if (min_MaxItemProvider != null)
+			min_MaxItemProvider.dispose();
 	}
 
 }

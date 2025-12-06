@@ -704,6 +704,15 @@ public interface MLmodelFactory extends EFactory {
 	MQTT createMQTT();
 
 	/**
+	 * Returns a new object of class '<em>Devices</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Devices</em>'.
+	 * @generated
+	 */
+	Devices createDevices();
+
+	/**
 	 * Returns a new object of class '<em>Topic</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -740,13 +749,40 @@ public interface MLmodelFactory extends EFactory {
 	Perceptron createPerceptron();
 
 	/**
-	 * Returns a new object of class '<em>Devices</em>'.
+	 * Returns a new object of class '<em>Lg SGD Classifier</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Devices</em>'.
+	 * @return a new object of class '<em>Lg SGD Classifier</em>'.
 	 * @generated
 	 */
-	Devices createDevices();
+	LgSGDClassifier createLgSGDClassifier();
+
+	/**
+	 * Returns a new object of class '<em>Feature Diffs</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Feature Diffs</em>'.
+	 * @generated
+	 */
+	FeatureDiffs createFeatureDiffs();
+
+	/**
+	 * Returns a new object of class '<em>Polynomial</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Polynomial</em>'.
+	 * @generated
+	 */
+	Polynomial createPolynomial();
+
+	/**
+	 * Returns a new object of class '<em>Min Max</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Min Max</em>'.
+	 * @generated
+	 */
+	Min_Max createMin_Max();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -1,0 +1,6 @@
+[module IsClassOnline('http://www.example.org/mLmodel') /]
+
+
+[query public geton(anOclAny: OclAny) : Boolean
+	= invoke('org.eclipse.acceleo.module.sample.main.helper', 'geton()', Sequence{})
+/]

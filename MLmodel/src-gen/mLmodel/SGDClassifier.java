@@ -12,5 +12,5 @@ package mLmodel;
  * @model
  * @generated
  */
-public interface SGDClassifier extends OnlineModelManager {
+public interface SGDClassifier extends SVLG {
 } // SGDClassifier

@@ -3,6 +3,7 @@
 package mLmodel;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,9 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link mLmodel.MQTT#getTopic <em>Topic</em>}</li>
  *   <li>{@link mLmodel.MQTT#getMQTT_BROKER <em>MQTT BROKER</em>}</li>
  *   <li>{@link mLmodel.MQTT#getMQTT_PORT <em>MQTT PORT</em>}</li>
- *   <li>{@link mLmodel.MQTT#getTopic <em>Topic</em>}</li>
  * </ul>
  *
  * @see mLmodel.MLmodelPackage#getMQTT()
@@ -24,6 +25,17 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface MQTT extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.
+	 * The list contents are of type {@link mLmodel.Topic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Topic</em>' containment reference list.
+	 * @see mLmodel.MLmodelPackage#getMQTT_Topic()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Topic> getTopic();
 
 	/**
 	 * Returns the value of the '<em><b>MQTT BROKER</b></em>' attribute.
@@ -71,15 +83,4 @@ public interface MQTT extends EObject {
 	 */
 	void setMQTT_PORT(int value);
 
-	/**
-	 * Returns the value of the '<em><b>Topic</b></em>' containment reference list.
-	 * The list contents are of type {@link mLmodel.Topic}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Topic</em>' containment reference list.
-	 * @see mLmodel.MLmodelPackage#getMQTT_Topic()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Topic> getTopic();
 } // MQTT

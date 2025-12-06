@@ -7,6 +7,7 @@ import java.util.List;
 
 import mLmodel.MLmodelPackage;
 
+import mLmodel.SGDClassifier;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -19,7 +20,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link mLmodel.SGDClassifier} object.
@@ -52,6 +55,8 @@ public class SGDClassifierItemProvider extends ItemProviderAdapter implements IE
 
 			addAfterPropertyDescriptor(object);
 			addBeforePropertyDescriptor(object);
+			addRandom_statePropertyDescriptor(object);
+			addLearning_ratePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,6 +90,38 @@ public class SGDClassifierItemProvider extends ItemProviderAdapter implements IE
 	}
 
 	/**
+	 * This adds a property descriptor for the Random state feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRandom_statePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_OnlineModelManager_random_state_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_OnlineModelManager_random_state_feature",
+						"_UI_OnlineModelManager_type"),
+				MLmodelPackage.Literals.ONLINE_MODEL_MANAGER__RANDOM_STATE, true, false, false,
+				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Learning rate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLearning_ratePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_SVLG_learning_rate_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_SVLG_learning_rate_feature",
+								"_UI_SVLG_type"),
+						MLmodelPackage.Literals.SVLG__LEARNING_RATE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns SGDClassifier.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,7 +150,8 @@ public class SGDClassifierItemProvider extends ItemProviderAdapter implements IE
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SGDClassifier_type");
+		SGDClassifier sgdClassifier = (SGDClassifier) object;
+		return getString("_UI_SGDClassifier_type") + " " + sgdClassifier.getRandom_state();
 	}
 
 	/**
@@ -126,6 +164,13 @@ public class SGDClassifierItemProvider extends ItemProviderAdapter implements IE
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(SGDClassifier.class)) {
+		case MLmodelPackage.SGD_CLASSIFIER__RANDOM_STATE:
+		case MLmodelPackage.SGD_CLASSIFIER__LEARNING_RATE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

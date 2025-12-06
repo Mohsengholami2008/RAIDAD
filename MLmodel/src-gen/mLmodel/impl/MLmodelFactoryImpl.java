@@ -28,6 +28,7 @@ import mLmodel.Duplicates;
 import mLmodel.Enum_CSV_Sep;
 import mLmodel.Event;
 import mLmodel.Excel;
+import mLmodel.FeatureDiffs;
 import mLmodel.Fill_Value;
 import mLmodel.Handle_Unk;
 import mLmodel.HeadCSV;
@@ -40,6 +41,8 @@ import mLmodel.KNN_Imputer_Weights;
 import mLmodel.K_Means;
 import mLmodel.K_Medians;
 import mLmodel.Keep;
+import mLmodel.LEARNING_RATE;
+import mLmodel.LgSGDClassifier;
 import mLmodel.Library_Clustering;
 import mLmodel.Linear_Regression;
 import mLmodel.Logistic_Regression;
@@ -50,6 +53,7 @@ import mLmodel.MQTT;
 import mLmodel.Max_Iter_MLP;
 import mLmodel.Metric;
 import mLmodel.Metric_DBSCAN;
+import mLmodel.Min_Max;
 import mLmodel.Missing_Values;
 import mLmodel.Month;
 import mLmodel.N_Estimators_RF;
@@ -66,6 +70,7 @@ import mLmodel.OneHot_HandleUn_Arg;
 import mLmodel.PCA;
 import mLmodel.PassiveAggressiveClassifier;
 import mLmodel.Perceptron;
+import mLmodel.Polynomial;
 import mLmodel.Property;
 import mLmodel.ProtocolBinding;
 import mLmodel.ProtocolBindingEnum;
@@ -302,6 +307,8 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 			return createBuffer();
 		case MLmodelPackage.MQTT:
 			return createMQTT();
+		case MLmodelPackage.DEVICES:
+			return createDevices();
 		case MLmodelPackage.TOPIC:
 			return createTopic();
 		case MLmodelPackage.SGD_CLASSIFIER:
@@ -310,8 +317,14 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 			return createPassiveAggressiveClassifier();
 		case MLmodelPackage.PERCEPTRON:
 			return createPerceptron();
-		case MLmodelPackage.DEVICES:
-			return createDevices();
+		case MLmodelPackage.LG_SGD_CLASSIFIER:
+			return createLgSGDClassifier();
+		case MLmodelPackage.FEATURE_DIFFS:
+			return createFeatureDiffs();
+		case MLmodelPackage.POLYNOMIAL:
+			return createPolynomial();
+		case MLmodelPackage.MIN_MAX:
+			return createMin_Max();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -359,6 +372,8 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 			return createTrigerEnumFromString(eDataType, initialValue);
 		case MLmodelPackage.PROTOCOL_BINDING_ENUM:
 			return createProtocolBindingEnumFromString(eDataType, initialValue);
+		case MLmodelPackage.LEARNING_RATE:
+			return createLEARNING_RATEFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -406,6 +421,8 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 			return convertTrigerEnumToString(eDataType, instanceValue);
 		case MLmodelPackage.PROTOCOL_BINDING_ENUM:
 			return convertProtocolBindingEnumToString(eDataType, instanceValue);
+		case MLmodelPackage.LEARNING_RATE:
+			return convertLEARNING_RATEToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -1176,6 +1193,16 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Devices createDevices() {
+		DevicesImpl devices = new DevicesImpl();
+		return devices;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Topic createTopic() {
 		TopicImpl topic = new TopicImpl();
 		return topic;
@@ -1216,9 +1243,39 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Devices createDevices() {
-		DevicesImpl devices = new DevicesImpl();
-		return devices;
+	public LgSGDClassifier createLgSGDClassifier() {
+		LgSGDClassifierImpl lgSGDClassifier = new LgSGDClassifierImpl();
+		return lgSGDClassifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureDiffs createFeatureDiffs() {
+		FeatureDiffsImpl featureDiffs = new FeatureDiffsImpl();
+		return featureDiffs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Polynomial createPolynomial() {
+		PolynomialImpl polynomial = new PolynomialImpl();
+		return polynomial;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Min_Max createMin_Max() {
+		Min_MaxImpl min_Max = new Min_MaxImpl();
+		return min_Max;
 	}
 
 	/**
@@ -1594,6 +1651,28 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 	 * @generated
 	 */
 	public String convertProtocolBindingEnumToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LEARNING_RATE createLEARNING_RATEFromString(EDataType eDataType, String initialValue) {
+		LEARNING_RATE result = LEARNING_RATE.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLEARNING_RATEToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

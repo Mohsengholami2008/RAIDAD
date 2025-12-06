@@ -1,0 +1,114 @@
+
+
+import json
+import time
+import csv
+from pathlib import Path
+
+from typing import Dict
+from typing import Tuple
+from typing import Optional
+
+import numpy as np
+
+import paho.mqtt.client as mqtt
+
+from sklearn.preprocessing import StandardScaler, PolynomialFeatures
+from sklearn.linear_model import SGDClassifier, PassiveAggressiveClassifier, Perceptron
+
+from sklearn.linear_model import SGDClassifier
+
+
+
+import logging
+
+
+
+
+MQTT_BROKER = "localhost"
+MQTT_PORT = "1883"
+
+
+
+MQTT_SENSOR_TOPIC = "control/mode"   
+MQTT_CONTROL_TOPIC = "sensors/+/value"  
+
+
+
+REQUIRED_DEVICES = ["dev2", "dev1"]
+
+SLOT_SIZE_SECONDS = 5
+
+TRAIN_ROW_LIMIT = 100
+
+CLASSES = np.array([0, 1])
+
+METRICS_CSV_PATH = Path("metrics_log.csv")
+
+METRICS_LOG_EVERY = 1  
+
+SENSOR_VALUE_MIN = -1e3
+SENSOR_VALUE_MAX = 1e6
+
+ROBUST_BUFFER_MAX_ROWS = 500
+
+
+
+MODEL_CONFIG = {
+
+	"preprocess_steps": ["normalize"],
+    "model_type": "SGDClassifier",
+}
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+)
+
+
+
+class RowBuffer:
+
+
+    def __init__(self, slot_id: int):
+        self.slot_id = slot_id
+        self.messages: Dict[str, dict] = {}  # device_id -> data dict
+
+    def add_message(self, device_id: str, data: dict) -> None:
+        self.messages[device_id] = data
+
+    def is_complete(self) -> bool:
+        return all(d in self.messages for d in REQUIRED_DEVICES)
+
+    def build_row(self) -> Tuple[np.ndarray, Optional[int]]:
+
+        values = []
+        label = None
+
+        for dev in REQUIRED_DEVICES:
+            msg = self.messages.get(dev)
+            if msg is None:
+                values.append(np.nan)
+                continue
+
+            val = msg.get("value")
+            if val is None:
+                values.append(np.nan)
+            else:
+                values.append(float(val))
+
+            if label is None and "label" in msg and msg["label"] is not None:
+                try:
+                    label = int(msg["label"])
+                except (TypeError, ValueError):
+                    pass
+
+        X_row = np.array(values, dtype=float)
+        return X_row, label
+
+
+
+
+
+

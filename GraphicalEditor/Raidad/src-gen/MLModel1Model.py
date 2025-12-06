@@ -2,35 +2,6 @@ import numpy as np
 import warnings
 np.warnings = warnings
 import pandas as pd
-from sklearn.preprocessing import StandardScaler, RobustScaler, MinMaxScaler
-
-
-
-
-
-
-
-
-
-
-def scale_features(data, scaling_config):
-    scaled_data = data.copy()  
-
-    for method, columns in scaling_config.items():
-        scaler = None
-        if columns:  
-            if method == "standardization":
-                scaler = StandardScaler()
-            elif method == "minmax":
-                scaler = MinMaxScaler()
-            elif method == "robust":
-                scaler = RobustScaler()
-            if scaler:
-                scaler.fit(data[columns])
-                scaled_columns = scaler.transform(data[columns])
-                scaled_data[columns] = scaled_columns
-
-    return scaled_data
 
 
 
@@ -64,7 +35,16 @@ def scale_features(data, scaling_config):
 
 
 
-def process_data(, , scaling_config=None): 
+
+
+
+
+
+
+
+
+
+def process_data(,target_column=None, , ): 
 	executed_functions = []
 	model = None	
 
@@ -76,10 +56,6 @@ def process_data(, , scaling_config=None):
 
 
 
-		if a[letter] == 'scaling_config':
-			data = scale_features(data, scaling_config)
-			scaling_methods = [method for method in scaling_config if method != "exclude"]
-			executed_functions.extend(scaling_methods)
 
 
 
@@ -121,11 +97,6 @@ def process_data(, , scaling_config=None):
 
 
 
-    scaling_config = {
-		'minmax': [],
-
-
-}
 
 
 
@@ -192,9 +163,6 @@ def process_data(, , scaling_config=None):
 
 
 
-
-        scaling_config=scaling_config,
-		
 
 
 

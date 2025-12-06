@@ -237,7 +237,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="Classification_Cross_Validation" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='KNN'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Voting'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='MLP'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='SVM'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Random%20Forest']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Cross%20Validation']" targetFinderExpression="feature:after">
+        <edgeMappings name="Classification_Cross_Validation" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='KNN'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Voting'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='MLP'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='SVM'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Random%20Forest']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Cross%20Validation'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Analysis%20Output']" targetFinderExpression="feature:after">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -342,7 +342,15 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ProtocolEdge" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Protocol']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Normalization'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Standardization'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Robust%20Scaling']" targetFinderExpression="feature:after">
+        <edgeMappings name="analysys" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Analysis%20Output']" targetFinderExpression="feature:action">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="datasource" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Data%20Source']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Standardization']" targetFinderExpression="feature:after">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -450,6 +458,34 @@
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="Analysys Triger" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::AnalysysTriger">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Analysis Triger" iconPath="/mymodelsi.project.design/Images/32bit/normalize32.png" tooltipExpression="service:normalized1()" sizeComputationExpression="" labelPosition="node" width="15" height="7">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="Analysis Output" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::AnalysisOutput">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:resultValue" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="FeatureDiffs" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::FeatureDiffs">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="FeatureDiffs" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="Polynomial" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Polynomial">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Polynomial" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subContainerMappings name="CSV" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@toolSections.2/@ownedTools[name='importdata']" domainClass="mLmodel::CSV" childrenPresentation="List">
@@ -885,48 +921,79 @@
               <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="SGDClassifier" domainClass="mLmodel::SGDClassifier">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="SGDClassifier">
+          <subContainerMappings name="Data Source" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::DataSource" childrenPresentation="List">
+            <subNodeMappings name="Target" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Target">
+              <style xsi:type="style:SquareDescription" labelSize="12" iconPath="/mymodelsi.project.design/Images/16bit/target16.png" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Data Source" iconPath="/mymodelsi.project.design/Images/32bit/CSV32.png" tooltipExpression="service:getcat1()" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
             </style>
           </subContainerMappings>
           <subContainerMappings name="Protocol" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::CommunicationProtocol">
+            <subNodeMappings name="Target" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Target">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.name" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subNodeMappings>
             <subContainerMappings name="MQTT" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::MQTT">
               <subContainerMappings name="Topic" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Topic">
                 <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Topic">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
                 </style>
               </subContainerMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="MQTT">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'MQTT ' + '\nBroker: '+ self.MQTT_BROKER + '\nPort: ' + self.MQTT_PORT " roundedCorner="true">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
               </style>
             </subContainerMappings>
             <subContainerMappings name="Device" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Devices">
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Device">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.REQUIRED_DEVICES" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="Buffer" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Buffer">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Buffer" roundedCorner="true">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.2"/>
               </style>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Protocol" roundedCorner="true">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Protocol" labelAlignment="LEFT" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelFormat>underline</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
               <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="PassiveAggressiveClassifier" domainClass="mLmodel::PassiveAggressiveClassifier">
+          <subContainerMappings name="PassiveAggressiveClassifier" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::PassiveAggressiveClassifier">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="PassiveAggressiveClassifier">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -934,9 +1001,32 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="Perceptron" domainClass="mLmodel::Perceptron"/>
+          <subContainerMappings name="Perceptron" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::Perceptron">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Perceptron">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="SGDClassifier" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::SGDClassifier">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="SGDClassifier">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="LgSGDClassifier" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::LgSGDClassifier">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="LgSGDClassifier">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
           <conditionnalStyles predicateExpression="aql:self.process_errors()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.online()" iconPath="/mymodelsi.project.design/Images/32bit/Process32.png" labelAlignment="LEFT" roundedCorner="true">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="service:self.online()" iconPath="/mymodelsi.project.design/Images/32bit/Process32.png" labelAlignment="LEFT" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <labelFormat>bold</labelFormat>
               <labelFormat>underline</labelFormat>
@@ -947,7 +1037,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:not self.process_errors()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Process" iconPath="/mymodelsi.project.design/Images/32bit/Process32.png" labelAlignment="LEFT" roundedCorner="true" widthComputationExpression="150" heightComputationExpression="80">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="service:self.online()" iconPath="/mymodelsi.project.design/Images/32bit/Process32.png" labelAlignment="LEFT" roundedCorner="true" widthComputationExpression="150" heightComputationExpression="80">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelFormat>underline</labelFormat>
@@ -1303,7 +1393,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ToolGroup" name="Data Source">
-            <tools xsi:type="tool_1:ContainerCreationDescription" name="Data Source" iconPath="/mymodelsi.project.design/Images/16bit/CSV16.png">
+            <tools xsi:type="tool_1:ContainerCreationDescription" name="Data Source" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Data%20Source']" iconPath="/mymodelsi.project.design/Images/16bit/CSV16.png">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -1954,7 +2044,7 @@
               </initialOperation>
             </tools>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Analysis Output">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Analysis Output" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Analysis%20Output']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -2007,6 +2097,15 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="LgSGDClassifier" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='LgSGDClassifier']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::LgSGDClassifier" referenceName="cycle"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Communication Protocol">
           <ownedTools xsi:type="tool_1:ToolGroup" name="Protocol">
@@ -2019,12 +2118,30 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:ContainerCreationDescription" name="Devive" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Protocol']/@subContainerMappings[name='Device']">
+            <tools xsi:type="tool_1:ContainerCreationDescription" name="Device" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Protocol']/@subContainerMappings[name='Device']">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::Devices" referenceName="devices"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool_1:NodeCreationDescription" name="Target" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Protocol']/@subNodeMappings[name='Target']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::Target" referenceName="role"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool_1:ContainerCreationDescription" name="Buffer" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='Protocol']/@subContainerMappings[name='Buffer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::Buffer" referenceName="buffer"/>
                 </firstModelOperations>
               </initialOperation>
             </tools>
@@ -2043,11 +2160,31 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.mqtt">
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::Topic" referenceName="topic"/>
                 </firstModelOperations>
               </initialOperation>
             </tools>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Online Preprocess">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="FeatureDiffs" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='FeatureDiffs']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::FeatureDiffs" referenceName="cycle"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Polynomial" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subNodeMappings[name='Polynomial']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::Polynomial" referenceName="cycle"/>
+              </firstModelOperations>
+            </initialOperation>
           </ownedTools>
         </toolSections>
       </additionalLayers>

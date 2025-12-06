@@ -13,8 +13,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link mLmodel.CommunicationProtocol#getMqtt <em>Mqtt</em>}</li>
  *   <li>{@link mLmodel.CommunicationProtocol#getBuffer <em>Buffer</em>}</li>
+ *   <li>{@link mLmodel.CommunicationProtocol#getMqtt <em>Mqtt</em>}</li>
  *   <li>{@link mLmodel.CommunicationProtocol#getDevices <em>Devices</em>}</li>
  * </ul>
  *
@@ -23,18 +23,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface CommunicationProtocol extends Import_Data {
-	/**
-	 * Returns the value of the '<em><b>Mqtt</b></em>' containment reference list.
-	 * The list contents are of type {@link mLmodel.MQTT}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mqtt</em>' containment reference list.
-	 * @see mLmodel.MLmodelPackage#getCommunicationProtocol_Mqtt()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<MQTT> getMqtt();
-
 	/**
 	 * Returns the value of the '<em><b>Buffer</b></em>' containment reference list.
 	 * The list contents are of type {@link mLmodel.Buffer}.
@@ -46,6 +34,18 @@ public interface CommunicationProtocol extends Import_Data {
 	 * @generated
 	 */
 	EList<Buffer> getBuffer();
+
+	/**
+	 * Returns the value of the '<em><b>Mqtt</b></em>' containment reference list.
+	 * The list contents are of type {@link mLmodel.MQTT}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mqtt</em>' containment reference list.
+	 * @see mLmodel.MLmodelPackage#getCommunicationProtocol_Mqtt()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<MQTT> getMqtt();
 
 	/**
 	 * Returns the value of the '<em><b>Devices</b></em>' containment reference list.

@@ -21,14 +21,16 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Devices extends EObject {
+
 	/**
 	 * Returns the value of the '<em><b>REQUIRED DEVICES</b></em>' attribute.
+	 * The default value is <code>"dev"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>REQUIRED DEVICES</em>' attribute.
 	 * @see #setREQUIRED_DEVICES(String)
 	 * @see mLmodel.MLmodelPackage#getDevices_REQUIRED_DEVICES()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @model default="dev" dataType="org.eclipse.emf.ecore.xml.type.String"
 	 * @generated
 	 */
 	String getREQUIRED_DEVICES();
@@ -42,5 +44,4 @@ public interface Devices extends EObject {
 	 * @generated
 	 */
 	void setREQUIRED_DEVICES(String value);
-
 } // Devices

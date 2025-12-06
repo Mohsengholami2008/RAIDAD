@@ -6,7 +6,6 @@ import mLmodel.Devices;
 import mLmodel.MLmodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -34,8 +33,7 @@ public class DevicesImpl extends MinimalEObjectImpl.Container implements Devices
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REQUIRED_DEVICES_EDEFAULT = null;
-
+	protected static final String REQUIRED_DEVICES_EDEFAULT = "dev";
 	/**
 	 * The cached value of the '{@link #getREQUIRED_DEVICES() <em>REQUIRED DEVICES</em>}' attribute.
 	 * <!-- begin-user-doc -->
