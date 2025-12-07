@@ -11,8 +11,7 @@
       <devices REQUIRED_DEVICES="dev1"/>
       <devices REQUIRED_DEVICES="dev2"/>
     </cycle>
+    <cycle xsi:type="mLmodel:PassiveAggressiveClassifier"/>
     <cycle xsi:type="mLmodel:FeatureDiffs"/>
-    <cycle xsi:type="mLmodel:Polynomial"/>
-    <cycle xsi:type="mLmodel:SGDClassifier"/>
   </process>
 </mLmodel:Root>

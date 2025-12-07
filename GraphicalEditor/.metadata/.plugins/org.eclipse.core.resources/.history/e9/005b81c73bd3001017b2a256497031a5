@@ -18,8 +18,8 @@ from sklearn.preprocessing import PolynomialFeatures
 
 from sklearn.linear_model import SGDClassifier, PassiveAggressiveClassifier, Perceptron
 
-from sklearn.linear_model import SGDClassifier
 
+from sklearn.linear_model import PassiveAggressiveClassifier
 
 
 import logging
@@ -31,10 +31,8 @@ MQTT_BROKER = "localhost"
 MQTT_PORT = 1883
 
 
-MQTT_SENSOR_TOPIC = "sensors/+/value"   
-MQTT_CONTROL_TOPIC = "control/mode"  
-
-
+MQTT_SENSOR_TOPIC = "control/mode"   
+MQTT_CONTROL_TOPIC = "sensors/+/value"  
 
 
 
@@ -60,7 +58,7 @@ ROBUST_BUFFER_MAX_ROWS = 500
 MODEL_CONFIG = {
 
 	"preprocess_steps": ["diffs"],
-    "model_type": "linear_svm",
+    "model_type": "pa",
 }
 
 
@@ -125,7 +123,6 @@ class Preprocessor:
 
         - "diffs"  : add pairwise feature differences
 
-        - "poly2"  : PolynomialFeatures degree 2
 
     """
 
@@ -134,8 +131,6 @@ class Preprocessor:
             steps = [steps]
         self.steps: List[str] = [s.lower() for s in steps]
 
-        self.poly: Optional[PolynomialFeatures] = None
-        self.poly_initialized = False
 
 
 
@@ -170,21 +165,6 @@ class Preprocessor:
         return np.concatenate([X, diffs])
 
 
-    def _apply_poly2(self, X: np.ndarray) -> np.ndarray:
-        if X.ndim == 1:
-            X_2d = X.reshape(1, -1)
-        else:
-            X_2d = X
-
-        if not self.poly_initialized:
-            self.poly = PolynomialFeatures(degree=2, include_bias=False)
-            self.poly.fit(X_2d)
-            self.poly_initialized = True
-
-        X_poly = self.poly.transform(X_2d)[0]
-        return X_poly
-
-
 
 
     def transform(self, X_row: np.ndarray) -> np.ndarray:
@@ -204,9 +184,6 @@ class Preprocessor:
                 X = self._add_diffs(X)
                 continue
 
-            if s == "poly2":
-                X = self._apply_poly2(X)
-                continue
 
 
 
@@ -226,13 +203,8 @@ def build_classifier(model_type: str):
 
 
 
-    if mt == "linear_svm":
-        return SGDClassifier(
-            loss="hinge",
-            learning_rate="invalid",
-            random_state=0
-        )
-
+    if mt == "pa":
+        return PassiveAggressiveClassifier(random_state=0)
 
 
 
@@ -288,7 +260,7 @@ class OnlineModelManager:
 
         logging.info(
             f"Initialized OnlineModelManager with MODEL_TYPE={model_type}, "
-            f"PREPROCESS_STEPS={steps_for_preproc}") 
+            f"PREPROCESS_STEPS={steps_for_preproc}" 
 
 
     def _init_metrics_csv(self) -> None:

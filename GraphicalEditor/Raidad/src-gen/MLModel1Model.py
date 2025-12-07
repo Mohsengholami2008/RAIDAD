@@ -44,11 +44,12 @@ import pandas as pd
 
 
 
-def process_data(,target_column=None, , ): 
+
+def process_data(,target_column=None, , , ): 
 	executed_functions = []
 	model = None	
 
-	a =['invalid','invalid','invalid']
+	a =['invalid','invalid','invalid','invalid']
 
 	for letter in range (len(a)):
 
@@ -132,10 +133,30 @@ def process_data(,target_column=None, , ):
 
 
 
+
+
+
     scoring_metrics = {
     }
 
     processed_data, executed_functions = process_data(
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

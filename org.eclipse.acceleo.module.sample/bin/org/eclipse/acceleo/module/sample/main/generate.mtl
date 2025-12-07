@@ -168,8 +168,10 @@ MQTT_PORT = [it.mqtt.MQTT_PORT/]
 
 [for (ci : Topic | process.cycle->filter(CommunicationProtocol).mqtt.topic)]
 [if (ci.oclIsTypeOf(Topic))]
-MQTT_SENSOR_TOPIC = "[ci.MQTT_CONTROL_TOPIC/]"   
-MQTT_CONTROL_TOPIC = "[ci.MQTT_SENSOR_TOPIC/]"  
+MQTT_SENSOR_TOPIC = "[ci.MQTT_SENSOR_TOPIC/]"   
+MQTT_CONTROL_TOPIC = "[ci.MQTT_CONTROL_TOPIC/]"  
+
+
 [/if] 
 [/for]
 
@@ -200,7 +202,7 @@ ROBUST_BUFFER_MAX_ROWS = 500
 
 MODEL_CONFIG = {
 
-	"preprocess_steps": ['['/][for (c : Cycle | process.cycle->select(c | c.oclIsKindOf(Standardization) or c.oclIsKindOf(Normalization))) separator(', ')][if (c.oclIsKindOf(Standardization))]"scale"[elseif (c.oclIsKindOf(Normalization))]"normalize"[elseif (c.oclIsKindOf(FeatureDiffs))]"FeatureDiffs"[/if][/for][']'/],
+	"preprocess_steps": ['['/][for (c : Cycle | process.cycle->select(c | c.oclIsKindOf(Standardization) or c.oclIsKindOf(Normalization) or c.oclIsKindOf(FeatureDiffs))) separator(', ')][if (c.oclIsKindOf(Standardization))]"scale"[elseif (c.oclIsKindOf(Normalization))]"normalize"[elseif (c.oclIsKindOf(FeatureDiffs))]"diffs"[/if][/for][']'/],
     "model_type": [for (c : Cycle | process.cycle->select(c | c.oclIsKindOf(OnlineModelManager)))][if (c.oclIsKindOf(SGDClassifier))]"linear_svm"[elseif (c.oclIsKindOf(PassiveAggressiveClassifier))]"pa"[elseif (c.oclIsKindOf(LgSGDClassifier))]"logistic_sgd"[elseif (c.oclIsKindOf(Perceptron))]"perceptron"[/if][/for],
 }
 
@@ -529,6 +531,9 @@ class OnlineModelManager:
 
         scaling_step_names = standard_names | normalize_names | robust_names
         steps_for_preproc = ['['/]s for s in steps_lower if s not in scaling_step_names]
+[else]
+        steps_for_preproc = steps_lower  
+
 [/if]
         self.preproc = Preprocessor(steps_for_preproc)
 
@@ -554,8 +559,7 @@ class OnlineModelManager:
 
         logging.info(
             f"Initialized OnlineModelManager with MODEL_TYPE={model_type}, "
-            f"PREPROCESS_STEPS={steps_for_preproc}, scaler_type={self.scaler_type}"
-        )
+            f"PREPROCESS_STEPS={steps_for_preproc}[if aRoot.process.cycle->filter(Normalization)->notEmpty() or aRoot.process.cycle->filter(Standardization)->notEmpty() or aRoot.process.cycle->filter(Robust_Scaling)->notEmpty() ], scaler_type={self.scaler_type}") [else]") [/if]
 
 [if aRoot.process.cycle->filter(Normalization)->notEmpty()
    or aRoot.process.cycle->filter(Standardization)->notEmpty()
@@ -672,15 +676,22 @@ class OnlineModelManager:
             X_in = self._scale_for_train(X_2d)
 
 [else]
-			X_in = X_2d
+            X_in = X_2d
 [/if]
             if self.model_initialized:
                 y_pred = self.clf.predict(X_in)['['/]0]
                 logging.info(f"['['/]TRAIN/no-label] Slot={slot_id} Pred={y_pred}")
             return
 
+[if aRoot.process.cycle->filter(Normalization)->notEmpty()
+   or aRoot.process.cycle->filter(Standardization)->notEmpty()
+   or aRoot.process.cycle->filter(Robust_Scaling)->notEmpty()
+]
         X_in = self._scale_for_train(X_2d)
+[else]
+        X_in = X_2d
 
+[/if]
         y_arr = np.array(['['/]label])
         if not self.model_initialized:
             self.clf.partial_fit(X_in, y_arr, classes=CLASSES)
@@ -722,7 +733,7 @@ class OnlineModelManager:
 ]
         X_in = self._scale_for_test(X_2d)
 [else]
-		X_in = X_2d
+        X_in = X_2d
 
 [/if]
         y_pred = self.clf.predict(X_in)['['/]0]
