@@ -1,0 +1,549 @@
+
+
+import json
+import time
+import csv
+from pathlib import Path
+from typing import Dict, Tuple, Optional, List, Union
+
+
+
+import numpy as np
+
+import paho.mqtt.client as mqtt
+
+
+
+from sklearn.preprocessing import PolynomialFeatures
+
+from statsmodels.tsa.arima.model import ARIMA
+
+
+
+
+
+import logging
+
+
+
+
+MQTT_BROKER = "localhost"
+MQTT_PORT = 1883
+
+
+MQTT_SENSOR_TOPIC = "sensors/+/value"   
+MQTT_CONTROL_TOPIC = "control/mode"  
+
+
+
+REQUIRED_DEVICES = ["dev1", "dev2", "dev3"]
+
+TARGET_DEVICE = "dev1"
+
+SLOT_SIZE_SECONDS = 5
+
+TRAIN_ROW_LIMIT = 100
+
+
+METRICS_CSV_PATH = Path("metrics_log.csv")
+
+METRICS_LOG_EVERY = 1  
+
+SENSOR_VALUE_MIN = -1e3
+SENSOR_VALUE_MAX = 1e6
+
+ROBUST_BUFFER_MAX_ROWS = 500
+
+
+
+MODEL_CONFIG = {
+
+	"preprocess_steps": [],
+    "model_type": "arima",
+
+    "arima_order": (2, 0, 2),
+    "target_device": TARGET_DEVICE,
+
+
+
+}
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+)
+
+
+
+class RowBuffer:
+
+
+    def __init__(self, slot_id: int):
+        self.slot_id = slot_id
+        self.messages: Dict[str, dict] = {}  # device_id -> data dict
+
+    def add_message(self, device_id: str, data: dict) -> None:
+        self.messages[device_id] = data
+
+    def is_complete(self) -> bool:
+        return all(d in self.messages for d in REQUIRED_DEVICES)
+
+    def build_row(self) -> Tuple[np.ndarray, Optional[int]]:
+
+        values = []
+        label = None
+
+        for dev in REQUIRED_DEVICES:
+            msg = self.messages.get(dev)
+            if msg is None:
+                values.append(np.nan)
+                continue
+
+            val = msg.get("value")
+            if val is None:
+                values.append(np.nan)
+            else:
+                values.append(float(val))
+
+            if label is None and "label" in msg and msg["label"] is not None:
+                try:
+                    label = int(msg["label"])
+                except (TypeError, ValueError):
+                    pass
+
+        X_row = np.array(values, dtype=float)
+        return X_row, label
+
+
+
+
+# =============================
+# Preprocessor: pipeline of preprocessing stages
+# =============================
+
+class Preprocessor:
+    """
+    Preprocessing pipeline:
+      Supported steps:
+        - "clean"  : basic cleaning (NaN, clip, etc.)
+
+
+    """
+
+    def __init__(self, steps: Union[str, List[str]]):
+        if isinstance(steps, str):
+            steps = [steps]
+        self.steps: List[str] = [s.lower() for s in steps]
+
+
+
+
+    def _clean_basic(self, X_row: np.ndarray) -> np.ndarray:
+        X = X_row.astype(float).copy()
+
+        if np.all(np.isnan(X)):
+            X[:] = 0.0
+            return X
+
+        nan_mask = np.isnan(X)
+        if np.any(nan_mask):
+            mean_val = np.nanmean(X)
+            X[nan_mask] = mean_val
+
+        X = np.clip(X, SENSOR_VALUE_MIN, SENSOR_VALUE_MAX)
+        return X
+
+
+
+
+
+
+
+    def transform(self, X_row: np.ndarray) -> np.ndarray:
+        X = X_row.astype(float).copy()
+
+
+
+                    
+        for step in self.steps:
+            s = step.lower()
+
+            if s == "clean":
+                X = self._clean_basic(X)
+                continue    
+
+
+
+
+
+            logging.warning(f"Unknown preprocessing step: {step}")
+
+        return X
+    
+
+# =============================
+# Build classifier from model type
+# =============================
+
+
+
+
+# =============================
+# OnlineModelManager
+# =============================
+
+class OnlineModelManager:
+    """
+    Online model manager (Preprocessor + optional Scaling + Classifier) using partial_fit,
+    manages TRAIN/TEST state and logs metrics.
+
+    Scaling types detected from preprocess_steps:
+      - Standardization: "standard", "scale", ...
+      - Normalization:   "normalize", ...
+      - Robust Scaling:  "robust", ...
+    """
+
+
+
+
+
+
+
+
+
+
+    def __init__(self, model_config: dict):
+        preprocess_steps_cfg = model_config.get("preprocess_steps", ["clean"])
+        if isinstance(preprocess_steps_cfg, str):
+            preprocess_steps_cfg = [preprocess_steps_cfg]
+
+        self.preproc = Preprocessor(preprocess_steps_cfg)
+
+        # ARIMA parameters
+        order = model_config.get("arima_order", (2, 0, 2))
+        self.arima_order: Tuple[int, int, int] = tuple(order)
+
+        # Target device for ARIMA time-series
+        self.target_device: str = model_config.get(
+            "target_device",
+            REQUIRED_DEVICES[0]
+        )
+
+        if self.target_device not in REQUIRED_DEVICES:
+            raise ValueError(
+                f"TARGET_DEVICE={self.target_device} is not listed in REQUIRED_DEVICES!"
+            )
+
+        self.target_idx: int = REQUIRED_DEVICES.index(self.target_device)
+        logging.info(
+            f"ARIMA will use device '{self.target_device}' "
+            f"at index {self.target_idx} as the time-series."
+        )
+
+        # Time-series data (list of floats)
+        self.series: List[float] = []
+
+        # ARIMA model and fit results
+        self.model: Optional[ARIMA] = None
+        self.results = None
+
+        # Mode: TRAIN / TEST
+        self.mode = "TRAIN"
+        self.train_rows_seen = 0
+
+        # Metrics for prediction error in TEST mode
+        self.test_count = 0
+        self.abs_error_sum = 0.0
+
+        # Refit ARIMA model after every N samples
+        self.refit_every = 20
+
+        self._init_metrics_csv()
+
+        logging.info(
+            f"Initialized Time-Series OnlineModelManager with ARIMA{self.arima_order}, "
+            f"PREPROCESS_STEPS={preprocess_steps_cfg}"
+        )
+
+
+
+
+
+
+
+
+
+
+    def _init_metrics_csv(self) -> None:
+        if not METRICS_CSV_PATH.exists():
+            with METRICS_CSV_PATH.open("w", newline="", encoding="utf-8") as f:
+                writer = csv.writer(f)
+                writer.writerow([
+                    "timestamp",
+                    "phase",
+                    "slot_id",
+                    "row_index",
+
+                    "value",          
+                    "prediction",     
+                    "abs_error",      
+                    "mae_so_far"      
+
+
+
+                ])
+
+
+
+
+
+
+
+
+
+
+
+
+    def process_row(self, slot_id: int, X_row: np.ndarray, label: Optional[int]) -> None:
+        """
+        For the ARIMA version, only a single sensor (target_device) is used as the time-series.
+        The label is ignored.
+        """
+
+        # 1) Preprocess the entire row
+        X_pre = self.preproc.transform(X_row.astype(float))
+
+        # Ensure the target index is still valid after preprocessing
+        if self.target_idx >= len(X_pre):
+            logging.error(
+                f"target_idx={self.target_idx} >= len(X_pre)={len(X_pre)}. "
+                f"A preprocessing step may have altered the dimensions unexpectedly."
+            )
+            return
+
+        # 2) Extract the target sensor value
+        value = float(X_pre[self.target_idx])
+
+        if self.mode == "TRAIN":
+            self._train_step(slot_id, value)
+        else:
+            self._test_step(slot_id, value)
+
+    def _fit_arima_if_needed(self) -> None:
+        """
+        Fit or refit the ARIMA model if enough data is available.
+        """
+        if len(self.series) < max(self.arima_order[0] + self.arima_order[2], 5):
+            # Not enough data points for ARIMA fitting
+            return
+
+        try:
+            self.model = ARIMA(self.series, order=self.arima_order)
+            self.results = self.model.fit()
+            logging.info(f"ARIMA{self.arima_order} fitted on {len(self.series)} points.")
+        except Exception as e:
+            logging.exception(f"Error fitting ARIMA model: {e}")
+            self.model = None
+            self.results = None
+
+    def _train_step(self, slot_id: int, value: float) -> None:
+        # Append new value to time-series
+        self.series.append(value)
+        self.train_rows_seen += 1
+
+        logging.info(
+            f"[TRAIN] row #{self.train_rows_seen} | Slot={slot_id} | "
+            f"{self.target_device}_value={value}"
+        )
+
+        # Refit the model every N rows
+        if (self.train_rows_seen % self.refit_every) == 0:
+            self._fit_arima_if_needed()
+
+        # Log metrics for TRAIN phase (no prediction)
+        if self.train_rows_seen % METRICS_LOG_EVERY == 0:
+            self._append_metrics(
+                phase="TRAIN",
+                slot_id=slot_id,
+                row_index=self.train_rows_seen,
+                value=value,
+                prediction=None,
+            )
+
+        # Automatically switch to TEST mode after TRAIN_ROW_LIMIT
+        if self.train_rows_seen >= TRAIN_ROW_LIMIT:
+            # Final fit before entering TEST mode
+            self._fit_arima_if_needed()
+            self.mode = "TEST"
+            logging.info(
+                f"TRAIN phase finished after {self.train_rows_seen} rows. "
+                f"Switched to TEST mode (auto)."
+            )
+
+
+
+
+
+
+
+
+    def _test_step(self, slot_id: int, value: float) -> None:
+        """
+        In TEST mode:
+          - If a model exists: predict one step ahead.
+          - Log the prediction error.
+          - Append the actual value to the series and periodically refit.
+        """
+        prediction = None
+
+        if self.results is not None:
+            try:
+                # One-step forecast
+                prediction = float(self.results.forecast(steps=1)[0])
+                logging.info(
+                    f"[TEST] Slot={slot_id} | {self.target_device}_predicted={prediction:.4f} "
+                    f"| actual={value:.4f}"
+                )
+            except Exception as e:
+                logging.exception(f"Error in ARIMA forecast: {e}")
+                prediction = None
+        else:
+            logging.warning("ARIMA model is not fitted yet; cannot forecast.")
+
+        # Metrics (MAE, etc.)
+        row_index = self.train_rows_seen + self.test_count + 1
+        self._append_metrics(
+            phase="TEST",
+            slot_id=slot_id,
+            row_index=row_index,
+            value=value,
+            prediction=prediction,
+        )
+
+        # Append actual value to the series
+        self.series.append(value)
+
+        # Periodically refit the model
+        if (len(self.series) % self.refit_every) == 0:
+            self._fit_arima_if_needed()
+
+
+
+
+
+    def set_mode(self, new_mode: str, reason: str = "") -> None:
+        new_mode = new_mode.upper()
+        if new_mode not in ("TRAIN", "TEST"):
+            logging.warning(f"Invalid mode request: {new_mode}")
+            return
+        self.mode = new_mode
+        logging.info(f"Mode changed to {self.mode} ({reason})")
+
+
+
+
+
+
+        if self.mode == "TEST" and self.results is None:
+            self._fit_arima_if_needed()
+
+
+# =============================
+# Slot management
+# =============================
+
+slots: Dict[int, RowBuffer] = {}
+
+def compute_slot_id(timestamp: float) -> int:
+    return int(timestamp // SLOT_SIZE_SECONDS)
+
+def get_or_create_row_buffer(slot_id: int) -> RowBuffer:
+    if slot_id not in slots:
+        slots[slot_id] = RowBuffer(slot_id)
+    return slots[slot_id]
+
+def remove_old_slots(current_slot_id: int, max_age_slots: int = 10) -> None:
+    to_delete = [sid for sid in slots if sid < current_slot_id - max_age_slots]
+    for sid in to_delete:
+        del slots[sid]
+
+# =============================
+# MQTT callbacks
+# =============================
+
+model_manager = OnlineModelManager(MODEL_CONFIG)
+
+def on_connect(client, userdata, flags, rc):
+    if rc == 0:
+        logging.info("Connected to MQTT broker.")
+    else:
+        logging.error(f"Failed to connect to MQTT broker. rc={rc}")
+
+    client.subscribe(MQTT_SENSOR_TOPIC)
+    logging.info(f"Subscribed to sensors topic: {MQTT_SENSOR_TOPIC}")
+
+    client.subscribe(MQTT_CONTROL_TOPIC)
+    logging.info(f"Subscribed to control topic: {MQTT_CONTROL_TOPIC}")
+
+def on_message(client, userdata, msg):
+    try:
+        payload = msg.payload.decode("utf-8")
+
+        if msg.topic == MQTT_CONTROL_TOPIC:
+            mode_cmd = payload.strip().upper()
+            if mode_cmd in ("TRAIN", "TEST"):
+                model_manager.set_mode(mode_cmd, reason="by MQTT control/mode")
+            else:
+                logging.warning(f"Unknown control command on {MQTT_CONTROL_TOPIC}: {payload}")
+            return
+
+        data = json.loads(payload)
+
+        device_id = data.get("device_id")
+        if device_id is None:
+            logging.warning("Received message without device_id; ignoring.")
+            return
+
+        ts = float(data.get("timestamp", time.time()))
+        slot_id = compute_slot_id(ts)
+
+        row_buffer = get_or_create_row_buffer(slot_id)
+        row_buffer.add_message(device_id, data)
+
+        remove_old_slots(slot_id)
+
+        if row_buffer.is_complete():
+            X_row, label = row_buffer.build_row()
+            logging.info(
+                f"[Slot {slot_id}] NEW ROW | mode={model_manager.mode} | "
+                f"X={X_row}, label={label}"
+            )
+
+            model_manager.process_row(slot_id, X_row, label)
+
+            if slot_id in slots:
+                del slots[slot_id]
+
+    except Exception as e:
+        logging.exception(f"Error in on_message: {e}")
+
+# =============================
+# main
+# =============================
+
+def main():
+    client = mqtt.Client()
+    client.on_connect = on_connect
+    client.on_message = on_message
+
+    logging.info("Connecting to MQTT broker...")
+    client.connect(MQTT_BROKER, MQTT_PORT, keepalive=60)
+
+    logging.info("MQTT client started. Waiting for messages...")
+    client.loop_forever()
+
+if __name__ == "__main__":
+    main()
+
+

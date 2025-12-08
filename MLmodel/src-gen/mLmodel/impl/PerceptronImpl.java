@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link mLmodel.impl.PerceptronImpl#getAfter <em>After</em>}</li>
  *   <li>{@link mLmodel.impl.PerceptronImpl#getBefore <em>Before</em>}</li>
  *   <li>{@link mLmodel.impl.PerceptronImpl#getRandom_state <em>Random state</em>}</li>
+ *   <li>{@link mLmodel.impl.PerceptronImpl#getN_LAGS <em>NLAGS</em>}</li>
+ *   <li>{@link mLmodel.impl.PerceptronImpl#isHisory <em>Hisory</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,6 +72,46 @@ public class PerceptronImpl extends MinimalEObjectImpl.Container implements Perc
 	 * @ordered
 	 */
 	protected int random_state = RANDOM_STATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getN_LAGS() <em>NLAGS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getN_LAGS()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NLAGS_EDEFAULT = 5;
+
+	/**
+	 * The cached value of the '{@link #getN_LAGS() <em>NLAGS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getN_LAGS()
+	 * @generated
+	 * @ordered
+	 */
+	protected int n_LAGS = NLAGS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isHisory() <em>Hisory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHisory()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HISORY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isHisory() <em>Hisory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHisory()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean hisory = HISORY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -249,6 +291,49 @@ public class PerceptronImpl extends MinimalEObjectImpl.Container implements Perc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getN_LAGS() {
+		return n_LAGS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setN_LAGS(int newN_LAGS) {
+		int oldN_LAGS = n_LAGS;
+		n_LAGS = newN_LAGS;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.PERCEPTRON__NLAGS, oldN_LAGS, n_LAGS));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isHisory() {
+		return hisory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHisory(boolean newHisory) {
+		boolean oldHisory = hisory;
+		hisory = newHisory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.PERCEPTRON__HISORY, oldHisory,
+					hisory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -298,6 +383,10 @@ public class PerceptronImpl extends MinimalEObjectImpl.Container implements Perc
 			return basicGetBefore();
 		case MLmodelPackage.PERCEPTRON__RANDOM_STATE:
 			return getRandom_state();
+		case MLmodelPackage.PERCEPTRON__NLAGS:
+			return getN_LAGS();
+		case MLmodelPackage.PERCEPTRON__HISORY:
+			return isHisory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -318,6 +407,12 @@ public class PerceptronImpl extends MinimalEObjectImpl.Container implements Perc
 			return;
 		case MLmodelPackage.PERCEPTRON__RANDOM_STATE:
 			setRandom_state((Integer) newValue);
+			return;
+		case MLmodelPackage.PERCEPTRON__NLAGS:
+			setN_LAGS((Integer) newValue);
+			return;
+		case MLmodelPackage.PERCEPTRON__HISORY:
+			setHisory((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -340,6 +435,12 @@ public class PerceptronImpl extends MinimalEObjectImpl.Container implements Perc
 		case MLmodelPackage.PERCEPTRON__RANDOM_STATE:
 			setRandom_state(RANDOM_STATE_EDEFAULT);
 			return;
+		case MLmodelPackage.PERCEPTRON__NLAGS:
+			setN_LAGS(NLAGS_EDEFAULT);
+			return;
+		case MLmodelPackage.PERCEPTRON__HISORY:
+			setHisory(HISORY_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -358,6 +459,10 @@ public class PerceptronImpl extends MinimalEObjectImpl.Container implements Perc
 			return before != null;
 		case MLmodelPackage.PERCEPTRON__RANDOM_STATE:
 			return random_state != RANDOM_STATE_EDEFAULT;
+		case MLmodelPackage.PERCEPTRON__NLAGS:
+			return n_LAGS != NLAGS_EDEFAULT;
+		case MLmodelPackage.PERCEPTRON__HISORY:
+			return hisory != HISORY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -375,6 +480,10 @@ public class PerceptronImpl extends MinimalEObjectImpl.Container implements Perc
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (random_state: ");
 		result.append(random_state);
+		result.append(", N_LAGS: ");
+		result.append(n_LAGS);
+		result.append(", hisory: ");
+		result.append(hisory);
 		result.append(')');
 		return result.toString();
 	}

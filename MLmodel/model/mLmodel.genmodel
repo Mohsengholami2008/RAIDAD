@@ -422,6 +422,8 @@
     </genClasses>
     <genClasses ecoreClass="mLmodel.ecore#//OnlineModelManager">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//OnlineModelManager/random_state"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//OnlineModelManager/N_LAGS"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mLmodel.ecore#//OnlineModelManager/hisory"/>
     </genClasses>
     <genClasses ecoreClass="mLmodel.ecore#//SGDClassifier"/>
     <genClasses ecoreClass="mLmodel.ecore#//PassiveAggressiveClassifier"/>
@@ -435,5 +437,10 @@
     <genClasses ecoreClass="mLmodel.ecore#//FeatureDiffs"/>
     <genClasses ecoreClass="mLmodel.ecore#//Polynomial"/>
     <genClasses ecoreClass="mLmodel.ecore#//Min_Max"/>
+    <genClasses ecoreClass="mLmodel.ecore#//OnlineAlert"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Email_Alert"/>
+    <genClasses ecoreClass="mLmodel.ecore#//MQTT_Alert"/>
+    <genClasses ecoreClass="mLmodel.ecore#//Log_Alert"/>
+    <genClasses ecoreClass="mLmodel.ecore#//ARIMA"/>
   </genPackages>
 </genmodel:GenModel>

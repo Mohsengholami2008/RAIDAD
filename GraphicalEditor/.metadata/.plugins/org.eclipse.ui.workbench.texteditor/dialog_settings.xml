@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="train_step"/>
+		<item key="selection" value="clean"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="train_step"/>
-			<item value="train"/>
-			<item value="steps_for_preproc"/>
-			<item value="self.preproc = Preprocessor(steps_for_preproc)"/>
-			<item value="        scaling_step_names = standard_names | normalize_names | robust_names"/>
-			<item value="diffs"/>
-			<item value="add_diffs"/>
-			<item value="_add_diffs"/>
-			<item value="poly"/>
-			<item value="dif"/>
-			<item value="comm"/>
+			<item value="clean"/>
+			<item value="            self.clf.partial_fit(X_in, y_arr, classes=CLASSES)"/>
+			<item value="CLASSES = np.array([0, 1])"/>
+			<item value="CLASSES"/>
+			<item value="classess"/>
+			<item value="class"/>
+			<item value="    def _append_metrics("/>
+			<item value="_train_step"/>
+			<item value="def process_row(self, slot_id: int, X_row: np.ndarray, label: Optional"/>
+			<item value="build_classifier"/>
+			<item value="zed = False"/>
+			<item value="ale"/>
+			<item value="alert"/>
+			<item value="X_pre"/>
+			<item value="_build_timeseries_features"/>
 		</list>
 		<list key="replacehistory">
 		</list>

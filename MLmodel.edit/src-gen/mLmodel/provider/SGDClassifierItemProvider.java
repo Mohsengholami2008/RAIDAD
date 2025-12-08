@@ -56,6 +56,8 @@ public class SGDClassifierItemProvider extends ItemProviderAdapter implements IE
 			addAfterPropertyDescriptor(object);
 			addBeforePropertyDescriptor(object);
 			addRandom_statePropertyDescriptor(object);
+			addN_LAGSPropertyDescriptor(object);
+			addHisoryPropertyDescriptor(object);
 			addLearning_ratePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -103,6 +105,38 @@ public class SGDClassifierItemProvider extends ItemProviderAdapter implements IE
 						"_UI_OnlineModelManager_type"),
 				MLmodelPackage.Literals.ONLINE_MODEL_MANAGER__RANDOM_STATE, true, false, false,
 				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the NLAGS feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addN_LAGSPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_OnlineModelManager_N_LAGS_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_OnlineModelManager_N_LAGS_feature",
+								"_UI_OnlineModelManager_type"),
+						MLmodelPackage.Literals.ONLINE_MODEL_MANAGER__NLAGS, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Hisory feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHisoryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_OnlineModelManager_hisory_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_OnlineModelManager_hisory_feature",
+								"_UI_OnlineModelManager_type"),
+						MLmodelPackage.Literals.ONLINE_MODEL_MANAGER__HISORY, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -167,6 +201,8 @@ public class SGDClassifierItemProvider extends ItemProviderAdapter implements IE
 
 		switch (notification.getFeatureID(SGDClassifier.class)) {
 		case MLmodelPackage.SGD_CLASSIFIER__RANDOM_STATE:
+		case MLmodelPackage.SGD_CLASSIFIER__NLAGS:
+		case MLmodelPackage.SGD_CLASSIFIER__HISORY:
 		case MLmodelPackage.SGD_CLASSIFIER__LEARNING_RATE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

@@ -56,6 +56,8 @@ public class PassiveAggressiveClassifierItemProvider extends ItemProviderAdapter
 			addAfterPropertyDescriptor(object);
 			addBeforePropertyDescriptor(object);
 			addRandom_statePropertyDescriptor(object);
+			addN_LAGSPropertyDescriptor(object);
+			addHisoryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -105,6 +107,38 @@ public class PassiveAggressiveClassifierItemProvider extends ItemProviderAdapter
 	}
 
 	/**
+	 * This adds a property descriptor for the NLAGS feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addN_LAGSPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_OnlineModelManager_N_LAGS_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_OnlineModelManager_N_LAGS_feature",
+								"_UI_OnlineModelManager_type"),
+						MLmodelPackage.Literals.ONLINE_MODEL_MANAGER__NLAGS, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Hisory feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHisoryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_OnlineModelManager_hisory_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_OnlineModelManager_hisory_feature",
+								"_UI_OnlineModelManager_type"),
+						MLmodelPackage.Literals.ONLINE_MODEL_MANAGER__HISORY, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns PassiveAggressiveClassifier.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +184,8 @@ public class PassiveAggressiveClassifierItemProvider extends ItemProviderAdapter
 
 		switch (notification.getFeatureID(PassiveAggressiveClassifier.class)) {
 		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE:
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__NLAGS:
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__HISORY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

@@ -27,6 +27,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link mLmodel.impl.LgSGDClassifierImpl#getAfter <em>After</em>}</li>
  *   <li>{@link mLmodel.impl.LgSGDClassifierImpl#getBefore <em>Before</em>}</li>
  *   <li>{@link mLmodel.impl.LgSGDClassifierImpl#getRandom_state <em>Random state</em>}</li>
+ *   <li>{@link mLmodel.impl.LgSGDClassifierImpl#getN_LAGS <em>NLAGS</em>}</li>
+ *   <li>{@link mLmodel.impl.LgSGDClassifierImpl#isHisory <em>Hisory</em>}</li>
  *   <li>{@link mLmodel.impl.LgSGDClassifierImpl#getLearning_rate <em>Learning rate</em>}</li>
  * </ul>
  *
@@ -72,6 +74,46 @@ public class LgSGDClassifierImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected int random_state = RANDOM_STATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getN_LAGS() <em>NLAGS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getN_LAGS()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NLAGS_EDEFAULT = 5;
+
+	/**
+	 * The cached value of the '{@link #getN_LAGS() <em>NLAGS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getN_LAGS()
+	 * @generated
+	 * @ordered
+	 */
+	protected int n_LAGS = NLAGS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isHisory() <em>Hisory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHisory()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HISORY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isHisory() <em>Hisory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHisory()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean hisory = HISORY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLearning_rate() <em>Learning rate</em>}' attribute.
@@ -271,6 +313,50 @@ public class LgSGDClassifierImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getN_LAGS() {
+		return n_LAGS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setN_LAGS(int newN_LAGS) {
+		int oldN_LAGS = n_LAGS;
+		n_LAGS = newN_LAGS;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.LG_SGD_CLASSIFIER__NLAGS, oldN_LAGS,
+					n_LAGS));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isHisory() {
+		return hisory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHisory(boolean newHisory) {
+		boolean oldHisory = hisory;
+		hisory = newHisory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.LG_SGD_CLASSIFIER__HISORY, oldHisory,
+					hisory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LEARNING_RATE getLearning_rate() {
 		return learning_rate;
 	}
@@ -342,6 +428,10 @@ public class LgSGDClassifierImpl extends MinimalEObjectImpl.Container implements
 			return basicGetBefore();
 		case MLmodelPackage.LG_SGD_CLASSIFIER__RANDOM_STATE:
 			return getRandom_state();
+		case MLmodelPackage.LG_SGD_CLASSIFIER__NLAGS:
+			return getN_LAGS();
+		case MLmodelPackage.LG_SGD_CLASSIFIER__HISORY:
+			return isHisory();
 		case MLmodelPackage.LG_SGD_CLASSIFIER__LEARNING_RATE:
 			return getLearning_rate();
 		}
@@ -364,6 +454,12 @@ public class LgSGDClassifierImpl extends MinimalEObjectImpl.Container implements
 			return;
 		case MLmodelPackage.LG_SGD_CLASSIFIER__RANDOM_STATE:
 			setRandom_state((Integer) newValue);
+			return;
+		case MLmodelPackage.LG_SGD_CLASSIFIER__NLAGS:
+			setN_LAGS((Integer) newValue);
+			return;
+		case MLmodelPackage.LG_SGD_CLASSIFIER__HISORY:
+			setHisory((Boolean) newValue);
 			return;
 		case MLmodelPackage.LG_SGD_CLASSIFIER__LEARNING_RATE:
 			setLearning_rate((LEARNING_RATE) newValue);
@@ -389,6 +485,12 @@ public class LgSGDClassifierImpl extends MinimalEObjectImpl.Container implements
 		case MLmodelPackage.LG_SGD_CLASSIFIER__RANDOM_STATE:
 			setRandom_state(RANDOM_STATE_EDEFAULT);
 			return;
+		case MLmodelPackage.LG_SGD_CLASSIFIER__NLAGS:
+			setN_LAGS(NLAGS_EDEFAULT);
+			return;
+		case MLmodelPackage.LG_SGD_CLASSIFIER__HISORY:
+			setHisory(HISORY_EDEFAULT);
+			return;
 		case MLmodelPackage.LG_SGD_CLASSIFIER__LEARNING_RATE:
 			setLearning_rate(LEARNING_RATE_EDEFAULT);
 			return;
@@ -410,6 +512,10 @@ public class LgSGDClassifierImpl extends MinimalEObjectImpl.Container implements
 			return before != null;
 		case MLmodelPackage.LG_SGD_CLASSIFIER__RANDOM_STATE:
 			return random_state != RANDOM_STATE_EDEFAULT;
+		case MLmodelPackage.LG_SGD_CLASSIFIER__NLAGS:
+			return n_LAGS != NLAGS_EDEFAULT;
+		case MLmodelPackage.LG_SGD_CLASSIFIER__HISORY:
+			return hisory != HISORY_EDEFAULT;
 		case MLmodelPackage.LG_SGD_CLASSIFIER__LEARNING_RATE:
 			return learning_rate != LEARNING_RATE_EDEFAULT;
 		}
@@ -429,6 +535,10 @@ public class LgSGDClassifierImpl extends MinimalEObjectImpl.Container implements
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (random_state: ");
 		result.append(random_state);
+		result.append(", N_LAGS: ");
+		result.append(n_LAGS);
+		result.append(", hisory: ");
+		result.append(hisory);
 		result.append(", learning_rate: ");
 		result.append(learning_rate);
 		result.append(')');

@@ -1,5 +1,6 @@
 package mLmodel.impl;
 
+import mLmodel.ARIMA;
 import mLmodel.Action;
 import mLmodel.Activation_MLP;
 import mLmodel.Alpha_MLP;
@@ -25,6 +26,7 @@ import mLmodel.Devices;
 import mLmodel.Drop;
 import mLmodel.Dup_Arg_Keep;
 import mLmodel.Duplicates;
+import mLmodel.Email_Alert;
 import mLmodel.Enum_CSV_Sep;
 import mLmodel.Event;
 import mLmodel.Excel;
@@ -45,11 +47,13 @@ import mLmodel.LEARNING_RATE;
 import mLmodel.LgSGDClassifier;
 import mLmodel.Library_Clustering;
 import mLmodel.Linear_Regression;
+import mLmodel.Log_Alert;
 import mLmodel.Logistic_Regression;
 import mLmodel.MLP;
 import mLmodel.MLmodelFactory;
 import mLmodel.MLmodelPackage;
 import mLmodel.MQTT;
+import mLmodel.MQTT_Alert;
 import mLmodel.Max_Iter_MLP;
 import mLmodel.Metric;
 import mLmodel.Metric_DBSCAN;
@@ -325,6 +329,14 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 			return createPolynomial();
 		case MLmodelPackage.MIN_MAX:
 			return createMin_Max();
+		case MLmodelPackage.EMAIL_ALERT:
+			return createEmail_Alert();
+		case MLmodelPackage.MQTT_ALERT:
+			return createMQTT_Alert();
+		case MLmodelPackage.LOG_ALERT:
+			return createLog_Alert();
+		case MLmodelPackage.ARIMA:
+			return createARIMA();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1276,6 +1288,46 @@ public class MLmodelFactoryImpl extends EFactoryImpl implements MLmodelFactory {
 	public Min_Max createMin_Max() {
 		Min_MaxImpl min_Max = new Min_MaxImpl();
 		return min_Max;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Email_Alert createEmail_Alert() {
+		Email_AlertImpl email_Alert = new Email_AlertImpl();
+		return email_Alert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MQTT_Alert createMQTT_Alert() {
+		MQTT_AlertImpl mqtT_Alert = new MQTT_AlertImpl();
+		return mqtT_Alert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Log_Alert createLog_Alert() {
+		Log_AlertImpl log_Alert = new Log_AlertImpl();
+		return log_Alert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ARIMA createARIMA() {
+		ARIMAImpl arima = new ARIMAImpl();
+		return arima;
 	}
 
 	/**

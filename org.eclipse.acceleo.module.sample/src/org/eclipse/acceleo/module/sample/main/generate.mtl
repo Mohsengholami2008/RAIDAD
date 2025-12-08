@@ -119,6 +119,10 @@ import csv
 from pathlib import Path
 from typing import Dict, Tuple, Optional, List, Union
 
+[if (aRoot.process.cycle->filter(OnlineModelManager)->first().hisory = true)]
+from collections import deque
+[/if]
+
 
 import numpy as np
 
@@ -135,11 +139,16 @@ import paho.mqtt.client as mqtt
 from sklearn.preprocessing import StandardScaler, RobustScaler
 [/if]
 
+[if (aRoot.process.cycle->filter(ARIMA)->isEmpty())]
+from sklearn.linear_model import SGDClassifier, PassiveAggressiveClassifier, Perceptron
+[/if]
 
 from sklearn.preprocessing import PolynomialFeatures
 
+[if (aRoot.process.cycle->filter(ARIMA)->notEmpty())]
+from statsmodels.tsa.arima.model import ARIMA
+[/if]
 
-from sklearn.linear_model import SGDClassifier, PassiveAggressiveClassifier, Perceptron
 
 [if (aRoot.process.cycle->filter(SGDClassifier)->size()>0)]
 from sklearn.linear_model import SGDClassifier
@@ -170,8 +179,6 @@ MQTT_PORT = [it.mqtt.MQTT_PORT/]
 [if (ci.oclIsTypeOf(Topic))]
 MQTT_SENSOR_TOPIC = "[ci.MQTT_SENSOR_TOPIC/]"   
 MQTT_CONTROL_TOPIC = "[ci.MQTT_CONTROL_TOPIC/]"  
-
-
 [/if] 
 [/for]
 
@@ -181,11 +188,15 @@ MQTT_CONTROL_TOPIC = "[ci.MQTT_CONTROL_TOPIC/]"
 REQUIRED_DEVICES = ['['/][for (ki : Devices | process.cycle->filter(CommunicationProtocol).devices) separator(', ')]"[ki.REQUIRED_DEVICES/]"[/for]]
 [/if]
 
+[if (process.cycle->filter(ARIMA)->notEmpty())]
+TARGET_DEVICE = "[process.cycle->filter(CommunicationProtocol).role.oclAsType(Target).name/]"
+[/if]
+
 SLOT_SIZE_SECONDS = 5
 
 TRAIN_ROW_LIMIT = 100
 
-[if (process.cycle->filter(CommunicationProtocol).role.oclAsType(Target)->notEmpty())]
+[if (process.cycle->filter(CommunicationProtocol).role.oclAsType(Target)->notEmpty() and process.cycle->filter(ARIMA)->isEmpty())]
 CLASSES = np.array(['['/][for (ki : Target | process.cycle->filter(CommunicationProtocol).role.oclAsType(Target)) separator(', ')][ki.name/][/for]])
 [/if]
 
@@ -199,11 +210,35 @@ SENSOR_VALUE_MAX = 1e6
 ROBUST_BUFFER_MAX_ROWS = 500
 
 
+[if (process.cycle->filter(OnlineModelManager)->first().hisory = true)]
+
+N_LAGS = [process.cycle->filter(OnlineModelManager).N_LAGS/]
+[/if]
 
 MODEL_CONFIG = {
 
 	"preprocess_steps": ['['/][for (c : Cycle | process.cycle->select(c | c.oclIsKindOf(Standardization) or c.oclIsKindOf(Normalization) or c.oclIsKindOf(FeatureDiffs))) separator(', ')][if (c.oclIsKindOf(Standardization))]"scale"[elseif (c.oclIsKindOf(Normalization))]"normalize"[elseif (c.oclIsKindOf(FeatureDiffs))]"diffs"[/if][/for][']'/],
-    "model_type": [for (c : Cycle | process.cycle->select(c | c.oclIsKindOf(OnlineModelManager)))][if (c.oclIsKindOf(SGDClassifier))]"linear_svm"[elseif (c.oclIsKindOf(PassiveAggressiveClassifier))]"pa"[elseif (c.oclIsKindOf(LgSGDClassifier))]"logistic_sgd"[elseif (c.oclIsKindOf(Perceptron))]"perceptron"[/if][/for],
+    "model_type": [for (c : Cycle | process.cycle->select(c | c.oclIsKindOf(OnlineModelManager)))][if (c.oclIsKindOf(SGDClassifier))]"linear_svm"[elseif (c.oclIsKindOf(PassiveAggressiveClassifier))]"pa"[elseif (c.oclIsKindOf(LgSGDClassifier))]"logistic_sgd"[elseif (c.oclIsKindOf(Perceptron))]"perceptron"[elseif (c.oclIsKindOf(ARIMA))]"arima"[/if][/for],
+
+[if (process.cycle->filter(ARIMA)->notEmpty())]	
+    "arima_order": (2, 0, 2),
+    "target_device": TARGET_DEVICE,
+[/if]
+
+[if (process.cycle->filter(OnlineAlert)->notEmpty())]	
+    "alert_config": {
+        "enabled": True,
+        "target_label": 1,
+        "trigger_on": "prediction",   
+        "method": "mqtt",             
+        "mqtt_topic": "alerts/label1",
+        "disabled_labels": ['['/]0],       
+
+        "phases": ['['/]"TEST"],           
+    },
+[/if]
+
+
 }
 
 
@@ -436,7 +471,7 @@ class Preprocessor:
 # Build classifier from model type
 # =============================
 
-[if (process.cycle->filter(OnlineModelManager)->notEmpty())]
+[if (process.cycle->filter(OnlineModelManager)->notEmpty() and process.cycle->filter(ARIMA)->isEmpty())]
 
 def build_classifier(model_type: str):
     mt = model_type.lower()
@@ -455,7 +490,7 @@ def build_classifier(model_type: str):
     if mt == "linear_svm":
         return SGDClassifier(
             loss="hinge",
-            learning_rate="[process.cycle->filter(LgSGDClassifier)->first().learning_rate/]",
+            learning_rate="[process.cycle->filter(SGDClassifier)->first().learning_rate/]",
             random_state=[process.cycle->filter(SGDClassifier)->first().random_state/]
         )
 [/if]
@@ -482,6 +517,140 @@ def build_classifier(model_type: str):
 [/if]
 
 
+[if (process.cycle->filter(OnlineAlert)->notEmpty())]
+
+# =============================
+# AlertManager
+# =============================
+
+class AlertManager:
+
+    def __init__(self, config: dict):
+        self.enabled = config.get("enabled", False)
+        self.target_label = config.get("target_label", 1)
+        self.trigger_on = config.get("trigger_on", "prediction")
+        self.method = config.get("method", "log")
+        self.mqtt_topic = config.get("mqtt_topic", "alerts/label")
+
+        self.disabled_labels = set(config.get("disabled_labels", ['['/]]))
+
+        # فازهایی که آلارم در آن‌ها فعال است (TRAIN / TEST)
+        self.phases = set(config.get("phases", ['['/]"TRAIN", "TEST"]))
+
+        self._mqtt_client = None  # برای publish آلارم با MQTT
+
+    def _ensure_mqtt_client(self):
+        if self._mqtt_client is None:
+            self._mqtt_client = mqtt.Client()
+            self._mqtt_client.connect(MQTT_BROKER, MQTT_PORT, keepalive=60)
+
+    def _send_log(self, message: str):
+        logging.warning(f"['['/]ALERT] {message}")
+
+
+
+
+
+    def _send_mqtt(self, payload: dict):
+            try:
+        # --- Convert numpy types to Python int ---
+                if "slot_id" in payload:
+                    payload['['/]"slot_id"] = int(payload['['/]"slot_id"])
+
+                if "target_label" in payload:
+                    payload['['/]"target_label"] = int(payload['['/]"target_label"])
+
+                if payload.get("true_label") is not None:
+                    payload['['/]"true_label"] = int(payload['['/]"true_label"])
+
+                if payload.get("pred_label") is not None:
+                    payload['['/]"pred_label"] = int(payload['['/]"pred_label"])
+
+                if "timestamp" in payload:
+                    payload['['/]"timestamp"] = float(payload['['/]"timestamp"])
+        # -----------------------------------------
+
+                self._ensure_mqtt_client()
+                self._mqtt_client.publish(self.mqtt_topic, json.dumps(payload), qos=1)
+
+        # 🔹 این خط را اضافه کن برای دیدن آلارم در log:
+                logging.info(f"['['/]ALERT/MQTT] topic={self.mqtt_topic} payload={payload}")
+
+            except Exception as e:
+                logging.exception(f"Failed to publish alert via MQTT: {e}")
+
+
+
+    def _send_email(self, payload: dict):
+        if not (self.email_to and self.email_from and self.smtp_host):
+            logging.warning("Email alert configured but SMTP settings incomplete.")
+            return
+
+        try:
+            import smtplib
+            from email.mime.text import MIMEText
+
+            body = json.dumps(payload, indent=2)
+            msg = MIMEText(body)
+            msg['['/]"Subject"] = f"IoT Alert: label={self.target_label}"
+            msg['['/]"From"] = self.email_from
+            msg['['/]"To"] = self.email_to
+
+            with smtplib.SMTP(self.smtp_host, self.smtp_port) as server:
+                server.starttls()
+                server.send_message(msg)
+
+        except Exception as e:
+            logging.exception(f"Failed to send alert email: {e}")
+
+    def maybe_alert(
+        self,
+        *,
+        phase: str,
+        slot_id: int,
+        true_label: Optional['['/]int],
+        pred_label: Optional['['/]int],
+    ) -> None:
+        if not self.enabled:
+            return
+
+        if phase.upper() not in self.phases:
+            return
+
+        if true_label in self.disabled_labels or pred_label in self.disabled_labels:
+            return
+
+        trigger = False
+        if self.trigger_on == "prediction" and pred_label == self.target_label:
+            trigger = True
+        elif self.trigger_on == "true" and true_label == self.target_label:
+            trigger = True
+        elif self.trigger_on == "both" and (
+            (true_label == self.target_label) or (pred_label == self.target_label)
+        ):
+            trigger = True
+
+        if not trigger:
+            return
+
+        payload = {
+            "timestamp": time.time(),
+            "phase": phase,
+            "slot_id": slot_id,
+            "target_label": self.target_label,
+            "true_label": true_label,
+            "pred_label": pred_label,
+        }
+
+        if self.method == "log":
+            self._send_log(json.dumps(payload))
+        elif self.method == "mqtt":
+            self._send_mqtt(payload)
+        elif self.method == "email":
+            self._send_email(payload)
+        else:
+            logging.warning(f"Unknown alert method: {self.method}")
+[/if]
 
 # =============================
 # OnlineModelManager
@@ -497,10 +666,16 @@ class OnlineModelManager:
       - Normalization:   "normalize", ...
       - Robust Scaling:  "robust", ...
     """
-
+[if (process.cycle->filter(ARIMA)->isEmpty())]   
     def __init__(self, model_config: dict):
         preprocess_steps_cfg = model_config.get("preprocess_steps", ['['/]"clean"])
         model_type = model_config.get("model_type", "logistic_sgd")
+
+
+[if (process.cycle->filter(OnlineAlert)->notEmpty())]
+        alert_config = model_config.get("alert_config", {"enabled": False})
+        self.alert_manager = AlertManager(alert_config)
+[/if]
 
         if isinstance(preprocess_steps_cfg, str):
             preprocess_steps_cfg = ['['/]preprocess_steps_cfg]
@@ -515,6 +690,10 @@ class OnlineModelManager:
         standard_names = {"scale", "standard", "standardization", "standard_scaler"}
         normalize_names = {"normalize", "normalization", "l2norm", "l2_norm"}
         robust_names = {"robust", "robust_scaling", "robust_scale", "robust_scaler"}
+
+
+
+
 
         self.scaler_type: Optional['['/]str] = None
 
@@ -555,7 +734,16 @@ class OnlineModelManager:
         self.test_total = 0
         self.test_correct = 0
 
+[if (process.cycle->filter(OnlineModelManager)->first().hisory = true)]
+        self.ts_buffer: deque['['/]np.ndarray] = deque(maxlen=N_LAGS)
+[/if]
+
         self._init_metrics_csv()
+
+
+
+
+
 
         logging.info(
             f"Initialized OnlineModelManager with MODEL_TYPE={model_type}, "
@@ -610,6 +798,81 @@ class OnlineModelManager:
         return X_2d
 [/if]
 
+[/if]
+
+
+
+
+
+
+
+
+
+
+[if aRoot.process.cycle->filter(ARIMA)->notEmpty()]
+    def __init__(self, model_config: dict):
+        preprocess_steps_cfg = model_config.get("preprocess_steps", ['['/]"clean"])
+        if isinstance(preprocess_steps_cfg, str):
+            preprocess_steps_cfg = ['['/]preprocess_steps_cfg]
+
+        self.preproc = Preprocessor(preprocess_steps_cfg)
+
+        # ARIMA parameters
+        order = model_config.get("arima_order", (2, 0, 2))
+        self.arima_order: Tuple['['/]int, int, int] = tuple(order)
+
+        # Target device for ARIMA time-series
+        self.target_device: str = model_config.get(
+            "target_device",
+            REQUIRED_DEVICES['['/]0]
+        )
+
+        if self.target_device not in REQUIRED_DEVICES:
+            raise ValueError(
+                f"TARGET_DEVICE={self.target_device} is not listed in REQUIRED_DEVICES!"
+            )
+
+        self.target_idx: int = REQUIRED_DEVICES.index(self.target_device)
+        logging.info(
+            f"ARIMA will use device '{self.target_device}' "
+            f"at index {self.target_idx} as the time-series."
+        )
+
+        # Time-series data (list of floats)
+        self.series: List['['/]float] = ['['/]]
+
+        # ARIMA model and fit results
+        self.model: Optional['['/]ARIMA] = None
+        self.results = None
+
+        # Mode: TRAIN / TEST
+        self.mode = "TRAIN"
+        self.train_rows_seen = 0
+
+        # Metrics for prediction error in TEST mode
+        self.test_count = 0
+        self.abs_error_sum = 0.0
+
+        # Refit ARIMA model after every N samples
+        self.refit_every = 20
+
+        self._init_metrics_csv()
+
+        logging.info(
+            f"Initialized Time-Series OnlineModelManager with ARIMA{self.arima_order}, "
+            f"PREPROCESS_STEPS={preprocess_steps_cfg}"
+        )
+[/if]
+
+
+
+
+
+
+
+
+
+
     def _init_metrics_csv(self) -> None:
         if not METRICS_CSV_PATH.exists():
             with METRICS_CSV_PATH.open("w", newline="", encoding="utf-8") as f:
@@ -619,11 +882,30 @@ class OnlineModelManager:
                     "phase",
                     "slot_id",
                     "row_index",
+[if (process.cycle->filter(ARIMA)->isEmpty())]
+	
                     "label",
                     "prediction",
                     "correct",
                     "cumulative_accuracy"
+[/if]
+
+[if (process.cycle->filter(ARIMA)->notEmpty())]
+                    "value",          
+                    "prediction",     
+                    "abs_error",      
+                    "mae_so_far"      
+
+[/if]
+
+
                 ])
+
+
+
+
+
+[if (process.cycle->filter(ARIMA)->isEmpty())]
 
     def _append_metrics(
         self,
@@ -655,16 +937,183 @@ class OnlineModelManager:
                 correct_flag,
                 acc
             ])
+[/if]
 
+[if (process.cycle->filter(ARIMA)->notEmpty())]
+    def _append_metrics(
+        self,
+        phase: str,
+        slot_id: int,
+        row_index: int,
+        value: Optional['['/]float],
+        prediction: Optional['['/]float],
+    ) -> None:
+        abs_error = None
+        mae = None
+
+        if phase == "TEST" and value is not None and prediction is not None:
+            self.test_count += 1
+            err = abs(value - prediction)
+            self.abs_error_sum += err
+            abs_error = err
+            mae = self.abs_error_sum / self.test_count
+
+        with METRICS_CSV_PATH.open("a", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(['['/]
+                time.time(),
+                phase,
+                slot_id,
+                row_index,
+                value,
+                prediction,
+                abs_error,
+                mae
+            ])
+
+[/if]
+
+
+[if (aRoot.process.cycle->filter(OnlineModelManager)->first().hisory = true)]
+    # ---------- Time-series feature builder ----------
+
+    def _build_timeseries_features(self, x_t: np.ndarray) -> Optional['['/]np.ndarray]:
+        """
+        Use past N_LAGS rows as features for current time step.
+        Feature vector: ['['/]x_{t-1}, x_{t-2}, ..., x_{t-N_LAGS}]
+        If we don't have enough history yet → return None.
+        """
+        if len(self.ts_buffer) < N_LAGS:
+            # store current row and wait until buffer filled
+            self.ts_buffer.append(x_t)
+            return None
+
+        # we have N_LAGS past rows
+        past = list(self.ts_buffer)['['/]-N_LAGS:]
+        feat = np.concatenate(past)
+
+        # update buffer: push current row for future steps
+        self.ts_buffer.append(x_t)
+
+        return feat
+
+[/if]
+
+
+[if (process.cycle->filter(ARIMA)->isEmpty())]
     def process_row(self, slot_id: int, X_row: np.ndarray, label: Optional['['/]int]) -> None:
+[if (aRoot.process.cycle->filter(OnlineModelManager)->first().hisory = false)]
         X_pre = self.preproc.transform(X_row)
-        X_2d = X_pre.reshape(1, -1)
+[/if]
+
+
+[if (aRoot.process.cycle->filter(OnlineModelManager)->first().hisory = true)]
+        x_pre = self.preproc.transform(X_row)
+
+        # 2) convert to time-series feature
+        ts_feat = self._build_timeseries_features(x_pre)
+        if ts_feat is None:
+            logging.info(
+                f"['['/]Slot {slot_id}] Not enough history yet for time-series features "
+                f"(need {N_LAGS} past rows)."
+            )
+            return
+[/if]
+
+        X_2d = [if (aRoot.process.cycle->filter(OnlineModelManager)->first().hisory = false)]X_pre[/if][if (aRoot.process.cycle->filter(OnlineModelManager)->first().hisory = true)]ts_feat[/if].reshape(1, -1)
+
+
+
+
 
         if self.mode == "TRAIN":
             self._train_step(slot_id, X_2d, label)
         else:
             self._test_step(slot_id, X_2d, label)
+[/if]
 
+
+[if (process.cycle->filter(ARIMA)->notEmpty())]
+    def process_row(self, slot_id: int, X_row: np.ndarray, label: Optional['['/]int]) -> None:
+        """
+        For the ARIMA version, only a single sensor (target_device) is used as the time-series.
+        The label is ignored.
+        """
+
+        # 1) Preprocess the entire row
+        X_pre = self.preproc.transform(X_row.astype(float))
+
+        # Ensure the target index is still valid after preprocessing
+        if self.target_idx >= len(X_pre):
+            logging.error(
+                f"target_idx={self.target_idx} >= len(X_pre)={len(X_pre)}. "
+                f"A preprocessing step may have altered the dimensions unexpectedly."
+            )
+            return
+
+        # 2) Extract the target sensor value
+        value = float(X_pre['['/]self.target_idx])
+
+        if self.mode == "TRAIN":
+            self._train_step(slot_id, value)
+        else:
+            self._test_step(slot_id, value)
+
+    def _fit_arima_if_needed(self) -> None:
+        """
+        Fit or refit the ARIMA model if enough data is available.
+        """
+        if len(self.series) < max(self.arima_order['['/]0] + self.arima_order['['/]2], 5):
+            # Not enough data points for ARIMA fitting
+            return
+
+        try:
+            self.model = ARIMA(self.series, order=self.arima_order)
+            self.results = self.model.fit()
+            logging.info(f"ARIMA{self.arima_order} fitted on {len(self.series)} points.")
+        except Exception as e:
+            logging.exception(f"Error fitting ARIMA model: {e}")
+            self.model = None
+            self.results = None
+
+    def _train_step(self, slot_id: int, value: float) -> None:
+        # Append new value to time-series
+        self.series.append(value)
+        self.train_rows_seen += 1
+
+        logging.info(
+            f"['['/]TRAIN] row #{self.train_rows_seen} | Slot={slot_id} | "
+            f"{self.target_device}_value={value}"
+        )
+
+        # Refit the model every N rows
+        if (self.train_rows_seen % self.refit_every) == 0:
+            self._fit_arima_if_needed()
+
+        # Log metrics for TRAIN phase (no prediction)
+        if self.train_rows_seen % METRICS_LOG_EVERY == 0:
+            self._append_metrics(
+                phase="TRAIN",
+                slot_id=slot_id,
+                row_index=self.train_rows_seen,
+                value=value,
+                prediction=None,
+            )
+
+        # Automatically switch to TEST mode after TRAIN_ROW_LIMIT
+        if self.train_rows_seen >= TRAIN_ROW_LIMIT:
+            # Final fit before entering TEST mode
+            self._fit_arima_if_needed()
+            self.mode = "TEST"
+            logging.info(
+                f"TRAIN phase finished after {self.train_rows_seen} rows. "
+                f"Switched to TEST mode (auto)."
+            )
+[/if]
+
+
+
+[if (process.cycle->filter(ARIMA)->isEmpty())]
     def _train_step(self, slot_id: int, X_2d: np.ndarray, label: Optional['['/]int]) -> None:
         if label is None:
             logging.warning("In TRAIN mode but no label provided; only scaling warm-up.")
@@ -707,6 +1156,17 @@ class OnlineModelManager:
             f"true={label}, pred={y_pred}"
         )
 
+
+[if (process.cycle->filter(OnlineAlert)->notEmpty())]
+
+        self.alert_manager.maybe_alert(
+            phase="TRAIN",
+            slot_id=slot_id,
+            true_label=label,
+            pred_label=y_pred,
+        )
+[/if]
+
         if self.train_rows_seen % METRICS_LOG_EVERY == 0:
             self._append_metrics(
                 phase="TRAIN",
@@ -722,6 +1182,8 @@ class OnlineModelManager:
                 f"TRAIN phase finished after {self.train_rows_seen} rows. "
                 f"Switched to TEST mode (auto)."
             )
+[/if]
+[if (process.cycle->filter(ARIMA)->isEmpty())]
 
     def _test_step(self, slot_id: int, X_2d: np.ndarray, label: Optional['['/]int]) -> None:
         if not self.model_initialized:
@@ -740,6 +1202,18 @@ class OnlineModelManager:
 
         logging.info(f"['['/]TEST] Slot={slot_id} pred={y_pred}, true_label={label}")
 
+
+[if (process.cycle->filter(OnlineAlert)->notEmpty())]
+
+        self.alert_manager.maybe_alert(
+            phase="TEST",
+            slot_id=slot_id,
+            true_label=label,
+            pred_label=y_pred,
+        )
+[/if]
+
+
         self._append_metrics(
             phase="TEST",
             slot_id=slot_id,
@@ -748,6 +1222,59 @@ class OnlineModelManager:
             prediction=y_pred,
         )
 
+
+[/if]
+
+
+
+
+[if (process.cycle->filter(ARIMA)->notEmpty())]
+
+    def _test_step(self, slot_id: int, value: float) -> None:
+        """
+        In TEST mode:
+          - If a model exists: predict one step ahead.
+          - Log the prediction error.
+          - Append the actual value to the series and periodically refit.
+        """
+        prediction = None
+
+        if self.results is not None:
+            try:
+                # One-step forecast
+                prediction = float(self.results.forecast(steps=1)['['/]0])
+                logging.info(
+                    f"['['/]TEST] Slot={slot_id} | {self.target_device}_predicted={prediction:.4f} "
+                    f"| actual={value:.4f}"
+                )
+            except Exception as e:
+                logging.exception(f"Error in ARIMA forecast: {e}")
+                prediction = None
+        else:
+            logging.warning("ARIMA model is not fitted yet; cannot forecast.")
+
+        # Metrics (MAE, etc.)
+        row_index = self.train_rows_seen + self.test_count + 1
+        self._append_metrics(
+            phase="TEST",
+            slot_id=slot_id,
+            row_index=row_index,
+            value=value,
+            prediction=prediction,
+        )
+
+        # Append actual value to the series
+        self.series.append(value)
+
+        # Periodically refit the model
+        if (len(self.series) % self.refit_every) == 0:
+            self._fit_arima_if_needed()
+
+[/if]
+
+
+
+
     def set_mode(self, new_mode: str, reason: str = "") -> None:
         new_mode = new_mode.upper()
         if new_mode not in ("TRAIN", "TEST"):
@@ -755,6 +1282,17 @@ class OnlineModelManager:
             return
         self.mode = new_mode
         logging.info(f"Mode changed to {self.mode} ({reason})")
+
+[if (process.cycle->filter(ARIMA)->notEmpty())]
+
+
+
+
+
+        if self.mode == "TEST" and self.results is None:
+            self._fit_arima_if_needed()
+
+[/if]
 
 # =============================
 # Slot management

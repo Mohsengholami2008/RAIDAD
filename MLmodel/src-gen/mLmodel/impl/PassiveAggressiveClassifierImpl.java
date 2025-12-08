@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link mLmodel.impl.PassiveAggressiveClassifierImpl#getAfter <em>After</em>}</li>
  *   <li>{@link mLmodel.impl.PassiveAggressiveClassifierImpl#getBefore <em>Before</em>}</li>
  *   <li>{@link mLmodel.impl.PassiveAggressiveClassifierImpl#getRandom_state <em>Random state</em>}</li>
+ *   <li>{@link mLmodel.impl.PassiveAggressiveClassifierImpl#getN_LAGS <em>NLAGS</em>}</li>
+ *   <li>{@link mLmodel.impl.PassiveAggressiveClassifierImpl#isHisory <em>Hisory</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,6 +73,46 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 	 * @ordered
 	 */
 	protected int random_state = RANDOM_STATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getN_LAGS() <em>NLAGS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getN_LAGS()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NLAGS_EDEFAULT = 5;
+
+	/**
+	 * The cached value of the '{@link #getN_LAGS() <em>NLAGS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getN_LAGS()
+	 * @generated
+	 * @ordered
+	 */
+	protected int n_LAGS = NLAGS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isHisory() <em>Hisory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHisory()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HISORY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isHisory() <em>Hisory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHisory()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean hisory = HISORY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -250,6 +292,50 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getN_LAGS() {
+		return n_LAGS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setN_LAGS(int newN_LAGS) {
+		int oldN_LAGS = n_LAGS;
+		n_LAGS = newN_LAGS;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__NLAGS,
+					oldN_LAGS, n_LAGS));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isHisory() {
+		return hisory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHisory(boolean newHisory) {
+		boolean oldHisory = hisory;
+		hisory = newHisory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__HISORY,
+					oldHisory, hisory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -299,6 +385,10 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 			return basicGetBefore();
 		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE:
 			return getRandom_state();
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__NLAGS:
+			return getN_LAGS();
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__HISORY:
+			return isHisory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -319,6 +409,12 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 			return;
 		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE:
 			setRandom_state((Integer) newValue);
+			return;
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__NLAGS:
+			setN_LAGS((Integer) newValue);
+			return;
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__HISORY:
+			setHisory((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -341,6 +437,12 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE:
 			setRandom_state(RANDOM_STATE_EDEFAULT);
 			return;
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__NLAGS:
+			setN_LAGS(NLAGS_EDEFAULT);
+			return;
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__HISORY:
+			setHisory(HISORY_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -359,6 +461,10 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 			return before != null;
 		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE:
 			return random_state != RANDOM_STATE_EDEFAULT;
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__NLAGS:
+			return n_LAGS != NLAGS_EDEFAULT;
+		case MLmodelPackage.PASSIVE_AGGRESSIVE_CLASSIFIER__HISORY:
+			return hisory != HISORY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -376,6 +482,10 @@ public class PassiveAggressiveClassifierImpl extends MinimalEObjectImpl.Containe
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (random_state: ");
 		result.append(random_state);
+		result.append(", N_LAGS: ");
+		result.append(n_LAGS);
+		result.append(", hisory: ");
+		result.append(hisory);
 		result.append(')');
 		return result.toString();
 	}

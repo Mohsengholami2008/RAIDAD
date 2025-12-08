@@ -785,6 +785,42 @@ public interface MLmodelFactory extends EFactory {
 	Min_Max createMin_Max();
 
 	/**
+	 * Returns a new object of class '<em>Email Alert</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Email Alert</em>'.
+	 * @generated
+	 */
+	Email_Alert createEmail_Alert();
+
+	/**
+	 * Returns a new object of class '<em>MQTT Alert</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>MQTT Alert</em>'.
+	 * @generated
+	 */
+	MQTT_Alert createMQTT_Alert();
+
+	/**
+	 * Returns a new object of class '<em>Log Alert</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Log Alert</em>'.
+	 * @generated
+	 */
+	Log_Alert createLog_Alert();
+
+	/**
+	 * Returns a new object of class '<em>ARIMA</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>ARIMA</em>'.
+	 * @generated
+	 */
+	ARIMA createARIMA();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

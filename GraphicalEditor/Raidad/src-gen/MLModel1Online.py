@@ -7,18 +7,19 @@ from pathlib import Path
 from typing import Dict, Tuple, Optional, List, Union
 
 
+
 import numpy as np
 
 import paho.mqtt.client as mqtt
 
+from sklearn.preprocessing import StandardScaler, RobustScaler
 
+from sklearn.linear_model import SGDClassifier, PassiveAggressiveClassifier, Perceptron
 
 from sklearn.preprocessing import PolynomialFeatures
 
 
-from sklearn.linear_model import SGDClassifier, PassiveAggressiveClassifier, Perceptron
 
-from sklearn.linear_model import SGDClassifier
 
 
 
@@ -36,15 +37,14 @@ MQTT_CONTROL_TOPIC = "control/mode"
 
 
 
+REQUIRED_DEVICES = ["dev1", "dev2", "dev3"]
 
-
-REQUIRED_DEVICES = ["dev1", "dev2"]
 
 SLOT_SIZE_SECONDS = 5
 
 TRAIN_ROW_LIMIT = 100
 
-CLASSES = np.array([0, 1])
+CLASSES = np.array([dev1])
 
 METRICS_CSV_PATH = Path("metrics_log.csv")
 
@@ -59,8 +59,12 @@ ROBUST_BUFFER_MAX_ROWS = 500
 
 MODEL_CONFIG = {
 
-	"preprocess_steps": ["diffs"],
-    "model_type": "linear_svm",
+	"preprocess_steps": ["normalize"],
+    "model_type": "logistic_sgd",
+
+
+
+
 }
 
 
@@ -123,9 +127,6 @@ class Preprocessor:
       Supported steps:
         - "clean"  : basic cleaning (NaN, clip, etc.)
 
-        - "diffs"  : add pairwise feature differences
-
-        - "poly2"  : PolynomialFeatures degree 2
 
     """
 
@@ -134,8 +135,6 @@ class Preprocessor:
             steps = [steps]
         self.steps: List[str] = [s.lower() for s in steps]
 
-        self.poly: Optional[PolynomialFeatures] = None
-        self.poly_initialized = False
 
 
 
@@ -156,39 +155,18 @@ class Preprocessor:
 
 
 
-    def _add_diffs(self, X: np.ndarray) -> np.ndarray:
-        n = X.shape[0]
-        if n < 2:
-            return X
-
-        diffs = []
-        for i in range(n):
-            for j in range(i + 1, n):
-                diffs.append(X[i] - X[j])
-
-        diffs = np.array(diffs, dtype=float)
-        return np.concatenate([X, diffs])
-
-
-    def _apply_poly2(self, X: np.ndarray) -> np.ndarray:
-        if X.ndim == 1:
-            X_2d = X.reshape(1, -1)
-        else:
-            X_2d = X
-
-        if not self.poly_initialized:
-            self.poly = PolynomialFeatures(degree=2, include_bias=False)
-            self.poly.fit(X_2d)
-            self.poly_initialized = True
-
-        X_poly = self.poly.transform(X_2d)[0]
-        return X_poly
 
 
 
 
     def transform(self, X_row: np.ndarray) -> np.ndarray:
         X = X_row.astype(float).copy()
+
+        scaling_step_names = {
+            "scale", "standard", "standardization", "standard_scaler",
+            "normalize", "normalization", "l2norm", "l2_norm",
+            "robust", "robust_scaling", "robust_scale", "robust_scaler",
+        }
 
 
 
@@ -200,16 +178,15 @@ class Preprocessor:
                 X = self._clean_basic(X)
                 continue    
 
-            if s == "diffs":
-                X = self._add_diffs(X)
+
+
+
+            if s in scaling_step_names:
+                logging.debug(
+                    f"Step '{step}' ignored in Preprocessor "
+                    f"(scaling handled in OnlineModelManager)."
+                )
                 continue
-
-            if s == "poly2":
-                X = self._apply_poly2(X)
-                continue
-
-
-
 
             logging.warning(f"Unknown preprocessing step: {step}")
 
@@ -224,14 +201,13 @@ class Preprocessor:
 def build_classifier(model_type: str):
     mt = model_type.lower()
 
-
-
-    if mt == "linear_svm":
+    if mt == "logistic_sgd":
         return SGDClassifier(
-            loss="hinge",
-            learning_rate="invalid",
+            loss="log_loss",
+            learning_rate="optimal",
             random_state=0
         )
+
 
 
 
@@ -261,20 +237,47 @@ class OnlineModelManager:
       - Normalization:   "normalize", ...
       - Robust Scaling:  "robust", ...
     """
-
     def __init__(self, model_config: dict):
         preprocess_steps_cfg = model_config.get("preprocess_steps", ["clean"])
         model_type = model_config.get("model_type", "logistic_sgd")
+
+
 
         if isinstance(preprocess_steps_cfg, str):
             preprocess_steps_cfg = [preprocess_steps_cfg]
 
         steps_lower = [s.lower() for s in preprocess_steps_cfg]
 
-        steps_for_preproc = steps_lower  
 
+        standard_names = {"scale", "standard", "standardization", "standard_scaler"}
+        normalize_names = {"normalize", "normalization", "l2norm", "l2_norm"}
+        robust_names = {"robust", "robust_scaling", "robust_scale", "robust_scaler"}
+
+
+
+
+
+        self.scaler_type: Optional[str] = None
+
+        for s in steps_lower:
+            if s in standard_names:
+                if self.scaler_type is None:
+                    self.scaler_type = "standard"
+            elif s in normalize_names:
+                if self.scaler_type is None:
+                    self.scaler_type = "normalize"
+            elif s in robust_names:
+                if self.scaler_type is None:
+                    self.scaler_type = "robust"
+
+        scaling_step_names = standard_names | normalize_names | robust_names
+        steps_for_preproc = [s for s in steps_lower if s not in scaling_step_names]
         self.preproc = Preprocessor(steps_for_preproc)
 
+        self.scaler: Optional[Union[StandardScaler, RobustScaler]] = None
+        self.scaler_initialized: bool = False
+
+        self.robust_buffer: List[np.ndarray] = []
         self.clf = build_classifier(model_type)
         self.model_initialized = False
 
@@ -284,11 +287,80 @@ class OnlineModelManager:
         self.test_total = 0
         self.test_correct = 0
 
+
         self._init_metrics_csv()
+
+
+
+
+
 
         logging.info(
             f"Initialized OnlineModelManager with MODEL_TYPE={model_type}, "
-            f"PREPROCESS_STEPS={steps_for_preproc}") 
+            f"PREPROCESS_STEPS={steps_for_preproc}, scaler_type={self.scaler_type}") 
+
+    @staticmethod
+    def _l2_normalize(X_2d: np.ndarray) -> np.ndarray:
+        norms = np.linalg.norm(X_2d, axis=1, keepdims=True)
+        norms[norms == 0.0] = 1.0
+        return X_2d / norms
+
+    def _scale_for_train(self, X_2d: np.ndarray) -> np.ndarray:
+        if self.scaler_type == "standard":
+            if self.scaler is None:
+                self.scaler = StandardScaler()
+            self.scaler.partial_fit(X_2d)
+            self.scaler_initialized = True
+            return self.scaler.transform(X_2d)
+
+        elif self.scaler_type == "normalize":
+            return self._l2_normalize(X_2d)
+
+        elif self.scaler_type == "robust":
+            self.robust_buffer.append(X_2d[0].copy())
+            if len(self.robust_buffer) >= ROBUST_BUFFER_MAX_ROWS:
+                data = np.vstack(self.robust_buffer)
+                if self.scaler is None:
+                    self.scaler = RobustScaler()
+                self.scaler.fit(data)
+                self.scaler_initialized = True
+                self.robust_buffer = self.robust_buffer[-ROBUST_BUFFER_MAX_ROWS // 2:]
+
+            if self.scaler is not None and self.scaler_initialized:
+                return self.scaler.transform(X_2d)
+            return X_2d
+
+        return X_2d
+
+    def _scale_for_test(self, X_2d: np.ndarray) -> np.ndarray:
+        if self.scaler_type in ("standard", "robust"):
+            if self.scaler is not None and self.scaler_initialized:
+                return self.scaler.transform(X_2d)
+            return X_2d
+
+        elif self.scaler_type == "normalize":
+            return self._l2_normalize(X_2d)
+
+        return X_2d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     def _init_metrics_csv(self) -> None:
@@ -300,11 +372,20 @@ class OnlineModelManager:
                     "phase",
                     "slot_id",
                     "row_index",
+	
                     "label",
                     "prediction",
                     "correct",
                     "cumulative_accuracy"
+
+
+
                 ])
+
+
+
+
+
 
     def _append_metrics(
         self,
@@ -337,27 +418,42 @@ class OnlineModelManager:
                 acc
             ])
 
+
+
+
+
     def process_row(self, slot_id: int, X_row: np.ndarray, label: Optional[int]) -> None:
         X_pre = self.preproc.transform(X_row)
+
+
+
         X_2d = X_pre.reshape(1, -1)
+
+
+
+
 
         if self.mode == "TRAIN":
             self._train_step(slot_id, X_2d, label)
         else:
             self._test_step(slot_id, X_2d, label)
 
+
+
+
+
     def _train_step(self, slot_id: int, X_2d: np.ndarray, label: Optional[int]) -> None:
         if label is None:
             logging.warning("In TRAIN mode but no label provided; only scaling warm-up.")
 
-            X_in = X_2d
+            X_in = self._scale_for_train(X_2d)
+
             if self.model_initialized:
                 y_pred = self.clf.predict(X_in)[0]
                 logging.info(f"[TRAIN/no-label] Slot={slot_id} Pred={y_pred}")
             return
 
-        X_in = X_2d
-
+        X_in = self._scale_for_train(X_2d)
         y_arr = np.array([label])
         if not self.model_initialized:
             self.clf.partial_fit(X_in, y_arr, classes=CLASSES)
@@ -372,6 +468,8 @@ class OnlineModelManager:
             f"[TRAIN] row #{self.train_rows_seen} | Slot={slot_id} "
             f"true={label}, pred={y_pred}"
         )
+
+
 
         if self.train_rows_seen % METRICS_LOG_EVERY == 0:
             self._append_metrics(
@@ -393,11 +491,13 @@ class OnlineModelManager:
         if not self.model_initialized:
             logging.warning("Model not initialized; cannot predict.")
             return
-        X_in = X_2d
-
+        X_in = self._scale_for_test(X_2d)
         y_pred = self.clf.predict(X_in)[0]
 
         logging.info(f"[TEST] Slot={slot_id} pred={y_pred}, true_label={label}")
+
+
+
 
         self._append_metrics(
             phase="TEST",
@@ -407,6 +507,15 @@ class OnlineModelManager:
             prediction=y_pred,
         )
 
+
+
+
+
+
+
+
+
+
     def set_mode(self, new_mode: str, reason: str = "") -> None:
         new_mode = new_mode.upper()
         if new_mode not in ("TRAIN", "TEST"):
@@ -414,6 +523,7 @@ class OnlineModelManager:
             return
         self.mode = new_mode
         logging.info(f"Mode changed to {self.mode} ({reason})")
+
 
 # =============================
 # Slot management

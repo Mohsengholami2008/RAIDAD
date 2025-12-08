@@ -1025,6 +1025,22 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
+          <subContainerMappings name="MQTT_Alert" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::MQTT_Alert">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="ARIMA" semanticCandidatesExpression="feature:eAllContents" domainClass="mLmodel::ARIMA">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="ARIMA">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
           <conditionnalStyles predicateExpression="aql:self.process_errors()">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="service:self.online()" iconPath="/mymodelsi.project.design/Images/32bit/Process32.png" labelAlignment="LEFT" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -2106,6 +2122,15 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ARIMA" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='ARIMA']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::ARIMA" referenceName="cycle"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Communication Protocol">
           <ownedTools xsi:type="tool_1:ToolGroup" name="Protocol">
@@ -2183,6 +2208,17 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::Polynomial" referenceName="cycle"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Alarm">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="MQTT Alert" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='Process']/@defaultLayer/@containerMappings[name='Process']/@subContainerMappings[name='MQTT_Alert']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="mLmodel::MQTT_Alert" referenceName="cycle"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

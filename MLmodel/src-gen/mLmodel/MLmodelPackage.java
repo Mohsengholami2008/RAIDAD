@@ -5897,13 +5897,31 @@ public interface MLmodelPackage extends EPackage {
 	int ONLINE_MODEL_MANAGER__RANDOM_STATE = CYCLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>NLAGS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONLINE_MODEL_MANAGER__NLAGS = CYCLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Hisory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONLINE_MODEL_MANAGER__HISORY = CYCLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Online Model Manager</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONLINE_MODEL_MANAGER_FEATURE_COUNT = CYCLE_FEATURE_COUNT + 1;
+	int ONLINE_MODEL_MANAGER_FEATURE_COUNT = CYCLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Online Model Manager</em>' class.
@@ -5950,6 +5968,24 @@ public interface MLmodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SVLG__RANDOM_STATE = ONLINE_MODEL_MANAGER__RANDOM_STATE;
+
+	/**
+	 * The feature id for the '<em><b>NLAGS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVLG__NLAGS = ONLINE_MODEL_MANAGER__NLAGS;
+
+	/**
+	 * The feature id for the '<em><b>Hisory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SVLG__HISORY = ONLINE_MODEL_MANAGER__HISORY;
 
 	/**
 	 * The feature id for the '<em><b>Learning rate</b></em>' attribute.
@@ -6016,6 +6052,24 @@ public interface MLmodelPackage extends EPackage {
 	int SGD_CLASSIFIER__RANDOM_STATE = SVLG__RANDOM_STATE;
 
 	/**
+	 * The feature id for the '<em><b>NLAGS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGD_CLASSIFIER__NLAGS = SVLG__NLAGS;
+
+	/**
+	 * The feature id for the '<em><b>Hisory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SGD_CLASSIFIER__HISORY = SVLG__HISORY;
+
+	/**
 	 * The feature id for the '<em><b>Learning rate</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6080,6 +6134,24 @@ public interface MLmodelPackage extends EPackage {
 	int PASSIVE_AGGRESSIVE_CLASSIFIER__RANDOM_STATE = ONLINE_MODEL_MANAGER__RANDOM_STATE;
 
 	/**
+	 * The feature id for the '<em><b>NLAGS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSIVE_AGGRESSIVE_CLASSIFIER__NLAGS = ONLINE_MODEL_MANAGER__NLAGS;
+
+	/**
+	 * The feature id for the '<em><b>Hisory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSIVE_AGGRESSIVE_CLASSIFIER__HISORY = ONLINE_MODEL_MANAGER__HISORY;
+
+	/**
 	 * The number of structural features of the '<em>Passive Aggressive Classifier</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6135,6 +6207,24 @@ public interface MLmodelPackage extends EPackage {
 	int PERCEPTRON__RANDOM_STATE = ONLINE_MODEL_MANAGER__RANDOM_STATE;
 
 	/**
+	 * The feature id for the '<em><b>NLAGS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCEPTRON__NLAGS = ONLINE_MODEL_MANAGER__NLAGS;
+
+	/**
+	 * The feature id for the '<em><b>Hisory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERCEPTRON__HISORY = ONLINE_MODEL_MANAGER__HISORY;
+
+	/**
 	 * The number of structural features of the '<em>Perceptron</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6188,6 +6278,24 @@ public interface MLmodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int LG_SGD_CLASSIFIER__RANDOM_STATE = SVLG__RANDOM_STATE;
+
+	/**
+	 * The feature id for the '<em><b>NLAGS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LG_SGD_CLASSIFIER__NLAGS = SVLG__NLAGS;
+
+	/**
+	 * The feature id for the '<em><b>Hisory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LG_SGD_CLASSIFIER__HISORY = SVLG__HISORY;
 
 	/**
 	 * The feature id for the '<em><b>Learning rate</b></em>' attribute.
@@ -6582,6 +6690,263 @@ public interface MLmodelPackage extends EPackage {
 	int MIN_MAX_OPERATION_COUNT = SCALING_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link mLmodel.OnlineAlert <em>Online Alert</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.OnlineAlert
+	 * @see mLmodel.impl.MLmodelPackageImpl#getOnlineAlert()
+	 * @generated
+	 */
+	int ONLINE_ALERT = 117;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONLINE_ALERT__AFTER = CYCLE__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONLINE_ALERT__BEFORE = CYCLE__BEFORE;
+
+	/**
+	 * The number of structural features of the '<em>Online Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONLINE_ALERT_FEATURE_COUNT = CYCLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Online Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONLINE_ALERT_OPERATION_COUNT = CYCLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.Email_AlertImpl <em>Email Alert</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.Email_AlertImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getEmail_Alert()
+	 * @generated
+	 */
+	int EMAIL_ALERT = 118;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_ALERT__AFTER = ONLINE_ALERT__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_ALERT__BEFORE = ONLINE_ALERT__BEFORE;
+
+	/**
+	 * The number of structural features of the '<em>Email Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_ALERT_FEATURE_COUNT = ONLINE_ALERT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Email Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMAIL_ALERT_OPERATION_COUNT = ONLINE_ALERT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.MQTT_AlertImpl <em>MQTT Alert</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.MQTT_AlertImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getMQTT_Alert()
+	 * @generated
+	 */
+	int MQTT_ALERT = 119;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_ALERT__AFTER = ONLINE_ALERT__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_ALERT__BEFORE = ONLINE_ALERT__BEFORE;
+
+	/**
+	 * The number of structural features of the '<em>MQTT Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_ALERT_FEATURE_COUNT = ONLINE_ALERT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>MQTT Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MQTT_ALERT_OPERATION_COUNT = ONLINE_ALERT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.Log_AlertImpl <em>Log Alert</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.Log_AlertImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getLog_Alert()
+	 * @generated
+	 */
+	int LOG_ALERT = 120;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOG_ALERT__AFTER = ONLINE_ALERT__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOG_ALERT__BEFORE = ONLINE_ALERT__BEFORE;
+
+	/**
+	 * The number of structural features of the '<em>Log Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOG_ALERT_FEATURE_COUNT = ONLINE_ALERT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Log Alert</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOG_ALERT_OPERATION_COUNT = ONLINE_ALERT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link mLmodel.impl.ARIMAImpl <em>ARIMA</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see mLmodel.impl.ARIMAImpl
+	 * @see mLmodel.impl.MLmodelPackageImpl#getARIMA()
+	 * @generated
+	 */
+	int ARIMA = 121;
+
+	/**
+	 * The feature id for the '<em><b>After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARIMA__AFTER = ONLINE_MODEL_MANAGER__AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Before</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARIMA__BEFORE = ONLINE_MODEL_MANAGER__BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Random state</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARIMA__RANDOM_STATE = ONLINE_MODEL_MANAGER__RANDOM_STATE;
+
+	/**
+	 * The feature id for the '<em><b>NLAGS</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARIMA__NLAGS = ONLINE_MODEL_MANAGER__NLAGS;
+
+	/**
+	 * The feature id for the '<em><b>Hisory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARIMA__HISORY = ONLINE_MODEL_MANAGER__HISORY;
+
+	/**
+	 * The number of structural features of the '<em>ARIMA</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARIMA_FEATURE_COUNT = ONLINE_MODEL_MANAGER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>ARIMA</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARIMA_OPERATION_COUNT = ONLINE_MODEL_MANAGER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6589,7 +6954,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getEnum_CSV_Sep()
 	 * @generated
 	 */
-	int ENUM_CSV_SEP = 117;
+	int ENUM_CSV_SEP = 122;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Strategy_Simple_Imputer <em>Strategy Simple Imputer</em>}' enum.
@@ -6599,7 +6964,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getStrategy_Simple_Imputer()
 	 * @generated
 	 */
-	int STRATEGY_SIMPLE_IMPUTER = 118;
+	int STRATEGY_SIMPLE_IMPUTER = 123;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_Cat_Arg <em>One Hot Cat Arg</em>}' enum.
@@ -6609,7 +6974,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_Cat_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_CAT_ARG = 119;
+	int ONE_HOT_CAT_ARG = 124;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_Drop_Arg <em>One Hot Drop Arg</em>}' enum.
@@ -6619,7 +6984,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_Drop_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_DROP_ARG = 120;
+	int ONE_HOT_DROP_ARG = 125;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.OneHot_HandleUn_Arg <em>One Hot Handle Un Arg</em>}' enum.
@@ -6629,7 +6994,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getOneHot_HandleUn_Arg()
 	 * @generated
 	 */
-	int ONE_HOT_HANDLE_UN_ARG = 121;
+	int ONE_HOT_HANDLE_UN_ARG = 126;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Dup_Arg_Keep <em>Dup Arg Keep</em>}' enum.
@@ -6639,7 +7004,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getDup_Arg_Keep()
 	 * @generated
 	 */
-	int DUP_ARG_KEEP = 122;
+	int DUP_ARG_KEEP = 127;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.SVM_Kernel_Enum <em>SVM Kernel Enum</em>}' enum.
@@ -6649,7 +7014,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getSVM_Kernel_Enum()
 	 * @generated
 	 */
-	int SVM_KERNEL_ENUM = 123;
+	int SVM_KERNEL_ENUM = 128;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Neural_Libraries <em>Neural Libraries</em>}' enum.
@@ -6659,7 +7024,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getNeural_Libraries()
 	 * @generated
 	 */
-	int NEURAL_LIBRARIES = 124;
+	int NEURAL_LIBRARIES = 129;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Neural_Network_Activation <em>Neural Network Activation</em>}' enum.
@@ -6669,7 +7034,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getNeural_Network_Activation()
 	 * @generated
 	 */
-	int NEURAL_NETWORK_ACTIVATION = 125;
+	int NEURAL_NETWORK_ACTIVATION = 130;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.voting_pred <em>voting pred</em>}' enum.
@@ -6679,7 +7044,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getvoting_pred()
 	 * @generated
 	 */
-	int VOTING_PRED = 126;
+	int VOTING_PRED = 131;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Random_Forest_Criterion_Enum <em>Random Forest Criterion Enum</em>}' enum.
@@ -6689,7 +7054,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getRandom_Forest_Criterion_Enum()
 	 * @generated
 	 */
-	int RANDOM_FOREST_CRITERION_ENUM = 127;
+	int RANDOM_FOREST_CRITERION_ENUM = 132;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Library_Clustering <em>Library Clustering</em>}' enum.
@@ -6699,7 +7064,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getLibrary_Clustering()
 	 * @generated
 	 */
-	int LIBRARY_CLUSTERING = 128;
+	int LIBRARY_CLUSTERING = 133;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Metric_DBSCAN <em>Metric DBSCAN</em>}' enum.
@@ -6709,7 +7074,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getMetric_DBSCAN()
 	 * @generated
 	 */
-	int METRIC_DBSCAN = 129;
+	int METRIC_DBSCAN = 134;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.Attribiutes_Type <em>Attribiutes Type</em>}' enum.
@@ -6719,7 +7084,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getAttribiutes_Type()
 	 * @generated
 	 */
-	int ATTRIBIUTES_TYPE = 130;
+	int ATTRIBIUTES_TYPE = 135;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.KNN_Imputer_Weights <em>KNN Imputer Weights</em>}' enum.
@@ -6729,7 +7094,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getKNN_Imputer_Weights()
 	 * @generated
 	 */
-	int KNN_IMPUTER_WEIGHTS = 131;
+	int KNN_IMPUTER_WEIGHTS = 136;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.TrigerEnum <em>Triger Enum</em>}' enum.
@@ -6739,7 +7104,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getTrigerEnum()
 	 * @generated
 	 */
-	int TRIGER_ENUM = 132;
+	int TRIGER_ENUM = 137;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.ProtocolBindingEnum <em>Protocol Binding Enum</em>}' enum.
@@ -6749,7 +7114,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getProtocolBindingEnum()
 	 * @generated
 	 */
-	int PROTOCOL_BINDING_ENUM = 133;
+	int PROTOCOL_BINDING_ENUM = 138;
 
 	/**
 	 * The meta object id for the '{@link mLmodel.LEARNING_RATE <em>LEARNING RATE</em>}' enum.
@@ -6759,7 +7124,7 @@ public interface MLmodelPackage extends EPackage {
 	 * @see mLmodel.impl.MLmodelPackageImpl#getLEARNING_RATE()
 	 * @generated
 	 */
-	int LEARNING_RATE = 134;
+	int LEARNING_RATE = 139;
 
 	/**
 	 * Returns the meta object for class '{@link mLmodel.Root <em>Root</em>}'.
@@ -9394,6 +9759,28 @@ public interface MLmodelPackage extends EPackage {
 	EAttribute getOnlineModelManager_Random_state();
 
 	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.OnlineModelManager#getN_LAGS <em>NLAGS</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>NLAGS</em>'.
+	 * @see mLmodel.OnlineModelManager#getN_LAGS()
+	 * @see #getOnlineModelManager()
+	 * @generated
+	 */
+	EAttribute getOnlineModelManager_N_LAGS();
+
+	/**
+	 * Returns the meta object for the attribute '{@link mLmodel.OnlineModelManager#isHisory <em>Hisory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hisory</em>'.
+	 * @see mLmodel.OnlineModelManager#isHisory()
+	 * @see #getOnlineModelManager()
+	 * @generated
+	 */
+	EAttribute getOnlineModelManager_Hisory();
+
+	/**
 	 * Returns the meta object for class '{@link mLmodel.SGDClassifier <em>SGD Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9503,6 +9890,56 @@ public interface MLmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMin_Max();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.OnlineAlert <em>Online Alert</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Online Alert</em>'.
+	 * @see mLmodel.OnlineAlert
+	 * @generated
+	 */
+	EClass getOnlineAlert();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.Email_Alert <em>Email Alert</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Email Alert</em>'.
+	 * @see mLmodel.Email_Alert
+	 * @generated
+	 */
+	EClass getEmail_Alert();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.MQTT_Alert <em>MQTT Alert</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>MQTT Alert</em>'.
+	 * @see mLmodel.MQTT_Alert
+	 * @generated
+	 */
+	EClass getMQTT_Alert();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.Log_Alert <em>Log Alert</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Log Alert</em>'.
+	 * @see mLmodel.Log_Alert
+	 * @generated
+	 */
+	EClass getLog_Alert();
+
+	/**
+	 * Returns the meta object for class '{@link mLmodel.ARIMA <em>ARIMA</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ARIMA</em>'.
+	 * @see mLmodel.ARIMA
+	 * @generated
+	 */
+	EClass getARIMA();
 
 	/**
 	 * Returns the meta object for enum '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}'.
@@ -11916,6 +12353,22 @@ public interface MLmodelPackage extends EPackage {
 		EAttribute ONLINE_MODEL_MANAGER__RANDOM_STATE = eINSTANCE.getOnlineModelManager_Random_state();
 
 		/**
+		 * The meta object literal for the '<em><b>NLAGS</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONLINE_MODEL_MANAGER__NLAGS = eINSTANCE.getOnlineModelManager_N_LAGS();
+
+		/**
+		 * The meta object literal for the '<em><b>Hisory</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONLINE_MODEL_MANAGER__HISORY = eINSTANCE.getOnlineModelManager_Hisory();
+
+		/**
 		 * The meta object literal for the '{@link mLmodel.impl.SGDClassifierImpl <em>SGD Classifier</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -12022,6 +12475,56 @@ public interface MLmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MIN_MAX = eINSTANCE.getMin_Max();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.OnlineAlert <em>Online Alert</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.OnlineAlert
+		 * @see mLmodel.impl.MLmodelPackageImpl#getOnlineAlert()
+		 * @generated
+		 */
+		EClass ONLINE_ALERT = eINSTANCE.getOnlineAlert();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.Email_AlertImpl <em>Email Alert</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.Email_AlertImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getEmail_Alert()
+		 * @generated
+		 */
+		EClass EMAIL_ALERT = eINSTANCE.getEmail_Alert();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.MQTT_AlertImpl <em>MQTT Alert</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.MQTT_AlertImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getMQTT_Alert()
+		 * @generated
+		 */
+		EClass MQTT_ALERT = eINSTANCE.getMQTT_Alert();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.Log_AlertImpl <em>Log Alert</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.Log_AlertImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getLog_Alert()
+		 * @generated
+		 */
+		EClass LOG_ALERT = eINSTANCE.getLog_Alert();
+
+		/**
+		 * The meta object literal for the '{@link mLmodel.impl.ARIMAImpl <em>ARIMA</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see mLmodel.impl.ARIMAImpl
+		 * @see mLmodel.impl.MLmodelPackageImpl#getARIMA()
+		 * @generated
+		 */
+		EClass ARIMA = eINSTANCE.getARIMA();
 
 		/**
 		 * The meta object literal for the '{@link mLmodel.Enum_CSV_Sep <em>Enum CSV Sep</em>}' enum.

@@ -2028,6 +2028,98 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Email_Alert} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Email_AlertItemProvider email_AlertItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Email_Alert}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEmail_AlertAdapter() {
+		if (email_AlertItemProvider == null) {
+			email_AlertItemProvider = new Email_AlertItemProvider(this);
+		}
+
+		return email_AlertItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.MQTT_Alert} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MQTT_AlertItemProvider mqtT_AlertItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.MQTT_Alert}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMQTT_AlertAdapter() {
+		if (mqtT_AlertItemProvider == null) {
+			mqtT_AlertItemProvider = new MQTT_AlertItemProvider(this);
+		}
+
+		return mqtT_AlertItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.Log_Alert} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Log_AlertItemProvider log_AlertItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.Log_Alert}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLog_AlertAdapter() {
+		if (log_AlertItemProvider == null) {
+			log_AlertItemProvider = new Log_AlertItemProvider(this);
+		}
+
+		return log_AlertItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link mLmodel.ARIMA} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ARIMAItemProvider arimaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link mLmodel.ARIMA}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createARIMAAdapter() {
+		if (arimaItemProvider == null) {
+			arimaItemProvider = new ARIMAItemProvider(this);
+		}
+
+		return arimaItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2296,6 +2388,14 @@ public class MLmodelItemProviderAdapterFactory extends MLmodelAdapterFactory
 			polynomialItemProvider.dispose();
 		if (min_MaxItemProvider != null)
 			min_MaxItemProvider.dispose();
+		if (email_AlertItemProvider != null)
+			email_AlertItemProvider.dispose();
+		if (mqtT_AlertItemProvider != null)
+			mqtT_AlertItemProvider.dispose();
+		if (log_AlertItemProvider != null)
+			log_AlertItemProvider.dispose();
+		if (arimaItemProvider != null)
+			arimaItemProvider.dispose();
 	}
 
 }

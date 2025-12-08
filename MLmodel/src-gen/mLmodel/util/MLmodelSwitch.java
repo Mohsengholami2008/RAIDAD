@@ -2,6 +2,128 @@
  */
 package mLmodel.util;
 
+import mLmodel.ARIMA;
+import mLmodel.Action;
+import mLmodel.Activation_MLP;
+import mLmodel.Alpha_MLP;
+import mLmodel.AnalysisOutput;
+import mLmodel.AnalysysTriger;
+import mLmodel.Auto_Prep;
+import mLmodel.Bar;
+import mLmodel.Buffer;
+import mLmodel.CSV;
+import mLmodel.CSV_Argumans;
+import mLmodel.Categories;
+import mLmodel.Classification;
+import mLmodel.Cluster_Evaluation;
+import mLmodel.Clustering;
+import mLmodel.CommunicationProtocol;
+import mLmodel.Component;
+import mLmodel.Correlation;
+import mLmodel.Criterion_RF;
+import mLmodel.Cross_Validation;
+import mLmodel.Cycle;
+import mLmodel.DBSCAN;
+import mLmodel.DataSource;
+import mLmodel.Data_Understanding;
+import mLmodel.Date_Comp;
+import mLmodel.Date_to_Int;
+import mLmodel.Day;
+import mLmodel.Devices;
+import mLmodel.Dime_Reduct;
+import mLmodel.Drop;
+import mLmodel.Duplicates;
+import mLmodel.Duplicates_Argumans;
+import mLmodel.Email_Alert;
+import mLmodel.Encoding;
+import mLmodel.Ensembles;
+import mLmodel.Evaluation_Methods;
+import mLmodel.Event;
+import mLmodel.Excel;
+import mLmodel.Excel_Argumans;
+import mLmodel.FeatureDiffs;
+import mLmodel.Feature_Engineering;
+import mLmodel.Fill_Value;
+import mLmodel.Handle_Unk;
+import mLmodel.HeadCSV;
+import mLmodel.Header_Ex;
+import mLmodel.Hidden_Layer_Sizes;
+import mLmodel.ID;
+import mLmodel.Import_Data;
+import mLmodel.KNN;
+import mLmodel.KNN_Argumans;
+import mLmodel.KNN_Imputer;
+import mLmodel.K_Means;
+import mLmodel.K_Medians;
+import mLmodel.Keep;
+import mLmodel.LgSGDClassifier;
+import mLmodel.Linear_Regression;
+import mLmodel.Log_Alert;
+import mLmodel.Logistic_Regression;
+import mLmodel.MLP;
+import mLmodel.MLP_Argumans;
+import mLmodel.MLmodelPackage;
+import mLmodel.MQTT;
+import mLmodel.MQTT_Alert;
+import mLmodel.Max_Iter_MLP;
+import mLmodel.Metric;
+import mLmodel.Min_Max;
+import mLmodel.Missing_Values;
+import mLmodel.Month;
+import mLmodel.N_Estimators_RF;
+import mLmodel.N_Neighbors;
+import mLmodel.Neural_Networks;
+import mLmodel.Normalization;
+import mLmodel.Nrows;
+import mLmodel.OPtics;
+import mLmodel.OneHot;
+import mLmodel.OneHot_Argumans;
+import mLmodel.OnlineAlert;
+import mLmodel.OnlineModelManager;
+import mLmodel.OnlinePreprocess;
+import mLmodel.PCA;
+import mLmodel.PCA_Argumans;
+import mLmodel.Parameters;
+import mLmodel.Parameters_DBOP;
+import mLmodel.PassiveAggressiveClassifier;
+import mLmodel.Perceptron;
+import mLmodel.Plots;
+import mLmodel.Polynomial;
+import mLmodel.Preprocess;
+import mLmodel.Property;
+import mLmodel.ProtocolBinding;
+import mLmodel.RF_Argumans;
+import mLmodel.Random_Forest;
+import mLmodel.Random_State_MLP;
+import mLmodel.Random_State_RF;
+import mLmodel.Regression;
+import mLmodel.Regular;
+import mLmodel.Robust_Scaling;
+import mLmodel.Root;
+import mLmodel.SGDClassifier;
+import mLmodel.SVLG;
+import mLmodel.SVM;
+import mLmodel.Scaling;
+import mLmodel.Scatter;
+import mLmodel.Sep;
+import mLmodel.Set_Role;
+import mLmodel.Sheet_Na_Excel;
+import mLmodel.Simple_Imputer;
+import mLmodel.Simple_Imputer_Arguments;
+import mLmodel.Sparse;
+import mLmodel.Standard_Deviation;
+import mLmodel.Standardization;
+import mLmodel.Statistics;
+import mLmodel.Strategy;
+import mLmodel.Target;
+import mLmodel.Thing;
+import mLmodel.Topic;
+import mLmodel.Trasformation;
+import mLmodel.Varience;
+import mLmodel.Visualization;
+import mLmodel.Voting_Classifier;
+import mLmodel.Weights;
+import mLmodel.Year;
 import mLmodel.*;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -1212,6 +1334,59 @@ public class MLmodelSwitch<T> extends Switch<T> {
 				result = casePreprocess(min_Max);
 			if (result == null)
 				result = caseCycle(min_Max);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.ONLINE_ALERT: {
+			OnlineAlert onlineAlert = (OnlineAlert) theEObject;
+			T result = caseOnlineAlert(onlineAlert);
+			if (result == null)
+				result = caseCycle(onlineAlert);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.EMAIL_ALERT: {
+			Email_Alert email_Alert = (Email_Alert) theEObject;
+			T result = caseEmail_Alert(email_Alert);
+			if (result == null)
+				result = caseOnlineAlert(email_Alert);
+			if (result == null)
+				result = caseCycle(email_Alert);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.MQTT_ALERT: {
+			MQTT_Alert mqtT_Alert = (MQTT_Alert) theEObject;
+			T result = caseMQTT_Alert(mqtT_Alert);
+			if (result == null)
+				result = caseOnlineAlert(mqtT_Alert);
+			if (result == null)
+				result = caseCycle(mqtT_Alert);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.LOG_ALERT: {
+			Log_Alert log_Alert = (Log_Alert) theEObject;
+			T result = caseLog_Alert(log_Alert);
+			if (result == null)
+				result = caseOnlineAlert(log_Alert);
+			if (result == null)
+				result = caseCycle(log_Alert);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case MLmodelPackage.ARIMA: {
+			ARIMA arima = (ARIMA) theEObject;
+			T result = caseARIMA(arima);
+			if (result == null)
+				result = caseOnlineModelManager(arima);
+			if (result == null)
+				result = caseCycle(arima);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -2880,6 +3055,81 @@ public class MLmodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMin_Max(Min_Max object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Online Alert</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Online Alert</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOnlineAlert(OnlineAlert object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Email Alert</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Email Alert</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEmail_Alert(Email_Alert object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>MQTT Alert</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>MQTT Alert</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMQTT_Alert(MQTT_Alert object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Log Alert</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Log Alert</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLog_Alert(Log_Alert object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ARIMA</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ARIMA</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseARIMA(ARIMA object) {
 		return null;
 	}
 

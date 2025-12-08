@@ -1,0 +1,488 @@
+/**
+ */
+package mLmodel.impl;
+
+import mLmodel.ARIMA;
+import mLmodel.Cycle;
+import mLmodel.MLmodelPackage;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>ARIMA</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link mLmodel.impl.ARIMAImpl#getAfter <em>After</em>}</li>
+ *   <li>{@link mLmodel.impl.ARIMAImpl#getBefore <em>Before</em>}</li>
+ *   <li>{@link mLmodel.impl.ARIMAImpl#getRandom_state <em>Random state</em>}</li>
+ *   <li>{@link mLmodel.impl.ARIMAImpl#getN_LAGS <em>NLAGS</em>}</li>
+ *   <li>{@link mLmodel.impl.ARIMAImpl#isHisory <em>Hisory</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class ARIMAImpl extends MinimalEObjectImpl.Container implements ARIMA {
+	/**
+	 * The cached value of the '{@link #getAfter() <em>After</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAfter()
+	 * @generated
+	 * @ordered
+	 */
+	protected Cycle after;
+
+	/**
+	 * The cached value of the '{@link #getBefore() <em>Before</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBefore()
+	 * @generated
+	 * @ordered
+	 */
+	protected Cycle before;
+
+	/**
+	 * The default value of the '{@link #getRandom_state() <em>Random state</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRandom_state()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RANDOM_STATE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getRandom_state() <em>Random state</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRandom_state()
+	 * @generated
+	 * @ordered
+	 */
+	protected int random_state = RANDOM_STATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getN_LAGS() <em>NLAGS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getN_LAGS()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NLAGS_EDEFAULT = 5;
+
+	/**
+	 * The cached value of the '{@link #getN_LAGS() <em>NLAGS</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getN_LAGS()
+	 * @generated
+	 * @ordered
+	 */
+	protected int n_LAGS = NLAGS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isHisory() <em>Hisory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHisory()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HISORY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isHisory() <em>Hisory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHisory()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean hisory = HISORY_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ARIMAImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return MLmodelPackage.Literals.ARIMA;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Cycle getAfter() {
+		if (after != null && after.eIsProxy()) {
+			InternalEObject oldAfter = (InternalEObject) after;
+			after = (Cycle) eResolveProxy(oldAfter);
+			if (after != oldAfter) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MLmodelPackage.ARIMA__AFTER, oldAfter,
+							after));
+			}
+		}
+		return after;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Cycle basicGetAfter() {
+		return after;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAfter(Cycle newAfter, NotificationChain msgs) {
+		Cycle oldAfter = after;
+		after = newAfter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MLmodelPackage.ARIMA__AFTER,
+					oldAfter, newAfter);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAfter(Cycle newAfter) {
+		if (newAfter != after) {
+			NotificationChain msgs = null;
+			if (after != null)
+				msgs = ((InternalEObject) after).eInverseRemove(this, MLmodelPackage.CYCLE__BEFORE, Cycle.class, msgs);
+			if (newAfter != null)
+				msgs = ((InternalEObject) newAfter).eInverseAdd(this, MLmodelPackage.CYCLE__BEFORE, Cycle.class, msgs);
+			msgs = basicSetAfter(newAfter, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.ARIMA__AFTER, newAfter, newAfter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Cycle getBefore() {
+		if (before != null && before.eIsProxy()) {
+			InternalEObject oldBefore = (InternalEObject) before;
+			before = (Cycle) eResolveProxy(oldBefore);
+			if (before != oldBefore) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MLmodelPackage.ARIMA__BEFORE, oldBefore,
+							before));
+			}
+		}
+		return before;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Cycle basicGetBefore() {
+		return before;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBefore(Cycle newBefore, NotificationChain msgs) {
+		Cycle oldBefore = before;
+		before = newBefore;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MLmodelPackage.ARIMA__BEFORE,
+					oldBefore, newBefore);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBefore(Cycle newBefore) {
+		if (newBefore != before) {
+			NotificationChain msgs = null;
+			if (before != null)
+				msgs = ((InternalEObject) before).eInverseRemove(this, MLmodelPackage.CYCLE__AFTER, Cycle.class, msgs);
+			if (newBefore != null)
+				msgs = ((InternalEObject) newBefore).eInverseAdd(this, MLmodelPackage.CYCLE__AFTER, Cycle.class, msgs);
+			msgs = basicSetBefore(newBefore, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.ARIMA__BEFORE, newBefore, newBefore));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getRandom_state() {
+		return random_state;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRandom_state(int newRandom_state) {
+		int oldRandom_state = random_state;
+		random_state = newRandom_state;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.ARIMA__RANDOM_STATE, oldRandom_state,
+					random_state));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getN_LAGS() {
+		return n_LAGS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setN_LAGS(int newN_LAGS) {
+		int oldN_LAGS = n_LAGS;
+		n_LAGS = newN_LAGS;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.ARIMA__NLAGS, oldN_LAGS, n_LAGS));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isHisory() {
+		return hisory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHisory(boolean newHisory) {
+		boolean oldHisory = hisory;
+		hisory = newHisory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MLmodelPackage.ARIMA__HISORY, oldHisory, hisory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MLmodelPackage.ARIMA__AFTER:
+			if (after != null)
+				msgs = ((InternalEObject) after).eInverseRemove(this, MLmodelPackage.CYCLE__BEFORE, Cycle.class, msgs);
+			return basicSetAfter((Cycle) otherEnd, msgs);
+		case MLmodelPackage.ARIMA__BEFORE:
+			if (before != null)
+				msgs = ((InternalEObject) before).eInverseRemove(this, MLmodelPackage.CYCLE__AFTER, Cycle.class, msgs);
+			return basicSetBefore((Cycle) otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case MLmodelPackage.ARIMA__AFTER:
+			return basicSetAfter(null, msgs);
+		case MLmodelPackage.ARIMA__BEFORE:
+			return basicSetBefore(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case MLmodelPackage.ARIMA__AFTER:
+			if (resolve)
+				return getAfter();
+			return basicGetAfter();
+		case MLmodelPackage.ARIMA__BEFORE:
+			if (resolve)
+				return getBefore();
+			return basicGetBefore();
+		case MLmodelPackage.ARIMA__RANDOM_STATE:
+			return getRandom_state();
+		case MLmodelPackage.ARIMA__NLAGS:
+			return getN_LAGS();
+		case MLmodelPackage.ARIMA__HISORY:
+			return isHisory();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case MLmodelPackage.ARIMA__AFTER:
+			setAfter((Cycle) newValue);
+			return;
+		case MLmodelPackage.ARIMA__BEFORE:
+			setBefore((Cycle) newValue);
+			return;
+		case MLmodelPackage.ARIMA__RANDOM_STATE:
+			setRandom_state((Integer) newValue);
+			return;
+		case MLmodelPackage.ARIMA__NLAGS:
+			setN_LAGS((Integer) newValue);
+			return;
+		case MLmodelPackage.ARIMA__HISORY:
+			setHisory((Boolean) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case MLmodelPackage.ARIMA__AFTER:
+			setAfter((Cycle) null);
+			return;
+		case MLmodelPackage.ARIMA__BEFORE:
+			setBefore((Cycle) null);
+			return;
+		case MLmodelPackage.ARIMA__RANDOM_STATE:
+			setRandom_state(RANDOM_STATE_EDEFAULT);
+			return;
+		case MLmodelPackage.ARIMA__NLAGS:
+			setN_LAGS(NLAGS_EDEFAULT);
+			return;
+		case MLmodelPackage.ARIMA__HISORY:
+			setHisory(HISORY_EDEFAULT);
+			return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case MLmodelPackage.ARIMA__AFTER:
+			return after != null;
+		case MLmodelPackage.ARIMA__BEFORE:
+			return before != null;
+		case MLmodelPackage.ARIMA__RANDOM_STATE:
+			return random_state != RANDOM_STATE_EDEFAULT;
+		case MLmodelPackage.ARIMA__NLAGS:
+			return n_LAGS != NLAGS_EDEFAULT;
+		case MLmodelPackage.ARIMA__HISORY:
+			return hisory != HISORY_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (random_state: ");
+		result.append(random_state);
+		result.append(", N_LAGS: ");
+		result.append(n_LAGS);
+		result.append(", hisory: ");
+		result.append(hisory);
+		result.append(')');
+		return result.toString();
+	}
+
+} //ARIMAImpl
